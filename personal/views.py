@@ -221,6 +221,71 @@ def new_asistencia(request):
         formulario = AsistenciaForm()
     return  render_to_response('personal/new_asistencia.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
+def asistecia(request, ci_emple):
+    carnet = ci_emple
+    if Empleados.objects.filter(ci = carnet) :
+        emple = Empleados.objects.get(ci = carnet)
+        cod_emple = emple.id
+        hoy = datetime.today()
+        hora = hoy.strftime("%H:%M")
+        if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy) :
+            asis = Asistencia.objects.create(
+                                            fecha = hoy,
+                                            empleado_id = cod_emple
+                                            )
+        else :
+            asis = Asistencia.objects.get(empleado_id = emple.id, fecha = hoy)
+        #Modificar las Horas
+        if hora >= "06:00" and hora <= "08:15" :
+            #Entrada mañana
+            entrada = Entrada.objects.create(
+                                            hora = hora,
+                                            obs = "MAÑANA",
+                                            asistencia = asis
+                                            )
+        elif hora >= "13:00" and hora <= "14:15" :
+            #"Entrada Tarde"
+            entrada = Entrada.objects.create(
+                                            hora = hora,
+                                            obs = "TARDE",
+                                            asistencia = asis
+                                            )
+        elif hora >= "12:00" and hora <= "12:59" :
+            #salida mañana
+            entrada = Salida.objects.create(
+                                            hora = hora,
+                                            obs = "MAÑANA",
+                                            asistencia = asis
+                                            )
+        elif hora >= "18:00" and hora <= "22:00" :
+            #salida tarde
+            entrada = Salida.objects.create(
+                                            hora = hora,
+                                            obs = "TARDE",
+                                            asistencia = asis
+                                            )
+        else:
+            if hora >= "08:16" and hora <= "11:59" :
+                #salida tarde
+                Entrada.objects.create(
+                                    hora = hora,
+                                    obs = "RETRASO",
+                                    asistencia = asis
+                                    )
+            if hora >= "14:16" and hora <= "17:59" :
+                #salida tarde
+                Entrada.objects.create(
+                                    hora = hora,
+                                    obs = "RETRASO",
+                                    asistencia = asis
+                                    )
+            if hora >= "22:01" and hora <= "05:59" :
+                #salida tarde
+                return HttpResponseRedirect('/personal/')
+    else:
+        return HttpResponseRedirect('/personal/asistencia/')
+    return HttpResponseRedirect('/personal/asistencia/')
+
 
 @login_required(login_url='/user/login')
 def new_observacion(request, cod_emple):
@@ -293,7 +358,6 @@ def empleado_cambio(request, cargo_cod, empleado_cod):
     return HttpResponseRedirect('/personal')
 
 
-
 def ingresar(request):
     if not request.user.is_anonymous():
         return HttpResponseRedirect('/privado')
@@ -307,7 +371,10 @@ def ingresar(request):
             if acceso is not None:
                 if acceso.is_active:
                     login(request, acceso)
-                    return HttpResponseRedirect('/privado')
+                    if 'next' in request.GET:
+                        return HttpResponseRedirect(str(request.GET['next']))
+                    else:
+                        return HttpResponseRedirect('/privado')
                 else:
                     return render_to_response('user/noactivo.html', context_instance=RequestContext(request))
             else:
@@ -315,6 +382,7 @@ def ingresar(request):
     else:
         formulario = AuthenticationForm()
     return render_to_response('user/user_login.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
 
 
 @login_required(login_url='/user/login')
@@ -328,9 +396,9 @@ def cerrar(request):
     return HttpResponseRedirect('/')
 
 
-def tarjeta_empleado(request, cod_emple):
-    empleado = get_object_or_404(Empleados, id = cod_emple)
-    direccion = "http://sapec.herokuapp.com"+'/'+str(empleado.ci)+"/"
+def tarjeta_empleado(request, ci_emple):
+    empleado = get_object_or_404(Empleados, ci = ci_emple)
+    direccion = "http://sapec.herokuapp.com/asistencia/"+str(empleado.ci)+"/"
 
     return render_to_response('personal/qr.html', {'empleado' :empleado, 'direccion' :direccion}, context_instance=RequestContext(request))
 

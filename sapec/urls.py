@@ -56,9 +56,10 @@ urlpatterns = patterns('',
     url(r'^contrato/personal/(?P<cod_cargo>\d+)/$', 'personal.views.new_empleado'),
     url(r'^contrato/new/(?P<empleado_ci>\d+)/(?P<cargo_id>\d+)/$', 'personal.views.new_contrato'),
     url(r'^contrato/show/(?P<cod_contrato>\d+)/(?P<pdf>\d+)/$', 'personal.views.show_contrato'),
-    url(r'^qr/show/(?P<cod_emple>\d+)/$', 'personal.views.tarjeta_empleado'),
+    url(r'^qr/show/(?P<ci_emple>\d+)/$', 'personal.views.tarjeta_empleado'),
     #ASISTENNCIA
     url(r'^personal/asistencia/$', 'personal.views.new_asistencia'),
+    url(r'^asistencia/(?P<ci_emple>\d+)/$', 'personal.views.asistecia'),
     #OBSERVACION
     url(r'^observacion/new/(?P<cod_emple>\d+)/$', 'personal.views.new_observacion'),
     #PERMISO

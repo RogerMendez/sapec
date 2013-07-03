@@ -7,25 +7,29 @@
 {% block cuerpo %}
     <section class="consulta">
         {% load qr_tags %}
-        <p>{{ empleado.nombre }}</p>
         <div class="row-fluid well">
             <div class="span1 offset1">
 
             </div>
             <div class="span6 well">
-                <div class="span3 well">
+                <div class="span4">
                     {% qr_from_text direccion "size" %}
+                </div>
+                <div class="span6">
+                    <h3 class="align-center">Empleado Contratado</h3>
+                    <address>
+                        <strong>Cedula de Identidad: </strong>{{ empleado.ci }}<br>
+                        <strong>Nombres: </strong>{{ empleado.nombre}}<br>
+                        <strong>Apellidos: </strong>{{ empleado.paterno }}, {{ empleado.materno }}<br>
+                        <strong>Direccion: </strong>{{ empleado.direccion }}<br>
+                        <strong>Telefono: </strong>{{ empleado.telefono }}
+                    </address>
+                </div>
+                <div class="span2">
+                    <img src="/media/{{ empleado.foto }}" alt="{{ empleado.nombre }}" class="img-rounded" width="80px" height="80px"/>
                 </div>
             </div>
         </div>
-        <div class="row-fluid well">
-                <div class="span2 well">
 
-                </div>
-                <div class="span4">
-                    <h3>Empleado Contratado</h3>
-                    <p>{{ empleado.ci}}</p>
-                </div>
-        </div>
     </section>
 {% endblock %}
