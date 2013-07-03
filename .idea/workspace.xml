@@ -59,6 +59,7 @@
     <file path="/option_cargo.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1372810991241" ignored="false" />
     <file path="/unid_plani.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1372817962708" ignored="false" />
     <file path="/option_plani.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1372813746496" ignored="false" />
+    <file path="/.gitignore" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1372820930300" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,10 +84,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sapec/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="176" column="1" selection-start="5931" selection-end="5931" vertical-scroll-proportion="0.96953404">
+            <state line="170" column="0" selection-start="5741" selection-end="5741" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="5" selection-start="17" selection-end="17" vertical-scroll-proportion="0.09497207">
               <folding />
             </state>
           </provider>
@@ -149,7 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/personal/models.py" />
         <option value="$PROJECT_DIR$/personal/views.py" />
         <option value="$PROJECT_DIR$/sapec/static/content/css/bootstrap-responsive.css" />
         <option value="$PROJECT_DIR$/sapec/static/content/css/bootstrap.css" />
@@ -165,6 +183,7 @@
         <option value="$PROJECT_DIR$/organizacion/views.py" />
         <option value="$PROJECT_DIR$/sapec/Templates/unidad/unid_plani.html" />
         <option value="$PROJECT_DIR$/sapec/settings.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -515,7 +534,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -601,20 +620,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sapec/static/content/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2963" column="20" selection-start="52425" selection-end="52425" vertical-scroll-proportion="0.39488116">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/option_empleado.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/qr.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="23" selection-start="88" selection-end="88" vertical-scroll-proportion="1.0384616">
@@ -710,7 +715,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="176" column="1" selection-start="5931" selection-end="5931" vertical-scroll-proportion="0.96953404">
+        <state line="170" column="0" selection-start="5741" selection-end="5741" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="5" selection-start="17" selection-end="17" vertical-scroll-proportion="0.09497207">
           <folding />
         </state>
       </provider>
