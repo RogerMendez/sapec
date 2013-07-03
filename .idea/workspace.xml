@@ -85,58 +85,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sapec/settings.py">
+      <file leaf-file-name="Procfile" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="0" selection-start="5742" selection-end="5742" vertical-scroll-proportion="0.7562724">
+            <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/organizacion/views.py">
+      <file leaf-file-name="requirements.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="86" selection-start="2796" selection-end="2796" vertical-scroll-proportion="0.0">
+            <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unid_plani.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sapec/Templates/unidad/unid_plani.html">
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="21" selection-start="100" selection-end="100" vertical-scroll-proportion="-2.6153846">
+            <state line="3" column="5" selection-start="17" selection-end="17" vertical-scroll-proportion="0.09139785">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show_contrato.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/show_contrato.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="28" selection-start="1309" selection-end="1316" vertical-scroll-proportion="-12.423077">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="option_plani.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sapec/Templates/unidad/option_plani.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="154" selection-start="1223" selection-end="1223" vertical-scroll-proportion="-5.9615383">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sapec/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="79" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -151,7 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/sapec/static/content/css/bootstrap-responsive.css" />
         <option value="$PROJECT_DIR$/sapec/static/content/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/sapec/Templates/personal/show_contrato.html" />
         <option value="$PROJECT_DIR$/sapec/Templates/personal/qr.html" />
@@ -167,6 +137,7 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/sapec/settings.py" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -652,54 +623,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/unidad/option_plani.html">
+    <entry file="file://$PROJECT_DIR$/sapec/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="154" selection-start="1223" selection-end="1223" vertical-scroll-proportion="-5.9615383">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/show_contrato.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="28" selection-start="1309" selection-end="1316" vertical-scroll-proportion="-12.423077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="79" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/unidad/unid_plani.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="21" selection-start="100" selection-end="100" vertical-scroll-proportion="-2.6153846">
+        <state line="171" column="0" selection-start="5742" selection-end="5742" vertical-scroll-proportion="0.7562724">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/organizacion/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="86" selection-start="2796" selection-end="2796" vertical-scroll-proportion="0.0">
+        <state line="66" column="86" selection-start="2796" selection-end="2796" vertical-scroll-proportion="1.6844037">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/unidad/unid_plani.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="5" selection-start="17" selection-end="17" vertical-scroll-proportion="0.09497207">
+        <state line="4" column="21" selection-start="100" selection-end="100" vertical-scroll-proportion="0.12781955">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/show_contrato.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="29" column="28" selection-start="1309" selection-end="1316" vertical-scroll-proportion="0.60714287">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/unidad/option_plani.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="154" selection-start="1223" selection-end="1223" vertical-scroll-proportion="0.29865125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="79" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.3046595">
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -710,9 +674,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/settings.py">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="0" selection-start="5742" selection-end="5742" vertical-scroll-proportion="0.7562724">
+        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="5" selection-start="17" selection-end="17" vertical-scroll-proportion="0.09139785">
           <folding />
         </state>
       </provider>
