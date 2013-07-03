@@ -1,0 +1,62 @@
+{# encoding:utf-8 #}
+{% extends 'base.html' %}
+{% block title %}
+    Opciones Función
+{% endblock%}
+{% block url %}organizacion{% endblock %}
+
+{% block cuerpo %}
+    <section class="consulta">
+        <h2>Unidades</h2>
+        <div class="accordion" id="accordion2">
+            {% for unidad in unidades %}
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#unidad{{ unidad.id }}">
+                            <h3>{{ unidad.nombre }}</h3>
+                        </a>
+                    </div>
+                    <div id="unidad{{ unidad.id }}" class="accordion-body collapse">
+                        <div class="accordion-inner">
+
+                            <div class="tabbable tabs-left">
+                                <ul class="nav nav-tabs">
+                                    {% for cargo in cargos %}
+                                        {% if cargo.unidad_id == unidad.id %}
+                                            <li>
+                                                <a class="lead" data-toggle="tab"  href="#cargo{{ cargo.id }}">{{ cargo.nombre }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                <div class="tab-content">
+                                    {% for cargo in cargos %}
+                                        {% if cargo.unidad_id == unidad.id %}
+                                            <div id="cargo{{ cargo.id }}" class="tab-pane">
+                                                <p>
+                                                    {% for funcion in funciones %}
+                                                        {% if funcion.cargo_id == cargo.id %}
+                                                            <p class="lead">
+                                                                {{ funcion.descripcion }}
+                                                            </p>
+                                                            <div class="well">
+                                                                <p>Opciones Función</p>
+                                                                <a class="btn btn-link" href="/funcion/update/{{ funcion.id }}"><b class="icon-pencil-2"></b> Modificar</a>
+                                                                <a class="btn btn-link" href="/funcion/delete/{{ funcion.id }}"><b class="icon-cancel"></b> Quitar Función</a>
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </p>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <a class="btn btn-link" href="/funcion/new"><b class="icon-plus"></b> Crear Función</a>
+        </div>
+    </section>
+{% endblock %}

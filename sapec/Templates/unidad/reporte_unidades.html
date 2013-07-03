@@ -1,0 +1,26 @@
+{# encoding:utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Listado Unidades{% endblock%}
+{% block url %}organizacion{% endblock %}
+{% block cuerpo %}
+    <section class="consulta">
+        <h2>Listado de Unidades</h2>
+        <a class="btn btn-link" href="/report/unidad/pdf/1"><b class="icon-file-pdf"></b> Reporte En PDF</a>
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th style="width: 40%;">Nombre Unidad</th>
+                <th>Descripción Unidad</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for unidad in unidades %}
+                    <tr>
+                        <td>{{ unidad.nombre }}</td>
+                        <td>{{ unidad.descripcion }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

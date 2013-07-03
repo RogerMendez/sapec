@@ -1,0 +1,33 @@
+{# encoding:utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Listado Cargos{% endblock%}
+{% block url %}organizacion{% endblock %}
+{% block cuerpo %}
+    <section class="consulta">
+        <h2>Listado de Cargos Existentes Dentro de Cada Unidad</h2>
+        <a class="btn btn-link" href="/report/cargo/pdf/1"><b class="icon-file-pdf"></b> Reporte En PDF</a>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre Cargo</th>
+                    <th>Descripción Cargo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for unidad in unidades %}
+                    <tr class="success">
+                        <td><p>Cargos Dentro de la Unidad: <strong>{{ unidad.nombre }}</strong></p></td>
+                    </tr>
+                    {% for cargo in cargos %}
+                        {% if unidad.id == cargo.unidad_id %}
+                            <tr>
+                                <td>{{ cargo.nombre }}</td>
+                                <td>{{ cargo.descripcion }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

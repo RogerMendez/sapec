@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    Opciones de Cargo
+{% endblock%}
+{% block url %}personal{% endblock %}
+{% block cuerpo %}
+    <section class="consulta">
+        <h2>Seleccionar Nuevo Cargo</h2>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Cargo
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cargo in cargos %}
+                    <tr>
+                        <td>
+                           <h3>
+                               <a href="/empleado/cambio/{{ cargo.id }}/{{ empleado_cod }}">{{ cargo.nombre }}</a>
+                           </h3>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

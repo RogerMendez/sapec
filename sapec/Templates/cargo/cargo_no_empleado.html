@@ -1,0 +1,27 @@
+{# encoding:utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Listado Cargos{% endblock%}
+{% block url %}organizacion{% endblock %}
+{% block cuerpo %}
+    <section class="consulta">
+        <h2>Listado de Cargos Que No Poseen Empleados</h2>
+        <a class="btn btn-link" href="/report/cargo/noempleado/1"><b class="icon-file-pdf"></b> Reporte En PDF</a>
+
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Nombre Cargo</th>
+                    <th>Descripción Cargo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cargo in cargos %}
+                    <tr>
+                        <td>{{ cargo.nombre }}</td>
+                        <td>{{ cargo.descripcion }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

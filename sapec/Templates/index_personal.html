@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Personal{% endblock%}
+
+{% block cuerpo %}
+    <h2>Personal</h2>
+    <a class="tile wide imagetext bg-color-orange" href="/contrato/cargo/">
+        <div class="image-wrapper">
+            <img src="{{ STATIC_URL }}content/img/Devices.png"/>
+        </div>
+        <div class="column-text">
+            <div class="text4">Realize la Contratación de Nuevo Personal</div>
+        </div>
+        <div class="app-label">Registro de Contrato</div>
+    </a>
+    <a href="/personal/option" class="tile app bg-color-green    ">
+        <div class="image-wrapper">
+            <img alt="" src="{{ STATIC_URL }}content/img/RegEdit.png">
+        </div>
+        <span class="app-label">Opciones Empleado</span>
+    </a>
+
+    <a href="/profesion/new" class="tile app bg-color-yellow">
+        <div class="image-wrapper">
+            <img alt="" src="{{ STATIC_URL }}content/img/Windows Store.png">
+        </div>
+        <span class="app-label">Registrar Profesión</span>
+    </a>
+    <a class="tile wide imagetext bg-color-red" href="/personal/asistencia/">
+        <div class="image-wrapper">
+            <img src="{{ STATIC_URL }}content/img/My Apps.png"/>
+        </div>
+        <div class="column-text">
+            <div class="text4">Realize el Registro de Su Asistencia</div>
+        </div>
+        <div class="app-label">Registro de Asistencia</div>
+    </a>
+    <a class="tile wide imagetext bg-color-blue" href="/empleado/cambio/">
+        <div class="image-wrapper">
+            <img src="{{ STATIC_URL }}content/img/My Apps.png"/>
+        </div>
+        <div class="column-text">
+            <div class="text4">Seleccione un Empleado Para Registrar El Cambio</div>
+        </div>
+        <div class="app-label">Movilidad De Personal</div>
+    </a>
+{% endblock %}

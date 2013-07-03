@@ -1,0 +1,102 @@
+{# encoding:utf-8 #}
+{% extends 'formupload.html' %}
+{% block dajax %}
+    {% load dajaxice_templatetags %}
+{% endblock %}
+{% block title %}
+    Nuevo Empleado
+{% endblock%}
+{% block ajax %}
+    <script src="{{ STATIC_URL }}dajax/jquery.dajax.core.js">
+    </script>
+    {% dajaxice_js_import %}
+{% endblock %}
+{% block url %}contrato/cargo{% endblock %}
+{% block legend %}
+    Nuevo Empleado
+{% endblock %}
+{% block calendar %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}calendario/calendar.css"/>
+    <script src="{{ STATIC_URL }}calendario/jquery_min.js"></script>
+    <script src="{{ STATIC_URL }}calendario/jquery_ui.js"></script>
+    <script src="{{ STATIC_URL }}calendario/jquery.ui.datepicker-es.js"></script>
+    <script type="text/javascript">
+        $('#id_fecha_nac').addClass('hasDatepicker')
+	    $(function() {
+		    $('#id_fecha_nac').datepicker({dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true, yearRange: '-70:+0'});
+	    });
+	</script>
+{% endblock %}
+{% block cargo %}
+    <section class="consulta">
+        <div class="navbar-inner">
+            <h3>Registro de Personal</h3>
+            <p><strong>Unidad: </strong>{{ cargo.unidad|upper }}</p>
+            <p><strong>Cargo: </strong>{{ cargo.nombre|upper }}</p>
+        </div>
+    </section>
+{% endblock %}
+{% block form %}
+    <style>
+    .hola{
+        display: none;
+    }
+    .btn1{
+        display: none;
+    }
+    </style>
+    <div id="hola1" class="hola">
+        <div class="alert">
+            <button type="button" class="close" data-dismiss="alert"></button>
+            <strong>Cuidado!</strong> Este Empleado Tiene Un Contrato Vijente.
+            <p>Primero Termine El Contrato Que posee</p>
+        </div>
+    </div>
+    {{ formulario.as_p }}
+    <script>
+        $(document).ready(function(){
+            $('#id_ci').blur(function(){
+                Dajaxice.personal.employee(Dajax.process,{'carnet':$('#id_ci').val()});
+            });
+        });
+
+        function seleccionar(data){
+            var civil = "";
+            var sex = "";
+            var profe="";
+            for (var i=0; i < data.length; i++) {
+                civil = data[i].civil;
+                sex = data[i].sexo;
+                profe = data[i].profesion;
+            }
+            $("select option:selected").removeAttr('selected');
+            $("select option:selected").removeAttr('selected');
+            $("select option:selected").removeAttr('selected');
+            var selectOption = $('#id_estado_civil') ;
+			var _this = $(this).next().children("#id_estado_civi") ;
+            var op = "option[value="+civil+"]";
+            $(selectOption).find(op).attr("selected","selected");
+            sexo(sex);
+            profesion(profe);
+        }
+        function sexo(sex){
+            var sexooption = $('#id_sexo') ;
+			var _this = $(this).next().children("#id_sexo") ;
+            var op = "option[value="+sex+"]";
+            $(sexooption).find(op).attr("selected","selected");
+        }
+        function profesion(profe){
+            var sexooption = $('#id_profesion') ;
+			var _this = $(this).next().children("#id_profesion") ;
+            var op = "option[value="+profe+"]";
+            $(sexooption).find(op).attr("selected","selected");
+        }
+        function error(q1){
+            $('#hola1').removeClass('hola');
+        }
+    </script>
+{% endblock %}
+{% block formenviar %}
+    Guardar
+{% endblock %}
+{% block formcancelar %}personal{% endblock %}

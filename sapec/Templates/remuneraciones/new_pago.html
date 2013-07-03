@@ -1,0 +1,14 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Nuevo Pago{% endblock%}
+{% block url %}pago/empleado{% endblock %}
+{% block legend %}
+    Nuevo Pago
+{% endblock %}
+{% block form %}
+    {{ formulario.as_p}}
+{% endblock %}
+{% block formenviar %}
+    Guardar
+{% endblock %}
+{% block formcancelar %}pago/empleado{% endblock %}

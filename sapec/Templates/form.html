@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+    Nueva Unidad
+{% endblock%}
+{% block url %}{% endblock %}
+{% block cuerpo %}
+    {% block cargo %}
+    {% endblock %}
+    <form id="formulario" class="form-horizontal" method="post" action="">{% csrf_token %}
+        <fieldset>
+            <legend>{% block legend %}Formulario{% endblock %}</legend>
+            {% block form %}
+                {{ formulario.as_p}}
+            {% endblock %}
+            <button type="submit" class="btn btn2">{% block formenviar %}Guardar{% endblock %}</button>
+            <a href='/{% block formcancelar %}{% endblock %}' class='btn'>Cancelar</a>
+        </fieldset>
+    </form>
+{% endblock cuerpo %}

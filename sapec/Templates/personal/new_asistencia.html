@@ -1,0 +1,14 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Nueva Contratación{% endblock%}
+{% block url %}personal{% endblock %}
+{% block legend %}
+    Nueva Contratación
+{% endblock %}
+{% block form %}
+    {{ formulario.as_p}}
+{% endblock %}
+{% block formenviar %}
+    Guardar
+{% endblock %}
+{% block formcancelar %}personal{% endblock %}

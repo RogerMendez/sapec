@@ -1,0 +1,13 @@
+Django==1.5.1
+MySQL-python==1.2.3
+PIL==1.1.7
+dj-database-url==0.2.1
+django-dajax==0.9.2
+django-dajaxice==0.5.5
+django-publications==0.4.0
+gunicorn==0.17.4
+html5lib==0.90
+pisa==3.0.33
+psycopg2==2.4.5
+reportlab==2.7
+virtualenv==1.9.1

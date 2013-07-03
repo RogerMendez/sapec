@@ -1,0 +1,25 @@
+{# encoding=utf-8 #}
+{% extends 'base_reporte.html' %}
+{% block cuerpo %}
+    <h1>Listado de Unidades</h1>
+    <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>Nombre Unidad</th>
+            <th>Descripción Unidad</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for unidad in unidades %}
+                <tr>
+                    <td>{{ unidad.nombre }}</td>
+                    <td>{{ unidad.descripcion }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div id="footerContent">
+        Pagina <pdf:pagenumber>
+    </div>
+{% endblock %}

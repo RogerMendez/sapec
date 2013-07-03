@@ -1,0 +1,31 @@
+{# encoding:utf-8 #}
+{% extends 'base.html' %}
+{% block title %}
+    Tarjeta QR Empleado
+{% endblock%}
+{% block url %}personal{% endblock %}
+{% block cuerpo %}
+    <section class="consulta">
+        {% load qr_tags %}
+        <p>{{ empleado.nombre }}</p>
+        <div class="row-fluid well">
+            <div class="span1 offset1">
+
+            </div>
+            <div class="span6 well">
+                <div class="span3 well">
+                    {% qr_from_text direccion "size" %}
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid well">
+                <div class="span2 well">
+
+                </div>
+                <div class="span4">
+                    <h3>Empleado Contratado</h3>
+                    <p>{{ empleado.ci}}</p>
+                </div>
+        </div>
+    </section>
+{% endblock %}

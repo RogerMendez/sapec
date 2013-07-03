@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+Planificacion Unidad
+{% endblock%}
+{% block url %}cargo/option{% endblock %}
+{% block cuerpo %}
+<section class="consulta">
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>Planificacion</h2>
+    <h3>Requerimiento de Personal Para En La Unidad De: <strong>{{ cargo.unidad|upper }}</strong> </h3>
+        </div>
+    </div>
+    {% for plani in planificacion %}
+        <div class="row-fluid well">
+            <p class="lead">{{ plani.fecha_plani|date:"b d y" }}</p>
+            <div class="span4 well">
+                <sddress>
+                    <p><strong>Cargo:</strong><p>{{ cargo.nombre }}</p></p>
+                    <p><strong>Cantidad:</strong><p>{{ plani.cantidad }}</p></p>
+                </sddress>
+            </div>
+            <div class="span4 well">
+                <h4><strong>Funciones</strong></h4>
+                <address>
+                    {% for funcion in funciones %}
+                        {{ funcion.descripcion }}
+                    {% endfor %}
+                </address>
+            </div>
+            <div class="span3 well">
+                <h4><strong>Conocimiento Necesario</strong></h4>
+                <address>
+                    {% for conoci in conocimientos %}
+                        <p>{{ conoci.descripcion }}</p>
+                    {% endfor %}
+                </address>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+{% endblock %}

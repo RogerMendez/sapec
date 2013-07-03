@@ -1,0 +1,14 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Nuevo Permiso{% endblock%}
+{% block url %}personal/option{% endblock %}
+{% block legend %}
+    Nuevo Permiso
+{% endblock %}
+{% block form %}
+    {{ formulario.as_p}}
+{% endblock %}
+{% block formenviar %}
+    Guardar
+{% endblock %}
+{% block formcancelar %}personal/option{% endblock %}
