@@ -85,10 +85,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sapec/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="174" column="0" selection-start="5815" selection-end="5815" vertical-scroll-proportion="0.8172043">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/personal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="400" column="44" selection-start="19040" selection-end="19040" vertical-scroll-proportion="0.2825688">
+            <state line="404" column="0" selection-start="19216" selection-end="19216" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#16#74#0" expanded="true" />
               </folding>
@@ -146,11 +155,11 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/sapec/settings.py" />
         <option value="$PROJECT_DIR$/sapec/Templates/personal/show_contrato.html" />
         <option value="$PROJECT_DIR$/sapec/Templates/personal/qr.html" />
         <option value="$PROJECT_DIR$/sapec/urls.py" />
         <option value="$PROJECT_DIR$/personal/views.py" />
+        <option value="$PROJECT_DIR$/sapec/settings.py" />
       </list>
     </option>
   </component>
@@ -628,13 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="0" selection-start="5741" selection-end="5741" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/show_contrato.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="53" selection-start="1003" selection-end="1003" vertical-scroll-proportion="-13.730769">
@@ -660,10 +662,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/personal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="400" column="44" selection-start="19040" selection-end="19040" vertical-scroll-proportion="0.2825688">
+        <state line="404" column="0" selection-start="19216" selection-end="19216" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#16#74#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="0" selection-start="5815" selection-end="5815" vertical-scroll-proportion="0.8172043">
+          <folding />
         </state>
       </provider>
     </entry>
