@@ -84,28 +84,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sapec/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="170" column="0" selection-start="5741" selection-end="5741" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requirements.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="5" selection-start="17" selection-end="17" vertical-scroll-proportion="0.09497207">
+            <state line="171" column="0" selection-start="5742" selection-end="5742" vertical-scroll-proportion="0.7562724">
               <folding />
             </state>
           </provider>
@@ -182,8 +164,8 @@
         <option value="$PROJECT_DIR$/sapec/urls.py" />
         <option value="$PROJECT_DIR$/organizacion/views.py" />
         <option value="$PROJECT_DIR$/sapec/Templates/unidad/unid_plani.html" />
-        <option value="$PROJECT_DIR$/sapec/settings.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/sapec/settings.py" />
       </list>
     </option>
   </component>
@@ -713,9 +695,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/settings.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="0" selection-start="5741" selection-end="5741" vertical-scroll-proportion="0.0">
+        <state line="3" column="5" selection-start="17" selection-end="17" vertical-scroll-proportion="0.09497207">
           <folding />
         </state>
       </provider>
@@ -727,9 +709,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/sapec/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="5" selection-start="17" selection-end="17" vertical-scroll-proportion="0.09497207">
+        <state line="171" column="0" selection-start="5742" selection-end="5742" vertical-scroll-proportion="0.7562724">
           <folding />
         </state>
       </provider>
