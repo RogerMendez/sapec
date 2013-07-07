@@ -28,7 +28,7 @@ class Empleados(models.Model):
     )
     sexo = models.CharField(max_length=2, choices=GRUPO_CHOICES, verbose_name="Sexo", null=True, blank=True)
     fecha_nac=models.DateField(verbose_name="Fecha de Nacimiento", help_text="DIA/MES/AÑO", null=True, blank=True)
-    email = models.EmailField(verbose_name='Dirección de Correo Electronico', unique=True)
+    email = models.EmailField(verbose_name='Dirección de Correo Electronico')
     foto = models.ImageField(upload_to='personal', verbose_name="Seleccionar Imagen", blank=True, null=True)
     profesion=models.ForeignKey(profesion)
     usuario = models.ForeignKey(User, null=True, blank=True)

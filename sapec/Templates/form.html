@@ -10,10 +10,23 @@
         <fieldset>
             <legend>{% block legend %}Formulario{% endblock %}</legend>
             {% block form %}
-                {{ formulario.as_p}}
+                {% for field in formulario %}
+                        {{ field.errors }}
+                        <div class="control-group">
+                        {{ field.label_tag }}
+                        <div class="controls">
+                            {{ field }}
+                        </div>
+                    </div>
+                {% endfor %}
             {% endblock %}
-            <button type="submit" class="btn btn2">{% block formenviar %}Guardar{% endblock %}</button>
-            <a href='/{% block formcancelar %}{% endblock %}' class='btn'>Cancelar</a>
+            <div class="controls">
+                <button type="submit" class="btn btn2">{% block formenviar %}Guardar{% endblock %}</button>
+                <a href='/{% block formcancelar %}{% endblock %}' class='btn'>Cancelar</a>
+            </div>
         </fieldset>
     </form>
+    <script type="text/javascript">
+        $('label').addClass('control-label')
+    </script>
 {% endblock cuerpo %}

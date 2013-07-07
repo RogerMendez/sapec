@@ -402,7 +402,11 @@ def tarjeta_empleado(request, ci_emple):
 
     return render_to_response('personal/qr.html', {'empleado' :empleado, 'direccion' :direccion}, context_instance=RequestContext(request))
 
-
+def view_contrato(request, cod_emple):
+    q1 = get_object_or_404(Empleados, pk = cod_emple)
+    hoy = datetime.today()
+    q2 = contratacion.objects.get(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO', empleado_id = cod_emple)
+    return HttpResponseRedirect("/contrato/show/"+str(q2.id)+"/0/")
 
 
 
