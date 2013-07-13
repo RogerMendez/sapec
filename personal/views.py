@@ -295,7 +295,7 @@ def asistecia(request, ci_emple):
                                             obs = "RETRASO",
                                             empleado_id = cod_emple,
                                             )
-            if hora >= "14:16" and hora <= "17:59" :
+            elif hora >= "14:16" and hora <= "17:59" :
                 #Entrada tarde
                 if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "17:59", hora__gte = "14:16") :
                     Asistencia.objects.create(
@@ -305,7 +305,7 @@ def asistecia(request, ci_emple):
                                             obs = "RETRASO",
                                             empleado_id = cod_emple,
                                             )
-            if hora >= "22:01" and hora <= "05:59" :
+            else :
                 #salida tarde
                 return HttpResponseRedirect('/personal/')
     else:
