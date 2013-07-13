@@ -5,7 +5,7 @@ from django.template import RequestContext
 
 from organizacion.models import Unidades, Cargos, Funciones
 from personal.form import EmpleadoForm, ProfesionForm, Contrato, AsistenciaForm, ObservacionForm, PermisoForm
-from personal.models import Empleados, contratacion, Asistencia, Entrada, Salida, Observacion, Permiso, moviidad
+from personal.models import Empleados, contratacion, Asistencia, Observacion, Permiso, moviidad
 
 
 from django.contrib.auth.models import User
@@ -15,13 +15,17 @@ from django.contrib.auth.decorators import login_required
 
 from django.conf import settings
 
-from datetime import datetime
+from datetime import datetime, time
+from datetime import  date
+import datetime
 
 import ho.pisa as pisa
 import cStringIO as StringIO
 import cgi
 from django.template.loader import render_to_string
 import os
+
+import calendar
 
 
 
@@ -63,7 +67,7 @@ def new_empleado(request, cod_cargo):
 @login_required(login_url='/user/login')
 def option_empleado(request):
     empleado=Empleados.objects.all()
-    contratos = contratacion.objects.exclude(fecha_salida__lte = datetime.today())
+    contratos = contratacion.objects.exclude(fecha_salida__lte = datetime.datetime.now())
     return render_to_response('personal/option_empleado.html', {'empleados' :empleado, 'contratos':contratos}, context_instance=RequestContext(request))
 
 @login_required(login_url='/user/login')
@@ -110,7 +114,7 @@ def new_contrato(request, empleado_ci, cargo_id):
             sueldo=formulario.cleaned_data['sueldo']
             descuento=formulario.cleaned_data['descuento']
             cargo=int(cargo_id)
-            c = contratacion.objects.create(fecha_entrada=datetime.today(),
+            c = contratacion.objects.create(fecha_entrada=datetime.datetime.now(),
                                         fecha_salida=fecha_fin,
                                         estado='ACTIVO',
                                         sueldo=sueldo,
@@ -158,59 +162,70 @@ def new_asistencia(request):
             if Empleados.objects.filter(ci = carnet) :
                 emple = Empleados.objects.get(ci = carnet)
                 cod_emple = emple.id
-                hoy = datetime.today()
+                hoy = datetime.datetime.now()
                 hora = hoy.strftime("%H:%M")
-                if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy) :
-                    asis = Asistencia.objects.create(
-                                                    fecha = hoy,
-                                                    empleado_id = cod_emple
-                                                    )
-                else :
-                    asis = Asistencia.objects.get(empleado_id = emple.id, fecha = hoy)
                 #Modificar las Horas
                 if hora >= "06:00" and hora <= "08:15" :
                     #Entrada mañana
-                    entrada = Entrada.objects.create(
+                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "08:15", hora__gte = "06:00") :
+                        entrada = Asistencia.objects.create(
+                                                    fecha = hoy,
+                                                    tipo = 'EntradaM',
                                                     hora = hora,
-                                                    obs = "MAÑANA",
-                                                    asistencia = asis
+                                                    obs = "",
+                                                    empleado_id = cod_emple,
                                                     )
                 elif hora >= "13:00" and hora <= "14:15" :
                     #"Entrada Tarde"
-                    entrada = Entrada.objects.create(
+                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "14:15", hora__gte = "13:00") :
+                        entrada = Asistencia.objects.create(
+                                                    fecha = hoy,
+                                                    tipo = 'EntradaT',
                                                     hora = hora,
-                                                    obs = "TARDE",
-                                                    asistencia = asis
+                                                    obs = "",
+                                                    empleado_id = cod_emple,
                                                     )
                 elif hora >= "12:00" and hora <= "12:59" :
                     #salida mañana
-                    entrada = Salida.objects.create(
+                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "12:59", hora__gte = "12:00") :
+                        salida = Asistencia.objects.create(
+                                                    fecha = hoy,
+                                                    tipo = 'SalidaM',
                                                     hora = hora,
-                                                    obs = "MAÑANA",
-                                                    asistencia = asis
+                                                    obs = "",
+                                                    empleado_id = cod_emple,
                                                     )
                 elif hora >= "18:00" and hora <= "22:00" :
                     #salida tarde
-                    entrada = Salida.objects.create(
+                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "22:00", hora__gte = "18:00") :
+                        salida = Asistencia.objects.create(
+                                                    fecha = hoy,
+                                                    tipo = 'SalidaT',
                                                     hora = hora,
-                                                    obs = "TARDE",
-                                                    asistencia = asis
+                                                    obs = "",
+                                                    empleado_id = cod_emple,
                                                     )
                 else:
                     if hora >= "08:16" and hora <= "11:59" :
                         #salida tarde
-                        Entrada.objects.create(
-                                            hora = hora,
-                                            obs = "RETRASO",
-                                            asistencia = asis
-                                            )
+                        if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "11:59", hora__gte = "08:16") :
+                            Asistencia.objects.create(
+                                                    fecha = hoy,
+                                                    tipo = 'EntradaM',
+                                                    hora = hora,
+                                                    obs = "RETRASO",
+                                                    empleado_id = cod_emple,
+                                                    )
                     if hora >= "14:16" and hora <= "17:59" :
-                        #salida tarde
-                        Entrada.objects.create(
-                                            hora = hora,
-                                            obs = "RETRASO",
-                                            asistencia = asis
-                                            )
+                        #Entrada tarde
+                        if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "17:59", hora__gte = "14:16") :
+                            Asistencia.objects.create(
+                                                    fecha = hoy,
+                                                    tipo = 'EntradaT',
+                                                    hora = hora,
+                                                    obs = "RETRASO",
+                                                    empleado_id = cod_emple,
+                                                    )
                     if hora >= "22:01" and hora <= "05:59" :
                         #salida tarde
                         return HttpResponseRedirect('/personal/')
@@ -226,65 +241,75 @@ def asistecia(request, ci_emple):
     if Empleados.objects.filter(ci = carnet) :
         emple = Empleados.objects.get(ci = carnet)
         cod_emple = emple.id
-        hoy = datetime.today()
+        hoy = datetime.datetime.now()
         hora = hoy.strftime("%H:%M")
-        if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy) :
-            asis = Asistencia.objects.create(
-                                            fecha = hoy,
-                                            empleado_id = cod_emple
-                                            )
-        else :
-            asis = Asistencia.objects.get(empleado_id = emple.id, fecha = hoy)
         #Modificar las Horas
         if hora >= "06:00" and hora <= "08:15" :
             #Entrada mañana
-            entrada = Entrada.objects.create(
+            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "08:15", hora__gte = "06:00") :
+                entrada = Asistencia.objects.create(
+                                            fecha = hoy,
+                                            tipo = 'EntradaM',
                                             hora = hora,
-                                            obs = "MAÑANA",
-                                            asistencia = asis
+                                            obs = "",
+                                            empleado_id = cod_emple,
                                             )
         elif hora >= "13:00" and hora <= "14:15" :
             #"Entrada Tarde"
-            entrada = Entrada.objects.create(
+            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "14:15", hora__gte = "13:00") :
+                entrada = Asistencia.objects.create(
+                                            fecha = hoy,
+                                            tipo = 'EntradaT',
                                             hora = hora,
-                                            obs = "TARDE",
-                                            asistencia = asis
+                                            obs = "",
+                                            empleado_id = cod_emple,
                                             )
         elif hora >= "12:00" and hora <= "12:59" :
             #salida mañana
-            entrada = Salida.objects.create(
+            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "12:59", hora__gte = "12:00") :
+                salida = Asistencia.objects.create(
+                                            fecha = hoy,
+                                            tipo = 'SalidaM',
                                             hora = hora,
-                                            obs = "MAÑANA",
-                                            asistencia = asis
+                                            obs = "",
+                                            empleado_id = cod_emple,
                                             )
         elif hora >= "18:00" and hora <= "22:00" :
             #salida tarde
-            entrada = Salida.objects.create(
+            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "22:00", hora__gte = "18:00") :
+                salida = Asistencia.objects.create(
+                                            fecha = hoy,
+                                            tipo = 'SalidaT',
                                             hora = hora,
-                                            obs = "TARDE",
-                                            asistencia = asis
+                                            obs = "",
+                                            empleado_id = cod_emple,
                                             )
         else:
             if hora >= "08:16" and hora <= "11:59" :
                 #salida tarde
-                Entrada.objects.create(
-                                    hora = hora,
-                                    obs = "RETRASO",
-                                    asistencia = asis
-                                    )
+                if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "11:59", hora__gte = "08:16") :
+                    Asistencia.objects.create(
+                                            fecha = hoy,
+                                            tipo = 'EntradaM',
+                                            hora = hora,
+                                            obs = "RETRASO",
+                                            empleado_id = cod_emple,
+                                            )
             if hora >= "14:16" and hora <= "17:59" :
-                #salida tarde
-                Entrada.objects.create(
-                                    hora = hora,
-                                    obs = "RETRASO",
-                                    asistencia = asis
-                                    )
+                #Entrada tarde
+                if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "17:59", hora__gte = "14:16") :
+                    Asistencia.objects.create(
+                                            fecha = hoy,
+                                            tipo = 'EntradaT',
+                                            hora = hora,
+                                            obs = "RETRASO",
+                                            empleado_id = cod_emple,
+                                            )
             if hora >= "22:01" and hora <= "05:59" :
                 #salida tarde
                 return HttpResponseRedirect('/personal/')
     else:
         return HttpResponseRedirect('/personal/asistencia/')
-    return HttpResponseRedirect('/personal/asistencia/')
 
 
 @login_required(login_url='/user/login')
@@ -296,7 +321,7 @@ def new_observacion(request, cod_emple):
             Observacion.objects.create(
                                         tipo = formulario.cleaned_data['tipo'],
                                         descripcion = formulario.cleaned_data['descripcion'],
-                                        fecha = datetime.today(),
+                                        fecha = datetime.datetime.now(),
                                         empleado_id = cod_emple,
                                         )
             #formulario.save()
@@ -409,9 +434,34 @@ def view_contrato(request, cod_emple):
     return HttpResponseRedirect("/contrato/show/"+str(q2.id)+"/0/")
 
 
+def planilla_asistencia(request):
+    hoy = datetime.datetime.now()
+    q2 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO').values('empleado_id')
+    empleado = Empleados.objects.filter(id__in = q2)
+    asistencia = Asistencia.objects.filter(empleado_id__in=empleado)
+    return render_to_response('personal/planilla_asistencia.html', {'empleados' :empleado,
+                                                }, context_instance=RequestContext(request))
 
+def detalle_asistencia(request, id):
+    hoy = datetime.datetime.now()
 
-
+    month = hoy.strftime("%m")
+    #month = hoy.strftime("%m")
+    year = hoy.strftime("%Y")
+    #year = datetime.strftime("%Y", datetime.today())
+    cal = calendar.Calendar()
+    dias = [x for x in cal.itermonthdays(int(year),int(month)) if x][-1]
+    lista1 = range(1,dias+1)
+    fechas = []
+    for c in lista1:
+        fechas +=[date(int(year), int(month), int(c))]
+    empleado = get_object_or_404(Empleados, pk = id)
+    empleados = Empleados.objects.filter(id = id)
+    asistencia = Asistencia.objects.filter(empleado_id__in = empleados)
+    return render_to_response('personal/detalle_asistencia.html', {'mes' :fechas,
+                                                                   'empleado':empleado,
+                                                                   'asistencia':asistencia,
+                                                                }, context_instance=RequestContext(request))
 
 
 

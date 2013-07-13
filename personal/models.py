@@ -53,6 +53,9 @@ class contratacion(models.Model):
 
 class Asistencia(models.Model):
     fecha = models.DateField()
+    tipo = models.CharField(max_length="10")
+    hora = models.TimeField()
+    obs = models.CharField(max_length="15", blank=True, null=True)
     empleado = models.ForeignKey(Empleados)
     def __unicode__(self):
         return self.empleado.nombre

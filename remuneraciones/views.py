@@ -2,13 +2,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 
-from personal.models import Empleados, contratacion
+from personal.models import Empleados, contratacion, Asistencia
 from remuneraciones.models import Pagos, Descuento
 from remuneraciones.form import PagosForm, DescuentoForm
 
 from django.contrib.auth.decorators import login_required
 
 from datetime import datetime
+import datetime
 
 @login_required(login_url='/user/login')
 def home(request):
@@ -32,7 +33,7 @@ def new_pago(request, cod_emple):
                                     razon = formulario.cleaned_data['razon'],
                                     pago = formulario.cleaned_data['pago'],
                                     descripcion = formulario.cleaned_data['descripcion'],
-                                    fecha = datetime.today(),
+                                    fecha = datetime.datetime.now(),
                                     empleado_id = cod_emple,
                                    )
             return HttpResponseRedirect('/pago/empleado')
@@ -50,10 +51,19 @@ def new_descuento(request, cod_emple):
                                     razon = formulario.cleaned_data['razon'],
                                     pago = formulario.cleaned_data['pago'],
                                     descripcion = formulario.cleaned_data['descripcion'],
-                                    fecha = datetime.today(),
+                                    fecha = datetime.datetime.now(),
                                     empleado_id = cod_emple,
                                    )
             return HttpResponseRedirect('/pago/empleado')
     else:
         formulario = DescuentoForm()
     return  render_to_response('remuneraciones/new_pago.html', {'formulario' :formulario}, context_instance=RequestContext(request))
+
+
+def planilla_sueldos(request):
+    hoy = datetime.datetime.now()
+    q2 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO').values('empleado_id')
+    empleado = Empleados.objects.filter(id__in = q2)
+    asistencia = Asistencia.objects.filter(empleado_id__in=empleado)
+    return render_to_response('remuneraciones/planilla_sueldo.html', {'empleados' :empleado,
+                                                }, context_instance=RequestContext(request))

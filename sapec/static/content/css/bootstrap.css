@@ -2111,7 +2111,18 @@ table th[class*="span"],
   width: 924px;
   margin-left: 0;
 }
-
+.table tbody tr td.success{
+  background-color: #dff0d8;
+}
+.table tbody tr td.error{
+    background-color: #f2dede;
+}
+.table tbody tr td.warning{
+    background-color: #fcf8e3;
+}
+.table tbody tr td.info{
+    background-color: #d9edf7;
+}
 .table tbody tr.success td {
   background-color: #dff0d8;
 }

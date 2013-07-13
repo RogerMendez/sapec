@@ -49,7 +49,12 @@ urlpatterns = patterns('',
     url(r'^personal/option/$', 'personal.views.option_empleado'),
     url(r'^personal/update/(?P<empleado_id>\d+)/$', 'personal.views.update_empleado'),
 
-    url(r'^profesion/new$', 'personal.views.new_profesion'),
+    url(r'^profesion/new/$', 'personal.views.new_profesion'),
+
+    url(r'^planilla/asistencia/$', 'personal.views.planilla_asistencia'),
+    url(r'^planilla/detalle/(?P<id>\d+)/$', 'personal.views.detalle_asistencia'),
+
+    url(r'^planilla/salario/$', 'remuneraciones.views.planilla_sueldos'),
 
     #CONTRATO
     url(r'^contrato/cargo/$', 'personal.views.cargos_contrato'),
