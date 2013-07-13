@@ -20,7 +20,7 @@ def home(request):
 @login_required(login_url='/user/login')
 def pago_empleado(request):
     empleado=Empleados.objects.all()
-    contratos = contratacion.objects.exclude(fecha_salida__lte = datetime.today()).filter(estado = 'ACTIVO')
+    contratos = contratacion.objects.exclude(fecha_salida__lte = datetime.datetime.now()).filter(estado = 'ACTIVO')
     return render_to_response('remuneraciones/empleado_pago.html', {'empleados' :empleado, 'contratos':contratos}, context_instance=RequestContext(request))
 
 
