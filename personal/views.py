@@ -338,7 +338,7 @@ def new_permiso(request, cod_emple):
         if formulario.is_valid():
             Permiso.objects.create(
                                     descripcion = formulario.cleaned_data['descripcion'],
-                                    fecha = datetime.today(),
+                                    fecha = datetime.datetime.now(),
                                     tiempo = formulario.cleaned_data['tiempo'],
                                     empleado_id = cod_emple,
                                    )
@@ -351,7 +351,7 @@ def new_permiso(request, cod_emple):
 @login_required(login_url='/user/login')
 def select_personal(request):
     empleado=Empleados.objects.all()
-    contratos = contratacion.objects.exclude(fecha_salida__lte = datetime.today())
+    contratos = contratacion.objects.exclude(fecha_salida__lte = datetime.datetime.now())
     return render_to_response('personal/cambio_personal.html', {'empleados' :empleado, 'contratos':contratos}, context_instance=RequestContext(request))
 
 
@@ -367,11 +367,11 @@ def empleado_cambio(request, cargo_cod, empleado_cod):
     moviidad.objects.create(
                             contrato_id = contrato.id,
                             cargo_id = int(cargo_cod),
-                            fecha = datetime.today(),
+                            fecha = datetime.datetime.now(),
                             )
     contrato.estado = 'INACTIVO'
     contratacion.objects.create(
-                                fecha_entrada = datetime.today(),
+                                fecha_entrada = datetime.datetime.now(),
                                 fecha_salida = contrato.fecha_salida,
                                 estado = 'ACTIVO',
                                 sueldo = contrato.sueldo,
@@ -429,7 +429,7 @@ def tarjeta_empleado(request, ci_emple):
 
 def view_contrato(request, cod_emple):
     q1 = get_object_or_404(Empleados, pk = cod_emple)
-    hoy = datetime.today()
+    hoy = datetime.datetime.now()
     q2 = contratacion.objects.get(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO', empleado_id = cod_emple)
     return HttpResponseRedirect("/contrato/show/"+str(q2.id)+"/0/")
 
@@ -448,7 +448,6 @@ def detalle_asistencia(request, id):
     month = hoy.strftime("%m")
     #month = hoy.strftime("%m")
     year = hoy.strftime("%Y")
-    #year = datetime.strftime("%Y", datetime.today())
     cal = calendar.Calendar()
     dias = [x for x in cal.itermonthdays(int(year),int(month)) if x][-1]
     lista1 = range(1,dias+1)
