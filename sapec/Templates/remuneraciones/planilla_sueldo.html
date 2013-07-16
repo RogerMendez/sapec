@@ -16,7 +16,8 @@
                         <tr>
                             <th>Cedula de identidad</th>
                             <th>Nombre Completo</th>
-                            <th>Total de Asistencias</th>
+                            <th>Sueldo</th>
+                            <th>Total retrasos</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -25,10 +26,16 @@
                             <tr>
                                 <td>{{ emple.ci }}</td>
                                 <td>{{ emple.nombre }} {{ emple.paterno }} {{ emple.materno }}</td>
-                                <td>{{ emple.asistencia_set.count }}</td>
+                                {% for contrato in contratos %}
+                                    {% if contrato.empleado_id == emple.id %}
+                                        <td><strong>{{ contrato.sueldo }}</strong> Bolivianos</td>
+                                    {% endif %}
+                                {% endfor %}
+                                <td>{{ emple.asistencia_set.filter.count }}</td>
+
                                 <td>
                                     <a href="#myModal{{ emple.ci }}" class="btn btn-link" data-toggle="modal"><b class="icon-user"></b> Información</a>
-                                    <a href="/planilla/detalle/{{ emple.id }}/" class="btn btn-info">Detalle Asistencia</a>
+                                    <a href="/planilla/detalle/{{ emple.id }}/" class="btn btn-info">Detalle sueldo</a>
                                 </td>
                             </tr>
                             <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal hide fade" id="myModal{{ emple.ci }}" style="display: none;">

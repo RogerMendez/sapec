@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
@@ -61,9 +64,13 @@ def new_descuento(request, cod_emple):
 
 
 def planilla_sueldos(request):
+    sueltos = []
+
+
     hoy = datetime.datetime.now()
     q2 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO').values('empleado_id')
     empleado = Empleados.objects.filter(id__in = q2)
-    asistencia = Asistencia.objects.filter(empleado_id__in=empleado)
+    contrato = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO')
     return render_to_response('remuneraciones/planilla_sueldo.html', {'empleados' :empleado,
+                                                                    'contratos':contrato,
                                                 }, context_instance=RequestContext(request))
