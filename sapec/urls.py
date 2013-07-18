@@ -55,6 +55,7 @@ urlpatterns = patterns('',
     url(r'^planilla/detalle/(?P<id>\d+)/$', 'personal.views.detalle_asistencia'),
 
     url(r'^planilla/salario/$', 'remuneraciones.views.planilla_sueldos'),
+    url(r'^planilla/detalle/sueldo/(?P<id_emple>\d+)/$', 'remuneraciones.views.detalle_planilla'),
 
     #CONTRATO
     url(r'^contrato/cargo/$', 'personal.views.cargos_contrato'),

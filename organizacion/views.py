@@ -131,8 +131,9 @@ def new_cargo(request):
 
 @login_required(login_url='/user/login')
 def option_cargo(request):
-    unidad = Unidades.objects.all()
     cargo = Cargos.objects.all()
+    q1 = cargo.distinct().values('unidad_id')
+    unidad = Unidades.objects.filter(id__in = q1)
     return render_to_response('cargo/option_cargo.html', {'cargos' :cargo, 'unidades' :unidad}, context_instance=RequestContext(request))
 
 

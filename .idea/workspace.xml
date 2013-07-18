@@ -5,8 +5,8 @@
     <ignored path="sapec.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/urls.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1373598148925" ignored="false" />
-    <file path="/views.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1373846691886" ignored="false" />
-    <file path="/models.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1373481266829" ignored="false" />
+    <file path="/views.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1374035673677" ignored="false" />
+    <file path="/models.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1374021118327" ignored="false" />
     <file path="/form.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1371762529187" ignored="false" />
     <file path="/base_site.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1370397569565" ignored="false" />
     <file path="/admin.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1370399895968" ignored="false" />
@@ -15,7 +15,7 @@
     <file path="/user_login.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1370406637559" ignored="false" />
     <file path="/privado.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1370462760092" ignored="false" />
     <file path="$PROJECT_DIR$/../seminario/seminario/settings.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1370579257577" ignored="false" />
-    <file path="/settings.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1373255235532" ignored="false" />
+    <file path="/settings.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1374019605491" ignored="false" />
     <file path="$PROJECT_DIR$/../seminario/ejemplo/models.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1370579550093" ignored="false" />
     <file path="$PROJECT_DIR$/../seminario/ejemplo/views.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1370584513060" ignored="false" />
     <file path="$PROJECT_DIR$/../seminario/ejemplo/form.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1370580077607" ignored="false" />
@@ -38,7 +38,7 @@
     <file path="/cargo_no_empleado_pdf.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1371061704002" ignored="false" />
     <file path="/a.dummy" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1372834291603" ignored="false" />
     <file path="/tests.py" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1371670976239" ignored="false" />
-    <file path="/new_empleado.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1372834276738" ignored="false" />
+    <file path="/new_empleado.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1374029271276" ignored="false" />
     <file path="/index.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1371583870229" ignored="false" />
     <file path="/login.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1371584423350" ignored="false" />
     <file path="/change_list.html" changelist="609edf6d-2592-480f-91a4-24f8525395f2" time="1371584995484" ignored="false" />
@@ -96,20 +96,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sapec/Templates/base.html">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/remuneraciones/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="169" column="18" selection-start="9471" selection-end="9471" vertical-scroll-proportion="-7.5384617">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sapec/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="0" selection-start="5862" selection-end="5862" vertical-scroll-proportion="0.8172043">
-              <folding />
+            <state line="102" column="37" selection-start="4351" selection-end="4351" vertical-scroll-proportion="0.6256881">
+              <folding>
+                <element signature="e#47#105#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,22 +117,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/sapec/Templates/formupload.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/form.html" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/sapec/Templates/index_personal.html" />
         <option value="$PROJECT_DIR$/sapec/Templates/personal/planilla_asistencia.html" />
-        <option value="$PROJECT_DIR$/personal/models.py" />
         <option value="$PROJECT_DIR$/sapec/static/content/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/sapec/Templates/personal/detalle_asistencia.html" />
         <option value="$PROJECT_DIR$/sapec/urls.py" />
         <option value="$PROJECT_DIR$/sapec/Templates/index_remuneracion.html" />
-        <option value="$PROJECT_DIR$/organizacion/views.py" />
         <option value="$PROJECT_DIR$/personal/views.py" />
         <option value="$PROJECT_DIR$/sapec/Templates/remuneraciones/planilla_sueldo.html" />
-        <option value="$PROJECT_DIR$/remuneraciones/views.py" />
         <option value="$PROJECT_DIR$/sapec/Templates/base.html" />
         <option value="$PROJECT_DIR$/sapec/settings.py" />
+        <option value="$PROJECT_DIR$/organizacion/models.py" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/new_empleado.html" />
+        <option value="$PROJECT_DIR$/personal/models.py" />
+        <option value="$PROJECT_DIR$/organizacion/views.py" />
+        <option value="$PROJECT_DIR$/remuneraciones/views.py" />
       </list>
     </option>
   </component>
@@ -243,7 +236,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="remuneraciones" />
+              <option name="myItemId" value="unidad" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -257,21 +250,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="remuneraciones" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sapec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sapec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="personal" />
+              <option name="myItemId" value="organizacion" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -283,14 +262,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="preferences.sourceCode.General" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../qr" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -325,29 +304,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="sapec" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -369,6 +325,29 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="sapec" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -469,13 +448,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23404256" sideWeight="0.6712329" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23784195" sideWeight="0.6712329" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -554,75 +533,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/qr.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="295" selection-end="295" vertical-scroll-proportion="-2.6153846" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/new_contratacion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0327553" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/option_empleado.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.2620424" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/static/content/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2123" column="30" selection-start="38155" selection-end="38155" vertical-scroll-proportion="0.40550458" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/personal/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="29" selection-start="2657" selection-end="2657" vertical-scroll-proportion="1.6220183" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/detalle_asistencia.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="47" selection-start="3146" selection-end="3146" vertical-scroll-proportion="-45.115383" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/planilla_asistencia.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="74" selection-start="0" selection-end="5315" vertical-scroll-proportion="-6.230769" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/index_organizacion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.2781955" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="70" selection-start="2676" selection-end="2676" vertical-scroll-proportion="0.03046595" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/index_remuneracion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="39" selection-start="861" selection-end="861" vertical-scroll-proportion="0.7030075" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/organizacion/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="235" column="20" selection-start="9495" selection-end="9495" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/remuneraciones/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="52" selection-start="3243" selection-end="3243" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/personal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="54" selection-start="16305" selection-end="16305" vertical-scroll-proportion="2.4330275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sapec/Templates/remuneraciones/planilla_sueldo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="14" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.0327553">
@@ -632,15 +542,137 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/Templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="18" selection-start="9471" selection-end="9471" vertical-scroll-proportion="-7.5384617">
+        <state line="169" column="18" selection-start="9471" selection-end="9471" vertical-scroll-proportion="0.37764934">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remuneraciones/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="574" selection-end="574" vertical-scroll-proportion="0.45698926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="762" selection-end="788" vertical-scroll-proportion="0.1559633">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="0" selection-start="5862" selection-end="5862" vertical-scroll-proportion="0.8172043">
+        <state line="175" column="1" selection-start="5791" selection-end="5791" vertical-scroll-proportion="0.7562724">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="236" selection-end="236" vertical-scroll-proportion="0.4265233">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/base_reporte.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="26" selection-start="265" selection-end="265" vertical-scroll-proportion="-2.7706766">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/unidad/reporte_unidades_pdf.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/new_empleado.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="73" selection-start="1635" selection-end="1635" vertical-scroll-proportion="13.538462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DjangoModelDependency/#sapec">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DjangoModelDependency</ID>
+          <OriginalElement>#sapec</OriginalElement>
+          <nodes>
+            <node x="" y="">personal.models.Empleados</node>
+            <node x="" y="">organizacion.models.Planificacion</node>
+            <node x="" y="">personal.models.Entrada</node>
+            <node x="" y="">personal.models.contratacion</node>
+            <node x="" y="">organizacion.models.Funciones</node>
+            <node x="" y="">remuneraciones.models.Descuento</node>
+            <node x="" y="">organizacion.models.Conocimiento</node>
+            <node x="" y="">organizacion.models.Cargos</node>
+            <node x="" y="">personal.models.Asistencia</node>
+            <node x="" y="">organizacion.models.Unidades</node>
+            <node x="" y="">personal.models.moviidad</node>
+            <node x="" y="">personal.models.profesion</node>
+            <node x="" y="">personal.models.Salida</node>
+            <node x="" y="">remuneraciones.models.Pagos</node>
+            <node x="" y="">personal.models.Observacion</node>
+            <node x="" y="">personal.models.Permiso</node>
+            <node x="" y="">django.contrib.auth.models.User</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.3000000000000003" x="1164.7692307692307" y="135.99999999999994" />
+          <SelectedNodes />
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="47" selection-start="4651" selection-end="4651" vertical-scroll-proportion="0.66487455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal/ajax.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="49" selection-start="146" selection-end="146" vertical-scroll-proportion="0.09139785">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/organizacion/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="43" selection-start="5376" selection-end="5376" vertical-scroll-proportion="0.45688075">
+          <folding>
+            <element signature="e#16#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/organizacion/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="25" selection-start="469" selection-end="469" vertical-scroll-proportion="0.03046595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remuneraciones/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="37" selection-start="4351" selection-end="4351" vertical-scroll-proportion="0.6256881">
+          <folding>
+            <element signature="e#47#105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

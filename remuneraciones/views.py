@@ -12,6 +12,8 @@ from remuneraciones.form import PagosForm, DescuentoForm
 from django.contrib.auth.decorators import login_required
 
 from datetime import datetime
+from datetime import  date
+import calendar
 import datetime
 
 @login_required(login_url='/user/login')
@@ -64,13 +66,51 @@ def new_descuento(request, cod_emple):
 
 
 def planilla_sueldos(request):
-    sueltos = []
-
-
+    sueldos = []
     hoy = datetime.datetime.now()
-    q2 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO').values('empleado_id')
-    empleado = Empleados.objects.filter(id__in = q2)
+    q45 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO').values('empleado_id')
+    empleado = Empleados.objects.filter(id__in = q45)
     contrato = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO')
     return render_to_response('remuneraciones/planilla_sueldo.html', {'empleados' :empleado,
                                                                     'contratos':contrato,
                                                 }, context_instance=RequestContext(request))
+
+
+def detalle_planilla(request, id_emple):
+    hoy = datetime.datetime.now()
+    empleado = get_object_or_404(Empleados, pk=id_emple)
+    contrato = contratacion.objects.get(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO', empleado_id = id_emple)
+    #q1 = contrato.values('empleado_id')
+    descuentos = Descuento.objects.filter(fecha__lte = hoy, fecha__gte=hoy, empleado_id = empleado.id)
+    pagos = Pagos.objects.filter(fecha__lte = hoy, fecha__gte=hoy, empleado_id = empleado.id)
+    
+    q2 = Asistencia.objects.filter(empleado_id = id_emple)
+    lista = []
+    month = hoy.strftime("%m")
+    year = hoy.strftime("%Y")
+    cal = calendar.Calendar()
+    dias = [x for x in cal.itermonthdays(int(year),int(month)) if x][-1]
+    lista1 = range(1,dias+1)
+    fechas = []
+    falta = 0
+    retraso = 0
+    for c in lista1:
+        fechas +=[date(int(year), int(month), int(c))]
+    for f in fechas:
+        if f.weekday() != 5 and f.weekday() != 6 :
+            if q2.filter(fecha = f).count() < 4:
+                falta = falta + 1
+            if q2.filter(fecha = f, obs = 'RETRASO').count():
+                retraso = retraso + 1
+    lista +=[falta]
+    lista +=[falta * contrato.descuento]
+    lista +=[retraso]
+    retraso  = retraso % 10
+    lista +=[retraso * contrato.descuento]
+    return render_to_response('remuneraciones/detalle_planilla.html',
+                                {   'contrato':contrato,
+                                    'empleado':empleado,
+                                    'descuento':descuentos,
+                                    'pago':pagos,
+                                    'lista':lista,
+                                }, context_instance=RequestContext(request))

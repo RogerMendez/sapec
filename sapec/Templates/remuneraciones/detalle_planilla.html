@@ -1,0 +1,75 @@
+{# encoding:utf-8 #}
+{% extends 'base.html' %}
+{% block title %}
+Detalle Planilla
+{% endblock	%}
+{% block cuerpo %}
+	<section class="consulta">
+		<div class="row-fluid well">
+			<div class="navbar-inner">
+				<div class="span3">
+					<p><strong>Cedula de Identidad: </strong>{{ empleado.ci }}</p>
+				</div>
+				<div class="span3">
+					<p><strong>Nombre: </strong>{{ empleado.nombre|upper }}</p>
+					<p><strong>Apellidos: </strong>{{ empleado.paterno|upper }}, {{ empleado.materno|upper }}</p>
+				</div>
+				<div class="span3">
+					<p><strong>Dirección: </strong>{{empleado.direccion }}</p>
+					<p><strong>Telefono/Celular: </strong>{{ empleado.telefono }}</p>
+				</div>
+			</div>
+			<div class="span2"></div>
+			<div class="span10 well">
+				<div class="span4">
+					<p><strong>Codigo De Contrato: </strong>{{ contrato.id }}</p>
+					<p><strong>Sueldo: </strong>{{contrato.sueldo }}</p>
+				</div>
+				<div class="span4">
+					<p><strong>Inicio e Contrato: </strong>{{contrato.fecha_entrada }}</p>
+					<p class="text-warning"><strong>Fin de Contrato: </strong>{{contrato.fecha_salida}}</p>
+				</div>
+				<div class="span4">
+					<p><strong>Descuento por Falta: </strong>{{contrato.descuento}}</p>
+					<p><strong>Unidad - Cargo: </strong>{{contrato.cargo|upper}}</p>
+				</div>
+			</div>
+			<div class="span3"></div>
+			<div class="span10 well">
+				<div class="span3 well">
+					<h3>Descuentos por falta</h3>
+					{% for l in lista %}
+						<p>{{ l }}</p>
+					{% endfor %}
+				</div>	
+				<div class="span3 well">
+					<h4>Otros Descuentos</h4>
+					{% for d in descuento %}
+						<p><strong>Razon: </strong>{{d.razon}}</p>
+						<p>
+							<strong>Fecha: </strong>
+							<small>{{d.fecha}}</small>
+						</p>
+						<p><strong>Monto: </strong>{{d.pago}} Bs.</p>
+						<div class="divider"></div>
+
+					{% endfor %}
+				</div>
+				<div class="span3 well">
+					<h4>Pagos Empleado</h4>
+					{% for d in pago %}
+						<p><strong>Razon: </strong>{{d.razon}}</p>
+						<p>
+							<strong>Fecha: </strong>
+							<small>{{d.fecha}}</small>
+						</p>
+						<p><strong>Monto: </strong>{{d.pago}} Bs.</p>
+						<div class="divider"></div>
+
+					{% endfor %}
+				</div>
+			</div>
+			
+		</div>
+	</section>
+{% endblock	%}

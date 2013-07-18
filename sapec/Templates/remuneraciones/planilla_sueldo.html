@@ -1,7 +1,7 @@
 {# encoding:utf-8 #}
 {% extends 'base.html' %}
 {% block title %}
-    Planilla de Asistencia
+    Planilla de Sueldos
 {% endblock%}
 {% block url %}personal{% endblock %}
 {% block cuerpo %}
@@ -17,7 +17,6 @@
                             <th>Cedula de identidad</th>
                             <th>Nombre Completo</th>
                             <th>Sueldo</th>
-                            <th>Total retrasos</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -31,11 +30,10 @@
                                         <td><strong>{{ contrato.sueldo }}</strong> Bolivianos</td>
                                     {% endif %}
                                 {% endfor %}
-                                <td>{{ emple.asistencia_set.filter.count }}</td>
 
                                 <td>
                                     <a href="#myModal{{ emple.ci }}" class="btn btn-link" data-toggle="modal"><b class="icon-user"></b> Información</a>
-                                    <a href="/planilla/detalle/{{ emple.id }}/" class="btn btn-info">Detalle sueldo</a>
+                                    <a href="/planilla/detalle/sueldo/{{ emple.id }}/" class="btn btn-info"><b class="icon-diamond"></b> Detalle Planilla</a>
                                 </td>
                             </tr>
                             <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal hide fade" id="myModal{{ emple.ci }}" style="display: none;">

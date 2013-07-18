@@ -306,8 +306,8 @@ def asistecia(request, ci_emple):
                                             empleado_id = cod_emple,
                                             )
             else :
-                #salida tarde
                 return HttpResponseRedirect('/personal/')
+            return HttpResponseRedirect('/personal/')  
     else:
         return HttpResponseRedirect('/personal/asistencia/')
 
