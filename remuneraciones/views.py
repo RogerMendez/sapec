@@ -99,9 +99,8 @@ def detalle_planilla(request, id_emple):
     for f in fechas:
         if f.weekday() != 5 and f.weekday() != 6 :
             if q2.filter(fecha = f):
-                
+                retraso += 1
 
-                
     lista +=[falta]
     lista +=[falta * contrato.descuento]
     lista +=[retraso]

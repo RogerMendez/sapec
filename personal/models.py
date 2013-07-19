@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 def validate_min(value):
-    if str(value).length == 8:
+    if len(str(value)) != 8 and len(str(value)) != 7:
         raise ValidationError(u'%s No es Una Cedula de Identidad Valida' % value)
 
 class profesion(models.Model):
