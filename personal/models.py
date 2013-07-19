@@ -3,6 +3,12 @@ from django.db import models
 from organizacion.models import Cargos
 from django.contrib.auth.models import User
 
+from django.core.exceptions import ValidationError
+
+def validate_min(value):
+    if str(value).length == 8:
+        raise ValidationError(u'%s No es Una Cedula de Identidad Valida' % value)
+
 class profesion(models.Model):
     descripcion=models.TextField()
     def __unicode__(self):
@@ -11,7 +17,7 @@ class profesion(models.Model):
         verbose_name_plural = "Profesiones"
 
 class Empleados(models.Model):
-    ci=models.IntegerField(max_length='8', verbose_name="Cedula de Identidad", unique=False)
+    ci=models.IntegerField(max_length='9',validators=[validate_min], verbose_name="Cedula de Identidad", unique=False)
     paterno=models.CharField(max_length='50', verbose_name="Apellido Paterno")
     materno=models.CharField(max_length='50', null=True, blank=True, verbose_name="Apellido Materno")
     nombre=models.CharField(max_length='100', verbose_name="Nombres")
@@ -25,6 +31,7 @@ class Empleados(models.Model):
     GRUPO_CHOICES = (
         ('FE', 'Femenino'),
         ('MA', 'Masculino'),
+
     )
     sexo = models.CharField(max_length=2, choices=GRUPO_CHOICES, verbose_name="Sexo", null=True, blank=True)
     fecha_nac=models.DateField(verbose_name="Fecha de Nacimiento", help_text="DIA/MES/AÑO", null=True, blank=True)
@@ -53,14 +60,18 @@ class contratacion(models.Model):
 
 class Asistencia(models.Model):
     fecha = models.DateField()
-    tipo = models.CharField(max_length="10")
-    hora = models.TimeField()
-    obs = models.CharField(max_length="15", blank=True, null=True)
+    entrada_m = models.TimeField(blank=True, null=True)
+    salida_m = models.TimeField(blank=True, null=True)
+    obs_m = models.CharField(max_length='15', blank=True, null=True)
+    entrada_t = models.TimeField(blank=True, null=True)
+    salida_t = models.TimeField(blank=True, null=True)
+    obs_t = models.CharField(max_length="15", blank=True, null=True)
     empleado = models.ForeignKey(Empleados)
     def __unicode__(self):
         return self.empleado.nombre
     class Meta:
         verbose_name_plural = "Asistencia"
+        ordering = ['fecha']
 
 class Entrada(models.Model):
     hora = models.TimeField()

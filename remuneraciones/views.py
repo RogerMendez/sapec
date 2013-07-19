@@ -98,10 +98,10 @@ def detalle_planilla(request, id_emple):
         fechas +=[date(int(year), int(month), int(c))]
     for f in fechas:
         if f.weekday() != 5 and f.weekday() != 6 :
-            if q2.filter(fecha = f).count() < 4:
-                falta = falta + 1
-            if q2.filter(fecha = f, obs = 'RETRASO').count():
-                retraso = retraso + 1
+            if q2.filter(fecha = f):
+                
+
+                
     lista +=[falta]
     lista +=[falta * contrato.descuento]
     lista +=[retraso]

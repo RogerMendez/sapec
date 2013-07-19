@@ -163,71 +163,51 @@ def new_asistencia(request):
                 emple = Empleados.objects.get(ci = carnet)
                 cod_emple = emple.id
                 hoy = datetime.datetime.now()
+                if Asistencia.objects.filter(empleado_id = cod_emple, fecha = hoy):
+                    q1 = Asistencia.objects.get(fecha = hoy, empleado_id = cod_emple)
+                else:
+                    Asistencia.objects.create(
+                                                fecha = hoy,
+                                                empleado_id = cod_emple,
+                                            )
+                    q1 = Asistencia.objects.get(fecha = hoy, empleado_id = cod_emple)
+
                 hora = hoy.strftime("%H:%M")
                 #Modificar las Horas
                 if hora >= "06:00" and hora <= "08:15" :
                     #Entrada mañana
-                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "08:15", hora__gte = "06:00") :
-                        entrada = Asistencia.objects.create(
-                                                    fecha = hoy,
-                                                    tipo = 'EntradaM',
-                                                    hora = hora,
-                                                    obs = "",
-                                                    empleado_id = cod_emple,
-                                                    )
+                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, entrada_m__lte = "08:15", entrada_m__gte = "06:00") :
+                        q1.entrada_m = hora
+                        q1.save()
                 elif hora >= "13:00" and hora <= "14:15" :
                     #"Entrada Tarde"
-                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "14:15", hora__gte = "13:00") :
-                        entrada = Asistencia.objects.create(
-                                                    fecha = hoy,
-                                                    tipo = 'EntradaT',
-                                                    hora = hora,
-                                                    obs = "",
-                                                    empleado_id = cod_emple,
-                                                    )
+                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, entrada_t__lte = "14:15", entrada_t__gte = "13:00") :
+                        q1.entrada_t = hora
+                        q1.save()
                 elif hora >= "12:00" and hora <= "12:59" :
                     #salida mañana
-                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "12:59", hora__gte = "12:00") :
-                        salida = Asistencia.objects.create(
-                                                    fecha = hoy,
-                                                    tipo = 'SalidaM',
-                                                    hora = hora,
-                                                    obs = "",
-                                                    empleado_id = cod_emple,
-                                                    )
+                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, salida_m__lte = "12:59", salida_m__gte = "12:00") :
+                        q1.salida_m = hora
+                        q1.save()
                 elif hora >= "18:00" and hora <= "22:00" :
                     #salida tarde
-                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "22:00", hora__gte = "18:00") :
-                        salida = Asistencia.objects.create(
-                                                    fecha = hoy,
-                                                    tipo = 'SalidaT',
-                                                    hora = hora,
-                                                    obs = "",
-                                                    empleado_id = cod_emple,
-                                                    )
+                    if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, salida_t__lte = "22:00", salida_t__gte = "18:00") :
+                        q1.salida_t = hora
+                        q1.save()
                 else:
                     if hora >= "08:16" and hora <= "11:59" :
-                        #salida tarde
-                        if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "11:59", hora__gte = "08:16") :
-                            Asistencia.objects.create(
-                                                    fecha = hoy,
-                                                    tipo = 'EntradaM',
-                                                    hora = hora,
-                                                    obs = "RETRASO",
-                                                    empleado_id = cod_emple,
-                                                    )
+                        #entrada mañana tarde
+                        if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, entrada_m__lte = "11:59", entrada_m__gte = "08:16") :
+                            q1.entrada_m = hora
+                            q1.obs_m = 'RETRASO'
+                            q1.save()
                     if hora >= "14:16" and hora <= "17:59" :
-                        #Entrada tarde
-                        if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "17:59", hora__gte = "14:16") :
-                            Asistencia.objects.create(
-                                                    fecha = hoy,
-                                                    tipo = 'EntradaT',
-                                                    hora = hora,
-                                                    obs = "RETRASO",
-                                                    empleado_id = cod_emple,
-                                                    )
+                        #Entrada tarde retraso
+                        if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, entrada_t__lte = "17:59", entrada_t__gte = "14:16") :
+                            q1.entrada_t = hora
+                            q1.obs_t = 'RETRASO'
+                            q1.save()
                     if hora >= "22:01" and hora <= "05:59" :
-                        #salida tarde
                         return HttpResponseRedirect('/personal/')
             else:
                 return HttpResponseRedirect('/personal/asistencia/')
@@ -244,70 +224,54 @@ def asistecia(request, ci_emple):
         hoy = datetime.datetime.now()
         hora = hoy.strftime("%H:%M")
         #Modificar las Horas
+        if Asistencia.objects.filter(empleado_id = cod_emple, fecha = hoy):
+            q1 = Asistencia.objects.get(fecha = hoy, empleado_id = cod_emple)
+        else:
+            Asistencia.objects.create(
+                                        fecha = hoy,
+                                        empleado_id = cod_emple,
+                                    )
+            q1 = Asistencia.objects.get(fecha = hoy, empleado_id = cod_emple)
+
+        #Modificar las Horas
         if hora >= "06:00" and hora <= "08:15" :
             #Entrada mañana
-            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "08:15", hora__gte = "06:00") :
-                entrada = Asistencia.objects.create(
-                                            fecha = hoy,
-                                            tipo = 'EntradaM',
-                                            hora = hora,
-                                            obs = "",
-                                            empleado_id = cod_emple,
-                                            )
+            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, entrada_m__lte = "08:15", entrada_m__gte = "06:00") :
+                q1.entrada_m = hora
+                q1.save()
         elif hora >= "13:00" and hora <= "14:15" :
             #"Entrada Tarde"
-            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "14:15", hora__gte = "13:00") :
-                entrada = Asistencia.objects.create(
-                                            fecha = hoy,
-                                            tipo = 'EntradaT',
-                                            hora = hora,
-                                            obs = "",
-                                            empleado_id = cod_emple,
-                                            )
+            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, entrada_t__lte = "14:15", entrada_t__gte = "13:00") :
+                q1.entrada_t = hora
+                q1.save()
         elif hora >= "12:00" and hora <= "12:59" :
             #salida mañana
-            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "12:59", hora__gte = "12:00") :
-                salida = Asistencia.objects.create(
-                                            fecha = hoy,
-                                            tipo = 'SalidaM',
-                                            hora = hora,
-                                            obs = "",
-                                            empleado_id = cod_emple,
-                                            )
+            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, salida_m__lte = "12:59", salida_m__gte = "12:00") :
+                q1.salida_m = hora
+                q1.save()
         elif hora >= "18:00" and hora <= "22:00" :
             #salida tarde
-            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "22:00", hora__gte = "18:00") :
-                salida = Asistencia.objects.create(
-                                            fecha = hoy,
-                                            tipo = 'SalidaT',
-                                            hora = hora,
-                                            obs = "",
-                                            empleado_id = cod_emple,
-                                            )
+            if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, salida_t__lte = "22:00", salida_t__gte = "18:00") :
+                q1.salida_t = hora
+                q1.save()
         else:
             if hora >= "08:16" and hora <= "11:59" :
-                #salida tarde
-                if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "11:59", hora__gte = "08:16") :
-                    Asistencia.objects.create(
-                                            fecha = hoy,
-                                            tipo = 'EntradaM',
-                                            hora = hora,
-                                            obs = "RETRASO",
-                                            empleado_id = cod_emple,
-                                            )
-            elif hora >= "14:16" and hora <= "17:59" :
-                #Entrada tarde
-                if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, hora__lte = "17:59", hora__gte = "14:16") :
-                    Asistencia.objects.create(
-                                            fecha = hoy,
-                                            tipo = 'EntradaT',
-                                            hora = hora,
-                                            obs = "RETRASO",
-                                            empleado_id = cod_emple,
-                                            )
+                #entrada mañana tarde
+                if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, entrada_m__lte = "11:59", entrada_m__gte = "08:16") :
+                    q1.entrada_m = hora
+                    q1.obs_m = 'RETRASO'
+                    q1.save()
+            if hora >= "14:16" and hora <= "17:59" :
+                #Entrada tarde retraso
+                if not Asistencia.objects.filter(empleado_id = emple.id, fecha = hoy, entrada_t__lte = "17:59", entrada_t__gte = "14:16") :
+                    q1.entrada_t = hora
+                    q1.obs_t = 'RETRASO'
+                    q1.save()
+            if hora >= "22:01" and hora <= "05:59" :
+                return HttpResponseRedirect('/personal/')
             else :
                 return HttpResponseRedirect('/personal/')
-            return HttpResponseRedirect('/personal/')  
+        return HttpResponseRedirect('/personal/')  
     else:
         return HttpResponseRedirect('/personal/asistencia/')
 
@@ -456,7 +420,7 @@ def detalle_asistencia(request, id):
         fechas +=[date(int(year), int(month), int(c))]
     empleado = get_object_or_404(Empleados, pk = id)
     empleados = Empleados.objects.filter(id = id)
-    asistencia = Asistencia.objects.filter(empleado_id__in = empleados)
+    asistencia = Asistencia.objects.filter(empleado_id = empleado.id)
     return render_to_response('personal/detalle_asistencia.html', {'mes' :fechas,
                                                                    'empleado':empleado,
                                                                    'asistencia':asistencia,

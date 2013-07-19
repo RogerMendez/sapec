@@ -16,12 +16,12 @@
             <thead>
                 <tr>
                     <th>Fecha</th>
-                    <th>Entrada</th>
-                    <th>Salida</th>
-                    <th></th>
-                    <th>Entrada</th>
-                    <th>Salida</th>
-                    <th></th>
+                    <th>Entrada M/</th>
+                    <th>Salida M.</th>
+                    <th>Obs. M.</th>
+                    <th>Entrada T.</th>
+                    <th>Salida T.</th>
+                    <th>Obs. T.</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,49 +30,51 @@
                         <td>{{ m }}</td>
                         {% for asis in asistencia %}
                             {% if asis.fecha == m %}
-                                {% if asis.tipo == "EntradaM" %}
-                                    {% if asis.obs != "" %}
-                                        <td>{{ asis.hora|time }}</td>
-                                    {% else %}
-                                        <td class="info">{{ asis.hora|time }}</td>
-                                    {% endif %}
+                                {% if not asis.entrada_m %}
+                                    <td class="error">SIN MARCA</td>
                                 {% else %}
-                                    <td class="success">Sin Marca</td>
+                                    {% if asis.obs_m %}
+                                        <td class="warning">{{asis.entrada_m|time}}</td>
+                                    {% else %}
+                                        <td class="success">{{asis.entrada_m|time}}</td>
+                                    {% endif %}
+                                {% endif %}
+                                
+                                {% if not asis.salida_m %}
+                                    <td class="error">SIN MARCA</td>
+                                {% else %}
+                                    <td class="success">{{asis.salida_m|time}}</td>    
                                 {% endif %}
 
-                                {% if asis.tipo == "SalidaM" %}
-                                    {% if asis.obs != "" %}
-                                        <td class="error">{{ asis.hora|time }}</td>
-                                    {% else %}
-                                        <td>{{ asis.hora|time }}</td>
-                                    {% endif %}
+                                {% if not asis.obs_m %}
+                                    <td class="info"></td>
                                 {% else %}
-                                    <td class="success">Sin Marca</td>
+                                    <td class="warning">{{asis.obs_m}}</td>
+                                {% endif %}
+                                
+                                {% if not asis.entrada_t %}
+                                    <td class="error">SIN MARCA</td>
+                                {% else %}
+                                    {% if asis.obs_t %}
+                                        <td class="warning">{{asis.entrada_t|time}}</td>
+                                    {% else %}
+                                        <td class="success">{{asis.entrada_t|time}}</td>
+                                    {% endif %}
+                                    
                                 {% endif %}
 
-                                <td></td>
-
-                                {% if asis.tipo == "EntradaT" %}
-                                    {% if asis.obs != "" %}
-                                        <td class="error">{{ asis.hora|time }}</td>
-                                    {% else %}
-                                        <td>{{ asis.hora|time }}</td>
-                                    {% endif %}
+                                {% if not asis.salida_t %}
+                                    <td class="error">SIN MARCA</td>
                                 {% else %}
-                                    <td class="success">Sin Marca</td>
+                                    <td class="success">{{asis.salida_t|time}}</td>    
                                 {% endif %}
-
-                                {% if asis.tipo == "SalidaT" %}
-                                    {% if asis.obs != "" %}
-                                        <td class="error">{{ asis.hora|time }}</td>
-                                    {% else %}
-                                        <td>{{ asis.hora|time }}</td>
-                                    {% endif %}
+                                
+                                {% if not asis.obs_t %}
+                                    <td class="info"></td>
                                 {% else %}
-                                    <td class="success">Sin Marca</td>
+                                    <td class="warning">{{asis.obs_t}}</td>
                                 {% endif %}
-
-                                <td></td>
+                                
                             {% endif %}
                         {% endfor %}
                     </tr>
