@@ -4,7 +4,6 @@ dj-database-url==0.2.1
 dj-static==0.0.5
 django-dajax==0.9.2
 django-dajaxice==0.5.5
-django-publications==0.4.0
 django-qrcode==0.3
 django-toolbelt==0.0.1
 gunicorn==0.17.4
