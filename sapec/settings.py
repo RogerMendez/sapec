@@ -19,12 +19,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'sapec_db',                      # Or path to database file if using sqlite3.
-        'USER': 'postgres',                      # Not used with sqlite3.
-        'PASSWORD': '76176338',                  # Not used with sqlite3.
+        'USER': 'root',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -61,7 +61,7 @@ MEDIA_ROOT = os.path.join(RUTA_PROYECTO,'carga')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-#MEDIA_URL = 'http://127.0.0.1:90/media/'
+#MEDIA_URL = 'http://192.168.10.102:90/media/'
 #MEDIA_URL = 'http://127.0.0.1:90/media/'
 MEDIA_URL = '/media/'
 
@@ -76,7 +76,7 @@ STATIC_ROOT = ''
 
 STATIC_URL = '/static/'
 #STATIC_URL = 'http://127.0.0.1:90/static/'
-#STATIC_URL = 'http://192.168.1.6:90/static/'
+#STATIC_URL = 'http:/192.168.10.102:90/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -172,24 +172,3 @@ LOGGING = {
         }
 }
 
-
-
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
-
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROT', 'https')
-
-# Allow all host headers
-#ALLOWED_HOSTS = ['*']
-
-# Static asset configuration#
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)

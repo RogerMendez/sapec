@@ -48,14 +48,24 @@ urlpatterns = patterns('',
     url(r'^personal/$', 'personal.views.home'),
     url(r'^personal/option/$', 'personal.views.option_empleado'),
     url(r'^personal/update/(?P<empleado_id>\d+)/$', 'personal.views.update_empleado'),
+    url(r'^personal/option/update/$', 'personal.views.option_update_empleado'),
+    url(r'^personal/contrato/empleado/$', 'personal.views.view_contratacion'),
+    url(r'^personal/observacion/empleado/$', 'personal.views.registro_observacion_observacion'),
+
+    url(r'^personal/kardex/', 'personal.views.view_empleado_kardex'),
+    url(r'^view/kardex/(?P<cod_emple>\d+)/$', 'personal.views.kardex_empleado'),
+
+
 
     url(r'^profesion/new/$', 'personal.views.new_profesion'),
 
     url(r'^planilla/asistencia/$', 'personal.views.planilla_asistencia'),
-    url(r'^planilla/detalle/(?P<id>\d+)/$', 'personal.views.detalle_asistencia'),
+    url(r'^planilla/detalle/(?P<id>\d+)/(?P<dia_ini>\d+)/(?P<mes_ini>\d+)/(?P<anho_ini>\d+)/(?P<dia_fin>\d+)/(?P<mes_fin>\d+)/(?P<anho_fin>\d+)/(?P<pdf>\d+)/$', 'personal.views.detalle_asistencia'),
 
     url(r'^planilla/salario/$', 'remuneraciones.views.planilla_sueldos'),
     url(r'^planilla/detalle/sueldo/(?P<id_emple>\d+)/$', 'remuneraciones.views.detalle_planilla'),
+
+    url(r'^planilla/seleccion/(?P<cod_emple>\d+)/$', 'personal.views.seleccion_fechas'),
 
     #CONTRATO
     url(r'^contrato/cargo/$', 'personal.views.cargos_contrato'),
@@ -79,6 +89,10 @@ urlpatterns = patterns('',
     url(r'^remuneracion/$', 'remuneraciones.views.home'),
     #PAGOS
     url(r'^pago/empleado/$', 'remuneraciones.views.pago_empleado'),
+
+    #DESCUENTOS
+    url(r'^descuento/empleado/$', 'remuneraciones.views.descuento_empleado'),
+    #FORDES
     url(r'^pago/new/(?P<cod_emple>\d+)/$', 'remuneraciones.views.new_pago'),
     url(r'^descuento/new/(?P<cod_emple>\d+)/$', 'remuneraciones.views.new_descuento'),
 

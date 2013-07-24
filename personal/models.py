@@ -49,7 +49,7 @@ class contratacion(models.Model):
     fecha_entrada = models.DateField(verbose_name="Fecha de inicio del Contrato", help_text="DIA/MES/AÑO")
     fecha_salida = models.DateField(verbose_name="Fecha Final del Contrato", help_text="DIA/MES/AÑO")
     estado = models.CharField(max_length='10', default='INACTIVO')
-    sueldo = models.FloatField(verbose_name="Sueldo Del Empleado")
+    sueldo = models.FloatField(verbose_name="Sueldo Del Empleado", help_text="hola como estas")
     descuento = models.FloatField(verbose_name="Descuento Por Falta", help_text="10 Retrasos equivalentes a una falta")
     empleado = models.ForeignKey(Empleados)
     cargo = models.ForeignKey(Cargos)
@@ -57,6 +57,7 @@ class contratacion(models.Model):
         return self.empleado.nombre
     class Meta:
         verbose_name_plural = "Contrataciones"
+        ordering = ['fecha_entrada']
 
 class Asistencia(models.Model):
     fecha = models.DateField()

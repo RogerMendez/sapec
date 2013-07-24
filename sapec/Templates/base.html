@@ -48,7 +48,7 @@
                         <div id="header-container">
                             <a id="backbutton" class="win-backbutton" href="/{% block url %}{% endblock %}"></a>
                             {% block ubicacion %}
-                                <h2>
+                                <h2 class="title">
                                     SAPEC
                                 </h2>
                             {% endblock %}
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </header>
-            <div class="container-fluid">
+            <div class="row-fluid">
                 <div class="row-fluid">
                     <div class="metro span12">
                         <div class="metro-sections">
@@ -168,6 +168,9 @@
                 </div>
             </div>
         </section>
+        {% block footer_report %}
+
+        {% endblock footer_report %}
         <script type="text/javascript" src="{{ STATIC_URL }}scripts/google-code-prettify/prettify.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}scripts/jquery.mousewheel.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}scripts/jquery.scrollTo.js"></script>

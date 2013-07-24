@@ -117,7 +117,7 @@
     width: 1170px;
   }
   .span12 {
-    width: 1170px;
+    width: 1100px;
   }
   .span11 {
     width: 1070px;
@@ -219,7 +219,7 @@
     margin-left: 2.564102564102564%;
   }
   .row-fluid .span12 {
-    width: 100%;
+    width: 1170px;
     *width: 99.94680851063829%;
   }
   .row-fluid .span11 {

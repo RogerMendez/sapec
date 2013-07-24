@@ -2,6 +2,8 @@ from django.shortcuts import render_to_response, get_object_or_404
 
 from dajax.core import Dajax
 from dajaxice.decorators import dajaxice_register
+from django.utils import simplejson
+
 from personal.models import Empleados, contratacion
 
 from datetime import datetime
@@ -45,6 +47,12 @@ def employee(request, carnet):
         #dajax.add_data(sexo,'sexo')
         #dajax.assign('#id_nombre','value',str(nombre))
         return dajax.json()
+
+@dajaxice_register
+def verificarfechainicio(request, fecha_ini):
+    dajax = Dajax()
+    dajax.remove_css_class('div#hola1', 'hola')
+    return  dajax.json()
 
 
 @dajaxice_register

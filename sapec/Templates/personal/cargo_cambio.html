@@ -5,26 +5,50 @@
 {% block url %}personal{% endblock %}
 {% block cuerpo %}
     <section class="consulta">
-        <h2>Seleccionar Nuevo Cargo</h2>
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>
-                        Cargo
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for cargo in cargos %}
-                    <tr>
-                        <td>
-                           <h3>
-                               <a href="/empleado/cambio/{{ cargo.id }}/{{ empleado_cod }}">{{ cargo.nombre }}</a>
-                           </h3>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="accordion" id="accordion2">
+        <h2>Unidades</h2>
+            {% for unidad in unidades %}
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne{{ unidad.id }}">
+                            <h3>{{ unidad.nombre }}</h3>
+                        </a>
+                    </div>
+                    <div id="collapseOne{{ unidad.id }}" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <div class="tabbable tabs-left">
+                                <ul class="nav nav-tabs">
+                                    {% for cargo in cargos %}
+                                        {% if cargo.unidad_id == unidad.id %}
+                                            <li>
+                                                <a class="lead" data-toggle="tab"  href="#cargo{{ cargo.id }}">{{ cargo.nombre }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                                <div class="tab-content">
+                                    {% for cargo in cargos %}
+                                        {% if cargo.unidad_id == unidad.id %}
+                                            <div id="cargo{{ cargo.id }}" class="tab-pane">
+                                                <p>
+                                                    <p class="lead">
+                                                        {{ cargo.descripcion }}
+                                                    </p>
+                                                    <div class="well">
+                                                        <a class="btn" href="/empleado/cambio/{{ cargo.id }}/{{ empleado_cod }}">Realizar Cambio</a>
+                                                    </div>
+                                                </p>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </section>
 {% endblock %}
+
+

@@ -16,7 +16,7 @@
             <thead>
                 <tr>
                     <th>Fecha</th>
-                    <th>Entrada M/</th>
+                    <th>Entrada M.</th>
                     <th>Salida M.</th>
                     <th>Obs. M.</th>
                     <th>Entrada T.</th>
@@ -31,48 +31,103 @@
                         {% for asis in asistencia %}
                             {% if asis.fecha == m %}
                                 {% if not asis.entrada_m %}
-                                    <td class="error">SIN MARCA</td>
+                                    <td class="error">
+                                        <cite title="Entrada Mañana">
+                                            SIN MARCA
+                                        </cite>
+                                    </td>
                                 {% else %}
                                     {% if asis.obs_m %}
-                                        <td class="warning">{{asis.entrada_m|time}}</td>
+                                        <td class="warning">
+                                            <cite title="Entrada Mañana">
+                                                {{asis.entrada_m|time}}
+                                            </cite>
+                                        </td>
                                     {% else %}
-                                        <td class="success">{{asis.entrada_m|time}}</td>
+                                        <td class="success">
+                                            <cite title="Entrada Mañana">
+                                                {{asis.entrada_m|time}}
+                                            </cite>
+                                        </td>
                                     {% endif %}
                                 {% endif %}
                                 
                                 {% if not asis.salida_m %}
-                                    <td class="error">SIN MARCA</td>
+                                    <td class="error">
+                                        <cite title="Salida Mañana">
+                                            SIN MARCA
+                                        </cite>
+                                    </td>
                                 {% else %}
-                                    <td class="success">{{asis.salida_m|time}}</td>    
+                                    <td class="success">
+                                        <cite title="Salida Mañana">
+                                            {{asis.salida_m|time}}
+                                        </cite>
+                                    </td>    
                                 {% endif %}
 
                                 {% if not asis.obs_m %}
-                                    <td class="info"></td>
+                                    <td class="info">
+                                        <cite title="Observacion Mañana">
+                                        </cite>
+                                    </td>
                                 {% else %}
-                                    <td class="warning">{{asis.obs_m}}</td>
+                                    <td class="warning">
+                                        <cite title="Observacion Mañana">
+                                            {{asis.obs_m}}
+                                        </cite>
+                                    </td>
                                 {% endif %}
                                 
+
                                 {% if not asis.entrada_t %}
-                                    <td class="error">SIN MARCA</td>
+                                    <td class="error">
+                                        <cite title="Entrada Tarde">
+                                            SIN MARCA
+                                        </cite>
+                                    </td>
                                 {% else %}
                                     {% if asis.obs_t %}
-                                        <td class="warning">{{asis.entrada_t|time}}</td>
+                                        <td class="warning">
+                                            <cite title="Entrada Tarde">
+                                                {{asis.entrada_t|time}}
+                                            </cite>
+                                        </td>
                                     {% else %}
-                                        <td class="success">{{asis.entrada_t|time}}</td>
+                                        <td class="success">
+                                            <cite title="Entrada Tarde">
+                                                {{asis.entrada_t|time}}
+                                            </cite>
+                                        </td>
                                     {% endif %}
                                     
                                 {% endif %}
 
                                 {% if not asis.salida_t %}
-                                    <td class="error">SIN MARCA</td>
+                                    <td class="error">
+                                        <cite title="Salida Tarde">
+                                            SIN MARCA
+                                        </cite>
+                                    </td>
                                 {% else %}
-                                    <td class="success">{{asis.salida_t|time}}</td>    
+                                    <td class="success">
+                                        <cite title="Salida Tarde">
+                                            {{asis.salida_t|time}}
+                                        </cite>
+                                    </td>    
                                 {% endif %}
                                 
                                 {% if not asis.obs_t %}
-                                    <td class="info"></td>
+                                    <td class="info">
+                                        <cite title="Observacion Tarde">
+                                        </cite>
+                                    </td>
                                 {% else %}
-                                    <td class="warning">{{asis.obs_t}}</td>
+                                    <td class="warning">
+                                        <cite title="Observacion Tarde">
+                                            {{asis.obs_t}}
+                                        </cite>
+                                    </td>
                                 {% endif %}
                                 
                             {% endif %}
@@ -85,3 +140,4 @@
         </div>
     </section>
 {% endblock %}
+    

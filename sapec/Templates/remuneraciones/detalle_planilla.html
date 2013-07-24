@@ -3,9 +3,10 @@
 {% block title %}
 Detalle Planilla
 {% endblock	%}
+{% block url %}planilla/salario/{% endblock url %}
 {% block cuerpo %}
 	<section class="consulta">
-		<div class="row-fluid well">
+		<div class="row-fluid well center">
 			<div class="navbar-inner">
 				<div class="span3">
 					<p><strong>Cedula de Identidad: </strong>{{ empleado.ci }}</p>
@@ -19,8 +20,8 @@ Detalle Planilla
 					<p><strong>Telefono/Celular: </strong>{{ empleado.telefono }}</p>
 				</div>
 			</div>
-			<div class="span2"></div>
-			<div class="span10 well">
+			
+			<div class="metro span11 well">
 				<div class="span4">
 					<p><strong>Codigo De Contrato: </strong>{{ contrato.id }}</p>
 					<p><strong>Sueldo: </strong>{{contrato.sueldo }}</p>
@@ -34,42 +35,66 @@ Detalle Planilla
 					<p><strong>Unidad - Cargo: </strong>{{contrato.cargo|upper}}</p>
 				</div>
 			</div>
-			<div class="span3"></div>
-			<div class="span10 well">
+			
+			<div class="span11 well">
 				<div class="span3 well">
-					<h3>Descuentos por falta</h3>
-					{% for l in lista %}
-						<p>{{ l }}</p>
-					{% endfor %}
+					<h4>Descuento por Falta</h4>
+					<p><strong>Faltas: </strong>{{ faltas }} Dias</p>
+					<p><strong>Descuento: </strong>{{des_faltas}} Bs.</p>
+					<legend></legend>
+					<p><strong>Retrasos: </strong>{{retrasos}}</p>
+					<p><strong>Descuento: </strong>{{des_retraso}} Bs.</p>
 				</div>	
 				<div class="span3 well">
 					<h4>Otros Descuentos</h4>
 					{% for d in descuento %}
-						<p><strong>Razon: </strong>{{d.razon}}</p>
+						<p><strong>Razon: </strong>{{d.razon|upper}}</p>
 						<p>
 							<strong>Fecha: </strong>
 							<small>{{d.fecha}}</small>
 						</p>
 						<p><strong>Monto: </strong>{{d.pago}} Bs.</p>
-						<div class="divider"></div>
-
+						<legend></legend>
 					{% endfor %}
 				</div>
 				<div class="span3 well">
 					<h4>Pagos Empleado</h4>
 					{% for d in pago %}
-						<p><strong>Razon: </strong>{{d.razon}}</p>
+						<p><strong>Razon: </strong>{{d.razon|upper}}</p>
 						<p>
 							<strong>Fecha: </strong>
 							<small>{{d.fecha}}</small>
 						</p>
 						<p><strong>Monto: </strong>{{d.pago}} Bs.</p>
-						<div class="divider"></div>
-
+						<legend></legend>
 					{% endfor %}
 				</div>
+				<div class="span3 well">
+					<h4>Total Montos A pagar</h4>
+					<table class="table table-bordered table-hover">
+						<tr>
+							<td><strong>Sueldo</strong></td>
+							<td>{{contrato.sueldo}} Bs.</td>
+						</tr>
+						<tr>
+							<td><strong>Descuentos</strong></td>
+							<td>{{t_descuentos}} Bs.</td>
+						</tr>
+						<tr>
+							<td><strong>Pagos</strong></td>
+							<td>{{t_pagos}} Bs.</td>
+						</tr>
+						<legend></legend>
+						<tr>
+							<td><strong>Monto a Pagar</strong></td>
+							<td>{{total}} Bs.</td>
+						</tr>
+					</table>
+				</div>
 			</div>
-			
 		</div>
+		{% for n in pagos %}
+			<p>{{p.sum}}</p>
+		{% endfor %}
 	</section>
 {% endblock	%}

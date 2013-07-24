@@ -28,7 +28,7 @@
                                 <td>{{ emple.asistencia_set.count }}</td>
                                 <td>
                                     <a href="#myModal{{ emple.ci }}" class="btn btn-link" data-toggle="modal"><b class="icon-user"></b> Información</a>
-                                    <a href="/planilla/detalle/{{ emple.id }}/" class="btn btn-info">Detalle Asistencia</a>
+                                    <a href="{% url 'personal.views.seleccion_fechas' emple.id %}" class="btn btn-info">Detalle Asistencia</a>
                                 </td>
                             </tr>
                             <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" class="modal hide fade" id="myModal{{ emple.ci }}" style="display: none;">

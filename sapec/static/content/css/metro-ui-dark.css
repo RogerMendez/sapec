@@ -29,7 +29,7 @@ This class reverses the colors on the subtree to which it is applied.
 */
 .win-ui-dark {
    color: #FFF;
-   background-color: #1D1D1D;
+   /*background-color: #1D1D1D;*/
 }
 
 /*
