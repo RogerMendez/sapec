@@ -2379,3 +2379,8 @@ Thumbnail
 /*footer.roger_footer{
     background: lightgray;
 }*/
+a.text-color-black{
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+}

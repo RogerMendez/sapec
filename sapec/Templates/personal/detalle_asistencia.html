@@ -7,6 +7,8 @@
 {% block cuerpo %}
     <section class="consulta">
         <div class="row-fluid">
+        <h2>Asistencia de Empleado</h2>
+        <a class="btn btn-link" href="/planilla/detalle/{{ empleado.id }}/{{ fecha_ini|date:"d/m/Y" }}/{{ fecha_fin|date:"d/m/Y" }}/1/"><b class="icon-file-pdf"></b> Ver PDF</a>
         <div class="navbar-inner">
             <p><strong>Cedula: </strong>{{ empleado.ci }}</p>
             <p><strong>Apellidos: </strong>{{ empleado.paterno|upper }}, {{ empleado.materno|upper   }}</p>
@@ -22,6 +24,7 @@
                     <th>Entrada T.</th>
                     <th>Salida T.</th>
                     <th>Obs. T.</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,28 +33,28 @@
                         <td>{{ m }}</td>
                         {% for asis in asistencia %}
                             {% if asis.fecha == m %}
-                                {% if not asis.entrada_m %}
-                                    <td class="error">
-                                        <cite title="Entrada Mañana">
-                                            SIN MARCA
-                                        </cite>
-                                    </td>
-                                {% else %}
-                                    {% if asis.obs_m %}
-                                        <td class="warning">
+                                    {% if not asis.entrada_m %}
+                                        <td class="error">
                                             <cite title="Entrada Mañana">
-                                                {{asis.entrada_m|time}}
+                                                SIN MARCA
                                             </cite>
                                         </td>
                                     {% else %}
-                                        <td class="success">
-                                            <cite title="Entrada Mañana">
-                                                {{asis.entrada_m|time}}
-                                            </cite>
-                                        </td>
+                                        {% if asis.obs_m %}
+                                            <td class="warning">
+                                                <cite title="Entrada Mañana">
+                                                    {{asis.entrada_m|time}}
+                                                </cite>
+                                            </td>
+                                        {% else %}
+                                            <td class="success">
+                                                <cite title="Entrada Mañana">
+                                                    {{asis.entrada_m|time}}
+                                                </cite>
+                                            </td>
+                                        {% endif %}
                                     {% endif %}
-                                {% endif %}
-                                
+
                                 {% if not asis.salida_m %}
                                     <td class="error">
                                         <cite title="Salida Mañana">
@@ -129,7 +132,10 @@
                                         </cite>
                                     </td>
                                 {% endif %}
-                                
+
+                                <td>
+                                    <a href="/asistencia/editar/{{ cod_emple }}/{{ fecha_ini|date:"d/m/Y" }}/{{ fecha_fin|date:"d/m/Y" }}/{{ asis.id }}/" class="btn btn-info">Editar</a>
+                                </td>
                             {% endif %}
                         {% endfor %}
                     </tr>

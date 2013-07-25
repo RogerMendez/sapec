@@ -1,0 +1,45 @@
+{# encoding:utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Listado Cargos{% endblock%}
+{% block url %}organizacion{% endblock %}
+{% block cuerpo %}
+    <section class="consulta">
+        <h3>Conocimientos - Funciones del Cargo</h3>
+        <div class="row-fluid">
+            <div class="span4">
+                <p><strong>Nombre Unidad: </strong></p>
+                <p>{{ cargo.unidad }}</p>
+                <p><strong>Nombre Cargo:</strong></p>
+                <p>{{ cargo.nombre }}</p>
+            </div>
+            <div>
+                <p><strong>Descripción Cargo:</strong></p>
+                <p>{{ cargo.descripcion }}</p>
+            </div>
+        </div>
+
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Conocimientos</th>
+                    <th>Funciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        {% for conocimiento in conocimientos %}
+                            <p>{{ conocimiento.descripcion }}</p>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for funcion in funciones %}
+                            <p>{{ funcion.descripcion }}</p>
+                        {% endfor %}
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

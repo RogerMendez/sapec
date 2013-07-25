@@ -61,12 +61,12 @@ class contratacion(models.Model):
 
 class Asistencia(models.Model):
     fecha = models.DateField()
-    entrada_m = models.TimeField(blank=True, null=True)
-    salida_m = models.TimeField(blank=True, null=True)
-    obs_m = models.CharField(max_length='15', blank=True, null=True)
-    entrada_t = models.TimeField(blank=True, null=True)
-    salida_t = models.TimeField(blank=True, null=True)
-    obs_t = models.CharField(max_length="15", blank=True, null=True)
+    entrada_m = models.TimeField(blank=True, null=True, verbose_name="Hora Entrada Mañana")
+    salida_m = models.TimeField(blank=True, null=True, verbose_name="Hora Salida Mañana")
+    obs_m = models.CharField(max_length='15', blank=True, null=True, verbose_name="Observación Mañana")
+    entrada_t = models.TimeField(blank=True, null=True, verbose_name="Hora Entrada Tarde")
+    salida_t = models.TimeField(blank=True, null=True, verbose_name="Hora Salida Tarde")
+    obs_t = models.CharField(max_length="15", blank=True, null=True, verbose_name="Observación Tarde")
     empleado = models.ForeignKey(Empleados)
     def __unicode__(self):
         return self.empleado.nombre

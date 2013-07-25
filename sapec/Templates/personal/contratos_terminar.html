@@ -1,0 +1,45 @@
+{# encoding:utf-8 #}
+{% extends 'base.html' %}
+{% block title %}
+    Planilla de Asistencia
+{% endblock%}
+{% block url %}personal{% endblock %}
+{% block cuerpo %}
+    <section class="consulta">
+        <div class="row-fluid">
+            <div class="navbar-inner">
+                <p class="lead"><strong>Listado de Contratos Vigentes</strong></p>
+            </div>
+            <table class="table table-condesed table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Cedula</th>
+                        <th>Empleado</th>
+                        <th>Inicio De Contrato</th>
+                        <th>Finalizacion de Contrato</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for emple in empleados %}
+                        {% for c in contratos %}
+                            {% if c.empleado_id == emple.id %}
+                                <tr>
+                                    <td>{{ emple.ci }}</td>
+                                    <td>{{ c.empleado|upper }}</td>
+                                    <td>{{ c.fecha_entrada }}</td>
+                                    <td>{{ c.fecha_salida }}</td>
+                                    <td>
+                                        <a class="btn btn-info" href="{% url 'personal.views.terminar_contrato' c.id %}">Terminar Contrato</a>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

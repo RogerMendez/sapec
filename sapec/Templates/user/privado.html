@@ -1,9 +1,19 @@
 {# encoding:utf-8 #}
 {% extends 'base.html' %}
-{% block title %}Login{% endblock%}
+{% block title %}Usuario{% endblock%}
 {% block cuerpo %}
 <section class="consulta">
-    <a href="/salir">Cerrar Sesion </a>
+    <div class="row-fluid">
+        <div class="bs-docs-grid">
+            <div class="span4">
+                <a class="btn btn-success" href=""><b class="icon-refresh"> </b>Cambiar Contraseña</a>
+            </div>
+            <div class="span4 offset4">
+                <a class="btn btn-danger" href="/salir">Cerrar Sesion </a>
+            </div>
+        </div>
+    </div>
+
     <p>Bienvenido {{ usuario.username|upper }}</p>
 
 </section>

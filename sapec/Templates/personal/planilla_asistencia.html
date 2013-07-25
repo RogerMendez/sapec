@@ -16,7 +16,6 @@
                         <tr>
                             <th>Cedula de identidad</th>
                             <th>Nombre Completo</th>
-                            <th>Total de Asistencias</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -25,7 +24,6 @@
                             <tr>
                                 <td>{{ emple.ci }}</td>
                                 <td>{{ emple.nombre }} {{ emple.paterno }} {{ emple.materno }}</td>
-                                <td>{{ emple.asistencia_set.count }}</td>
                                 <td>
                                     <a href="#myModal{{ emple.ci }}" class="btn btn-link" data-toggle="modal"><b class="icon-user"></b> Información</a>
                                     <a href="{% url 'personal.views.seleccion_fechas' emple.id %}" class="btn btn-info">Detalle Asistencia</a>

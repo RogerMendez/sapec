@@ -79,7 +79,7 @@
         </div>
         <div class="app-label">Movilidad De Personal</div>
     </a>
-    <a class="tile wide imagetext bg-color-yellow" href="/planilla/asistencia/">
+    <a class="tile wide imagetext bg-color-azure" href="/planilla/asistencia/">
         <div class="image-wrapper">
             <img src="{{ STATIC_URL }}content/img/My Apps.png"/>
         </div>
@@ -88,4 +88,12 @@
         </div>
         <div class="app-label">Asistencias</div>
     </a>
+
+    <a href="{% url 'personal.views.seleccion_empleado_contrato' %}" class="tile app bg-color-darksalmon">
+        <div class="image-wrapper">
+            <img alt="" src="{{ STATIC_URL }}content/img/Windows Store.png">
+        </div>
+        <span class="app-label">Terminar Contratación</span>
+    </a>
+
 {% endblock %}

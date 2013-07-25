@@ -2,7 +2,7 @@
 from django.forms import ModelForm
 from django import forms
 
-from personal.models import Empleados, profesion, Observacion, Permiso
+from personal.models import Empleados, profesion, Observacion, Permiso, Asistencia
 from organizacion.models import Cargos
 from django.forms.extras.widgets import SelectDateWidget
 
@@ -50,3 +50,9 @@ class PermisoForm(ModelForm):
     class Meta:
         model = Permiso
         exclude = ['empleado']
+
+class AsistenciaFormEdid(ModelForm):
+    class Meta:
+        model=Asistencia
+        exclude=['fecha', 'empleado']
+        #exclude=['empleado']

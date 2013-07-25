@@ -243,3 +243,30 @@ def cargos_no_empleado(request, pdf = None) :
         return generar_pdf(html)
     else:
         return render_to_response('cargo/cargo_no_empleado.html', {'cargos' :cargos }, context_instance=RequestContext(request))
+
+
+def seleccion_cargos_cono(request):
+    q1 = Cargos.objects.all()
+    return render_to_response('cargo/seleccion_cargo_cono.html', {"cargos" :q1 }, context_instance=RequestContext(request))
+
+
+def conocimiento_funciones(request, cargo_id):
+    q1 = get_object_or_404(Cargos, pk = cargo_id)
+    q2 = Conocimiento.objects.filter(cargo_id = q1.id)
+    q3 = Funciones.objects.filter(cargo_id = q1.id)
+    return render_to_response('cargo/conocimiento_funciones.html', {
+                                                                "cargo" :q1,
+                                                                'conocimientos':q2,
+                                                                'funciones':q3,
+                                                                    }, context_instance=RequestContext(request))
+
+def view_planificaciones_cargo(request):
+    q1 = Cargos.objects.all()
+    return render_to_response('cargo/seleccion_planificacion_cargo.html',{
+                                                                    'cargos':q1,
+                                                                    }, context_instance=RequestContext(request))
+
+def planificacion_cargo(request, id_cargo):
+    q1 = get_object_or_404(Cargos, pk = id_cargo)
+    q2 = Planificacion.objects.filter(cargo_id = id_cargo, estado = True)
+    return render_to_response('cargo/planificacion_cargo.html',{'cargo':q1, 'planificaciones':q2}, context_instance=RequestContext(request))

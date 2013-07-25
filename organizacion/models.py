@@ -31,7 +31,7 @@ class Planificacion(models.Model):
     cantidad = models.IntegerField(default='1')
     fecha_plani = models.DateTimeField(auto_now=True)
     estado = models.BooleanField(default=True, verbose_name='Estado de la planificación', help_text='Activo / Inactivo')
-    cargo = models.ForeignKey(Cargos)
+    cargo = models.ForeignKey(Cargos, verbose_name='Unidad - Cargo')
     def __unicode__(self):
         return self.descripcion
     def __str__(self):
@@ -43,7 +43,7 @@ class Planificacion(models.Model):
 class Funciones(models.Model):
     descripcion = models.TextField(null=False, blank=False, verbose_name='Descripción de la Función')
     estado = models.BooleanField(default=True,verbose_name="Estado De la Función", help_text="Activo / Inactivo"  )
-    cargo = models.ForeignKey(Cargos, verbose_name="Cargo Al que Pertenece")
+    cargo = models.ForeignKey(Cargos, verbose_name='Unidad - Cargo Al que Pertenece')
     def __unicode__(self):
         return  self.descripcion
     def __str__(self):
@@ -55,7 +55,7 @@ class Funciones(models.Model):
 class Conocimiento(models.Model):
     descripcion = models.TextField(null=False, blank=False, verbose_name='Descripción del Conocimiento')
     estado = models.BooleanField(default=True,verbose_name="Estado Del Conocimiento", help_text="Activo / Inactivo"  )
-    cargo = models.ForeignKey(Cargos, verbose_name="Cargo Al que Pertenece")
+    cargo = models.ForeignKey(Cargos, verbose_name='Unidad - Cargo al que Pertenece')
     def __unicode__(self):
         return  self.descripcion
     def __str__(self):

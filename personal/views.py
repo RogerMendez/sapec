@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 
 from organizacion.models import Unidades, Cargos, Funciones
-from personal.form import EmpleadoForm, ProfesionForm, Contrato, AsistenciaForm, ObservacionForm, PermisoForm, FechasForm
+from personal.form import EmpleadoForm, ProfesionForm, Contrato, AsistenciaForm, ObservacionForm, PermisoForm, FechasForm, AsistenciaFormEdid
 from personal.models import Empleados, contratacion, Asistencia, Observacion, Permiso, moviidad
 
 
@@ -453,6 +453,7 @@ def seleccion_fechas(request, cod_emple):
                                                                 }, context_instance=RequestContext(request))
 
 def detalle_asistencia(request, id, dia_ini, mes_ini, anho_ini, dia_fin, mes_fin, anho_fin, pdf):
+    hoy = datetime.datetime.now()
     fecha_ini =  date(int(anho_ini), int(mes_ini), int(dia_ini))
     fecha_fin = date(int(anho_fin), int(mes_fin), int(dia_fin))
     flag = True
@@ -465,15 +466,42 @@ def detalle_asistencia(request, id, dia_ini, mes_ini, anho_ini, dia_fin, mes_fin
             flag = False
 
     empleado = get_object_or_404(Empleados, pk = id)
-    #empleados = Empleados.objects.filter(id = id)
-    asistencia = Asistencia.objects.filter(empleado_id = empleado.id)
-    if pdf:
-        return render_to_response('personal/detalle_asistencia.html', {'mes' :fechas,
+    contrato = contratacion.objects.get(fecha_salida__gte = hoy, fecha_entrada__lte=hoy, estado='ACTIVO', empleado_id=empleado.id)
+    asistencia = Asistencia.objects.filter(empleado_id = empleado.id, fecha__gte = contrato.fecha_entrada)
+    if not int(pdf):
+        return render_to_response('personal/detalle_asistencia.html', {
+                                                                    'mes' :fechas,
+                                                                    'cod_emple':id,
+                                                                    'fecha_ini':fecha_ini,
+                                                                    'fecha_fin':fecha_fin,
+                                                                    'empleado':empleado,
+                                                                    'asistencia':asistencia,
+                                                                }, context_instance=RequestContext(request))
+    else:
+        html = render_to_string('personal/detalle_asistencia_pdf.html', {'pagesize':'Letter',
+                                                                    'mes' :fechas,
                                                                    'empleado':empleado,
                                                                    'asistencia':asistencia,
                                                                 }, context_instance=RequestContext(request))
+        return generar_pdf(html)
+
+def asistencia_editar(request, id, dia_ini, mes_ini, anho_ini, dia_fin, mes_fin, anho_fin, asis_id):
+    fecha_ini =  date(int(anho_ini), int(mes_ini), int(dia_ini))
+    fecha_fin = date(int(anho_fin), int(mes_fin), int(dia_fin))
+    asistencia = get_object_or_404(Asistencia, pk=asis_id)
+    if request.method == 'POST' :
+        formulario = AsistenciaFormEdid(request.POST, instance=asistencia)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect("/planilla/detalle/"+id+"/"+dia_ini+"/"+mes_ini+"/"+anho_ini+"/"+dia_fin+"/"+mes_fin+"/"+anho_fin+"/0/")
     else:
-        return  False
+        formulario = AsistenciaFormEdid(instance = asistencia)
+    return  render_to_response('personal/editar_asistencia.html', {'formulario' :formulario,
+                                                                   'id':id,
+                                                                   'fecha_ini':fecha_ini,
+                                                                   'fecha_fin':fecha_fin,
+                                                                }, context_instance=RequestContext(request))
+
 
 
 def generar_pdf(html, numero = 1):
@@ -494,10 +522,10 @@ def get_full_path_x(request):
 
 def view_empleado_kardex(request):
     #q1 = get_object_or_404(Empleados, pk = cod_emple)
-    hoy = datetime.datetime.now()
-    q2 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO')
-    q3 = q2.values('empleado_id')
-    empleados = Empleados.objects.filter(id__in = q3)
+    #hoy = datetime.datetime.now()
+    #q2 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO')
+    #q3 = q2.values('empleado_id')
+    empleados = Empleados.objects.all()
     return render_to_response('personal/view_empleado_kardex.html', {'empleados':empleados,
                                                                 }, context_instance=RequestContext(request))
 
@@ -516,3 +544,17 @@ def kardex_empleado(request, cod_emple):
                                 'observaciones':q4,
                             }, context_instance=RequestContext(request))
 
+
+def seleccion_empleado_contrato(request):
+    hoy = datetime.datetime.now()
+    q1 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO')
+    q2 = q1.values('empleado_id')
+    q3 = Empleados.objects.filter(id__in = q2)
+    return render_to_response('personal/contratos_terminar.html',{'contratos':q1,'empleados':q3}, context_instance=RequestContext(request))
+
+def terminar_contrato(requesr, id_contrato):
+    q1 = get_object_or_404(contratacion, pk=id_contrato)
+    q1.estado = 'INACTIVO'
+    q1.fecha_salida = datetime.datetime.now()
+    q1.save()
+    return HttpResponseRedirect('/contrato/seleccionar/')

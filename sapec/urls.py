@@ -32,6 +32,11 @@ urlpatterns = patterns('',
     url(r'^planificacion/option/$', 'organizacion.views.option_plani'),
     url(r'^planificacion/update/(?P<id_plani>\d+)/$', 'organizacion.views.update_planificacion'),
     url(r'^planificacion/cancel/(?P<id_plani>\d+)/$', 'organizacion.views.cancel_plani'),
+
+    url(r'^planificacion/seleccion/$', 'organizacion.views.view_planificaciones_cargo'),
+
+    url(r'^planificacion/cargo/(?P<id_cargo>\d+)/$', 'organizacion.views.planificacion_cargo'),
+
     #CARGOS
     url(r'^cargo/$', 'organizacion.views.index_cargo'),
     url(r'^cargo/new/$', 'organizacion.views.new_cargo'),
@@ -44,6 +49,10 @@ urlpatterns = patterns('',
     url(r'^funcion/delete/(?P<id_funcion>\d+)/$', 'organizacion.views.delete_funcion'),
     #CONOCIMIENTO
     url(r'^conocimiento/new/$', 'organizacion.views.new_conocimiento'),
+
+    url(r'^seleccion/cargo/$', 'organizacion.views.seleccion_cargos_cono'),
+    url(r'^conocimiento/funcion/(?P<cargo_id>\d+)/$', 'organizacion.views.conocimiento_funciones'),
+
     #PERSONAL
     url(r'^personal/$', 'personal.views.home'),
     url(r'^personal/option/$', 'personal.views.option_empleado'),
@@ -62,6 +71,8 @@ urlpatterns = patterns('',
     url(r'^planilla/asistencia/$', 'personal.views.planilla_asistencia'),
     url(r'^planilla/detalle/(?P<id>\d+)/(?P<dia_ini>\d+)/(?P<mes_ini>\d+)/(?P<anho_ini>\d+)/(?P<dia_fin>\d+)/(?P<mes_fin>\d+)/(?P<anho_fin>\d+)/(?P<pdf>\d+)/$', 'personal.views.detalle_asistencia'),
 
+    url(r'^asistencia/editar/(?P<id>\d+)/(?P<dia_ini>\d+)/(?P<mes_ini>\d+)/(?P<anho_ini>\d+)/(?P<dia_fin>\d+)/(?P<mes_fin>\d+)/(?P<anho_fin>\d+)/(?P<asis_id>\d+)/$', 'personal.views.asistencia_editar'),
+
     url(r'^planilla/salario/$', 'remuneraciones.views.planilla_sueldos'),
     url(r'^planilla/detalle/sueldo/(?P<id_emple>\d+)/$', 'remuneraciones.views.detalle_planilla'),
 
@@ -74,6 +85,10 @@ urlpatterns = patterns('',
     url(r'^contrato/show/(?P<cod_contrato>\d+)/(?P<pdf>\d+)/$', 'personal.views.show_contrato'),
     url(r'^qr/show/(?P<ci_emple>\d+)/$', 'personal.views.tarjeta_empleado'),
     url(r'^show/contrato/(?P<cod_emple>\d+)/$', 'personal.views.view_contrato'),
+
+    url(r'^contrato/seleccionar/$', 'personal.views.seleccion_empleado_contrato'),
+    url(r'^contrato/terminar/(?P<id_contrato>\d+)/$', 'personal.views.terminar_contrato'),
+
     #ASISTENNCIA
     url(r'^personal/asistencia/$', 'personal.views.new_asistencia'),
     url(r'^asistencia/(?P<ci_emple>\d+)/$', 'personal.views.asistecia'),
