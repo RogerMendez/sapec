@@ -1,13 +1,13 @@
 {# encoding:utf-8 #}
 {% extends 'base.html' %}
 {% block title %}
-    Opciones Función
+    Opciones Conocimiento
 {% endblock%}
 {% block url %}organizacion{% endblock %}
 
 {% block cuerpo %}
     <section class="consulta">
-        <h3>Unidades - Cargos Que Poseen Alguna Función</h3>
+        <h3>Unidades - Cargos Que Poseen Algun Conocimiento</h3>
         <div class="accordion" id="accordion2">
             {% for unidad in unidades %}
                 <div class="accordion-group">
@@ -34,15 +34,15 @@
                                         {% if cargo.unidad_id == unidad.id %}
                                             <div id="cargo{{ cargo.id }}" class="tab-pane">
                                                 <p>
-                                                    {% for funcion in funciones %}
-                                                        {% if funcion.cargo_id == cargo.id %}
+                                                    {% for cono in conocimientos %}
+                                                        {% if cono.cargo_id == cargo.id %}
                                                             <p class="lead">
-                                                                {{ funcion.descripcion }}
+                                                                {{ cono.descripcion }}
                                                             </p>
                                                             <div class="well">
                                                                 <p>Opciones Función</p>
-                                                                <a class="btn btn-link" href="/funcion/update/{{ funcion.id }}"><b class="icon-pencil-2"></b> Modificar</a>
-                                                                <a class="btn btn-link" href="/funcion/delete/{{ funcion.id }}"><b class="icon-cancel"></b> Quitar Función</a>
+                                                                <a class="btn btn-link" href="{% url 'organizacion.views.update_conocimiento' cono.id %}"><b class="icon-pencil"></b> Modificar</a>
+                                                                <a class="btn btn-link" href="{% url 'organizacion.views.delete_conocimiento' cono.id %}"><b class="icon-cancel"></b> Quitar Conocimiento</a>
                                                             </div>
                                                         {% endif %}
                                                     {% endfor %}
@@ -56,7 +56,7 @@
                     </div>
                 </div>
             {% endfor %}
-            <a class="btn btn-link" href="/funcion/new"><b class="icon-plus"></b> Crear Función</a>
+            <a class="btn btn-link" href="{% url 'organizacion.views.new_conocimiento' %}"><b class="icon-plus"></b> Crear Conocimiento</a>
         </div>
     </section>
 {% endblock %}

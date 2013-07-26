@@ -13,6 +13,9 @@ class Unidades(models.Model):
     class Meta:
         ordering=["nombre"]
         verbose_name_plural = "Unidades"
+        permissions = (
+            ("option", "acceso a opciones de unidad"),
+        )
 
 class Cargos(models.Model):
     nombre = models.CharField(max_length=50)
@@ -25,6 +28,11 @@ class Cargos(models.Model):
     class Meta:
         ordering=["nombre"]
         verbose_name_plural = "Cargos"
+        permissions = (
+            ("option_cargo", "acceso a opciones de cargo"),
+        )
+
+
 
 class Planificacion(models.Model):
     descripcion = models.TextField()
@@ -39,6 +47,9 @@ class Planificacion(models.Model):
     class Meta:
         ordering=['fecha_plani']
         verbose_name_plural = "Planificación"
+        permissions = (
+            ("option_plani", "Acceso a opciones de Planificacion"),
+        )
 
 class Funciones(models.Model):
     descripcion = models.TextField(null=False, blank=False, verbose_name='Descripción de la Función')
@@ -50,6 +61,9 @@ class Funciones(models.Model):
         return  self.descripcion
     class Meta:
         verbose_name_plural = "Funciones"
+        permissions = (
+            ("option_funcion", "Acceso a opciones de Funcion"),
+        )
 
 
 class Conocimiento(models.Model):
@@ -62,3 +76,6 @@ class Conocimiento(models.Model):
         return  self.descripcion
     class Meta:
         verbose_name_plural = "Conocimiento"
+        permissions = (
+            ("option_conoci", "Acceso a opciones de Conocimiento"),
+        )

@@ -2,6 +2,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
+from django.contrib import messages
 
 from organizacion.models import Unidades, Cargos, Funciones
 from personal.form import EmpleadoForm, ProfesionForm, Contrato, AsistenciaForm, ObservacionForm, PermisoForm, FechasForm, AsistenciaFormEdid
@@ -9,9 +10,9 @@ from personal.models import Empleados, contratacion, Asistencia, Observacion, Pe
 
 
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordResetForm, AdminPasswordChangeForm
 from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 
 from django.conf import settings
 
@@ -24,8 +25,6 @@ import cStringIO as StringIO
 import cgi
 from django.template.loader import render_to_string
 import os
-
-import calendar
 
 
 
@@ -74,8 +73,8 @@ def option_empleado(request):
 def option_update_empleado(request):
     hoy = datetime.datetime.now()
     empleado=Empleados.objects.all()
-    contratos = contratacion.objects.filter(fecha_salida__gte = hoy, fecha_entrada__lte=hoy, estado='ACTIVO')
-    return render_to_response('personal/option_empleado_update.html', {'empleados' :empleado, 'contratos':contratos}, context_instance=RequestContext(request))
+    #contratos = contratacion.objects.filter(fecha_salida__gte = hoy, fecha_entrada__lte=hoy, estado='ACTIVO')
+    return render_to_response('personal/option_empleado_update.html', {'empleados' :empleado}, context_instance=RequestContext(request))
 
 def view_contratacion(request):
     hoy = datetime.datetime.now()
@@ -238,6 +237,7 @@ def new_asistencia(request):
 def asistecia(request, ci_emple):
     carnet = ci_emple
     hoy = datetime.datetime.now()
+    emple = Empleados.objects.get(ci = carnet)
     if Empleados.objects.filter(ci = carnet) and contratacion.objects.filter(fecha_entrada__lte = hoy, fecha_salida__gte = hoy, estado='ACTIVO', empleado__ci__exact = carnet ):
         emple = Empleados.objects.get(ci = carnet)
         cod_emple = emple.id
@@ -287,12 +287,12 @@ def asistecia(request, ci_emple):
                     q1.obs_t = 'RETRASO'
                     q1.save()
             if hora >= "22:01" and hora <= "05:59" :
-                return HttpResponseRedirect('/personal/asistencia')
+                return HttpResponseRedirect('/view/kardex/'+str(emple.id)+'/')
             else :
-                return HttpResponseRedirect('/personal/asistencia')
-        return HttpResponseRedirect('/personal/asistencia')  
+                return HttpResponseRedirect('/view/kardex/'+str(emple.id)+'/')
+        return HttpResponseRedirect('/view/kardex/'+str(emple.id)+'/')
     else:
-        return HttpResponseRedirect('/personal/asistencia/')
+        return HttpResponseRedirect('/view/kardex/'+str(emple.id)+'/')
 
 
 @login_required(login_url='/user/login')
@@ -387,9 +387,13 @@ def ingresar(request):
             if acceso is not None:
                 if acceso.is_active:
                     login(request, acceso)
+                    #request.session['color']='red'
                     if 'next' in request.GET:
                         return HttpResponseRedirect(str(request.GET['next']))
                     else:
+                        #request.user.message_set.create(
+                        #    message="Inicio De Sesión Correcto"
+                        #)
                         return HttpResponseRedirect('/privado')
                 else:
                     return render_to_response('user/noactivo.html', context_instance=RequestContext(request))
@@ -411,10 +415,22 @@ def cerrar(request):
     logout(request)
     return HttpResponseRedirect('/')
 
+@login_required(login_url='/user/login')
+def reset_pass(request):
+    if request.method == 'POST' :
+        formulario = AdminPasswordChangeForm(user=request.user, data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return HttpResponseRedirect('/user/login')
+    else:
+        formulario = AdminPasswordChangeForm(user=request.user)
+    return  render_to_response('user/reset_pass.html', {'formulario' :formulario}, context_instance=RequestContext(request))
+
+
 
 def tarjeta_empleado(request, ci_emple):
     empleado = get_object_or_404(Empleados, ci = ci_emple)
-    direccion = "http://192.168.10.102:90/asistencia/"+str(empleado.ci)+"/"
+    direccion = "http://192.168.43.124:90/asistencia/"+str(empleado.ci)+"/"
 
     return render_to_response('personal/qr.html', {'empleado' :empleado, 'direccion' :direccion}, context_instance=RequestContext(request))
 

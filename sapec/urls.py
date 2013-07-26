@@ -38,7 +38,7 @@ urlpatterns = patterns('',
     url(r'^planificacion/cargo/(?P<id_cargo>\d+)/$', 'organizacion.views.planificacion_cargo'),
 
     #CARGOS
-    url(r'^cargo/$', 'organizacion.views.index_cargo'),
+
     url(r'^cargo/new/$', 'organizacion.views.new_cargo'),
     url(r'^cargo/option/$', 'organizacion.views.option_cargo'),
     url(r'^cargo/update/(?P<id_cargo>\d+)/$', 'organizacion.views.update_cargo'),
@@ -49,6 +49,9 @@ urlpatterns = patterns('',
     url(r'^funcion/delete/(?P<id_funcion>\d+)/$', 'organizacion.views.delete_funcion'),
     #CONOCIMIENTO
     url(r'^conocimiento/new/$', 'organizacion.views.new_conocimiento'),
+    url(r'^conocimiento/option/$', 'organizacion.views.option_conocimiento'),
+    url(r'^conocimiento/update/(?P<cono_id>\d+)/$', 'organizacion.views.update_conocimiento'),
+    url(r'^conocimiento/delete/(?P<cono_id>\d+)/$', 'organizacion.views.delete_conocimiento'),
 
     url(r'^seleccion/cargo/$', 'organizacion.views.seleccion_cargos_cono'),
     url(r'^conocimiento/funcion/(?P<cargo_id>\d+)/$', 'organizacion.views.conocimiento_funciones'),
@@ -115,6 +118,7 @@ urlpatterns = patterns('',
     url(r'^user/login/$', 'personal.views.ingresar'),
     url(r'^privado/$', 'personal.views.privado'),
     url(r'^salir/$', 'personal.views.cerrar'),
+    url(r'^reset/password/$', 'personal.views.reset_pass'),
 
 
     url(r'^report/unidad/pdf/(?P<pdf>\d+)/$', 'organizacion.views.unidad_pdf'),

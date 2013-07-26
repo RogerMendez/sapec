@@ -3,18 +3,21 @@
 {% block title %}Usuario{% endblock%}
 {% block cuerpo %}
 <section class="consulta">
+
     <div class="row-fluid">
         <div class="bs-docs-grid">
             <div class="span4">
-                <a class="btn btn-success" href=""><b class="icon-refresh"> </b>Cambiar Contraseña</a>
+                <a class="btn btn-success" href="{% url 'personal.views.reset_pass' %}"><b class="icon-refresh"> </b>Cambiar Contraseña</a>
             </div>
             <div class="span4 offset4">
                 <a class="btn btn-danger" href="/salir">Cerrar Sesion </a>
             </div>
         </div>
     </div>
-
-    <p>Bienvenido {{ usuario.username|upper }}</p>
-
+    <div class="navbar-inner">
+        <p class="lead"><strong>Bienvenido</strong></p>
+        <p>{{ usuario.username|upper }}</p>
+        <p>{{ usuario.color }}</p>
+    </div>
 </section>
 {% endblock %}

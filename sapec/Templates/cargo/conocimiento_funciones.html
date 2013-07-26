@@ -1,10 +1,11 @@
 {# encoding:utf-8 #}
 {% extends 'base.html' %}
-{% block title %}Listado Cargos{% endblock%}
-{% block url %}organizacion{% endblock %}
+{% block title %}Funciones Conocimiento{% endblock%}
+{% block url %}seleccion/cargo{% endblock %}
 {% block cuerpo %}
     <section class="consulta">
         <h3>Conocimientos - Funciones del Cargo</h3>
+    <br>
         <div class="row-fluid">
             <div class="span4">
                 <p><strong>Nombre Unidad: </strong></p>
@@ -18,7 +19,7 @@
             </div>
         </div>
 
-        <table class="table table-hover table-bordered">
+        <table class="table table-condesed table-hover table-bordered">
             <thead>
                 <tr>
                     <th>Conocimientos</th>
@@ -29,12 +30,12 @@
                 <tr>
                     <td>
                         {% for conocimiento in conocimientos %}
-                            <p>{{ conocimiento.descripcion }}</p>
+                            <p><i class="icon-list"> </i> {{ conocimiento.descripcion|upper }}</p>
                         {% endfor %}
                     </td>
                     <td>
                         {% for funcion in funciones %}
-                            <p>{{ funcion.descripcion }}</p>
+                            <p><i class="icon-list"> </i> {{ funcion.descripcion|upper }}</p>
                         {% endfor %}
 
                     </td>
