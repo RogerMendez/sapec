@@ -2,6 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Unidades(models.Model):
     nombre = models.CharField(max_length=50, unique=True)
     descripcion = models.TextField(null=False, blank=False)
@@ -15,7 +16,6 @@ class Unidades(models.Model):
         verbose_name_plural = "Unidades"
         permissions = (
             ("option", "acceso a opciones de unidad"),
-            ("list_unidades", "acceso a listado de unidad"),
         )
 
 class Cargos(models.Model):
@@ -31,6 +31,7 @@ class Cargos(models.Model):
         verbose_name_plural = "Cargos"
         permissions = (
             ("option_cargo", "acceso a opciones de cargo"),
+            ("list_cargo", "acceso a listado de cargos"),
         )
 
 

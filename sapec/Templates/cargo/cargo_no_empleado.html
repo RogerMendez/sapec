@@ -10,14 +10,14 @@
         <table class="table table-hover table-bordered">
             <thead>
                 <tr>
-                    <th>Nombre Cargo</th>
+                    <th>Unidad - Cargo</th>
                     <th>Descripción Cargo</th>
                 </tr>
             </thead>
             <tbody>
                 {% for cargo in cargos %}
                     <tr>
-                        <td>{{ cargo.nombre }}</td>
+                        <td>{{ cargo.unidad|upper }} - {{ cargo.nombre }}</td>
                         <td>{{ cargo.descripcion }}</td>
                     </tr>
                 {% endfor %}

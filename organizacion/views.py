@@ -18,6 +18,7 @@ import datetime
 
 
 
+
 def home(request):
     unidad = Unidades.objects.all()
     return render_to_response('inicio.html', {unidad :unidad}, context_instance=RequestContext(request))
@@ -258,6 +259,7 @@ def unidad_pdf(request, pdf = None):
         return render_to_response('unidad/reporte_unidades.html', {'unidades' :unidades, }, context_instance=RequestContext(request))
 
 
+@permission_required('organizacion.list_cargos', login_url="/user/login")
 def cargos_pdf(request, pdf=None):
     cargos = Cargos.objects.all()
     unidades = Unidades.objects.all()
@@ -267,6 +269,8 @@ def cargos_pdf(request, pdf=None):
     else:
         return render_to_response('cargo/reporte_cargos_existentes.html', {'unidades' :unidades, "cargos" :cargos }, context_instance=RequestContext(request))
 
+
+@permission_required('organizacion.list_cargos_no_empleados', login_url="/user/login")
 def cargos_no_empleado(request, pdf = None) :
     hoy = date.today()
     q1 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO')
@@ -279,16 +283,18 @@ def cargos_no_empleado(request, pdf = None) :
         return render_to_response('cargo/cargo_no_empleado.html', {'cargos' :cargos }, context_instance=RequestContext(request))
 
 
+
+#@permission_required('organizacion.seleccion_cargo_conocimiento_funcion', login_url="/user/login")
 def seleccion_cargos_cono(request):
     q2 = Conocimiento.objects.filter(estado = True).values('cargo_id')
     q3 = Funciones.objects.filter(estado = True).values('cargo_id')
     q3 = Cargos.objects.filter(
         Q(id__in =q2)|Q(id__in=q3)
     )
-    q1 = Cargos.objects.all()
     return render_to_response('cargo/seleccion_cargo_cono.html', {"cargos" :q3 }, context_instance=RequestContext(request))
 
 
+#@permission_required('organizacion.cono_fun_cargos', login_url="/user/login")
 def conocimiento_funciones(request, cargo_id):
     q1 = get_object_or_404(Cargos, pk = cargo_id)
     q2 = Conocimiento.objects.filter(cargo_id = q1.id)

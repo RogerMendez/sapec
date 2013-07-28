@@ -33,7 +33,8 @@ def home(request):
     return render_to_response('index_personal.html', context_instance=RequestContext(request))
 
 
-@login_required(login_url='/user/login')
+#@login_required(login_url='/user/login')
+@permission_required('personal.add_empleados', login_url="/user/login")
 def new_empleado(request, cod_cargo):
     #cargo = Cargos.objects.filter(id = cod_cargo)
     cargo = Cargos.objects.get(pk = cod_cargo)
@@ -63,32 +64,39 @@ def new_empleado(request, cod_cargo):
         formulario = EmpleadoForm()
     return render_to_response('personal/new_empleado.html', {'formulario' :formulario, 'cargo' :cargo}, context_instance=RequestContext(request))
 
-@login_required(login_url='/user/login')
+
+@permission_required('personal.option_empleados', login_url="/user/login")
 def option_empleado(request):
     hoy = datetime.datetime.now()
     empleado=Empleados.objects.all()
     contratos = contratacion.objects.filter(fecha_salida__gte = hoy, fecha_entrada__lte=hoy, estado='ACTIVO')
     return render_to_response('personal/option_empleado_permiso.html', {'empleados' :empleado, 'contratos':contratos}, context_instance=RequestContext(request))
 
+
+@permission_required('personal.option_update_empleados', login_url="/user/login")
 def option_update_empleado(request):
     hoy = datetime.datetime.now()
     empleado=Empleados.objects.all()
     #contratos = contratacion.objects.filter(fecha_salida__gte = hoy, fecha_entrada__lte=hoy, estado='ACTIVO')
     return render_to_response('personal/option_empleado_update.html', {'empleados' :empleado}, context_instance=RequestContext(request))
 
+
+@permission_required('personal.option_contrato_empleados', login_url="/user/login")
 def view_contratacion(request):
     hoy = datetime.datetime.now()
     empleado=Empleados.objects.all()
     contratos = contratacion.objects.filter(fecha_salida__gte = hoy, fecha_entrada__lte=hoy, estado='ACTIVO')
     return render_to_response('personal/view_contrato_empleado.html', {'empleados' :empleado, 'contratos':contratos}, context_instance=RequestContext(request))
 
+@permission_required('personal.option_observacion_empleados', login_url="/user/login")
 def registro_observacion_observacion(request):
     hoy = datetime.datetime.now()
     empleado=Empleados.objects.all()
     contratos = contratacion.objects.filter(fecha_salida__gte = hoy, fecha_entrada__lte=hoy, estado='ACTIVO')
     return render_to_response('personal/view_registro_observacion.html', {'empleados' :empleado, 'contratos':contratos}, context_instance=RequestContext(request))    
 
-@login_required(login_url='/user/login')
+
+@permission_required('personal.change_empleados', login_url="/user/login")
 def update_empleado(request, empleado_id):
     empleado = get_object_or_404(Empleados, pk = empleado_id)
     if request.method == 'POST':
@@ -100,7 +108,8 @@ def update_empleado(request, empleado_id):
         formulario = EmpleadoForm(instance = empleado)
     return render_to_response('personal/update_empleado.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
-@login_required(login_url='/user/login')
+
+@permission_required('personal.add_profesion', login_url="/user/login")
 def new_profesion(request):
     if request.method == 'POST' :
         formulario = ProfesionForm(request.POST, request.FILES)
@@ -111,15 +120,18 @@ def new_profesion(request):
         formulario = ProfesionForm()
     return render_to_response('personal/new_profesion.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
+
 #CONTRATACION
-@login_required(login_url='/user/login')
+
+@permission_required('personal.list_cargos_unidad', login_url="/user/login")
 def cargos_contrato(request):
-    unidad = Unidades.objects.all()
     cargo = Cargos.objects.all()
+    q1 = cargo.values('unidad_id')
+    unidad = Unidades.objects.filter(id__in = q1)
     return render_to_response('personal/cargo_contrato.html', {'cargos' :cargo, 'unidades' :unidad}, context_instance=RequestContext(request))
 
 
-@login_required(login_url='/user/login')
+@permission_required('personal.add_contratacion', login_url="/user/login")
 def new_contrato(request, empleado_ci, cargo_id):
     cargo = Cargos.objects.get(pk = cargo_id)
     empleado = Empleados.objects.get(ci = empleado_ci)
@@ -140,12 +152,14 @@ def new_contrato(request, empleado_ci, cargo_id):
                                         empleado_id=id,
                                         cargo_id=cargo,
                                         )
-
             return HttpResponseRedirect('/contrato/show/'+str(c.id)+'/'+str(0)+'/')
     else:
         formulario = Contrato()
     return render_to_response('personal/new_contratacion.html', {'formulario' :formulario, 'empleado_ci':empleado_ci, 'cargo' :cargo, 'empleado' :empleado}, context_instance=RequestContext(request))
 
+
+
+@permission_required('personal.view_contratacion', login_url="/user/login")
 def show_contrato(request, cod_contrato, pdf = 0) :
     contrato = get_object_or_404(contratacion, pk = cod_contrato)
     cargo = Cargos.objects.get( pk = contrato.cargo_id)
@@ -172,14 +186,16 @@ def show_contrato(request, cod_contrato, pdf = 0) :
                                   context_instance=RequestContext(request))
 
 
+
 def new_asistencia(request):
     if request.method == 'POST' :
         formulario = AsistenciaForm(request.POST, request.FILES)
         if formulario.is_valid() :
             carnet = formulario.cleaned_data['ci']
+            emple = Empleados.objects.get(ci = carnet)
             hoy = datetime.datetime.now()
             if Empleados.objects.filter(ci = carnet) and contratacion.objects.filter(fecha_entrada__lte = hoy, fecha_salida__gte = hoy, estado='ACTIVO', empleado__ci__exact = carnet ):
-                emple = Empleados.objects.get(ci = carnet)
+
                 cod_emple = emple.id
                 if Asistencia.objects.filter(empleado_id = cod_emple, fecha = hoy):
                     q1 = Asistencia.objects.get(fecha = hoy, empleado_id = cod_emple)
@@ -228,12 +244,14 @@ def new_asistencia(request):
                     if hora >= "22:01" and hora <= "05:59" :
                         return HttpResponseRedirect('/personal/')
             else:
-                return HttpResponseRedirect('/personal/asistencia/')
-            return HttpResponseRedirect('/personal/asistencia/')
+                return HttpResponseRedirect('/view/kardex/'+str(emple.id)+'/')
+            return HttpResponseRedirect('/view/kardex/'+str(emple.id)+'/')
     else:
         formulario = AsistenciaForm()
     return  render_to_response('personal/new_asistencia.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
+
+@permission_required('personal.asistencia_qr', login_url="/user/login")
 def asistecia(request, ci_emple):
     carnet = ci_emple
     hoy = datetime.datetime.now()
@@ -295,7 +313,8 @@ def asistecia(request, ci_emple):
         return HttpResponseRedirect('/view/kardex/'+str(emple.id)+'/')
 
 
-@login_required(login_url='/user/login')
+
+@permission_required('personal.add_observacion', login_url="/user/login")
 def new_observacion(request, cod_emple):
     if request.method == 'POST' :
         formulario = ObservacionForm(request.POST, request.FILES)
@@ -314,7 +333,8 @@ def new_observacion(request, cod_emple):
     return  render_to_response('personal/new_observacion.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
 
-@login_required(login_url='/user/login')
+
+@permission_required('personal.add_permiso', login_url="/user/login")
 def new_permiso(request, cod_emple):
     if request.method == 'POST' :
         formulario = PermisoForm(request.POST, request.FILES)
@@ -331,7 +351,7 @@ def new_permiso(request, cod_emple):
     return  render_to_response('personal/new_observacion.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
 
-@login_required(login_url='/user/login')
+@permission_required('personal.select_cargo_cambio', login_url="/user/login")
 def select_personal(request):
     hoy = datetime.datetime.now()
     empleado=Empleados.objects.all()
@@ -339,7 +359,8 @@ def select_personal(request):
     return render_to_response('personal/cambio_personal.html', {'empleados' :empleado, 'contratos':contratos}, context_instance=RequestContext(request))
 
 
-@login_required(login_url='/user/login')
+
+@permission_required('personal.select_cargo_cambio', login_url="/user/login")
 def cambio_cargo(request, empleado_cod):
     cargo = Cargos.objects.all()
     q1 = cargo.distinct().values('unidad_id')
@@ -351,7 +372,7 @@ def cambio_cargo(request, empleado_cod):
                                 }, context_instance=RequestContext(request))
 
 
-@login_required(login_url='/user/login')
+@permission_required('personal.add_moviidad', login_url="/user/login")
 def empleado_cambio(request, cargo_cod, empleado_cod):
     contrato = contratacion.objects.get(empleado_id = int(empleado_cod), estado = 'ACTIVO')
     moviidad.objects.create(
@@ -427,20 +448,20 @@ def reset_pass(request):
     return  render_to_response('user/reset_pass.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
 
-
+@permission_required('personal.qr_empleados', login_url="/user/login")
 def tarjeta_empleado(request, ci_emple):
     empleado = get_object_or_404(Empleados, ci = ci_emple)
     direccion = "http://192.168.43.124:90/asistencia/"+str(empleado.ci)+"/"
-
     return render_to_response('personal/qr.html', {'empleado' :empleado, 'direccion' :direccion}, context_instance=RequestContext(request))
 
+@permission_required('personal.show_contrato', login_url="/user/login")
 def view_contrato(request, cod_emple):
     q1 = get_object_or_404(Empleados, pk = cod_emple)
     hoy = datetime.datetime.now()
     q2 = contratacion.objects.get(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO', empleado_id = cod_emple)
     return HttpResponseRedirect("/contrato/show/"+str(q2.id)+"/0/")
 
-
+@permission_required('personal.list_asistencia', login_url="/user/login")
 def planilla_asistencia(request):
     hoy = datetime.datetime.now()
     q2 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO').values('empleado_id')
@@ -449,8 +470,7 @@ def planilla_asistencia(request):
     return render_to_response('personal/planilla_asistencia.html', {'empleados' :empleado,
                                                 }, context_instance=RequestContext(request))
 
-
-
+@permission_required('personal.fechas_asistencia', login_url="/user/login")
 def seleccion_fechas(request, cod_emple):
     hoy = datetime.datetime.now()
     contrato = contratacion.objects.get(fecha_salida__gte = hoy, fecha_entrada__lte=hoy, estado='ACTIVO', empleado_id=cod_emple)
@@ -468,6 +488,8 @@ def seleccion_fechas(request, cod_emple):
                                                                   'contrato':contrato,
                                                                 }, context_instance=RequestContext(request))
 
+
+@permission_required('personal.detalle_asistencia', login_url="/user/login")
 def detalle_asistencia(request, id, dia_ini, mes_ini, anho_ini, dia_fin, mes_fin, anho_fin, pdf):
     hoy = datetime.datetime.now()
     fecha_ini =  date(int(anho_ini), int(mes_ini), int(dia_ini))
@@ -501,6 +523,8 @@ def detalle_asistencia(request, id, dia_ini, mes_ini, anho_ini, dia_fin, mes_fin
                                                                 }, context_instance=RequestContext(request))
         return generar_pdf(html)
 
+
+@permission_required('personal.change_asistencia', login_url="/user/login")
 def asistencia_editar(request, id, dia_ini, mes_ini, anho_ini, dia_fin, mes_fin, anho_fin, asis_id):
     fecha_ini =  date(int(anho_ini), int(mes_ini), int(dia_ini))
     fecha_fin = date(int(anho_fin), int(mes_fin), int(dia_fin))
@@ -536,14 +560,14 @@ def get_full_path_x(request):
     request.META['HTTP_HOST'], request.path)
     return ''.join(full_path)
 
+
+@permission_required('personal.list_kardex_empleado', login_url="/user/login")
 def view_empleado_kardex(request):
-    #q1 = get_object_or_404(Empleados, pk = cod_emple)
-    #hoy = datetime.datetime.now()
-    #q2 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO')
-    #q3 = q2.values('empleado_id')
     empleados = Empleados.objects.all()
     return render_to_response('personal/view_empleado_kardex.html', {'empleados':empleados,
                                                                 }, context_instance=RequestContext(request))
+
+
 
 def kardex_empleado(request, cod_emple):
     q1 = get_object_or_404(Empleados, pk=cod_emple)
@@ -561,6 +585,7 @@ def kardex_empleado(request, cod_emple):
                             }, context_instance=RequestContext(request))
 
 
+@permission_required('personal.list_contrato_empleado', login_url="/user/login")
 def seleccion_empleado_contrato(request):
     hoy = datetime.datetime.now()
     q1 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO')
@@ -568,6 +593,7 @@ def seleccion_empleado_contrato(request):
     q3 = Empleados.objects.filter(id__in = q2)
     return render_to_response('personal/contratos_terminar.html',{'contratos':q1,'empleados':q3}, context_instance=RequestContext(request))
 
+@permission_required('personal.delete_contratacion', login_url="/user/login")
 def terminar_contrato(requesr, id_contrato):
     q1 = get_object_or_404(contratacion, pk=id_contrato)
     q1.estado = 'INACTIVO'

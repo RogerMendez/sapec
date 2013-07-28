@@ -9,7 +9,7 @@ from personal.models import Empleados, contratacion, Asistencia
 from remuneraciones.models import Pagos, Descuento
 from remuneraciones.form import PagosForm, DescuentoForm
 
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 
 from django.db.models import Count, Sum, Avg, Max, Min
 
@@ -24,18 +24,21 @@ def home(request):
 
 
 
-@login_required(login_url='/user/login')
+#@login_required(login_url='/user/login')
+@permission_required('remuneraciones.list_enpleados_pago', login_url="/user/login")
 def pago_empleado(request):
     empleado=Empleados.objects.all()
     contratos = contratacion.objects.exclude(fecha_salida__lte = datetime.datetime.now()).filter(estado = 'ACTIVO')
     return render_to_response('remuneraciones/empleado_pago.html', {'empleados' :empleado, 'contratos':contratos}, context_instance=RequestContext(request))
 
+@permission_required('remuneraciones.list_enpleados_descuento', login_url="/user/login")
 def descuento_empleado(request):
     empleado=Empleados.objects.all()
     contratos = contratacion.objects.exclude(fecha_salida__lte = datetime.datetime.now()).filter(estado = 'ACTIVO')
     return render_to_response('remuneraciones/empleado_descuento.html', {'empleados' :empleado, 'contratos':contratos}, context_instance=RequestContext(request))
 
-@login_required(login_url='/user/login')
+
+@permission_required('remuneraciones.add_pagos', login_url="/user/login")
 def new_pago(request, cod_emple):
     if request.method == 'POST' :
         formulario = PagosForm(request.POST, request.FILES)
@@ -53,7 +56,8 @@ def new_pago(request, cod_emple):
     return  render_to_response('remuneraciones/new_pago.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
 
-@login_required(login_url='/user/login')
+
+@permission_required('remuneraciones.add_descuento', login_url="/user/login")
 def new_descuento(request, cod_emple):
     if request.method == 'POST' :
         formulario = DescuentoForm(request.POST, request.FILES)
@@ -71,6 +75,7 @@ def new_descuento(request, cod_emple):
     return  render_to_response('remuneraciones/new_descuento.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
 
+@permission_required('personal.list_planilla_sueldos', login_url="/user/login")
 def planilla_sueldos(request):
     hoy = datetime.datetime.now()
     q45 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO').values('empleado_id')
@@ -81,28 +86,23 @@ def planilla_sueldos(request):
                                                 }, context_instance=RequestContext(request))
 
 
+@permission_required('personal.detalle_planilla_sueldos', login_url="/user/login")
 def detalle_planilla(request, id_emple):
     hoy = datetime.datetime.now()
     empleado = get_object_or_404(Empleados, pk=id_emple)
     contrato = contratacion.objects.get(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO', empleado_id = id_emple)
-    #q1 = contrato.values('empleado_id')
     descuentos = Descuento.objects.filter(fecha__lte = hoy, fecha__gte=hoy, empleado_id = empleado.id)
     pagos = Pagos.objects.filter(fecha__lte = hoy, fecha__gte=hoy, empleado_id = empleado.id)
-    
     q2 = Asistencia.objects.filter(empleado_id = id_emple)
-    
     month = hoy.strftime("%m")
     year = hoy.strftime("%Y")
     cal = calendar.Calendar()
     dias = [x for x in cal.itermonthdays(int(year),int(month)) if x][-1]
     lista1 = range(1,dias+1)
     fechas = []
-    falta = 0
-    retraso = 0
     fin = 0
     for c in lista1:
         fechas +=[date(int(year), int(month), int(c))]
-    falta_t = 0
     for f in fechas:
         if f.weekday() == 5 or f.weekday() == 6 :
             fin = fin + 1

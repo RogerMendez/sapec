@@ -67,8 +67,6 @@ urlpatterns = patterns('',
     url(r'^personal/kardex/', 'personal.views.view_empleado_kardex'),
     url(r'^view/kardex/(?P<cod_emple>\d+)/$', 'personal.views.kardex_empleado'),
 
-
-
     url(r'^profesion/new/$', 'personal.views.new_profesion'),
 
     url(r'^planilla/asistencia/$', 'personal.views.planilla_asistencia'),
