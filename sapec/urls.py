@@ -9,7 +9,7 @@ dajaxice_autodiscover()
 admin.autodiscover()
 
 urlpatterns = patterns('',
-
+    (r'^grappelli/', include('grappelli.urls')),
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
     url(r'^media/(?P<path>.*)$','django.views.static.serve', {'document_root':settings.MEDIA_ROOT,} ),
     

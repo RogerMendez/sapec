@@ -248,6 +248,7 @@ def generar_pdf(html):
     return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
 
 
+@permission_required('organizacion.list_unidades', login_url="/user/login")
 def unidad_pdf(request, pdf = None):
     unidades=Unidades.objects.all()
     if pdf == "1" :

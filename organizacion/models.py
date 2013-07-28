@@ -15,6 +15,7 @@ class Unidades(models.Model):
         verbose_name_plural = "Unidades"
         permissions = (
             ("option", "acceso a opciones de unidad"),
+            ("list_unidades", "acceso a listado de unidad"),
         )
 
 class Cargos(models.Model):

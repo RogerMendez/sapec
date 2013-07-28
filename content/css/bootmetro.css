@@ -39,7 +39,7 @@ html[xmlns] .clearfix {
 
 
 .container-fluid {
-   padding-left: 70px;
+   padding-left: 30px;
    padding-right: 70px;
 }
 
@@ -95,6 +95,10 @@ h1, h2, h3, h4, h5, h6 {
    margin-top: 0;
    margin-bottom: 0;
 }
+h2.title{
+   padding-left: 30px;
+}
+
 /*Tpdp {ara Tablas*/
 
 section.consulta{
@@ -512,6 +516,7 @@ Back button.
    border-style: solid;
    padding: 0;
    text-align: center;
+
 
    /* Normal sizing. */
    width: 38px;
@@ -1867,7 +1872,6 @@ input, textarea, select, .uneditable-input {
 -------------------------------------------------- */
 /*
    NOTE:
-   Originally the following rules used the adjacent sibling selector '+ span'
    but in Rails & ASP.NET radio & checkbox are rendered with a supplemental hidden input following
    the radio/checkbox, so I changed the rules to use the general sibling selector '~ span' and adding a
    custom class to the span.
@@ -2371,4 +2375,12 @@ Thumbnail
    margin-top: 20px;
    padding: 0;
    vertical-align: top;
+}
+/*footer.roger_footer{
+    background: lightgray;
+}*/
+a.text-color-black{
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
 }

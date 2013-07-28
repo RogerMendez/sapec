@@ -31,9 +31,14 @@
 .bg-color-darken {
    background-color: #1c1c1c !important;
 }
-
+.bg-color-azure{
+    background-color:#003147;
+}
+.bg-color-darksalmon{
+    background-color: #df8505;
+}
  #todo{
-            width: 90%;
+            width: 85%;
             margin: auto;
          }
 
@@ -99,7 +104,7 @@
    cursor: pointer;
    overflow: hidden;
    text-decoration: none;
-   background-color: #2C83EF;
+   /*background-color: #2C83EF;*/
 }
    .metro .tile:hover {
       outline: 3px #225a68 solid;
