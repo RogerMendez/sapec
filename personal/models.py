@@ -9,6 +9,7 @@ def validate_min(value):
     if len(str(value)) != 8 and len(str(value)) != 7:
         raise ValidationError(u'%s No es Una Cedula de Identidad Valida' % value)
 
+
 class profesion(models.Model):
     descripcion=models.TextField()
     def __unicode__(self):
