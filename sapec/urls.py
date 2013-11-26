@@ -90,6 +90,8 @@ urlpatterns = patterns('',
     url(r'^contrato/seleccionar/$', 'personal.views.seleccion_empleado_contrato'),
     url(r'^contrato/terminar/(?P<id_contrato>\d+)/$', 'personal.views.terminar_contrato'),
 
+    url(r'^usuario/contrataciones/$', 'personal.views.contrato_usuario' ),
+
     #ASISTENNCIA
     url(r'^personal/asistencia/$', 'personal.views.new_asistencia'),
     url(r'^asistencia/(?P<ci_emple>\d+)/$', 'personal.views.asistecia'),
@@ -101,6 +103,7 @@ urlpatterns = patterns('',
     url(r'^empleado/cambio/$', 'personal.views.select_personal'),
     url(r'^cargo/cambio/(?P<empleado_cod>\d+)/$', 'personal.views.cambio_cargo'),
     url(r'^empleado/cambio/(?P<cargo_cod>\d+)/(?P<empleado_cod>\d+)/$', 'personal.views.empleado_cambio'),
+    url(r'^empleado/razon/cambio/(?P<cod_cambio>\d+)', 'personal.views.razon_cambio'),
     #REMUNERACION
     url(r'^remuneracion/$', 'remuneraciones.views.home'),
     #PAGOS

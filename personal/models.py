@@ -54,6 +54,7 @@ class contratacion(models.Model):
     descuento = models.FloatField(verbose_name="Descuento Por Falta", help_text="10 Retrasos equivalentes a una falta")
     empleado = models.ForeignKey(Empleados)
     cargo = models.ForeignKey(Cargos)
+    usuario = models.ForeignKey(User, null=True, blank=True)
     def __unicode__(self):
         return self.empleado.nombre
     class Meta:
@@ -123,6 +124,7 @@ class moviidad(models.Model):
     contrato = models.ForeignKey(contratacion)
     cargo = models.ForeignKey(Cargos)
     fecha = models.DateField(auto_now_add=True)
+    descripcion = models.TextField(verbose_name='Razon del Cambio', null=True)
     def __unicode__(self):
         return str(self.fecha)
     class Meta:

@@ -75,6 +75,7 @@
                         <tr>
                             <th>De Unidad - Cargo</th>
                             <th>A Unidad - Cargo</th>
+                            <th>Razón del Cambio</th>
                             <th>Fecha De Cambio</th>
                         </tr>
                     </thead>
@@ -90,6 +91,7 @@
                                     {{m.contrataciones_set.all}}
                                 </td>
                                 <td>{{m.cargo}}</td>
+                                <td>{{ m.descripcion }}</td>
                                 <td>{{m.fecha}}</td>
                             </tr>
                         {% endfor %}

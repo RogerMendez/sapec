@@ -38,7 +38,7 @@ class CalendarWidget(forms.TextInput):
 
 
 class AsistenciaForm(forms.Form):
-    ci = forms.IntegerField(label="Cedula de Identidad");
+    ci = forms.IntegerField(label="Cedula de Identidad")
 
 
 class ObservacionForm(ModelForm):
@@ -56,3 +56,6 @@ class AsistenciaFormEdid(ModelForm):
         model=Asistencia
         exclude=['fecha', 'empleado']
         #exclude=['empleado']
+
+class RazonCambioForm(forms.Form):
+    descripcion = forms.CharField(label="Razón de Cambio de Cargo", widget=forms.Textarea)

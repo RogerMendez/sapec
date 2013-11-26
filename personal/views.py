@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.contrib import messages
 
 from organizacion.models import Unidades, Cargos, Funciones
-from personal.form import EmpleadoForm, ProfesionForm, Contrato, AsistenciaForm, ObservacionForm, PermisoForm, FechasForm, AsistenciaFormEdid
+from personal.form import EmpleadoForm, ProfesionForm, Contrato, AsistenciaForm, ObservacionForm, PermisoForm, FechasForm, AsistenciaFormEdid, RazonCambioForm
 from personal.models import Empleados, contratacion, Asistencia, Observacion, Permiso, moviidad
 
 
@@ -13,8 +13,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordResetForm, AdminPasswordChangeForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required, permission_required
-
+from django.template.loader import render_to_string
 from django.conf import settings
+
 
 from datetime import datetime, time
 from datetime import  date, timedelta
@@ -23,7 +24,7 @@ import datetime
 import ho.pisa as pisa
 import cStringIO as StringIO
 import cgi
-from django.template.loader import render_to_string
+
 import os
 
 
@@ -152,6 +153,8 @@ def new_contrato(request, empleado_ci, cargo_id):
                                         empleado_id=id,
                                         cargo_id=cargo,
                                         )
+            c.usuario = request.user
+            c.save()
             return HttpResponseRedirect('/contrato/show/'+str(c.id)+'/'+str(0)+'/')
     else:
         formulario = Contrato()
@@ -375,7 +378,7 @@ def cambio_cargo(request, empleado_cod):
 @permission_required('personal.add_moviidad', login_url="/user/login")
 def empleado_cambio(request, cargo_cod, empleado_cod):
     contrato = contratacion.objects.get(empleado_id = int(empleado_cod), estado = 'ACTIVO')
-    moviidad.objects.create(
+    movi = moviidad.objects.create(
                             contrato_id = contrato.id,
                             cargo_id = int(cargo_cod),
                             fecha = datetime.datetime.now(),
@@ -392,7 +395,21 @@ def empleado_cambio(request, cargo_cod, empleado_cod):
                                 cargo_id = int(cargo_cod),
                                 )
     contrato.save()
-    return HttpResponseRedirect('/personal')
+    return HttpResponseRedirect('/empleado/razon/cambio/'+ str(movi.id) +'/')
+
+@permission_required('movilidad.add_razon_cargo', login_url="/user/login")
+def razon_cambio(request, cod_cambio):
+    movi = get_object_or_404(moviidad, pk = cod_cambio)
+    if request.method == 'POST':
+        formulario = RazonCambioForm(request.POST)
+        if formulario.is_valid():
+            descripcion = formulario.cleaned_data['descripcion']
+            movi.descripcion = descripcion
+            movi.save()
+            return HttpResponseRedirect('/')
+    else:
+        formulario = RazonCambioForm()
+    return render_to_response('personal/razon_cambio.html', {'formulario':formulario}, context_instance=RequestContext(request))
 
 
 def ingresar(request):
@@ -600,3 +617,15 @@ def terminar_contrato(requesr, id_contrato):
     q1.fecha_salida = datetime.datetime.now()
     q1.save()
     return HttpResponseRedirect('/contrato/seleccionar/')
+
+
+
+def contrato_usuario(request,):
+    usuarios = User.objects.filter(is_active = 1)
+    hoy = datetime.datetime.now()
+    contrataciones = contratacion.objects.filter(fecha_salida__gte = hoy, fecha_entrada__lte=hoy, estado = 'ACTIVO')
+    q1 = contrataciones.values('empleado_id')
+    empleados = Empleados.objects.filter(id__in = q1)
+    return render_to_response('personal/contrataciones_usuario.html',
+                              {'usuarios':usuarios, 'contrataciones':contrataciones, 'empleados':empleados },
+                              context_instance=RequestContext(request))
