@@ -19,7 +19,11 @@ class ProfesionForm(ModelForm):
 class FechasForm(forms.Form):
     fecha_ini = forms.DateField(label="Fecha Inicio", help_text="Dia/Mes/Año")
     fecha_fin = forms.DateField(label="Fecha Finalización", help_text="Dia/Mes/Año")
-        
+
+class FechaForm(forms.Form):
+    fecha = forms.DateField(label="Seleccione Una Fecha", help_text="Dia/Mes/Año")
+
+
 class Contrato(forms.Form):
     #widget = attr0
     fecha_fin = forms.DateField(label="Fin Del Contrato", help_text="Dia/Mes/Año")

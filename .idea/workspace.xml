@@ -2,798 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48c45181-30f4-4a7c-ae00-e2b7b6912fed" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/contrataciones_usuario.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/razon_cambio.html" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\css\base.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\css\changelists.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\css\dashboard.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\css\forms.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\css\ie.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\css\login.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\css\rtl.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\css\widgets.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\changelist-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\changelist-bg_rtl.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\chooser-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\chooser_stacked-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\default-bg-reverse.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\default-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\deleted-overlay.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\gis\move_vertex_off.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\gis\move_vertex_on.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon-no.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon-unknown.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon-yes.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon_addlink.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon_alert.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon_calendar.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon_changelink.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon_clock.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon_deletelink.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon_error.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon_searchbox.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\icon_success.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\inline-delete-8bit.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\inline-delete.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\inline-restore-8bit.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\inline-restore.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\inline-splitter-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\nav-bg-grabber.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\nav-bg-reverse.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\nav-bg-selected.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\nav-bg.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\selector-icons.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\selector-search.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\sorting-icons.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\tool-left.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\tool-left_over.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\tool-right.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\tool-right_over.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\tooltag-add.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\tooltag-add_over.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\tooltag-arrowright.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\img\tooltag-arrowright_over.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\LICENSE-JQUERY.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\SelectBox.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\SelectFilter2.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\actions.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\actions.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\admin\DateTimeShortcuts.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\admin\RelatedObjectLookups.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\admin\ordering.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\calendar.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\collapse.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\collapse.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\compress.py" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\core.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\dateparse.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\getElementsBySelector.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\inlines.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\inlines.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\jquery.init.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\json.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\prepopulate.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\prepopulate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\timeparse.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\admin\js\urlify.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\avatar\avatarF.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\avatar\avatarM.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\calendario\calendar.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\calendario\images\icon_19.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\calendario\images\ui-icons_ffffff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\calendario\jquery.ui.datepicker-es.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\calendario\jquery_min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\calendario\jquery_ui.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\bootmetro-charms.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\bootmetro-tiles.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\bootmetro.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\bootstrap-responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\datepicker.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\demo-old.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\demo.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\icomoon.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\metro-ui-dark.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\css\metro-ui-light.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\IcoMoon.eot" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\IcoMoon.svg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\IcoMoon.ttf" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\IcoMoon.woff" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\icomoon97172\IcoMoon.eot" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\icomoon97172\IcoMoon.svg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\icomoon97172\IcoMoon.ttf" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\icomoon97172\IcoMoon.woff" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\icomoon97172\index.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\icomoon97172\license.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\icomoon97172\style.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-bold-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-bold-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-bold-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-bold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-light-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-light-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-light-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-light-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-regular-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-regular-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-regular-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-regular-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-semibold-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-semibold-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-semibold-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\font\opensans-semibold-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\ico\apple-touch-icon-114-precomposed.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\ico\apple-touch-icon-144-precomposed.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\ico\apple-touch-icon-57-precomposed.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\ico\apple-touch-icon-72-precomposed.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\ico\favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\Coding app.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\Devices.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\My Apps.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\Octocat-96x96.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\RegEdit.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\Windows 8.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\Windows Store.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\Windows alt.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\Windows.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\appbar.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\avatar-movie-puzzles-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\bootstrap-mdo-sfmoma-01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\bootstrap-mdo-sfmoma-02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\bootstrap-mdo-sfmoma-03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\bs-docs-masthead-pattern.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\bs-docs-responsive-illustrations.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\bs-docs-twitter-github.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\detail-appbar-1.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\detail-appbar-2.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\detail-charms.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\detail-headermenu.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\detail-hub.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\detail-icons.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\detail-themes.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\bootstrap-example-carousel.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\bootstrap-example-fluid.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\bootstrap-example-hero.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\bootstrap-example-marketing-narrow.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\bootstrap-example-signin.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\bootstrap-example-starter.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\bootstrap-example-sticky-footer.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\browser-icon-chrome.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\browser-icon-firefox.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\browser-icon-safari.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\slide-01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\slide-02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\examples\slide-03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\github-icons.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\github.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\glyphicons-halflings-white.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\glyphicons-halflings.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\grid-baseline-20px.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\h2.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\hero-small.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\hero.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\hero2.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\hero3-black.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\hero3.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\hero4.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\less-css-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\less-logo-large.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\metro-tiles-wide.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\metro-tiles-widepeek.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\metro-tiles.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\octocat.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\progress-indeterminate-dark.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\progress-indeterminate-light.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\progress-indeterminate-ring-dark-small.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\progress-indeterminate-ring-dark.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\progress-indeterminate-ring-light-small.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\progress-indeterminate-ring-light.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\sample1.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\sample2.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\sample3.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\sample4.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\sample5.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\slide1.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\slider2.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\tile-wide-collection-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\tile-wide-collection-2.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\tile-wide-collection-3.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\tile-wide-collection-4.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\tile-wide.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\tile.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\windows-8-fish.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\content\img\windows_8_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\dajax\dojo.dajax.core.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\dajax\jquery.dajax.core.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\dajax\mootools.dajax.core.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\dajax\prototype.dajax.core.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\dajaxice\dajaxice.core.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\backgrounds\changelist-results.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\backgrounds\loading-small.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\backgrounds\messagelist.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\backgrounds\nav-grabber.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\backgrounds\ui-sortable-placeholder.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-s96d5c23000.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small-s7d28d7943b.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\add-link.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\add-link_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\change-link.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\change-link_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\delete-link.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\filter-choice-selected.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\link-external.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\link-external_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\link-internal.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\link-internal_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons-small\sort-remove.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\add-another.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\add-another_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\back-link.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\back-link_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\breadcrumbs-rtl.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\breadcrumbs-rtl_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\breadcrumbs.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\breadcrumbs_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\date-hierarchy-back-rtl.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\date-hierarchy-back-rtl_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\date-hierarchy-back.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\date-hierarchy-back_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\datepicker.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\datepicker_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\datetime-now.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\datetime-now_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\form-select.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\object-tools-add-link.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\object-tools-viewsite-link.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\pulldown-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\pulldown-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\pulldown-handler_selected.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\related-lookup-m2m.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\related-lookup-m2m_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\related-lookup.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\related-lookup_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\related-remove.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\related-remove_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\searchbox.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\selector-add-m2m-horizontal.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\selector-add-m2m-horizontal_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\selector-add-m2m-vertical.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\selector-add-m2m-vertical_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\selector-filter.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\selector-remove-m2m-horizontal.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\selector-remove-m2m-horizontal_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\selector-remove-m2m-vertical.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\selector-remove-m2m-vertical_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\sort-remove.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\sort-remove_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\sorted-ascending.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\sorted-descending.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\status-no.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\status-unknown.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\status-yes.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\th-ascending.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\th-descending.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\timepicker.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\timepicker_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-add-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-add-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-arrow-down-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-arrow-down-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-arrow-up-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-arrow-up-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-close-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-close-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-delete-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-delete-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-drag-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-drag-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-open-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-open-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-remove-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-remove-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-trash-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-trash-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-trash-list-toggle-handler.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-trash-list-toggle-handler_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-viewsite-link.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\tools-viewsite-link_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\ui-datepicker-next.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\ui-datepicker-next_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\ui-datepicker-prev.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\images\icons\ui-datepicker-prev_hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\img\admin\arrow-down.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\img\admin\arrow-up.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\i18n\ui.datepicker-de.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\i18n\ui.datepicker-fr.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\jquery-1.7.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\jquery.cookie.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\jquery.form.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-bg_flat_0_888888_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-bg_glass_25_e1f0f5_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-bg_glass_55_444444_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-bg_glass_75_dadada_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-bg_inset-soft_95_fef1ec_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-icons_309bbf_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-icons_454545_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-icons_bf3030_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\images\ui-icons_ffffff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\custom-theme\jquery-ui-1.8.18.custom.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-icons_228ef1_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-icons_ef8c08_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-icons_ffd27a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\css\ui-lightness\images\ui-icons_ffffff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\jquery\ui\js\jquery-ui-1.8.18.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\grappelli.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\grappelli.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\jquery.grp_autocomplete_fk.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\jquery.grp_autocomplete_generic.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\jquery.grp_autocomplete_m2m.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\jquery.grp_collapsible.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\jquery.grp_collapsible_group.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\jquery.grp_inline.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\jquery.grp_related_fk.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\jquery.grp_related_generic.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\jquery.grp_related_m2m.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\js\jquery.grp_timepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\stylesheets\mueller\grid\output-rtl.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\stylesheets\mueller\grid\output.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\stylesheets\mueller\screen.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\stylesheets\partials\custom\tinymce.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\stylesheets\rtl.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\stylesheets\screen.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\changelog.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\accessibility.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\css\content.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\css\word.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\custom_formats.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\full.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\index.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\lists\image_list.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\lists\link_list.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\lists\media_list.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\lists\template_list.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\media\logo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\media\logo_over.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\media\sample.avi" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\media\sample.dcr" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\media\sample.flv" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\media\sample.mov" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\media\sample.ram" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\media\sample.rm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\media\sample.swf" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\menu.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\simple.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\skins.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\templates\layout1.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\templates\snippet1.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\examples\word.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\license.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\css\advhr.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\js\rule.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advhr\rule.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\css\advimage.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\image.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\img\sample.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\js\image.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\css\advimage.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\image.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\img\sample.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\js\image.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advimage_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\css\advlink.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\js\advlink.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink\link.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\css\advlink.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\js\advlink.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlink_orig\link.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlist\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\advlist\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\autolink\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\autolink\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\autoresize\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\autoresize\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\autosave\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\autosave\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\bbcode\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\bbcode\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\contextmenu\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\contextmenu\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\directionality\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\directionality\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\emotions.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-cool.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-cry.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-embarassed.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-foot-in-mouth.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-frown.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-innocent.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-kiss.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-laughing.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-money-mouth.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-sealed.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-smile.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-surprised.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-tongue-out.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-undecided.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-wink.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\img\smiley-yell.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\js\emotions.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\emotions\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\example\dialog.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\example\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\example\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\example\img\example.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\example\js\dialog.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\example\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\example\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\example_dependency\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\example_dependency\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\css\fullpage.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\fullpage.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\js\fullpage.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\fullpage\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\fullscreen\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\fullscreen\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\fullscreen\fullscreen.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\img\show_advanced.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\img\visualchars.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\langs\cs.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\langs\de.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\langs\fr.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\langs\pl.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli\langs\ru.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\langs\cs.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\langs\de.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\langs\fr.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\langs\pl.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\grappelli_contextmenu\langs\ru.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\iespell\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\iespell\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\window.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\inlinepopups\template.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\insertdatetime\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\insertdatetime\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\layer\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\layer\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\legacyoutput\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\legacyoutput\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\lists\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\lists\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media\css\media.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media\js\embed.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media\js\media.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media\media.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media\moxieplayer.swf" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\css\media.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\js\embed.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\js\media.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\media.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\media_orig\moxieplayer.swf" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\nonbreaking\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\nonbreaking\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\noneditable\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\noneditable\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\pagebreak\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\pagebreak\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\js\pastetext.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\js\pasteword.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\pastetext.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste\pasteword.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\js\pastetext.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\js\pasteword.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\pastetext.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\paste_orig\pasteword.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\preview\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\preview\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\preview\example.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\preview\jscripts\embed.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\preview\preview.html" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\print\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\print\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\save\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\save\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\css\searchreplace.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\js\searchreplace.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace\searchreplace.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\css\searchreplace.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\js\searchreplace.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\searchreplace_orig\searchreplace.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\spellchecker\css\content.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\spellchecker\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\spellchecker\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\spellchecker\img\wline.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\style\css\props.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\style\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\style\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\style\js\props.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\style\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\style\props.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\style\readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\tabfocus\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\tabfocus\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\cell.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\css\cell.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\css\row.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\css\table.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\js\cell.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\js\merge_cells.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\js\row.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\js\table.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\merge_cells.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\row.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\table\table.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template\blank.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template\css\template.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template\js\template.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template\template.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\blank.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\css\template.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\js\template.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\template_orig\template.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\visualblocks\css\visualblocks.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\visualblocks\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\visualblocks\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\visualchars\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\visualchars\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\wordcount\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\wordcount\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\abbr.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\acronym.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\attributes.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\cite.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\css\attributes.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\css\popup.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\del.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\editor_plugin.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\editor_plugin_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\ins.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\abbr.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\acronym.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\attributes.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\cite.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\del.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\element_common.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\js\ins.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\plugins\xhtmlxtras\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\about.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\anchor.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\charmap.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\color_picker.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\editor_template.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\editor_template_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\image.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\colorpicker.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\flash.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\icons.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\iframe.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\pagebreak.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\quicktime.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\realmedia.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\shockwave.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\trans.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\video.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\img\windowsmedia.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\about.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\anchor.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\charmap.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\color_picker.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\image.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\link.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\js\source_editor.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\langs\en_dlg.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\shortcuts.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\content.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\buttons.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\items.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\menu_arrow.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\menu_check.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\progress.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\img\tabs.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\default\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_base.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_documentstructure.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_documentstructure_cs.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_documentstructure_de.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_documentstructure_en.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_documentstructure_pl.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_grid.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\content_typography.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\customized.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\blockquote.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\bold.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\bullist.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\charmap.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\cleanup.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\code.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\fullscreen.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\image.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\italic.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\link.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\media.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\numlist.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\pasteword.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\redo.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\search.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\show_advanced.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table_cell_props.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table_col_after.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table_col_before.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table_delete_col.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table_delete_row.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table_merge_cells.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table_row_after.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table_row_before.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table_row_props.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\table_split_cells.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\template.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\underline.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\undo.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\unlink.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\buttons\visualchars.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\customized\button_pagebreak.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\customized\pagebreak.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\icons\icon-fb_show-hover.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\icons\icon-fb_show.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\icons\icon-mceResize.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\img\menu\icon-mceOpen.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\grappelli\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\highcontrast\content.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\highcontrast\dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\highcontrast\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\content.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\dialog.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_black.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_silver.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\ui_black.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\skins\o2k7\ui_silver.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\advanced\source_editor.htm" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\simple\editor_template.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\simple\editor_template_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\simple\img\icons.gif" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\simple\langs\en.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\simple\skins\default\content.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\simple\skins\default\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\simple\skins\o2k7\content.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\simple\skins\o2k7\img\button_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\themes\simple\skins\o2k7\ui.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\tiny_mce.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\tiny_mce_popup.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\tiny_mce_src.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\utils\editable_selects.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\utils\form_utils.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\utils\mctabs.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce\jscripts\tiny_mce\utils\validate.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\grappelli\tinymce_setup\tinymce_setup.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-icons_222222_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-icons_228ef1_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-icons_ef8c08_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-icons_ffd27a_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\images\ui-icons_ffffff_256x240.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\jquery-ui-1.8.17.custom.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\jquery-ui-1.8.17.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\jquery-ui-timepicker-addon.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\hora\jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\README.md" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\bootmetro-charms.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\bootmetro.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\bootstrap-datepicker.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\demo.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\google-code-prettify\prettify.css" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\google-code-prettify\prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\holder.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\jquery-1.7.2.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\jquery-1.7.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\jquery-1.8.2.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\jquery-1.8.2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\jquery.blockUI.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\jquery.form.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\jquery.mousewheel.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\jquery.scrollTo.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\jquery.validate.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\jquery.validate.unobtrusive.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\modernizr-2.6.1.min.js" afterPath="" />
-      <change type="DELETED" beforePath="E:\Django\sapec\scripts\mustache.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/asistencia_fecha.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/seleccion_fecha_asistencia.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personal/form.py" afterPath="$PROJECT_DIR$/personal/form.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/index_personal.html" afterPath="$PROJECT_DIR$/sapec/Templates/index_personal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/personal/kardex_personal.html" afterPath="$PROJECT_DIR$/sapec/Templates/personal/kardex_personal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personal/models.py" afterPath="$PROJECT_DIR$/personal/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/urls.py" afterPath="$PROJECT_DIR$/sapec/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personal/views.py" afterPath="$PROJECT_DIR$/personal/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -819,11 +31,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index_personal.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sapec/Templates/index_personal.html">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/personal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="64" selection-start="3972" selection-end="3972" vertical-scroll-proportion="1.0915619" vertical-offset="1126" max-vertical-offset="1887">
-              <folding />
+            <state line="647" column="55" selection-start="32505" selection-end="32505" vertical-scroll-proportion="1.1491228" vertical-offset="10344" max-vertical-offset="11186">
+              <folding>
+                <element signature="e#16#74#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -847,8 +61,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/organizacion/admin.py" />
-        <option value="$PROJECT_DIR$/sapec/Templates/cargo/cargo_no_empleado_pdf.html" />
         <option value="$PROJECT_DIR$/sapec/Templates/cargo/cargo_no_empleado.html" />
         <option value="$PROJECT_DIR$/organizacion/views.py" />
         <option value="$PROJECT_DIR$/organizacion/models.py" />
@@ -856,13 +68,15 @@
         <option value="$PROJECT_DIR$/sapec/Templates/base.html" />
         <option value="$PROJECT_DIR$/sapec/settings.py" />
         <option value="$PROJECT_DIR$/sapec/Templates/personal/razon_cambio.html" />
-        <option value="$PROJECT_DIR$/personal/form.py" />
         <option value="$PROJECT_DIR$/sapec/Templates/personal/kardex_personal.html" />
         <option value="$PROJECT_DIR$/personal/models.py" />
-        <option value="$PROJECT_DIR$/personal/views.py" />
-        <option value="$PROJECT_DIR$/sapec/urls.py" />
-        <option value="$PROJECT_DIR$/sapec/Templates/index_personal.html" />
         <option value="$PROJECT_DIR$/sapec/Templates/personal/contrataciones_usuario.html" />
+        <option value="$PROJECT_DIR$/personal/form.py" />
+        <option value="$PROJECT_DIR$/sapec/Templates/index_personal.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/seleccion_fecha_asistencia.html" />
+        <option value="$PROJECT_DIR$/sapec/urls.py" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/asistencia_fecha.html" />
+        <option value="$PROJECT_DIR$/personal/views.py" />
       </list>
     </option>
   </component>
@@ -898,6 +112,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -966,7 +181,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="unidad" />
+              <option name="myItemId" value="personal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -986,7 +201,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1285,36 +499,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/personal/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="562" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/index_organizacion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="82" selection-start="2989" selection-end="2989" vertical-scroll-proportion="0.0" vertical-offset="1309" max-vertical-offset="2091" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/razon_cambio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="35" selection-start="178" selection-end="178" vertical-scroll-proportion="0.18312387" vertical-offset="0" max-vertical-offset="557" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/organizacion/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="4" selection-start="9095" selection-end="9095" vertical-scroll-proportion="0.0" vertical-offset="3210" max-vertical-offset="5253" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/personal/form.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="89" selection-start="1721" selection-end="1721" vertical-scroll-proportion="0.0" vertical-offset="471" max-vertical-offset="1054" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/kardex_personal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="52" selection-start="4117" selection-end="4117" vertical-scroll-proportion="-0.0" vertical-offset="1581" max-vertical-offset="2278" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sapec/static/content/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1173" column="7" selection-start="17590" selection-end="17592" vertical-scroll-proportion="0.33211008" vertical-offset="19760" max-vertical-offset="100538" />
@@ -1322,64 +506,103 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/Templates/unidad/new_plani.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="583">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="583" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/Templates/unidad/option_plani.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/Templates/form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/Templates/unidad/option_unidad.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="2103" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="935">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="2103" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="935" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/contrataciones_usuario.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="118" selection-start="2813" selection-end="2813" vertical-scroll-proportion="0.84375" vertical-offset="391" max-vertical-offset="1173">
+        <state line="50" column="118" selection-start="2813" selection-end="2813" vertical-scroll-proportion="0.84375" vertical-offset="391" max-vertical-offset="1173" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/index_personal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="62" selection-start="4052" selection-end="4052" vertical-scroll-proportion="0.6947935" vertical-offset="1398" max-vertical-offset="1989">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/personal/views.py">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/seleccion_fechas.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="629" column="95" selection-start="31570" selection-end="31579" vertical-scroll-proportion="0.85087717" vertical-offset="9766" max-vertical-offset="10370">
+        <state line="11" column="18" selection-start="0" selection-end="4576" vertical-scroll-proportion="9.807693" vertical-offset="442" max-vertical-offset="2244">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/personal/models.py">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/seleccion_fecha_asistencia.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="59" selection-start="2799" selection-end="2799" vertical-scroll-proportion="-0.11663808" vertical-offset="952" max-vertical-offset="2261">
+        <state line="25" column="0" selection-start="876" selection-end="876" vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="527">
+          <folding>
+            <marker date="1385608851567" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1385608851567" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal/form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="1122">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="74" selection-start="4993" selection-end="4993" vertical-scroll-proportion="-0.1491228" vertical-offset="1564" max-vertical-offset="2261">
+        <state line="83" column="61" selection-start="4365" selection-end="4365" vertical-scroll-proportion="0.0" vertical-offset="1062" max-vertical-offset="2329">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/index_personal.html">
+    <entry file="file://$PROJECT_DIR$/personal/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="64" selection-start="3972" selection-end="3972" vertical-scroll-proportion="1.0915619" vertical-offset="1126" max-vertical-offset="1887">
+        <state line="56" column="59" selection-start="2799" selection-end="2799" vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="2261">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/planilla_asistencia.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="5202" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1632">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/qr.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/asistencia_fecha.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="151" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.24264705" vertical-offset="327" max-vertical-offset="1615">
+          <folding>
+            <element signature="e#1338#1360#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="647" column="55" selection-start="32505" selection-end="32505" vertical-scroll-proportion="1.1491228" vertical-offset="10344" max-vertical-offset="11186">
+          <folding>
+            <element signature="e#16#74#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

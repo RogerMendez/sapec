@@ -79,6 +79,10 @@ urlpatterns = patterns('',
 
     url(r'^planilla/seleccion/(?P<cod_emple>\d+)/$', 'personal.views.seleccion_fechas'),
 
+    url(r'^fecha/seleccion/$', 'personal.views.seleccion_fecha_asistencia'),
+
+    url(r'^asistencia/(?P<dia>\d+)/(?P<mes>\d+)/(?P<anho>\d+)/$', 'personal.views.asistencia_fecha'),
+
     #CONTRATO
     url(r'^contrato/cargo/$', 'personal.views.cargos_contrato'),
     url(r'^contrato/personal/(?P<cod_cargo>\d+)/$', 'personal.views.new_empleado'),

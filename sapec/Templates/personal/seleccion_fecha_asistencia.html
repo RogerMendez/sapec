@@ -1,0 +1,25 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}
+    Seleccion de Fecha
+{% endblock%}
+{% block calendar %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}calendario/calendar.css"/>
+    <script src="{{ STATIC_URL }}calendario/jquery_min.js"></script>
+    <script src="{{ STATIC_URL }}calendario/jquery_ui.js"></script>
+    <script src="{{ STATIC_URL }}calendario/jquery.ui.datepicker-es.js"></script>
+    <script type="text/javascript">
+        $('#id_fecha').addClass('hasDatepicker')
+	    $(function() {
+		    $('#id_fecha').datepicker({dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true, yearRange: '-5:+0'});
+	    });
+	</script>
+{% endblock calendar %}
+{% block url %}personal{% endblock %}
+{% block legend %}
+    Seleccione Una Fecha
+{% endblock %}
+{% block formenviar %}
+    Enviar
+{% endblock %}
+{% block formcancelar %}personal{% endblock %}

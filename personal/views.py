@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.contrib import messages
 
 from organizacion.models import Unidades, Cargos, Funciones
-from personal.form import EmpleadoForm, ProfesionForm, Contrato, AsistenciaForm, ObservacionForm, PermisoForm, FechasForm, AsistenciaFormEdid, RazonCambioForm
+from personal.form import EmpleadoForm, ProfesionForm, Contrato, AsistenciaForm, ObservacionForm, PermisoForm, FechasForm, AsistenciaFormEdid, RazonCambioForm, FechaForm
 from personal.models import Empleados, contratacion, Asistencia, Observacion, Permiso, moviidad
 
 
@@ -619,7 +619,7 @@ def terminar_contrato(requesr, id_contrato):
     return HttpResponseRedirect('/contrato/seleccionar/')
 
 
-
+@permission_required('personal.contratos_usuario', login_url='/user/login')
 def contrato_usuario(request,):
     usuarios = User.objects.filter(is_active = 1)
     hoy = datetime.datetime.now()
@@ -629,3 +629,25 @@ def contrato_usuario(request,):
     return render_to_response('personal/contrataciones_usuario.html',
                               {'usuarios':usuarios, 'contrataciones':contrataciones, 'empleados':empleados },
                               context_instance=RequestContext(request))
+
+
+@permission_required('personal.asistencia_fecha', login_url='/user/login')
+def seleccion_fecha_asistencia(request):
+    if request.method == 'POST' :
+        formulario = FechaForm(request.POST)
+        if formulario.is_valid():
+            fecha = request.POST['fecha']
+            return HttpResponseRedirect("/asistencia/"+fecha+"")
+    else:
+        formulario = FechaForm()
+    return  render_to_response('personal/seleccion_fecha_asistencia.html', {'formulario' :formulario}, context_instance=RequestContext(request))
+
+@permission_required('personal.asistencia_fecha', login_url='/user/login')
+def asistencia_fecha(request, dia, mes, anho):
+    fecha =  date(int(anho), int(mes), int(dia))
+    asistencia = Asistencia.objects.filter(fecha__exact = fecha)
+    q1 = asistencia.values('empleado_id')
+    empleados = Empleados.objects.filter(id__in = q1)
+    return render_to_response('personal/asistencia_fecha.html', {
+                                                                    'empleados':empleados,
+                                                                }, context_instance=RequestContext(request))
