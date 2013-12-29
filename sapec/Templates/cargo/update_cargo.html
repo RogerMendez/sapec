@@ -1,13 +1,17 @@
 {# encoding:utf-8 #}
-{% extends 'form.html' %}
-{% block title %}
-    Modificar Cargo
-{% endblock%}
-{% block url %}cargo/option{% endblock %}
+{% extends 'form_upload.html' %}
+{% block title %}Nuevo Cargo{% endblock%}
+{% block atras %}
+{% url 'organizacion.views.option_update_cargo' %}
+{% endblock %}
+{% block titulo %}
+<h1>Cargo <small>Modificar</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'cargo/menuizq.html' %}
+{% endblock %}
 {% block legend %}
-    Modificar Cargo
+    Registro de Cargo
 {% endblock %}
-{% block formenviar %}
-    Modificar
-{% endblock %}
-{% block formcancelar %}cargo/option{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'organizacion.views.option_update_cargo' %}{% endblock %}

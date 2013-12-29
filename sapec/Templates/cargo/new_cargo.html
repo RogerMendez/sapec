@@ -1,13 +1,17 @@
 {# encoding:utf-8 #}
-{% extends 'form.html' %}
-{% block title %}
-    Nuevo Cargo
-{% endblock%}
-{% block url %}organizacion{% endblock %}
+{% extends 'form_upload.html' %}
+{% block title %}Nuevo Cargo{% endblock%}
+{% block atras %}
+{% url 'organizacion.views.index_cargo' %}
+{% endblock %}
+{% block titulo %}
+<h1>Cargo <small>Nuevo</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'cargo/menuizq.html' %}
+{% endblock %}
 {% block legend %}
-    Nuevo Cargo
+    Registro de Cargo
 {% endblock %}
-{% block formenviar %}
-    Guardar
-{% endblock %}
-{% block formcancelar %}organizacion{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'organizacion.views.index_cargo' %}{% endblock %}

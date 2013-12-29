@@ -1,18 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-# Django settings for SAPEC project.
-#encoding:utf-8
-
-# Identificando la ruta del proyecto
+# Django settings for sapec project.
 import os
-RUTA_PROYECTO = os.path.dirname(os.path.realpath(__file__))
+ruta = os.path.dirname(os.path.realpath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    #('Roger Mendez', 'Roger.Mendez.R@gmail.com'),
+    ('Roger Mendez', 'Roger.Mendez.R@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -21,20 +15,22 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'sapec_db',                      # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',                      # Set to empty string for default.
     }
 }
+
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = []
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
+# In a Windows environment this must be set to your system time zone.
 TIME_ZONE = 'America/La_Paz'
 
 # Language code for this installation. All choices can be found here:
@@ -55,36 +51,27 @@ USE_L10N = True
 USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(RUTA_PROYECTO,'carga')
+# Example: "/var/www/example.com/media/"
+MEDIA_ROOT = os.path.join(ruta, 'carga')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-#MEDIA_URL = 'http://192.168.10.102:90/media/'
-#MEDIA_URL = 'http://127.0.0.1:90/media/'
+# Examples: "http://example.com/media/", "http://media.example.com/"
 MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
+# Example: "/var/www/example.com/static/"
 STATIC_ROOT = ''
 
 # URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
-
+# Example: "http://example.com/static/", "http://static.example.com/"
 STATIC_URL = '/static/'
-#STATIC_URL = 'http://127.0.0.1:90/static/'
-#STATIC_URL = 'http:/192.168.10.102:90/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(RUTA_PROYECTO, 'static'),
-    #os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static'),
+    os.path.join(ruta, 'static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -92,12 +79,12 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
     'dajaxice.finders.DajaxiceFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'n(bd1f1c%e8=_xad02x5qtfn%wgwpi492e$8_erx+d)!tpeoim'
+SECRET_KEY = '%%)0057@mm_ddk6vuz*h53hjuh_rr_sybax_y%7ndfodo^%m0z'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -115,18 +102,31 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages"
+)
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 ROOT_URLCONF = 'sapec.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'sapec.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(RUTA_PROYECTO, 'Templates')
+    os.path.join(ruta, 'Templates'),
 )
 
 INSTALLED_APPS = (
     'grappelli',
+    'dajaxice',
+    'dajax',
+    'qrcode',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -135,13 +135,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'dajaxice',
-    'dajax',
+    'users',
     'organizacion',
-    'personal',
-    'remuneraciones',
-    'abierto',
-    'qrcode',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -169,7 +164,13 @@ LOGGING = {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
-            },
-        }
+        },
+    }
 }
 
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'Roger.Mendez.R@gmail.com'
+EMAIL_HOST_PASSWORD = 'roger76176338mendez'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

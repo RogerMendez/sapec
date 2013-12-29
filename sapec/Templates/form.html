@@ -1,32 +1,41 @@
+{# encoding=utf-8 #}
 {% extends 'base.html' %}
 {% block title %}
     Nueva Unidad
-{% endblock%}
-{% block url %}{% endblock %}
+{% endblock title%}
+
 {% block cuerpo %}
-    {% block cargo %}
-    {% endblock %}
-    <form id="formulario" class="form-horizontal" method="post" action="">{% csrf_token %}
-        <fieldset>
-            <legend>{% block legend %}Formulario{% endblock %}</legend>
-            {% block form %}
-                {% for field in formulario %}
-                        {{ field.errors }}
-                        <div class="control-group">
-                            {{ field.label_tag }}
-                        <div class="controls">
-                            {{ field }}
-                        </div>
-                    </div>
-                {% endfor %}
+    <div class="row">
+        <div class="span3">
+            {% block menuizq %}
+
             {% endblock %}
-            <div class="controls">
-                <button type="submit" class="btn btn2">{% block formenviar %}Guardar{% endblock %}</button>
-                <a href='/{% block formcancelar %}{% endblock %}' class='btn'>Cancelar</a>
-            </div>
-        </fieldset>
-    </form>
-    <script type="text/javascript">
-        $('label').addClass('control-label')
-    </script>
+        </div>
+        <div class="span5">
+            <form id="formulario" method="post" action="">{% csrf_token %}
+                <fieldset>
+                    <legend>{% block legend %}Formulario{% endblock legend %}</legend>
+                    {% block form %}
+                        {% for field in formulario %}
+                            {{ field.errors }}
+                            {{ field.label_tag }}
+                            <div class="input-control text">
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <p class="fg-color-green">
+                                        <i class="icon-warning"></i> {{ field.help_text }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% endblock %}
+                    <div class="controls">
+                        <input type="submit" value="{% block submit %}Guardar{% endblock submit %}">
+                        <a href='/{% block cancel %}{% endblock cancel %}' class='button'>Cancelar</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="span4"></div>
+    </div>
 {% endblock cuerpo %}

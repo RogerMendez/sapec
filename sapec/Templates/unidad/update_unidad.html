@@ -1,12 +1,19 @@
-{% extends 'formupload.html' %}
-{% block title %}
-    Modificar Unidad
-{% endblock%}
-{% block url %}unidad/option{% endblock %}
+{# encoding:utf-8 #}
+{% extends 'form_upload.html' %}
+{% block title %}Modificar Unidad{% endblock%}
+
+{% block atras %}
+{% url 'organizacion.views.option_update' %}
+{% endblock %}
+
+{% block titulo %}
+<h1>Unidad <small>Modificar</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'unidad/menuizq.html' %}
+{% endblock %}
 {% block legend %}
     Modificar Unidad
 {% endblock %}
-{% block formenviar %}
-    Modificar
-{% endblock %}
-{% block formcancelar %}unidad/option{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'organizacion.views.option_update' %}{% endblock %}

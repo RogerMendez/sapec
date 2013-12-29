@@ -1,0 +1,17 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Nueva Planificacion{% endblock%}
+{% block atras %}
+    {% url 'organizacion.views.index_planificacion' %}
+{% endblock %}
+{% block titulo %}
+<h1>Planificación <small>Nuevo</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'planificacion/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Registro de Planificación
+{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'organizacion.views.index_planificacion' %}{% endblock %}

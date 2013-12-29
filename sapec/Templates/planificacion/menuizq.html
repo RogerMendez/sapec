@@ -1,0 +1,34 @@
+<div class="page-sidebar">
+    <ul>
+        <li class="sticker sticker-color-green">
+            <a href="{% url 'organizacion.views.index_planificacion' %}">
+                <i class="icon-clipboard"></i> Planificaciones
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="{% url 'organizacion.views.new_planificacion' %}">Registrar Planificación</a>
+                </li>
+            </ul>
+        </li>
+        <li class="divider"></li>
+        <li class="sticker sticker-color-blue">
+            <a><i class="icon-clipboard-2"></i></a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="{% url 'organizacion.views.option_update_cargo' %}">\</a>
+                </li>
+                <li>
+                    <a href="{% url 'organizacion.views.option_detalle_cargo' %}"></a>
+                </li>
+            </ul>
+        </li>
+        <li class="sticker sticker-color-orangeDark">
+            <a><i class="icon-file-pdf"></i>Reportes</a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="{% url 'organizacion.views.cargos_pdf' 0 %}"></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

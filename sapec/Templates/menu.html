@@ -1,0 +1,38 @@
+<ul class="menu">
+    <li>
+        <a href="/">Inicio</a>
+    </li>
+    {% if user.is_authenticated %}
+        <li data-role="dropdown">
+            <a href="#">Organización</a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{% url 'organizacion.views.index_unidad' %}">Unidades</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="{% url 'organizacion.views.index_cargo' %}">Cargos</a>
+                </li>
+                <li>
+                    <a href="{% url 'organizacion.views.index_planificacion' %}">Planificación</a>
+                </li>
+            </ul>
+        </li>
+        <li data-role="dropdown">
+            <a href="#">Usuarios</a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{% url 'users.views.loguet_out' %}" class="fg-color-red">Cerrar Sesión</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="{% url 'users.views.private' %}">Perfil de Usuario</a>
+                </li>
+            </ul>
+        </li>
+    {% else %}
+        <li>
+            <a href="{% url 'users.views.loguet_in' %}" class="fg-color-yellow">Iniciar Sesión</a>
+        </li>
+    {% endif %}
+</ul>

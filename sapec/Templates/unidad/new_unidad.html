@@ -1,10 +1,17 @@
-{% extends 'formupload.html' %}
-{% block title %}
-    Nueva Unidad
-{% endblock%}
-{% block url %}organizacion{% endblock %}
-{% block legend %}
-Nueva Unidad
+{# encoding:utf-8 #}
+{% extends 'form_upload.html' %}
+{% block title %}Nueva Uniad{% endblock%}
+{% block atras %}
+{% url 'organizacion.views.index_unidad' %}
 {% endblock %}
-{% block formenviar %}Guardar{% endblock %}
-{% block formcancelar %}organizacion{% endblock %}
+{% block titulo %}
+<h1>Unidad <small>Nuevo</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'unidad/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Registro de Unidad
+{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'organizacion.views.index_unidad' %}{% endblock %}

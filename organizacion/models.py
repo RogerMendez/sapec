@@ -2,11 +2,19 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from organizacion.filefield import ContentTypeRestrictedFileField
 
-class Unidades(models.Model):
-    nombre = models.CharField(max_length=50, unique=True)
-    descripcion = models.TextField(null=False, blank=False)
-    documento=models.FileField(upload_to='doc', verbose_name="Seleccionar Documento")
+class Unidad(models.Model):
+    nombre = models.CharField(max_length=50, unique=True, verbose_name="Nombre de Unidad")
+    descripcion = models.TextField(null=False, blank=False, verbose_name="Breve Descripción de la Unidad")
+    #documento=models.FileField(upload_to='unidad', verbose_name="Seleccionar Documento de Unidad", help_text="Archivo de PDF")
+    documento = ContentTypeRestrictedFileField(
+            upload_to='unidad',
+            verbose_name="Seleccionar Documento PDF de Unidad",
+            content_types=['application/pdf', 'application/docx'],
+            max_upload_size=5242880,
+            help_text="DocumentoPDF"
+        )
     def __unicode__(self):
         return self.nombre
     def __str__(self):
@@ -15,13 +23,23 @@ class Unidades(models.Model):
         ordering=["nombre"]
         verbose_name_plural = "Unidades"
         permissions = (
-            ("option", "acceso a opciones de unidad"),
+            ("view_detail_unidad", "Ver Detalle Unidad"),
+            ("list_unidad_pdf", "Listado Unidades PDF"),
+            ("unidades_sin_cargo", "Listado Unidades Sin Cargo"),
         )
 
-class Cargos(models.Model):
-    nombre = models.CharField(max_length=50)
-    descripcion = models.TextField(null=True, blank=False)
-    unidad = models.ForeignKey(Unidades, verbose_name="Unidad A La Que Pertenece")
+
+class Cargo(models.Model):
+    nombre = models.CharField(max_length=50, verbose_name="Nombre de Cargo", unique=False)
+    descripcion = models.TextField(verbose_name="Breve Descripción del Cargo")
+    documento = ContentTypeRestrictedFileField(
+            upload_to='cargo',
+            verbose_name="Seleccionar Documento PDF del Cargo",
+            content_types=['application/pdf', 'application/docx'],
+            max_upload_size=5242880,
+            help_text="DocumentoPDF"
+        )
+    unidad = models.ForeignKey(Unidad, null=True, blank=True)
     def __unicode__(self):
         return self.unidad.nombre + " - " + self.nombre
     def __str__(self):
@@ -30,18 +48,17 @@ class Cargos(models.Model):
         ordering=["nombre"]
         verbose_name_plural = "Cargos"
         permissions = (
-            ("option_cargo", "acceso a opciones de cargo"),
-            ("list_cargo", "acceso a listado de cargos"),
+            ("detail_cargo", "Ver Detalle Cargo"),
+            ("list_cargos_pdf", "Listado Cargos PDF"),
         )
 
-
-
 class Planificacion(models.Model):
-    descripcion = models.TextField()
+    descripcion = models.TextField(verbose_name='Descripción de la Planificación')
     cantidad = models.IntegerField(default='1')
     fecha_plani = models.DateTimeField(auto_now=True)
     estado = models.BooleanField(default=True, verbose_name='Estado de la planificación', help_text='Activo / Inactivo')
-    cargo = models.ForeignKey(Cargos, verbose_name='Unidad - Cargo')
+    cargo = models.ForeignKey(Cargo, verbose_name='Unidad - Cargo')
+    usuario = models.ForeignKey(User, null=True, blank=True)
     def __unicode__(self):
         return self.descripcion
     def __str__(self):
@@ -49,35 +66,5 @@ class Planificacion(models.Model):
     class Meta:
         ordering=['fecha_plani']
         verbose_name_plural = "Planificación"
-        permissions = (
-            ("option_plani", "Acceso a opciones de Planificacion"),
-        )
-
-class Funciones(models.Model):
-    descripcion = models.TextField(null=False, blank=False, verbose_name='Descripción de la Función')
-    estado = models.BooleanField(default=True,verbose_name="Estado De la Función", help_text="Activo / Inactivo"  )
-    cargo = models.ForeignKey(Cargos, verbose_name='Unidad - Cargo Al que Pertenece')
-    def __unicode__(self):
-        return  self.descripcion
-    def __str__(self):
-        return  self.descripcion
-    class Meta:
-        verbose_name_plural = "Funciones"
-        permissions = (
-            ("option_funcion", "Acceso a opciones de Funcion"),
-        )
 
 
-class Conocimiento(models.Model):
-    descripcion = models.TextField(null=False, blank=False, verbose_name='Descripción del Conocimiento')
-    estado = models.BooleanField(default=True,verbose_name="Estado Del Conocimiento", help_text="Activo / Inactivo"  )
-    cargo = models.ForeignKey(Cargos, verbose_name='Unidad - Cargo al que Pertenece')
-    def __unicode__(self):
-        return  self.descripcion
-    def __str__(self):
-        return  self.descripcion
-    class Meta:
-        verbose_name_plural = "Conocimiento"
-        permissions = (
-            ("option_conoci", "Acceso a opciones de Conocimiento"),
-        )

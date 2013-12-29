@@ -15,23 +15,23 @@
                     top:1cm;
                     margin-left: 1cm;
                     margin-right: 1cm;
-                    height:6.5cm;
                     }
                 @frame footer {
                     -pdf-frame-content: footerContent;
                     bottom: 0cm;
-                    margin-left: 9cm;
-                    margin-right: 9cm;
-                    height: 1cm;
+                    margin-left: 1cm;
+                    margin-right: 1cm;
+                    height: 2cm;
                 }
             }
             header h2{
                 color: #26AAAF;
                 display: block;
                 font-family: courier;
-                font-size: 35px;
+                font-size: 25px;
                 vertical-align: bottom;
                 margin-bottom: 0px;
+                width: 200px;
             }
             .barra{
                 font-size: 2px;
@@ -104,12 +104,31 @@
             img{
                 margin: auto;
             }
+            .cabecera{
+
+            }
+            .cabecera h2{
+                width: 30%;
+            }
+            .cabecera img{
+                width: 300px;
+                float: right;
+                position: relative;
+            }
         </style>
     </head>
     <body>
         <div id="headerContent">
             <header>
-                <h2 class="titulo">SAPEC</h2>
+                <div class="cabecera">
+                    <table>
+                        <tr>
+                            <td><h2 class="titulo">SAPEC</h2></td>
+                        </tr>
+                    </table>
+                        
+                    </p>
+                </div>
             </header>
             <div class="barra">s</div>
         </div>

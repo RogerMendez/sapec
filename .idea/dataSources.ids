@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source source="LOCAL" name="Django default" product="MySQL" version="5.5.20-log" jdbc-version="4.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.18 ( Revision: tonci.grgin@oracle.com-20110930151701-jfj14ddfq48ifkfq )" uuid="d009f95d-3db5-4be7-b164-83b1a188e7e6">
+  <data-source source="LOCAL" name="Django default" product="MySQL" version="5.5.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.26 ( Revision: ${bzr.revision-id} )" uuid="222fd685-1d6f-4149-821d-b204e540cd32">
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <extra-name-characters>#@</extra-name-characters>
     <identifier-quote-string>`</identifier-quote-string>
     <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
@@ -8,52 +9,58 @@
     <user-name>root</user-name>
     <libraries>
       <library>
-        <url>file://$USER_HOME$/.PyCharm20/config/jdbc-drivers/mysql-connector-license.txt</url>
+        <url>file://$USER_HOME$/.PyCharm30/config/jdbc-drivers/mysql-connector-license.txt</url>
       </library>
       <library>
-        <url>file://$USER_HOME$/.PyCharm20/config/jdbc-drivers/mysql-connector-java-5.1.18-bin.jar</url>
+        <url>file://$USER_HOME$/.PyCharm30/config/jdbc-drivers/mysql-connector-java-5.1.26-bin.jar</url>
       </library>
     </libraries>
-    <schema name="" catalog="ejemplo"/>
+    <schema name="" catalog="biblioteca"/>
+    <schema name="" catalog="danilab"/>
+    <schema name="" catalog="fiposi"/>
     <schema name="" catalog="hotel"/>
+    <schema name="" catalog="hotel_db"/>
     <schema name="" catalog="information_schema"/>
+    <schema name="" catalog="libros_db"/>
+    <schema name="" catalog="libros_seminario"/>
     <schema name="" catalog="mysql"/>
     <schema name="" catalog="performance_schema"/>
-    <schema name="" catalog="proyecto"/>
+    <schema name="" catalog="sapec"/>
     <schema name="" catalog="sapec_db"/>
+    <schema name="" catalog="supermec_db"/>
     <schema name="" catalog="test"/>
-    <table name="auth_group" schema="" catalog="ejemplo" type="TABLE">
+    <table name="auth_group" schema="" catalog="biblioteca" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" length="80" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="group_id_refs_id_f4b32aac" table="auth_group_permissions" schema="" catalog="ejemplo" columns="group_id"/>
-      <exported-key name="group_id_refs_id_274b862c" table="auth_user_groups" schema="" catalog="ejemplo" columns="group_id"/>
+      <exported-key name="group_id_refs_id_f4b32aac" table="auth_group_permissions" schema="" catalog="biblioteca" columns="group_id"/>
+      <exported-key name="group_id_refs_id_274b862c" table="auth_user_groups" schema="" catalog="biblioteca" columns="group_id"/>
       <index name="name" unique="true" columns="name"/>
     </table>
-    <table name="auth_group_permissions" schema="" catalog="ejemplo" type="TABLE">
+    <table name="auth_group_permissions" schema="" catalog="biblioteca" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="group_id_refs_id_f4b32aac" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="ejemplo" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="permission_id_refs_id_6ba0f519" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="ejemplo" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="group_id_refs_id_f4b32aac" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="biblioteca" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_6ba0f519" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="biblioteca" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="group_id" unique="true" columns="permission_id"/>
       <index name="auth_group_permissions_5f412f9a" unique="false" columns="group_id"/>
       <index name="auth_group_permissions_83d7f98b" unique="false" columns="permission_id"/>
     </table>
-    <table name="auth_permission" schema="" catalog="ejemplo" type="TABLE">
+    <table name="auth_permission" schema="" catalog="biblioteca" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="codename" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="content_type_id_refs_id_d043b34a" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="ejemplo" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="permission_id_refs_id_6ba0f519" table="auth_group_permissions" schema="" catalog="ejemplo" columns="permission_id"/>
-      <exported-key name="permission_id_refs_id_35d9ac25" table="auth_user_user_permissions" schema="" catalog="ejemplo" columns="permission_id"/>
+      <foreign-key name="content_type_id_refs_id_d043b34a" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="biblioteca" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="permission_id_refs_id_6ba0f519" table="auth_group_permissions" schema="" catalog="biblioteca" columns="permission_id"/>
+      <exported-key name="permission_id_refs_id_35d9ac25" table="auth_user_user_permissions" schema="" catalog="biblioteca" columns="permission_id"/>
       <index name="content_type_id" unique="true" columns="codename"/>
       <index name="auth_permission_37ef4eb4" unique="false" columns="content_type_id"/>
     </table>
-    <table name="auth_user" schema="" catalog="ejemplo" type="TABLE">
+    <table name="auth_user" schema="" catalog="biblioteca" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="password" sqlType="VARCHAR" length="128" precision="0" nullable="false" jdbcType="12"/>
       <column name="last_login" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
@@ -66,60 +73,349 @@
       <column name="is_active" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
       <column name="date_joined" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="user_id_refs_id_40c41112" table="auth_user_groups" schema="" catalog="ejemplo" columns="user_id"/>
-      <exported-key name="user_id_refs_id_4dc23c39" table="auth_user_user_permissions" schema="" catalog="ejemplo" columns="user_id"/>
+      <exported-key name="user_id_refs_id_40c41112" table="auth_user_groups" schema="" catalog="biblioteca" columns="user_id"/>
+      <exported-key name="user_id_refs_id_4dc23c39" table="auth_user_user_permissions" schema="" catalog="biblioteca" columns="user_id"/>
+      <exported-key name="user_id_refs_id_c0d12874" table="django_admin_log" schema="" catalog="biblioteca" columns="user_id"/>
       <index name="username" unique="true" columns="username"/>
     </table>
-    <table name="auth_user_groups" schema="" catalog="ejemplo" type="TABLE">
+    <table name="auth_user_groups" schema="" catalog="biblioteca" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="ejemplo" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="user_id_refs_id_40c41112" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="ejemplo" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="biblioteca" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_40c41112" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="biblioteca" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="user_id" unique="true" columns="group_id"/>
-      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
       <index name="auth_user_groups_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
     </table>
-    <table name="auth_user_user_permissions" schema="" catalog="ejemplo" type="TABLE">
+    <table name="auth_user_user_permissions" schema="" catalog="biblioteca" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="ejemplo" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="user_id_refs_id_4dc23c39" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="ejemplo" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="biblioteca" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_4dc23c39" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="biblioteca" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="user_id" unique="true" columns="permission_id"/>
       <index name="auth_user_user_permissions_6340c63c" unique="false" columns="user_id"/>
       <index name="auth_user_user_permissions_83d7f98b" unique="false" columns="permission_id"/>
     </table>
-    <table name="django_content_type" schema="" catalog="ejemplo" type="TABLE">
+    <table name="django_admin_log" schema="" catalog="biblioteca" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="object_id" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" length="5" precision="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_93d2d1f8" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="biblioteca" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_c0d12874" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="biblioteca" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin_log_37ef4eb4" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="biblioteca" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="app_label" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="model" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="content_type_id_refs_id_d043b34a" table="auth_permission" schema="" catalog="ejemplo" columns="content_type_id"/>
+      <exported-key name="content_type_id_refs_id_d043b34a" table="auth_permission" schema="" catalog="biblioteca" columns="content_type_id"/>
+      <exported-key name="content_type_id_refs_id_93d2d1f8" table="django_admin_log" schema="" catalog="biblioteca" columns="content_type_id"/>
       <index name="app_label" unique="true" columns="app_label,model"/>
     </table>
-    <table name="django_session" schema="" catalog="ejemplo" type="TABLE">
+    <table name="django_session" schema="" catalog="biblioteca" type="TABLE">
       <column name="session_key" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12"/>
       <column name="session_data" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <column name="expire_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="session_key"/>
       <index name="django_session_b7b81f0c" unique="false" columns="expire_date"/>
     </table>
-    <table name="django_site" schema="" catalog="ejemplo" type="TABLE">
+    <table name="inicio_login" schema="" catalog="biblioteca" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="usuario" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="contrasena" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="inicio_registro" schema="" catalog="biblioteca" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="correo" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="usuario" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="contrasena" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="libro_libro" schema="" catalog="biblioteca" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="pdf" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="nombre" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="perfiles_perfiles" schema="" catalog="biblioteca" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="apellido" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="interes" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="ubicacion" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="auth_group" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="80" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="group_id_refs_id_f4b32aac" table="auth_group_permissions" schema="" catalog="danilab" columns="group_id"/>
+      <exported-key name="group_id_refs_id_274b862c" table="auth_user_groups" schema="" catalog="danilab" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="group_id_refs_id_f4b32aac" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_6ba0f519" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissions_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_group_permissions_83d7f98b" unique="false" columns="permission_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_d043b34a" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="permission_id_refs_id_6ba0f519" table="auth_group_permissions" schema="" catalog="danilab" columns="permission_id"/>
+      <exported-key name="permission_id_refs_id_35d9ac25" table="auth_user_user_permissions" schema="" catalog="danilab" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+      <index name="auth_permission_37ef4eb4" unique="false" columns="content_type_id"/>
+    </table>
+    <table name="auth_user" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" length="128" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="is_superuser" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="username" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_active" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="date_joined" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="user_id_refs_id_40c41112" table="auth_user_groups" schema="" catalog="danilab" columns="user_id"/>
+      <exported-key name="user_id_refs_id_4dc23c39" table="auth_user_user_permissions" schema="" catalog="danilab" columns="user_id"/>
+      <exported-key name="user_id_refs_id_c0d12874" table="django_admin_log" schema="" catalog="danilab" columns="user_id"/>
+      <exported-key name="usuario_id_refs_id_2e541085" table="libros_contenido" schema="" catalog="danilab" columns="usuario_id"/>
+      <exported-key name="usuario_id_refs_id_e6ff4517" table="users_perfil" schema="" catalog="danilab" columns="usuario_id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_40c41112" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_4dc23c39" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_permissions_6340c63c" unique="false" columns="user_id"/>
+      <index name="auth_user_user_permissions_83d7f98b" unique="false" columns="permission_id"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="object_id" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" length="5" precision="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_93d2d1f8" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_c0d12874" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin_log_37ef4eb4" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="app_label" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="content_type_id_refs_id_d043b34a" table="auth_permission" schema="" catalog="danilab" columns="content_type_id"/>
+      <exported-key name="content_type_id_refs_id_93d2d1f8" table="django_admin_log" schema="" catalog="danilab" columns="content_type_id"/>
+      <index name="app_label" unique="true" columns="app_label,model"/>
+    </table>
+    <table name="django_session" schema="" catalog="danilab" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_b7b81f0c" unique="false" columns="expire_date"/>
+    </table>
+    <table name="django_site" schema="" catalog="danilab" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="domain" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
-    <table name="hola_persona" schema="" catalog="ejemplo" type="TABLE">
+    <table name="libros_categoria" schema="" catalog="danilab" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="nombre" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
-      <column name="telefono" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="area" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="categoria_id_refs_id_d9681e2e" table="libros_contenido" schema="" catalog="danilab" columns="categoria_id"/>
+    </table>
+    <table name="libros_contenido" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="titulo" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_publicacion" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="estado" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="usuario_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="categoria_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="categoria_id_refs_id_d9681e2e" columns="categoria_id" ref-table="libros_categoria" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="usuario_id_refs_id_2e541085" columns="usuario_id" ref-table="auth_user" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="contenido_id_refs_id_dd1a3d47" table="libros_libro" schema="" catalog="danilab" columns="contenido_id"/>
+      <exported-key name="contenido_id_refs_id_06cad089" table="tutorial_tutorial" schema="" catalog="danilab" columns="contenido_id"/>
+      <index name="libros_contenido_5f2644f7" unique="false" columns="categoria_id"/>
+      <index name="libros_contenido_c69e2c81" unique="false" columns="usuario_id"/>
+    </table>
+    <table name="libros_libro" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="libro" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="autor" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="tema" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="anho_publicacion" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="contenido_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="contenido_id_refs_id_dd1a3d47" columns="contenido_id" ref-table="libros_contenido" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="tutorial_tutorial" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="contenido_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="contenido_id_refs_id_06cad089" columns="contenido_id" ref-table="libros_contenido" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="tutorial_tutorial_09f63960" unique="false" columns="contenido_id"/>
+    </table>
+    <table name="users_perfil" schema="" catalog="danilab" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="avatar" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="intereses" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="pais" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="ciudad" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="completo" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="usuario_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="usuario_id_refs_id_e6ff4517" columns="usuario_id" ref-table="auth_user" ref-schema="" ref-catalog="danilab" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="area_ocu" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_are" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cod_are"/>
+    </table>
+    <table name="descuentos" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_des" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="categoria" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="descuento" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_lim" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="cod_des"/>
+    </table>
+    <table name="empresa" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_empre" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="direccion" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="telefono" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="responsable" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="descripcion" sqlType="TEXT" length="65535" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="completo" sqlType="BIT" length="1" precision="0" nullable="false" jdbcType="-7" def="YicwJw=="/>
+      <column name="estado" sqlType="BIT" length="1" precision="0" nullable="false" jdbcType="-7" def="YicxJw=="/>
+      <primary-key name="PRIMARY" columns="cod_empre"/>
+    </table>
+    <table name="fiposi" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_fipo" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ubicacion" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_ini" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_fin" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cod_fipo"/>
+    </table>
+    <table name="fiposi_empresa" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_fipo" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="cod_empre" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="fotos_noticia" schema="" catalog="fiposi" type="TABLE">
+      <column name="id_foto" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="id_not" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="num_foto" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_foto"/>
+    </table>
+    <table name="noticias" schema="" catalog="fiposi" type="TABLE">
+      <column name="id_not" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="titulo" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="descripcion" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="fecha_not" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="codigo_fipo" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_not"/>
+    </table>
+    <table name="publicaciones" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_publi" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="descripcion" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="archivo" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="fecha" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cod_publi"/>
+    </table>
+    <table name="rueda_nego" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_rue" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="costo" sqlType="DECIMAL" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="descripcion" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="ubicacion" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="cod_rue"/>
+    </table>
+    <table name="servicios" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_ser" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="tipo" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cod_ser"/>
+    </table>
+    <table name="slide" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_img" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ubicacion" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cod_img"/>
+    </table>
+    <table name="stands" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_stan" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="cantidad" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="cod_ubi" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="cod_stan"/>
+    </table>
+    <table name="ubicacion" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_ubi" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cod_ubi"/>
+    </table>
+    <table name="usuario" schema="" catalog="fiposi" type="TABLE">
+      <column name="cod_user" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nick" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="tipo" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12" def="J0VNUFJFU0En"/>
+      <primary-key name="PRIMARY" columns="cod_user"/>
+      <index name="nick" unique="true" columns="nick"/>
     </table>
     <table name="acumulador" schema="" catalog="hotel" type="TABLE">
       <column name="id_cont" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -173,15 +469,6 @@
       <column name="est_user" sqlType="VARCHAR" length="5" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id_per"/>
     </table>
-    <table name="reserva" schema="" catalog="hotel" type="TABLE">
-      <column name="id_res" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="id_hab" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="id_cli" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="fecha_in" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="fecha_fin" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="estado_res" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id_res"/>
-    </table>
     <table name="reservacion" schema="" catalog="hotel" type="TABLE">
       <column name="id_res" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="id_hab" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
@@ -197,8 +484,6 @@
       <column name="id_ser" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="cant_ser" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="costo_ser" sqlType="DECIMAL" length="10" precision="0" nullable="false" jdbcType="3"/>
-      <column name="costo_total" sqlType="FLOAT" length="12" precision="0" nullable="false" jdbcType="7"/>
-      <column name="num_asig_ser" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="estado_ser" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id_ser_hab"/>
     </table>
@@ -206,7 +491,7 @@
       <column name="id_ser" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="nombre_ser" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="descripcion_ser" sqlType="VARCHAR" length="150" precision="0" nullable="false" jdbcType="12"/>
-      <column name="costo_ser" sqlType="FLOAT" length="10" precision="2" nullable="false" jdbcType="7"/>
+      <column name="costo_ser" sqlType="DECIMAL" length="10" precision="0" nullable="false" jdbcType="3"/>
       <column name="ent_ser" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="sal_ser" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="saldo_ser" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
@@ -228,6 +513,219 @@
       <primary-key name="PRIMARY" columns="id_user"/>
       <index name="id_pol" unique="false" columns="id_per"/>
       <index name="id_pol_2" unique="false" columns="id_per"/>
+    </table>
+    <table name="auth_group" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="80" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="group_id_refs_id_f4b32aac" table="auth_group_permissions" schema="" catalog="hotel_db" columns="group_id"/>
+      <exported-key name="group_id_refs_id_274b862c" table="auth_user_groups" schema="" catalog="hotel_db" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="group_id_refs_id_f4b32aac" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_6ba0f519" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissions_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_group_permissions_83d7f98b" unique="false" columns="permission_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_d043b34a" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="permission_id_refs_id_6ba0f519" table="auth_group_permissions" schema="" catalog="hotel_db" columns="permission_id"/>
+      <exported-key name="permission_id_refs_id_35d9ac25" table="auth_user_user_permissions" schema="" catalog="hotel_db" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+      <index name="auth_permission_37ef4eb4" unique="false" columns="content_type_id"/>
+    </table>
+    <table name="auth_user" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" length="128" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="is_superuser" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="username" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_active" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="date_joined" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="user_id_refs_id_40c41112" table="auth_user_groups" schema="" catalog="hotel_db" columns="user_id"/>
+      <exported-key name="user_id_refs_id_4dc23c39" table="auth_user_user_permissions" schema="" catalog="hotel_db" columns="user_id"/>
+      <exported-key name="user_id_refs_id_c0d12874" table="django_admin_log" schema="" catalog="hotel_db" columns="user_id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_40c41112" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_4dc23c39" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_permissions_6340c63c" unique="false" columns="user_id"/>
+      <index name="auth_user_user_permissions_83d7f98b" unique="false" columns="permission_id"/>
+    </table>
+    <table name="db_agencias" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="idCliente_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="idCliente_id_refs_id_d5273a2d" columns="idCliente_id" ref-table="db_clientes" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="db_agencias_21c46786" unique="false" columns="idCliente_id"/>
+    </table>
+    <table name="db_categorias" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="nit" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="telefono" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
+      <column name="direccion" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="ciudad" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="estado" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="pais" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="contacto" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="db_clientes" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="apellidos" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="pasaporte" sqlType="VARCHAR" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="telefono" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
+      <column name="direccion" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="ciudad" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="estado" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="pais" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="comentario" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="cumpleanios" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="idCliente_id_refs_id_d5273a2d" table="db_agencias" schema="" catalog="hotel_db" columns="idCliente_id"/>
+      <exported-key name="idCliente_id_refs_id_718c1179" table="db_empresas" schema="" catalog="hotel_db" columns="idCliente_id"/>
+      <exported-key name="idCliente_id_refs_id_aef45a2d" table="db_servicios" schema="" catalog="hotel_db" columns="idCliente_id"/>
+    </table>
+    <table name="db_comentarios" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="idIma_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="contenido" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="hora" sqlType="TIME" length="8" precision="0" nullable="false" jdbcType="92"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="idIma_id_refs_id_ed227314" columns="idIma_id" ref-table="db_imagenes" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="db_comentarios_be71f9c3" unique="false" columns="idIma_id"/>
+    </table>
+    <table name="db_empresas" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="metodo" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="idCliente_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="idCliente_id_refs_id_718c1179" columns="idCliente_id" ref-table="db_clientes" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="db_empresas_21c46786" unique="false" columns="idCliente_id"/>
+    </table>
+    <table name="db_habitacion" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="descripcion" sqlType="VARCHAR" length="300" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="IdHab_id_refs_id_35899bd5" table="db_mantenciones" schema="" catalog="hotel_db" columns="IdHab_id"/>
+      <exported-key name="IdHab_id_refs_id_5ca05735" table="db_tipo_hab" schema="" catalog="hotel_db" columns="IdHab_id"/>
+    </table>
+    <table name="db_imagenes" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="rutafisica" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="rutavirtual" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="hora" sqlType="TIME" length="8" precision="0" nullable="false" jdbcType="92"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="idIma_id_refs_id_ed227314" table="db_comentarios" schema="" catalog="hotel_db" columns="idIma_id"/>
+    </table>
+    <table name="db_mantenciones" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="dias" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="fecha_inicio" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="fecha_fin" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="IdHab_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="IdHab_id_refs_id_35899bd5" columns="IdHab_id" ref-table="db_habitacion" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="db_mantenciones_ad99b60b" unique="false" columns="IdHab_id"/>
+    </table>
+    <table name="db_servicios" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="categoria" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="precio" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
+      <column name="cantidad" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="idCliente_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="idCliente_id_refs_id_aef45a2d" columns="idCliente_id" ref-table="db_clientes" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="db_servicios_21c46786" unique="false" columns="idCliente_id"/>
+    </table>
+    <table name="db_tipo_hab" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tipo" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="precio" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
+      <column name="IdHab_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="IdHab_id_refs_id_5ca05735" columns="IdHab_id" ref-table="db_habitacion" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="db_tipo_hab_ad99b60b" unique="false" columns="IdHab_id"/>
+    </table>
+    <table name="db_usuario" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
+      <column name="rol" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="nickname" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="object_id" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" length="5" precision="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_93d2d1f8" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_c0d12874" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="hotel_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin_log_37ef4eb4" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="hotel_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="app_label" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="content_type_id_refs_id_d043b34a" table="auth_permission" schema="" catalog="hotel_db" columns="content_type_id"/>
+      <exported-key name="content_type_id_refs_id_93d2d1f8" table="django_admin_log" schema="" catalog="hotel_db" columns="content_type_id"/>
+      <index name="app_label" unique="true" columns="app_label,model"/>
+    </table>
+    <table name="django_session" schema="" catalog="hotel_db" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_b7b81f0c" unique="false" columns="expire_date"/>
     </table>
     <table name="CHARACTER_SETS" schema="" catalog="information_schema" type="SYSTEM TABLE">
       <column name="CHARACTER_SET_NAME" sqlType="VARCHAR" length="32" precision="0" nullable="false" jdbcType="12" def="Jyc="/>
@@ -711,13 +1209,249 @@
       <column name="CHARACTER_SET_CLIENT" sqlType="VARCHAR" length="32" precision="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="COLLATION_CONNECTION" sqlType="VARCHAR" length="32" precision="0" nullable="false" jdbcType="12" def="Jyc="/>
     </table>
+    <table name="auth_group" schema="" catalog="libros_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="80" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="group_id_refs_id_f4b32aac" table="auth_group_permissions" schema="" catalog="libros_db" columns="group_id"/>
+      <exported-key name="group_id_refs_id_274b862c" table="auth_user_groups" schema="" catalog="libros_db" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="libros_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="group_id_refs_id_f4b32aac" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="libros_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_6ba0f519" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="libros_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissions_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_group_permissions_83d7f98b" unique="false" columns="permission_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="libros_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_d043b34a" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="libros_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="permission_id_refs_id_6ba0f519" table="auth_group_permissions" schema="" catalog="libros_db" columns="permission_id"/>
+      <exported-key name="permission_id_refs_id_35d9ac25" table="auth_user_user_permissions" schema="" catalog="libros_db" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+      <index name="auth_permission_37ef4eb4" unique="false" columns="content_type_id"/>
+    </table>
+    <table name="auth_user" schema="" catalog="libros_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" length="128" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="is_superuser" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="username" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_active" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="date_joined" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="user_id_refs_id_40c41112" table="auth_user_groups" schema="" catalog="libros_db" columns="user_id"/>
+      <exported-key name="user_id_refs_id_4dc23c39" table="auth_user_user_permissions" schema="" catalog="libros_db" columns="user_id"/>
+      <exported-key name="user_id_refs_id_c0d12874" table="django_admin_log" schema="" catalog="libros_db" columns="user_id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="libros_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="libros_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_40c41112" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="libros_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="libros_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="libros_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_4dc23c39" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="libros_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_permissions_6340c63c" unique="false" columns="user_id"/>
+      <index name="auth_user_user_permissions_83d7f98b" unique="false" columns="permission_id"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="libros_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="object_id" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" length="5" precision="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_93d2d1f8" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="libros_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_c0d12874" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="libros_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin_log_37ef4eb4" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="libros_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="app_label" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="content_type_id_refs_id_d043b34a" table="auth_permission" schema="" catalog="libros_db" columns="content_type_id"/>
+      <exported-key name="content_type_id_refs_id_93d2d1f8" table="django_admin_log" schema="" catalog="libros_db" columns="content_type_id"/>
+      <index name="app_label" unique="true" columns="app_label,model"/>
+    </table>
+    <table name="django_session" schema="" catalog="libros_db" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_b7b81f0c" unique="false" columns="expire_date"/>
+    </table>
+    <table name="django_site" schema="" catalog="libros_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="domain" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="auth_group" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="80" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="group_id_refs_id_f4b32aac" table="auth_group_permissions" schema="" catalog="libros_seminario" columns="group_id"/>
+      <exported-key name="group_id_refs_id_274b862c" table="auth_user_groups" schema="" catalog="libros_seminario" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="group_id_refs_id_f4b32aac" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="libros_seminario" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_6ba0f519" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="libros_seminario" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissions_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_group_permissions_83d7f98b" unique="false" columns="permission_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_d043b34a" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="libros_seminario" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="permission_id_refs_id_6ba0f519" table="auth_group_permissions" schema="" catalog="libros_seminario" columns="permission_id"/>
+      <exported-key name="permission_id_refs_id_35d9ac25" table="auth_user_user_permissions" schema="" catalog="libros_seminario" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+      <index name="auth_permission_37ef4eb4" unique="false" columns="content_type_id"/>
+    </table>
+    <table name="auth_user" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" length="128" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="is_superuser" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="username" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_active" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="date_joined" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="user_id_refs_id_40c41112" table="auth_user_groups" schema="" catalog="libros_seminario" columns="user_id"/>
+      <exported-key name="user_id_refs_id_4dc23c39" table="auth_user_user_permissions" schema="" catalog="libros_seminario" columns="user_id"/>
+      <exported-key name="user_id_refs_id_c0d12874" table="django_admin_log" schema="" catalog="libros_seminario" columns="user_id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="libros_seminario" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_40c41112" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="libros_seminario" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="libros_seminario" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_4dc23c39" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="libros_seminario" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_permissions_6340c63c" unique="false" columns="user_id"/>
+      <index name="auth_user_user_permissions_83d7f98b" unique="false" columns="permission_id"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="object_id" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" length="5" precision="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="content_type_id_refs_id_93d2d1f8" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="libros_seminario" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_c0d12874" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="libros_seminario" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin_log_37ef4eb4" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_6340c63c" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="app_label" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="content_type_id_refs_id_d043b34a" table="auth_permission" schema="" catalog="libros_seminario" columns="content_type_id"/>
+      <exported-key name="content_type_id_refs_id_93d2d1f8" table="django_admin_log" schema="" catalog="libros_seminario" columns="content_type_id"/>
+      <index name="app_label" unique="true" columns="app_label,model"/>
+    </table>
+    <table name="django_session" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_b7b81f0c" unique="false" columns="expire_date"/>
+    </table>
+    <table name="django_site" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="domain" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="libro_autor" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="ciudad" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="libro_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="libro_id_refs_id_c9b61fbe" columns="libro_id" ref-table="libro_libros" ref-schema="" ref-catalog="libros_seminario" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="libro_autor_dd67b109" unique="false" columns="libro_id"/>
+    </table>
+    <table name="libro_libros" schema="" catalog="libros_seminario" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="titulo" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="fecha_publi" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="cantidad" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="portada" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="libro_id_refs_id_c9b61fbe" table="libro_autor" schema="" catalog="libros_seminario" columns="libro_id"/>
+    </table>
     <table name="columns_priv" schema="" catalog="mysql" type="TABLE">
       <column name="Host" sqlType="CHAR" length="60" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="Db" sqlType="CHAR" length="64" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="User" sqlType="CHAR" length="16" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="Table_name" sqlType="CHAR" length="64" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="Column_name" sqlType="CHAR" length="64" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
-      <column name="Timestamp" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="Timestamp" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="Column_priv" sqlType="SET" length="31" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <primary-key name="PRIMARY" columns="Host,Db,User,Table_name,Column_name"/>
     </table>
@@ -755,7 +1489,7 @@
       <column name="execute_at" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
       <column name="interval_value" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="interval_field" sqlType="ENUM" length="18" precision="0" nullable="true" jdbcType="1"/>
-      <column name="created" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="created" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="modified" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="last_executed" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
       <column name="starts" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
@@ -780,7 +1514,7 @@
       <primary-key name="PRIMARY" columns="name"/>
     </table>
     <table name="general_log" schema="" catalog="mysql" type="TABLE">
-      <column name="event_time" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="event_time" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="user_host" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
       <column name="thread_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="server_id" sqlType="INT UNSIGNED" length="10" precision="0" nullable="false" jdbcType="4"/>
@@ -867,7 +1601,7 @@
       <column name="returns" sqlType="LONGBLOB" length="2147483647" precision="0" nullable="false" jdbcType="-4"/>
       <column name="body" sqlType="LONGBLOB" length="2147483647" precision="0" nullable="false" jdbcType="-4"/>
       <column name="definer" sqlType="CHAR" length="77" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
-      <column name="created" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="created" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="modified" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
       <column name="sql_mode" sqlType="SET" length="478" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="comment" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
@@ -885,7 +1619,7 @@
       <column name="Routine_type" sqlType="ENUM" length="9" precision="0" nullable="false" jdbcType="1"/>
       <column name="Grantor" sqlType="CHAR" length="77" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="Proc_priv" sqlType="SET" length="27" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
-      <column name="Timestamp" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="Timestamp" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <primary-key name="PRIMARY" columns="Host,Db,User,Routine_name,Routine_type"/>
       <index name="Grantor" unique="false" columns="Grantor"/>
     </table>
@@ -896,7 +1630,7 @@
       <column name="Proxied_user" sqlType="CHAR" length="16" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="With_grant" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7" def="MA=="/>
       <column name="Grantor" sqlType="CHAR" length="77" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
-      <column name="Timestamp" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="Timestamp" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <primary-key name="PRIMARY" columns="Host,User,Proxied_host,Proxied_user"/>
       <index name="Grantor" unique="false" columns="Grantor"/>
     </table>
@@ -913,7 +1647,7 @@
       <primary-key name="PRIMARY" columns="Server_name"/>
     </table>
     <table name="slow_log" schema="" catalog="mysql" type="TABLE">
-      <column name="start_time" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="start_time" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="user_host" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
       <column name="query_time" sqlType="TIME" length="8" precision="0" nullable="false" jdbcType="92"/>
       <column name="lock_time" sqlType="TIME" length="8" precision="0" nullable="false" jdbcType="92"/>
@@ -931,7 +1665,7 @@
       <column name="User" sqlType="CHAR" length="16" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="Table_name" sqlType="CHAR" length="64" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="Grantor" sqlType="CHAR" length="77" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
-      <column name="Timestamp" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="Timestamp" sqlType="TIMESTAMP" length="19" precision="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
       <column name="Table_priv" sqlType="SET" length="98" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <column name="Column_priv" sqlType="SET" length="31" precision="0" nullable="false" jdbcType="1" def="Jyc="/>
       <primary-key name="PRIMARY" columns="Host,Db,User,Table_name"/>
@@ -1150,247 +1884,308 @@
       <column name="PROCESSLIST_ID" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <column name="NAME" sqlType="VARCHAR" length="128" precision="0" nullable="false" jdbcType="12"/>
     </table>
-    <table name="auth_group" schema="" catalog="proyecto" type="TABLE">
+    <table name="auth_group" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" length="80" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="auth_group_name_key" unique="true" columns="name"/>
-      <index name="auth_group_name_like" unique="false" columns="name"/>
+      <exported-key name="group_id_refs_id_f4b32aac" table="auth_group_permissions" schema="" catalog="sapec" columns="group_id"/>
+      <exported-key name="group_id_refs_id_274b862c" table="auth_user_groups" schema="" catalog="sapec" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
     </table>
-    <table name="auth_group_permissions" schema="" catalog="proyecto" type="TABLE">
+    <table name="auth_group_permissions" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="auth_group_permissions_group_id_permission_id_key" unique="true" columns="group_id,permission_id"/>
-      <index name="auth_group_permissions_permission_id" unique="false" columns="permission_id"/>
-      <index name="auth_group_permissions_group_id" unique="false" columns="group_id"/>
+      <foreign-key name="group_id_refs_id_f4b32aac" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_6ba0f519" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissions_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_group_permissions_83d7f98b" unique="false" columns="permission_id"/>
     </table>
-    <table name="auth_permission" schema="" catalog="proyecto" type="TABLE">
+    <table name="auth_permission" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="codename" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="auth_permission_content_type_id_codename_key" unique="true" columns="content_type_id,codename"/>
-      <index name="auth_permission_content_type_id" unique="false" columns="content_type_id"/>
+      <foreign-key name="content_type_id_refs_id_d043b34a" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="permission_id_refs_id_6ba0f519" table="auth_group_permissions" schema="" catalog="sapec" columns="permission_id"/>
+      <exported-key name="permission_id_refs_id_35d9ac25" table="auth_user_user_permissions" schema="" catalog="sapec" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+      <index name="auth_permission_37ef4eb4" unique="false" columns="content_type_id"/>
     </table>
-    <table name="auth_user" schema="" catalog="proyecto" type="TABLE">
+    <table name="auth_user" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="password" sqlType="VARCHAR" length="128" precision="0" nullable="false" jdbcType="12"/>
       <column name="last_login" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="is_superuser" sqlType="TINYINT UNSIGNED" length="3" precision="0" nullable="false" jdbcType="-6"/>
+      <column name="is_superuser" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
       <column name="username" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
-      <column name="TRIAL_COLUMN6" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
-      <column name="TRIAL_COLUMN7" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
-      <column name="TRIAL_COLUMN8" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
-      <column name="TRIAL_COLUMN9" sqlType="TINYINT UNSIGNED" length="3" precision="0" nullable="false" jdbcType="-6"/>
-      <column name="TRIAL_COLUMN10" sqlType="TINYINT UNSIGNED" length="3" precision="0" nullable="false" jdbcType="-6"/>
-      <column name="TRIAL_COLUMN11" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="first_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_active" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="date_joined" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="auth_user_username_key" unique="true" columns="username"/>
-      <index name="auth_user_username_like" unique="false" columns="username"/>
+      <exported-key name="user_id_refs_id_40c41112" table="auth_user_groups" schema="" catalog="sapec" columns="user_id"/>
+      <exported-key name="user_id_refs_id_4dc23c39" table="auth_user_user_permissions" schema="" catalog="sapec" columns="user_id"/>
+      <exported-key name="user_id_refs_id_c0d12874" table="django_admin_log" schema="" catalog="sapec" columns="user_id"/>
+      <exported-key name="usuario_id_refs_id_1b7cdb64" table="personal_contratacion" schema="" catalog="sapec" columns="usuario_id"/>
+      <exported-key name="usuario_id_refs_id_2c81061b" table="personal_empleados" schema="" catalog="sapec" columns="usuario_id"/>
+      <index name="username" unique="true" columns="username"/>
     </table>
-    <table name="auth_user_groups" schema="" catalog="proyecto" type="TABLE">
+    <table name="auth_user_groups" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="auth_user_groups_user_id_group_id_key" unique="true" columns="user_id,group_id"/>
-      <index name="auth_user_groups_group_id" unique="false" columns="group_id"/>
-      <index name="auth_user_groups_user_id" unique="false" columns="user_id"/>
+      <foreign-key name="user_id_refs_id_40c41112" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
     </table>
-    <table name="auth_user_user_permissions" schema="" catalog="proyecto" type="TABLE">
+    <table name="auth_user_user_permissions" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="auth_user_user_permissions_user_id_permission_id_key" unique="true" columns="user_id,permission_id"/>
-      <index name="auth_user_user_permissions_user_id" unique="false" columns="user_id"/>
-      <index name="auth_user_user_permissions_permission_id" unique="false" columns="permission_id"/>
+      <foreign-key name="user_id_refs_id_4dc23c39" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_permissions_6340c63c" unique="false" columns="user_id"/>
+      <index name="auth_user_user_permissions_83d7f98b" unique="false" columns="permission_id"/>
     </table>
-    <table name="django_admin_log" schema="" catalog="proyecto" type="TABLE">
+    <table name="django_admin_log" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="action_time" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="object_id" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="true" jdbcType="-1"/>
-      <column name="TRIAL_COLUMN6" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
-      <column name="TRIAL_COLUMN7" sqlType="SMALLINT" length="5" precision="0" nullable="false" jdbcType="5"/>
-      <column name="TRIAL_COLUMN8" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="object_id" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" length="5" precision="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="django_admin_log_user_id" unique="false" columns="user_id"/>
-      <index name="django_admin_log_content_type_id" unique="false" columns="content_type_id"/>
+      <foreign-key name="user_id_refs_id_c0d12874" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="content_type_id_refs_id_93d2d1f8" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin_log_37ef4eb4" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_6340c63c" unique="false" columns="user_id"/>
     </table>
-    <table name="django_content_type" schema="" catalog="proyecto" type="TABLE">
+    <table name="django_content_type" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="app_label" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="model" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="django_content_type_app_label_model_key" unique="true" columns="app_label,model"/>
+      <exported-key name="content_type_id_refs_id_d043b34a" table="auth_permission" schema="" catalog="sapec" columns="content_type_id"/>
+      <exported-key name="content_type_id_refs_id_93d2d1f8" table="django_admin_log" schema="" catalog="sapec" columns="content_type_id"/>
+      <index name="app_label" unique="true" columns="app_label,model"/>
     </table>
-    <table name="django_session" schema="" catalog="proyecto" type="TABLE">
+    <table name="django_session" schema="" catalog="sapec" type="TABLE">
       <column name="session_key" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12"/>
-      <column name="session_data" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="session_data" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <column name="expire_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="session_key"/>
-      <index name="django_session_expire_date" unique="false" columns="expire_date"/>
-      <index name="django_session_session_key_like" unique="false" columns="session_key"/>
+      <index name="django_session_b7b81f0c" unique="false" columns="expire_date"/>
     </table>
-    <table name="django_site" schema="" catalog="proyecto" type="TABLE">
+    <table name="django_site" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="domain" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
-    <table name="organizacion_cargos" schema="" catalog="proyecto" type="TABLE">
+    <table name="organizacion_cargos" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="nombre" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
-      <column name="descripcion" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
       <column name="unidad_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="organizacion_cargos_unidad_id" unique="false" columns="unidad_id"/>
+      <foreign-key name="unidad_id_refs_id_23155d9f" columns="unidad_id" ref-table="organizacion_unidades" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="cargo_id_refs_id_ac6196c6" table="organizacion_conocimiento" schema="" catalog="sapec" columns="cargo_id"/>
+      <exported-key name="cargo_id_refs_id_cb782919" table="organizacion_funciones" schema="" catalog="sapec" columns="cargo_id"/>
+      <exported-key name="cargo_id_refs_id_6beaa3b1" table="organizacion_planificacion" schema="" catalog="sapec" columns="cargo_id"/>
+      <exported-key name="cargo_id_refs_id_81a531df" table="personal_contratacion" schema="" catalog="sapec" columns="cargo_id"/>
+      <exported-key name="cargo_id_refs_id_209268a8" table="personal_moviidad" schema="" catalog="sapec" columns="cargo_id"/>
+      <index name="organizacion_cargos_ee6a53a3" unique="false" columns="unidad_id"/>
     </table>
-    <table name="organizacion_conocimiento" schema="" catalog="proyecto" type="TABLE">
+    <table name="organizacion_conocimiento" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="descripcion" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
-      <column name="estado" sqlType="TINYINT UNSIGNED" length="3" precision="0" nullable="false" jdbcType="-6"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="estado" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
       <column name="cargo_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="organizacion_conocimiento_cargo_id" unique="false" columns="cargo_id"/>
+      <foreign-key name="cargo_id_refs_id_ac6196c6" columns="cargo_id" ref-table="organizacion_cargos" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="organizacion_conocimiento_7b821f35" unique="false" columns="cargo_id"/>
     </table>
-    <table name="organizacion_funciones" schema="" catalog="proyecto" type="TABLE">
+    <table name="organizacion_funciones" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="descripcion" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
-      <column name="estado" sqlType="TINYINT UNSIGNED" length="3" precision="0" nullable="false" jdbcType="-6"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="estado" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
       <column name="cargo_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="organizacion_funciones_cargo_id" unique="false" columns="cargo_id"/>
+      <foreign-key name="cargo_id_refs_id_cb782919" columns="cargo_id" ref-table="organizacion_cargos" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="organizacion_funciones_7b821f35" unique="false" columns="cargo_id"/>
     </table>
-    <table name="organizacion_planificacion" schema="" catalog="proyecto" type="TABLE">
+    <table name="organizacion_planificacion" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="descripcion" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <column name="cantidad" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="fecha_plani" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="estado" sqlType="TINYINT UNSIGNED" length="3" precision="0" nullable="false" jdbcType="-6"/>
-      <column name="TRIAL_COLUMN6" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="estado" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="cargo_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="cargo_id_refs_id_6beaa3b1" columns="cargo_id" ref-table="organizacion_cargos" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="organizacion_planificacion_7b821f35" unique="false" columns="cargo_id"/>
     </table>
-    <table name="organizacion_unidades" schema="" catalog="proyecto" type="TABLE">
+    <table name="organizacion_unidades" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="nombre" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
-      <column name="descripcion" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <column name="documento" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="organizacion_unidades_nombre_key" unique="true" columns="nombre"/>
-      <index name="organizacion_unidades_nombre_like" unique="false" columns="nombre"/>
+      <exported-key name="unidad_id_refs_id_23155d9f" table="organizacion_cargos" schema="" catalog="sapec" columns="unidad_id"/>
+      <index name="nombre" unique="true" columns="nombre"/>
     </table>
-    <table name="personal_asistencia" schema="" catalog="proyecto" type="TABLE">
+    <table name="personal_asistencia" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="entrada_m" sqlType="TIME" length="8" precision="0" nullable="true" jdbcType="92"/>
       <column name="salida_m" sqlType="TIME" length="8" precision="0" nullable="true" jdbcType="92"/>
       <column name="obs_m" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
-      <column name="TRIAL_COLUMN6" sqlType="TIME" length="8" precision="0" nullable="true" jdbcType="92"/>
-      <column name="TRIAL_COLUMN7" sqlType="TIME" length="8" precision="0" nullable="true" jdbcType="92"/>
-      <column name="TRIAL_COLUMN8" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
-      <column name="TRIAL_COLUMN9" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="entrada_t" sqlType="TIME" length="8" precision="0" nullable="true" jdbcType="92"/>
+      <column name="salida_t" sqlType="TIME" length="8" precision="0" nullable="true" jdbcType="92"/>
+      <column name="obs_t" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
+      <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="empleado_id_refs_id_a1c9442f" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="asistencia_id_refs_id_c1d0c9a5" table="personal_entrada" schema="" catalog="sapec" columns="asistencia_id"/>
+      <exported-key name="asistencia_id_refs_id_8ce70c12" table="personal_salida" schema="" catalog="sapec" columns="asistencia_id"/>
+      <index name="personal_asistencia_060bf3b5" unique="false" columns="empleado_id"/>
     </table>
-    <table name="personal_contratacion" schema="" catalog="proyecto" type="TABLE">
+    <table name="personal_contratacion" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="fecha_entrada" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="fecha_salida" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="estado" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
       <column name="sueldo" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
-      <column name="TRIAL_COLUMN6" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
-      <column name="TRIAL_COLUMN7" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="TRIAL_COLUMN8" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="descuento" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
+      <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="cargo_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="usuario_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="usuario_id_refs_id_1b7cdb64" columns="usuario_id" ref-table="auth_user" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="cargo_id_refs_id_81a531df" columns="cargo_id" ref-table="organizacion_cargos" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="empleado_id_refs_id_67452bfe" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="contrato_id_refs_id_c432e0a8" table="personal_moviidad" schema="" catalog="sapec" columns="contrato_id"/>
+      <index name="personal_contratacion_060bf3b5" unique="false" columns="empleado_id"/>
+      <index name="personal_contratacion_7b821f35" unique="false" columns="cargo_id"/>
+      <index name="personal_contratacion_c69e2c81" unique="false" columns="usuario_id"/>
     </table>
-    <table name="personal_empleados" schema="" catalog="proyecto" type="TABLE">
+    <table name="personal_empleados" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="ci" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="paterno" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <column name="materno" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
       <column name="nombre" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
-      <column name="TRIAL_COLUMN6" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
-      <column name="TRIAL_COLUMN7" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="TRIAL_COLUMN8" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
-      <column name="TRIAL_COLUMN9" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
-      <column name="TRIAL_COLUMN10" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
-      <column name="TRIAL_COLUMN11" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
-      <column name="TRIAL_COLUMN12" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
-      <column name="TRIAL_COLUMN13" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="TRIAL_COLUMN14" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="direccion" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="telefono" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="estado_civil" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="sexo" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="fecha_nac" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
+      <column name="foto" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="profesion_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="usuario_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="profesion_id_refs_id_f4f82afd" columns="profesion_id" ref-table="personal_profesion" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="usuario_id_refs_id_2c81061b" columns="usuario_id" ref-table="auth_user" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="empleado_id_refs_id_a1c9442f" table="personal_asistencia" schema="" catalog="sapec" columns="empleado_id"/>
+      <exported-key name="empleado_id_refs_id_67452bfe" table="personal_contratacion" schema="" catalog="sapec" columns="empleado_id"/>
+      <exported-key name="empleado_id_refs_id_3a771752" table="personal_observacion" schema="" catalog="sapec" columns="empleado_id"/>
+      <exported-key name="empleado_id_refs_id_018bcb1d" table="personal_permiso" schema="" catalog="sapec" columns="empleado_id"/>
+      <exported-key name="empleado_id_refs_id_e210fb96" table="remuneraciones_descuento" schema="" catalog="sapec" columns="empleado_id"/>
+      <exported-key name="empleado_id_refs_id_49a221c7" table="remuneraciones_pagos" schema="" catalog="sapec" columns="empleado_id"/>
+      <index name="personal_empleados_4f1e5aad" unique="false" columns="profesion_id"/>
+      <index name="personal_empleados_c69e2c81" unique="false" columns="usuario_id"/>
     </table>
-    <table name="personal_entrada" schema="" catalog="proyecto" type="TABLE">
+    <table name="personal_entrada" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="hora" sqlType="TIME" length="8" precision="0" nullable="false" jdbcType="92"/>
       <column name="obs" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
       <column name="asistencia_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="personal_entrada_asistencia_id" unique="false" columns="asistencia_id"/>
+      <foreign-key name="asistencia_id_refs_id_c1d0c9a5" columns="asistencia_id" ref-table="personal_asistencia" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="personal_entrada_5b166fd1" unique="false" columns="asistencia_id"/>
     </table>
-    <table name="personal_moviidad" schema="" catalog="proyecto" type="TABLE">
+    <table name="personal_moviidad" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="contrato_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="cargo_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="personal_moviidad_contrato_id" unique="false" columns="contrato_id"/>
-      <index name="personal_moviidad_cargo_id" unique="false" columns="cargo_id"/>
+      <foreign-key name="contrato_id_refs_id_c432e0a8" columns="contrato_id" ref-table="personal_contratacion" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="cargo_id_refs_id_209268a8" columns="cargo_id" ref-table="organizacion_cargos" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="personal_moviidad_7b821f35" unique="false" columns="cargo_id"/>
+      <index name="personal_moviidad_a8e4a6b7" unique="false" columns="contrato_id"/>
     </table>
-    <table name="personal_observacion" schema="" catalog="proyecto" type="TABLE">
+    <table name="personal_observacion" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="tipo" sqlType="VARCHAR" length="5" precision="0" nullable="false" jdbcType="12"/>
-      <column name="descripcion" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="personal_observacion_empleado_id" unique="false" columns="empleado_id"/>
+      <foreign-key name="empleado_id_refs_id_3a771752" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="personal_observacion_060bf3b5" unique="false" columns="empleado_id"/>
     </table>
-    <table name="personal_permiso" schema="" catalog="proyecto" type="TABLE">
+    <table name="personal_permiso" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="descripcion" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
       <column name="tiempo" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
       <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="personal_permiso_empleado_id" unique="false" columns="empleado_id"/>
+      <foreign-key name="empleado_id_refs_id_018bcb1d" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="personal_permiso_060bf3b5" unique="false" columns="empleado_id"/>
     </table>
-    <table name="personal_profesion" schema="" catalog="proyecto" type="TABLE">
+    <table name="personal_profesion" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="descripcion" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="profesion_id_refs_id_f4f82afd" table="personal_empleados" schema="" catalog="sapec" columns="profesion_id"/>
     </table>
-    <table name="personal_salida" schema="" catalog="proyecto" type="TABLE">
+    <table name="personal_salida" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="hora" sqlType="TIME" length="8" precision="0" nullable="false" jdbcType="92"/>
       <column name="obs" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
       <column name="asistencia_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <index name="personal_salida_asistencia_id" unique="false" columns="asistencia_id"/>
+      <foreign-key name="asistencia_id_refs_id_8ce70c12" columns="asistencia_id" ref-table="personal_asistencia" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="personal_salida_5b166fd1" unique="false" columns="asistencia_id"/>
     </table>
-    <table name="remuneraciones_descuento" schema="" catalog="proyecto" type="TABLE">
+    <table name="remuneraciones_descuento" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="razon" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <column name="pago" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
-      <column name="descripcion" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="TRIAL_COLUMN6" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="empleado_id_refs_id_e210fb96" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="remuneraciones_descuento_060bf3b5" unique="false" columns="empleado_id"/>
     </table>
-    <table name="remuneraciones_pagos" schema="" catalog="proyecto" type="TABLE">
+    <table name="remuneraciones_pagos" schema="" catalog="sapec" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="razon" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <column name="pago" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
-      <column name="descripcion" sqlType="MEDIUMTEXT" length="16777215" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="TRIAL_COLUMN6" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="empleado_id_refs_id_49a221c7" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="remuneraciones_pagos_060bf3b5" unique="false" columns="empleado_id"/>
     </table>
     <table name="auth_group" schema="" catalog="sapec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -1439,7 +2234,6 @@
       <exported-key name="user_id_refs_id_40c41112" table="auth_user_groups" schema="" catalog="sapec_db" columns="user_id"/>
       <exported-key name="user_id_refs_id_4dc23c39" table="auth_user_user_permissions" schema="" catalog="sapec_db" columns="user_id"/>
       <exported-key name="user_id_refs_id_c0d12874" table="django_admin_log" schema="" catalog="sapec_db" columns="user_id"/>
-      <exported-key name="usuario_id_refs_id_2c81061b" table="personal_empleados" schema="" catalog="sapec_db" columns="usuario_id"/>
       <index name="username" unique="true" columns="username"/>
     </table>
     <table name="auth_user_groups" schema="" catalog="sapec_db" type="TABLE">
@@ -1447,19 +2241,19 @@
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="user_id_refs_id_40c41112" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="user_id" unique="true" columns="group_id"/>
-      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
       <index name="auth_user_groups_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
     </table>
     <table name="auth_user_user_permissions" schema="" catalog="sapec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="user_id_refs_id_4dc23c39" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="user_id" unique="true" columns="permission_id"/>
       <index name="auth_user_user_permissions_6340c63c" unique="false" columns="user_id"/>
       <index name="auth_user_user_permissions_83d7f98b" unique="false" columns="permission_id"/>
@@ -1476,8 +2270,8 @@
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="content_type_id_refs_id_93d2d1f8" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="user_id_refs_id_c0d12874" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="django_admin_log_6340c63c" unique="false" columns="user_id"/>
       <index name="django_admin_log_37ef4eb4" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_6340c63c" unique="false" columns="user_id"/>
     </table>
     <table name="django_content_type" schema="" catalog="sapec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -1502,193 +2296,224 @@
       <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
-    <table name="organizacion_cargos" schema="" catalog="sapec_db" type="TABLE">
+    <table name="auth_group" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="nombre" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
-      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
-      <column name="unidad_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" length="80" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="unidad_id_refs_id_23155d9f" columns="unidad_id" ref-table="organizacion_unidades" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="cargo_id_refs_id_ac6196c6" table="organizacion_conocimiento" schema="" catalog="sapec_db" columns="cargo_id"/>
-      <exported-key name="cargo_id_refs_id_cb782919" table="organizacion_funciones" schema="" catalog="sapec_db" columns="cargo_id"/>
-      <exported-key name="cargo_id_refs_id_6beaa3b1" table="organizacion_planificacion" schema="" catalog="sapec_db" columns="cargo_id"/>
-      <exported-key name="cargo_id_refs_id_81a531df" table="personal_contratacion" schema="" catalog="sapec_db" columns="cargo_id"/>
-      <exported-key name="cargo_id_refs_id_209268a8" table="personal_moviidad" schema="" catalog="sapec_db" columns="cargo_id"/>
-      <index name="organizacion_cargos_ee6a53a3" unique="false" columns="unidad_id"/>
+      <exported-key name="group_id_refs_id_f4b32aac" table="auth_group_permissions" schema="" catalog="supermec_db" columns="group_id"/>
+      <exported-key name="group_id_refs_id_274b862c" table="auth_user_groups" schema="" catalog="supermec_db" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
     </table>
-    <table name="organizacion_conocimiento" schema="" catalog="sapec_db" type="TABLE">
+    <table name="auth_group_permissions" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
-      <column name="estado" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
-      <column name="cargo_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="cargo_id_refs_id_ac6196c6" columns="cargo_id" ref-table="organizacion_cargos" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="organizacion_conocimiento_7b821f35" unique="false" columns="cargo_id"/>
+      <foreign-key name="group_id_refs_id_f4b32aac" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="permission_id_refs_id_6ba0f519" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissions_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_group_permissions_83d7f98b" unique="false" columns="permission_id"/>
     </table>
-    <table name="organizacion_funciones" schema="" catalog="sapec_db" type="TABLE">
+    <table name="auth_permission" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
-      <column name="estado" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
-      <column name="cargo_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="cargo_id_refs_id_cb782919" columns="cargo_id" ref-table="organizacion_cargos" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="organizacion_funciones_7b821f35" unique="false" columns="cargo_id"/>
+      <foreign-key name="content_type_id_refs_id_d043b34a" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="permission_id_refs_id_6ba0f519" table="auth_group_permissions" schema="" catalog="supermec_db" columns="permission_id"/>
+      <exported-key name="permission_id_refs_id_35d9ac25" table="auth_user_user_permissions" schema="" catalog="supermec_db" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+      <index name="auth_permission_37ef4eb4" unique="false" columns="content_type_id"/>
     </table>
-    <table name="organizacion_planificacion" schema="" catalog="sapec_db" type="TABLE">
+    <table name="auth_user" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
-      <column name="cantidad" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="fecha_plani" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
-      <column name="estado" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
-      <column name="cargo_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="cargo_id_refs_id_6beaa3b1" columns="cargo_id" ref-table="organizacion_cargos" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="organizacion_planificacion_7b821f35" unique="false" columns="cargo_id"/>
-    </table>
-    <table name="organizacion_unidades" schema="" catalog="sapec_db" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="nombre" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
-      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
-      <column name="documento" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="unidad_id_refs_id_23155d9f" table="organizacion_cargos" schema="" catalog="sapec_db" columns="unidad_id"/>
-      <index name="nombre" unique="true" columns="nombre"/>
-    </table>
-    <table name="personal_asistencia" schema="" catalog="sapec_db" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="entrada_m" sqlType="TIME" length="8" precision="0" nullable="true" jdbcType="92"/>
-      <column name="salida_m" sqlType="TIME" length="8" precision="0" nullable="true" jdbcType="92"/>
-      <column name="obs_m" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
-      <column name="entrada_t" sqlType="TIME" length="8" precision="0" nullable="true" jdbcType="92"/>
-      <column name="salida_t" sqlType="TIME" length="8" precision="0" nullable="true" jdbcType="92"/>
-      <column name="obs_t" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
-      <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="empleado_id_refs_id_a1c9442f" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="asistencia_id_refs_id_c1d0c9a5" table="personal_entrada" schema="" catalog="sapec_db" columns="asistencia_id"/>
-      <exported-key name="asistencia_id_refs_id_8ce70c12" table="personal_salida" schema="" catalog="sapec_db" columns="asistencia_id"/>
-      <index name="personal_asistencia_060bf3b5" unique="false" columns="empleado_id"/>
-    </table>
-    <table name="personal_contratacion" schema="" catalog="sapec_db" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="fecha_entrada" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="fecha_salida" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="estado" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
-      <column name="sueldo" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
-      <column name="descuento" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
-      <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="cargo_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="cargo_id_refs_id_81a531df" columns="cargo_id" ref-table="organizacion_cargos" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="empleado_id_refs_id_67452bfe" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="contrato_id_refs_id_c432e0a8" table="personal_moviidad" schema="" catalog="sapec_db" columns="contrato_id"/>
-      <index name="personal_contratacion_060bf3b5" unique="false" columns="empleado_id"/>
-      <index name="personal_contratacion_7b821f35" unique="false" columns="cargo_id"/>
-    </table>
-    <table name="personal_empleados" schema="" catalog="sapec_db" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="ci" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="paterno" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
-      <column name="materno" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
-      <column name="nombre" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
-      <column name="direccion" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
-      <column name="telefono" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
-      <column name="estado_civil" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
-      <column name="sexo" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
-      <column name="fecha_nac" sqlType="DATE" length="10" precision="0" nullable="true" jdbcType="91"/>
+      <column name="password" sqlType="VARCHAR" length="128" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="is_superuser" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="username" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" length="30" precision="0" nullable="false" jdbcType="12"/>
       <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
-      <column name="foto" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
-      <column name="profesion_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="usuario_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="is_staff" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="is_active" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="date_joined" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="profesion_id_refs_id_f4f82afd" columns="profesion_id" ref-table="personal_profesion" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="usuario_id_refs_id_2c81061b" columns="usuario_id" ref-table="auth_user" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="empleado_id_refs_id_a1c9442f" table="personal_asistencia" schema="" catalog="sapec_db" columns="empleado_id"/>
-      <exported-key name="empleado_id_refs_id_67452bfe" table="personal_contratacion" schema="" catalog="sapec_db" columns="empleado_id"/>
-      <exported-key name="empleado_id_refs_id_3a771752" table="personal_observacion" schema="" catalog="sapec_db" columns="empleado_id"/>
-      <exported-key name="empleado_id_refs_id_018bcb1d" table="personal_permiso" schema="" catalog="sapec_db" columns="empleado_id"/>
-      <exported-key name="empleado_id_refs_id_e210fb96" table="remuneraciones_descuento" schema="" catalog="sapec_db" columns="empleado_id"/>
-      <exported-key name="empleado_id_refs_id_49a221c7" table="remuneraciones_pagos" schema="" catalog="sapec_db" columns="empleado_id"/>
-      <index name="personal_empleados_4f1e5aad" unique="false" columns="profesion_id"/>
-      <index name="personal_empleados_c69e2c81" unique="false" columns="usuario_id"/>
+      <exported-key name="user_id_refs_id_40c41112" table="auth_user_groups" schema="" catalog="supermec_db" columns="user_id"/>
+      <exported-key name="user_id_refs_id_4dc23c39" table="auth_user_user_permissions" schema="" catalog="supermec_db" columns="user_id"/>
+      <exported-key name="cliente_id_refs_id_30d521eb" table="carrito_venta" schema="" catalog="supermec_db" columns="cliente_id"/>
+      <exported-key name="user_id_refs_id_c0d12874" table="django_admin_log" schema="" catalog="supermec_db" columns="user_id"/>
+      <exported-key name="user_id_refs_id_2a185759" table="principal_perfil_user" schema="" catalog="supermec_db" columns="user_id"/>
+      <index name="username" unique="true" columns="username"/>
     </table>
-    <table name="personal_entrada" schema="" catalog="sapec_db" type="TABLE">
+    <table name="auth_user_groups" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="hora" sqlType="TIME" length="8" precision="0" nullable="false" jdbcType="92"/>
-      <column name="obs" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
-      <column name="asistencia_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="asistencia_id_refs_id_c1d0c9a5" columns="asistencia_id" ref-table="personal_asistencia" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="personal_entrada_5b166fd1" unique="false" columns="asistencia_id"/>
+      <foreign-key name="group_id_refs_id_274b862c" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_40c41112" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_5f412f9a" unique="false" columns="group_id"/>
+      <index name="auth_user_groups_6340c63c" unique="false" columns="user_id"/>
     </table>
-    <table name="personal_moviidad" schema="" catalog="sapec_db" type="TABLE">
+    <table name="auth_user_user_permissions" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="contrato_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="cargo_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="cargo_id_refs_id_209268a8" columns="cargo_id" ref-table="organizacion_cargos" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="contrato_id_refs_id_c432e0a8" columns="contrato_id" ref-table="personal_contratacion" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="personal_moviidad_a8e4a6b7" unique="false" columns="contrato_id"/>
-      <index name="personal_moviidad_7b821f35" unique="false" columns="cargo_id"/>
+      <foreign-key name="permission_id_refs_id_35d9ac25" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_4dc23c39" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_permissions_6340c63c" unique="false" columns="user_id"/>
+      <index name="auth_user_user_permissions_83d7f98b" unique="false" columns="permission_id"/>
     </table>
-    <table name="personal_observacion" schema="" catalog="sapec_db" type="TABLE">
+    <table name="carrito_detalleventa" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="tipo" sqlType="VARCHAR" length="5" precision="0" nullable="false" jdbcType="12"/>
-      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
-      <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="cantidad" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="costo_producto" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
+      <column name="producto_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="venta_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="empleado_id_refs_id_3a771752" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="personal_observacion_060bf3b5" unique="false" columns="empleado_id"/>
+      <foreign-key name="producto_id_refs_id_7fbe26c0" columns="producto_id" ref-table="principal_producto" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="venta_id_refs_id_991f8066" columns="venta_id" ref-table="carrito_venta" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="carrito_detalleventa_1635d9bd" unique="false" columns="producto_id"/>
+      <index name="carrito_detalleventa_f1401f25" unique="false" columns="venta_id"/>
     </table>
-    <table name="personal_permiso" schema="" catalog="sapec_db" type="TABLE">
+    <table name="carrito_venta" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
-      <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="tiempo" sqlType="VARCHAR" length="10" precision="0" nullable="false" jdbcType="12"/>
-      <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="costo_total" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
+      <column name="fecha_venta" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="cliente_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="estado" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="empleado_id_refs_id_018bcb1d" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="personal_permiso_060bf3b5" unique="false" columns="empleado_id"/>
+      <foreign-key name="cliente_id_refs_id_30d521eb" columns="cliente_id" ref-table="auth_user" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="venta_id_refs_id_991f8066" table="carrito_detalleventa" schema="" catalog="supermec_db" columns="venta_id"/>
+      <index name="carrito_venta_1d8b2af5" unique="false" columns="cliente_id"/>
     </table>
-    <table name="personal_profesion" schema="" catalog="sapec_db" type="TABLE">
+    <table name="django_admin_log" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="action_time" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="content_type_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="object_id" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" length="5" precision="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="profesion_id_refs_id_f4f82afd" table="personal_empleados" schema="" catalog="sapec_db" columns="profesion_id"/>
+      <foreign-key name="content_type_id_refs_id_93d2d1f8" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_c0d12874" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin_log_37ef4eb4" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_6340c63c" unique="false" columns="user_id"/>
     </table>
-    <table name="personal_salida" schema="" catalog="sapec_db" type="TABLE">
+    <table name="django_content_type" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="hora" sqlType="TIME" length="8" precision="0" nullable="false" jdbcType="92"/>
-      <column name="obs" sqlType="VARCHAR" length="15" precision="0" nullable="true" jdbcType="12"/>
-      <column name="asistencia_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="app_label" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="asistencia_id_refs_id_8ce70c12" columns="asistencia_id" ref-table="personal_asistencia" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="personal_salida_5b166fd1" unique="false" columns="asistencia_id"/>
+      <exported-key name="content_type_id_refs_id_d043b34a" table="auth_permission" schema="" catalog="supermec_db" columns="content_type_id"/>
+      <exported-key name="content_type_id_refs_id_93d2d1f8" table="django_admin_log" schema="" catalog="supermec_db" columns="content_type_id"/>
+      <index name="app_label" unique="true" columns="app_label,model"/>
     </table>
-    <table name="remuneraciones_descuento" schema="" catalog="sapec_db" type="TABLE">
-      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="razon" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
-      <column name="pago" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
-      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
-      <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="empleado_id_refs_id_e210fb96" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="remuneraciones_descuento_060bf3b5" unique="false" columns="empleado_id"/>
+    <table name="django_session" schema="" catalog="supermec_db" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" length="40" precision="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" length="19" precision="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_b7b81f0c" unique="false" columns="expire_date"/>
     </table>
-    <table name="remuneraciones_pagos" schema="" catalog="sapec_db" type="TABLE">
+    <table name="django_site" schema="" catalog="supermec_db" type="TABLE">
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="razon" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
-      <column name="pago" sqlType="DOUBLE" length="22" precision="0" nullable="false" jdbcType="8"/>
-      <column name="descripcion" sqlType="LONGTEXT" length="2147483647" precision="0" nullable="false" jdbcType="-1"/>
-      <column name="fecha" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="empleado_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="domain" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="empleado_id_refs_id_49a221c7" columns="empleado_id" ref-table="personal_empleados" ref-schema="" ref-catalog="sapec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="remuneraciones_pagos_060bf3b5" unique="false" columns="empleado_id"/>
+    </table>
+    <table name="principal_categoria" schema="" catalog="supermec_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre_cat" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="registro_id_refs_id_fb8d1f30" table="principal_producto" schema="" catalog="supermec_db" columns="registro_id"/>
+    </table>
+    <table name="principal_compra" schema="" catalog="supermec_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fecha_comp" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="tipo_pago" sqlType="VARCHAR" length="2" precision="0" nullable="false" jdbcType="12"/>
+      <column name="usuario_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="usuario_id_refs_id_e5766347" columns="usuario_id" ref-table="principal_persona" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="retiro_id_refs_id_fd9ad4ae" table="principal_detalle_compra" schema="" catalog="supermec_db" columns="retiro_id"/>
+      <exported-key name="compras_id_refs_id_a1e72e83" table="principal_factura" schema="" catalog="supermec_db" columns="compras_id"/>
+      <index name="principal_compra_c69e2c81" unique="false" columns="usuario_id"/>
+    </table>
+    <table name="principal_detalle_compra" schema="" catalog="supermec_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="cantidad" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="retiro_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="biberes_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="biberes_id_refs_id_5ae2381d" columns="biberes_id" ref-table="principal_producto" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="retiro_id_refs_id_fd9ad4ae" columns="retiro_id" ref-table="principal_compra" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="principal_detalle_compra_7e9254b5" unique="false" columns="biberes_id"/>
+      <index name="principal_detalle_compra_bc3766fd" unique="false" columns="retiro_id"/>
+    </table>
+    <table name="principal_factura" schema="" catalog="supermec_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NIT_institu" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="det_compra" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="Nro_autorizacion" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="compras_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="compras_id_refs_id_a1e72e83" columns="compras_id" ref-table="principal_compra" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="principal_factura_ed3f42b3" unique="false" columns="compras_id"/>
+    </table>
+    <table name="principal_perfil_user" schema="" catalog="supermec_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="ap_paterno" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="ap_materno" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="75" precision="0" nullable="false" jdbcType="12"/>
+      <column name="direcion" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="per_user_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="per_user_id_refs_id_4aaa45ce" columns="per_user_id" ref-table="principal_persona" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="user_id_refs_id_2a185759" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="principal_perfil_user_6340c63c" unique="false" columns="user_id"/>
+      <index name="principal_perfil_user_6764c8b4" unique="false" columns="per_user_id"/>
+    </table>
+    <table name="principal_persona" schema="" catalog="supermec_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="CI_NIT" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="usuario_id_refs_id_e5766347" table="principal_compra" schema="" catalog="supermec_db" columns="usuario_id"/>
+      <exported-key name="per_user_id_refs_id_4aaa45ce" table="principal_perfil_user" schema="" catalog="supermec_db" columns="per_user_id"/>
+    </table>
+    <table name="principal_producto" schema="" catalog="supermec_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nombre_pro" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="Precio" sqlType="DOUBLE" length="22" precision="0" nullable="true" jdbcType="8"/>
+      <column name="portada" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="estado" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="registro_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="registro_id_refs_id_fb8d1f30" columns="registro_id" ref-table="principal_categoria" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="producto_id_refs_id_7fbe26c0" table="carrito_detalleventa" schema="" catalog="supermec_db" columns="producto_id"/>
+      <exported-key name="biberes_id_refs_id_5ae2381d" table="principal_detalle_compra" schema="" catalog="supermec_db" columns="biberes_id"/>
+      <exported-key name="reg_pro_id_refs_id_478f4588" table="principal_stock" schema="" catalog="supermec_db" columns="reg_pro_id"/>
+      <index name="principal_producto_8605cffb" unique="false" columns="registro_id"/>
+    </table>
+    <table name="principal_stock" schema="" catalog="supermec_db" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fecha_ing" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="fecha_venc" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="cantidad" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="unidad" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="reg_pro_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="reg_pro_id_refs_id_478f4588" columns="reg_pro_id" ref-table="principal_producto" ref-schema="" ref-catalog="supermec_db" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="principal_stock_1a98dd0d" unique="false" columns="reg_pro_id"/>
     </table>
   </data-source>
 </component>

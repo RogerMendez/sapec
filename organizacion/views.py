@@ -1,318 +1,246 @@
 #encoding:utf-8
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response, get_object_or_404
+from django.contrib.contenttypes.models import ContentType
+from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
-
-from django.db.models import Q
-
-from organizacion.models import Unidades, Planificacion, Cargos, Funciones, Conocimiento
-from organizacion.forms import UnidadForm, PlanificacionForm, FuncionForm, CargoForm, ConocimientoForm
-from personal.models import contratacion
-from django.contrib.auth.decorators import login_required, permission_required
-from datetime import datetime, date
+from django.template.loader import render_to_string
+from django.shortcuts import render_to_response, get_object_or_404
+from django.contrib.auth.decorators import permission_required
+from django.core.urlresolvers import reverse
+from django.utils.encoding import force_unicode
 import ho.pisa as pisa
 import cStringIO as StringIO
 import cgi
-from django.template.loader import render_to_string
+import os
 import datetime
+from django.conf import settings
+
+from organizacion.models import Unidad, Cargo, Planificacion
+from organizacion.form import UnidadForm, CargoForm, PlanificacionForm
+
+from django.contrib import messages
+from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
 
 
+def admin_log_addnition(request, objecto, mensaje):
+    LogEntry.objects.log_action(
+                user_id         = request.user.pk,
+                content_type_id = ContentType.objects.get_for_model(objecto).pk,
+                object_id       = objecto.pk,
+                object_repr     = force_unicode(objecto),
+                action_flag     = ADDITION,
+                change_message = mensaje
+            )
 
-
-def home(request):
-    unidad = Unidades.objects.all()
-    return render_to_response('inicio.html', {unidad :unidad}, context_instance=RequestContext(request))
-
-
-@login_required(login_url='/user/login')
-def index_organizacion(request):
-    return render_to_response('index_organizacion.html', context_instance=RequestContext(request))
-
-
-#@login_required(login_url='/user/login')
-@permission_required('organizacion.add_unidades', login_url="/user/login")
-def nueva_unidad(request):
-    if request.method =='POST' :
-        formulario = UnidadForm(request.POST, request.FILES)
-        if formulario.is_valid() :
-            formulario.save()
-            return HttpResponseRedirect('/organizacion')
-    else:
-        formulario = UnidadForm()
-    return render_to_response('unidad/new_unidad.html', {'formulario' :formulario}, context_instance=RequestContext(request))
-
-@permission_required('organizacion.option', login_url="/user/login")
-def option_unidad(request):
-    unidad = Unidades.objects.all()
-    return render_to_response('unidad/option_unidad.html', {'unidades' :unidad}, context_instance=RequestContext(request))
-
-
-#@login_required(login_url='/user/login')
-@permission_required('organizacion.change_unidades', login_url="/user/login")
-def update_unidad(request, id_unidad):
-    unidad = get_object_or_404(Unidades, pk = id_unidad)
-    #Unidades = request.nombre
-    if request.method == 'POST':
-        formulario = UnidadForm(request.POST, instance = unidad)
-        if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/unidad/option')
-    else:
-        formulario = UnidadForm(instance = unidad)
-    return render_to_response('unidad/update_unidad.html', {'formulario' :formulario}, context_instance=RequestContext(request))
-
-
-@login_required(login_url='/user/login')
-def cargo_plani(request, id_cargo):
-    planificacion = Planificacion.objects.filter(cargo_id = id_cargo)
-    q1 = Cargos.objects.get(id = id_cargo)
-    funciones = Funciones.objects.filter(cargo_id = id_cargo)
-    conocimiento = Conocimiento.objects.filter(cargo_id = id_cargo)
-    return render_to_response('unidad/unid_plani.html',{'planificacion' :planificacion,
-                                                        'cargo' :q1,
-                                                        'conocimientos' :conocimiento,
-                                                        'funciones':funciones}
-        , context_instance=RequestContext(request))
-
-
-#PLANIFICACION
-#@login_required(login_url='/user/login')
-@permission_required('organizacion.add_planificacion', login_url="/user/login")
-def nueva_plani(request):
-    if request.method =='POST' :
-        formulario = PlanificacionForm(request.POST, request.FILES)
-        if formulario.is_valid() :
-            formulario.save()
-            return HttpResponseRedirect('/organizacion')
-    else:
-        formulario = PlanificacionForm()
-    return render_to_response('unidad/new_plani.html', {'formulario' :formulario}, context_instance=RequestContext(request))
-
-
-#@login_required(login_url='/user/login')
-@permission_required('organizacion.option_plani', login_url="/user/login")
-def option_plani(request):
-    q2 = Planificacion.objects.filter(estado = True, cantidad__gt=0).values('cargo_id')
-    planificacion = Planificacion.objects.all()
-    cargos = Cargos.objects.filter(id__in = q2)
-    return render_to_response('unidad/option_plani.html',{'planificaciones' :planificacion, 'cargos' :cargos}, context_instance=RequestContext(request))
-
-
-@permission_required('organizacion.change_planificacion', login_url="/user/login")
-def update_planificacion(request, id_plani):
-    planificacion = get_object_or_404(Planificacion, pk = id_plani)
-    #Unidades = request.nombre
-    if request.method == 'POST':
-        formulario = PlanificacionForm(request.POST, instance = planificacion)
-        if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/planificacion/option')
-    else:
-        formulario = PlanificacionForm(instance = planificacion)
-    return render_to_response('unidad/update_plani.html', {'formulario' :formulario}, context_instance=RequestContext(request))
-
-
-@permission_required('organizacion.delete_planificacion', login_url="/user/login")
-def cancel_plani(request, id_plani):
-    planificacion = Planificacion.objects.get(id = id_plani)
-    planificacion.delete()
-    #planificacion.save()
-    return HttpResponseRedirect('/planificacion/option')
-
-
-#CARGO
-
-@permission_required('organizacion.add_cargos', login_url="/user/login")
-def new_cargo(request):
-    if request.method =='POST' :
-        formulario = CargoForm(request.POST, request.FILES)
-        if formulario.is_valid() :
-            formulario.save()
-            return HttpResponseRedirect('/organizacion')
-    else:
-        formulario = CargoForm()
-    return render_to_response('cargo/new_cargo.html', {'formulario' :formulario}, context_instance=RequestContext(request))
-
-
-@permission_required('organizacion.option_cargo', login_url="/user/login")
-def option_cargo(request):
-    cargo = Cargos.objects.all()
-    q1 = cargo.distinct().values('unidad_id')
-    unidad = Unidades.objects.filter(id__in = q1)
-    return render_to_response('cargo/option_cargo.html', {'cargos' :cargo, 'unidades' :unidad}, context_instance=RequestContext(request))
-
-
-@permission_required('organizacion.change_cargos', login_url="/user/login")
-def update_cargo(request, id_cargo):
-    cargo = get_object_or_404(Cargos, pk = id_cargo)
-    if request.method == 'POST':
-        formulario = CargoForm(request.POST, instance = cargo)
-        if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/cargo/option')
-    else:
-        formulario = CargoForm(instance = cargo)
-    return render_to_response('cargo/update_cargo.html', {'formulario' :formulario}, context_instance=RequestContext(request))
-
-
-
-#FUNCIONES
-
-@permission_required('organizacion.add_funciones', login_url="/user/login")
-def new_funcion(request):
-    if request.method == 'POST' :
-        formulario = FuncionForm(request.POST, request.FILES)
-        if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/organizacion')
-    else:
-        formulario = FuncionForm()
-    return  render_to_response('cargo/new_funcion.html', {'formulario' :formulario}, context_instance=RequestContext(request))
-
-
-@permission_required('organizacion.option_funcion', login_url="/user/login")
-def option_function(request):
-    q1 = Funciones.objects.filter(estado = True).values('cargo_id')
-    funcion = Funciones.objects.filter()
-    cargo = Cargos.objects.filter(id__in = q1)
-    q2 = cargo.values('unidad_id')
-    unidad = Unidades.objects.filter(id__in = q2)
-    return render_to_response('cargo/option_funcion.html', {'funciones' :funcion, 'unidades' :unidad, 'cargos' :cargo}, context_instance=RequestContext(request) )
-
-
-@permission_required('organizacion.change_funciones', login_url="/user/login")
-def update_funcion(request, id_funcion):
-    funcion = get_object_or_404(Funciones, pk = id_funcion)
-    if request.method == 'POST':
-        formulario = FuncionForm(request.POST, instance=funcion)
-        if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/funcion/option')
-    else:
-        formulario = FuncionForm(instance=funcion)
-    return render_to_response('cargo/update_funcion.html', {'formulario' :formulario}, context_instance=RequestContext(request))
-
-
-@permission_required('organizacion.delete_funciones', login_url="/user/login")
-def delete_funcion(request, id_funcion):
-    funcion = Funciones.objects.get(pk = id_funcion)
-    funcion.delete()
-    return HttpResponseRedirect('/funcion/option')
-
-
-#CONOCIMIENTO
-@permission_required('organizacion.add_conocimiento', login_url="/user/login")
-def new_conocimiento(request):
-    if request.method == 'POST' :
-        formulario = ConocimientoForm(request.POST, request.FILES)
-        if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/organizacion')
-    else:
-        formulario = ConocimientoForm()
-    return  render_to_response('cargo/new_conocimiento.html', {'formulario' :formulario}, context_instance=RequestContext(request))
-
-@permission_required('organizacion.option_conoci', login_url="/user/login")
-def option_conocimiento(request):
-    conocimiento = Conocimiento.objects.filter(estado = True)
-    q2 = conocimiento.values('cargo_id')
-    cargo = Cargos.objects.filter(id__in = q2)
-    q2 = cargo.values('unidad_id')
-    unidad = Unidades.objects.filter(id__in = q2)
-    return render_to_response('cargo/option_conocimiento.html', {'conocimientos' :conocimiento, 'unidades' :unidad, 'cargos' :cargo}, context_instance=RequestContext(request) )
-
-@permission_required('organizacion.change_conocimiento', login_url="/user/login")
-def update_conocimiento(request, cono_id):
-    cono = get_object_or_404(Conocimiento, pk = cono_id)
-    if request.method == 'POST':
-        formulario = ConocimientoForm(request.POST, instance=cono)
-        if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/conocimiento/option')
-    else:
-        formulario = ConocimientoForm(instance=cono)
-    return render_to_response('cargo/update_conocimiento.html', {'formulario' :formulario}, context_instance=RequestContext(request))
-
-@permission_required('organizacion.delete_conocimiento', login_url="/user/login")
-def delete_conocimiento(request, cono_id):
-    cono = get_object_or_404(Conocimiento, pk = cono_id)
-    cono.delete()
-    return HttpResponseRedirect('/conocimiento/option')
-
+def admin_log_change(request, objecto, mensaje):
+    LogEntry.objects.log_action(
+                user_id         = request.user.pk,
+                content_type_id = ContentType.objects.get_for_model(objecto).pk,
+                object_id       = objecto.pk,
+                object_repr     = force_unicode(objecto),
+                action_flag     = CHANGE,
+                change_message = mensaje
+            )
 
 def generar_pdf(html):
     # Función para generar el archivo PDF y devolverlo mediante HttpResponse
     result = StringIO.StringIO()
-    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("utf-16")), result)
+    links = lambda uri, rel: os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ''))
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("utf-16")), result, link_callback=links)
     if not pdf.err:
         return HttpResponse(result.getvalue(), mimetype='application/pdf')
     return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
 
 
-@permission_required('organizacion.list_unidades', login_url="/user/login")
-def unidad_pdf(request, pdf = None):
-    unidades=Unidades.objects.all()
-    if pdf == "1" :
-        html = render_to_string('unidad/reporte_unidades_pdf.html', {'pagesize':'Letter', 'unidades' :unidades, }, context_instance=RequestContext(request))
-        return generar_pdf(html)
+
+def index_unidad(request):
+    unidades = Unidad.objects.all()
+    return render_to_response('unidad/index.html',{'unidades':unidades}, context_instance=RequestContext(request))
+
+
+@permission_required('organizacion.add_unidad', login_url="/login")
+def new_unidad(request):
+    if request.method =='POST' :
+        formulario = UnidadForm(request.POST, request.FILES)
+        if formulario.is_valid() :
+            uni = formulario.save()
+            messages.add_message(request, messages.INFO, "Se Registro Correctamente la Unidad: " + uni.nombre )
+            admin_log_addnition(request, uni, "Creacion De la Unidad")
+            return HttpResponseRedirect(reverse(index_unidad))
     else:
-        return render_to_response('unidad/reporte_unidades.html', {'unidades' :unidades, }, context_instance=RequestContext(request))
+        formulario = UnidadForm()
+    return render_to_response('unidad/new_unidad.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
 
-@permission_required('organizacion.list_cargos', login_url="/user/login")
-def cargos_pdf(request, pdf=None):
-    cargos = Cargos.objects.all()
-    unidades = Unidades.objects.all()
-    if pdf == "1":
-        html = render_to_string('cargo/reporte_cargos_pdf.html', {'pagesize':'Letter', 'unidades' :unidades, 'cargos' :cargos }, context_instance=RequestContext(request))
-        return generar_pdf(html)
+@permission_required('organizacion.change_unidad', login_url="/login")
+def option_update(request):
+    unidades = Unidad.objects.all()
+    return render_to_response('unidad/option_update.html',{
+        'unidades':unidades,
+    },context_instance=RequestContext(request))
+
+@permission_required('organizacion.change_unidad', login_url="/login")
+def update_unidad(request, id_unidad):
+    unidad = get_object_or_404(Unidad, pk = id_unidad)
+    if request.method =='POST' :
+        formulario = UnidadForm(request.POST, request.FILES, instance=unidad)
+        if formulario.is_valid() :
+            uni = formulario.save()
+            messages.add_message(request, messages.INFO, "Se Modifico Correctamente la Unidad: <strong>" + uni.nombre + "</strong>")
+            admin_log_change(request,uni,"Se Modifico la Unidad")
+            return HttpResponseRedirect(reverse(index_unidad))
     else:
-        return render_to_response('cargo/reporte_cargos_existentes.html', {'unidades' :unidades, "cargos" :cargos }, context_instance=RequestContext(request))
+        formulario = UnidadForm(instance=unidad)
+    return render_to_response('unidad/update_unidad.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
+@permission_required('organizacion.view_detail_unidad', login_url="/login")
+def option_detalle(request):
+    unidades = Unidad.objects.all()
+    return render_to_response('unidad/option_detalle.html',{
+        'unidades':unidades,
+    },context_instance=RequestContext(request))
 
-@permission_required('organizacion.list_cargos_no_empleados', login_url="/user/login")
-def cargos_no_empleado(request, pdf = None) :
-    hoy = date.today()
-    q1 = contratacion.objects.filter(fecha_entrada__lte=hoy, fecha_salida__gte=hoy, estado='ACTIVO')
-    q2 = q1.values('cargo_id').distinct()
-    cargos = Cargos.objects.exclude(id__in = q2)
-    if pdf == "1":
-        html = render_to_string('cargo/cargo_no_empleado_pdf.html', {'pagesize':'Letter', 'cargos' :cargos }, context_instance=RequestContext(request))
-        return generar_pdf(html)
+@permission_required('organizacion.view_detail_unidad', login_url="/login")
+def detail_unidad(request, id_unidad):
+    unidad = get_object_or_404(Unidad, pk = id_unidad)
+    return render_to_response('unidad/detail_unidad.html',{
+        'unidad':unidad,
+    }, context_instance=RequestContext(request))
+
+@permission_required('organizacion.list_unidad_pdf', login_url="/login")
+def unidades_pdf(request, pdf):
+    unidades = Unidad.objects.all()
+    fecha = datetime.datetime.now()
+    if not int(pdf):
+        return render_to_response('unidad/list_unidades.html',{
+            'unidades':unidades,
+        }, context_instance=RequestContext(request))
     else:
-        return render_to_response('cargo/cargo_no_empleado.html', {'cargos' :cargos }, context_instance=RequestContext(request))
+        html = render_to_string('unidad/list_unidades_pdf.html', {'pagesize':'Letter',
+                                                                    'unidades':unidades,
+                                                                    'fecha':fecha,
+                                                                }, context_instance=RequestContext(request))
+        return generar_pdf(html)
+
+@permission_required('unidades_sin_cargo', login_url="/login")
+def unidades_sin_cargo(request, pdf):
+    q1 = Cargo.objects.all().values('unidad_id')
+    unidades = Unidad.objects.exclude(id__in = q1)
+    if not int(pdf):
+        return render_to_response('unidad/unidad_sin_cargo.html',{
+            'unidades':unidades,
+        }, context_instance=RequestContext(request))
+    else:
+        html = render_to_string('unidad/unidad_sin_cargo_pdf.html', {'pagesize':'Letter',
+                                                                    'unidades':unidades,
+                                                                }, context_instance=RequestContext(request))
+        return generar_pdf(html)
 
 
 
-#@permission_required('organizacion.seleccion_cargo_conocimiento_funcion', login_url="/user/login")
-def seleccion_cargos_cono(request):
-    q2 = Conocimiento.objects.filter(estado = True).values('cargo_id')
-    q3 = Funciones.objects.filter(estado = True).values('cargo_id')
-    q3 = Cargos.objects.filter(
-        Q(id__in =q2)|Q(id__in=q3)
-    )
-    return render_to_response('cargo/seleccion_cargo_cono.html', {"cargos" :q3 }, context_instance=RequestContext(request))
 
 
-#@permission_required('organizacion.cono_fun_cargos', login_url="/user/login")
-def conocimiento_funciones(request, cargo_id):
-    q1 = get_object_or_404(Cargos, pk = cargo_id)
-    q2 = Conocimiento.objects.filter(cargo_id = q1.id)
-    q3 = Funciones.objects.filter(cargo_id = q1.id)
-    return render_to_response('cargo/conocimiento_funciones.html', {
-                                                                "cargo" :q1,
-                                                                'conocimientos':q2,
-                                                                'funciones':q3,
-                                                                    }, context_instance=RequestContext(request))
+def index_cargo(request):
+    unidades = Unidad.objects.all()
+    return render_to_response('cargo/index.html',{
+        'unidades':unidades,
+    }, context_instance=RequestContext(request))
 
-def view_planificaciones_cargo(request):
-    q2 = Planificacion.objects.filter(estado = True, cantidad__gt=0).values('cargo_id')
-    q1 = Cargos.objects.filter(id__in = q2)
-    return render_to_response('cargo/seleccion_planificacion_cargo.html',{
-                                                                    'cargos':q1,
-                                                                    }, context_instance=RequestContext(request))
+@permission_required('organizacion.add_cargo', login_url="/login")
+def new_cargo(request):
+    if request.method =='POST' :
+        formulario = CargoForm(request.POST, request.FILES)
+        if formulario.is_valid() :
+            cargo = formulario.save()
+            unidad = Unidad.objects.get(id = cargo.unidad_id)
+            msm = "Se Registro Correctamente el Cargo: <strong>" + cargo.nombre + "</strong> Dentro de la Unidad: <strong>" + unidad.nombre + "</strong>"
+            messages.add_message(request, messages.INFO, msm)
+            admin_log_addnition(request, cargo, "Creacion De cargo")
+            return HttpResponseRedirect(reverse(index_cargo))
+    else:
+        formulario = CargoForm()
+    return render_to_response('cargo/new_cargo.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
-def planificacion_cargo(request, id_cargo):
-    q1 = get_object_or_404(Cargos, pk = id_cargo)
-    q2 = Planificacion.objects.filter(cargo_id = id_cargo, estado = True)
-    return render_to_response('cargo/planificacion_cargo.html',{'cargo':q1, 'planificaciones':q2}, context_instance=RequestContext(request))
+@permission_required('organizacion.change_cargo', login_url="/login")
+def option_update_cargo(request):
+    q1 = Cargo.objects.all().values('unidad_id')
+    unidades = Unidad.objects.filter(id__in = q1)
+    return render_to_response('cargo/option_update.html',{
+        'unidades':unidades,
+    }, context_instance = RequestContext(request))
+
+@permission_required('organizacion.change_cargo', login_url="/login")
+def update_cargo(request, id_cargo):
+    cargo = get_object_or_404(Cargo, pk = id_cargo)
+    if request.method =='POST' :
+        formulario = CargoForm(request.POST, request.FILES, instance=cargo)
+        if formulario.is_valid() :
+            cargo = formulario.save()
+            unidad = Unidad.objects.get(id = cargo.unidad_id)
+            msm = "Se Modifico Correctamente el Cargo: <strong>" + cargo.nombre + "</strong> Dentro de la Unidad: <strong>" + unidad.nombre + "</strong>"
+            messages.add_message(request, messages.INFO, msm)
+            admin_log_change(request, cargo, "Se Modifico el cargo")
+            return HttpResponseRedirect(reverse(option_update_cargo))
+    else:
+        formulario = CargoForm(instance=cargo)
+    return render_to_response('cargo/update_cargo.html', {'formulario' :formulario}, context_instance=RequestContext(request))
+
+@permission_required('organizacion.detail_cargo', login_url="/login")
+def option_detalle_cargo(request):
+    q1 = Cargo.objects.all().values('unidad_id')
+    unidades = Unidad.objects.filter(id__in = q1)
+    return render_to_response('cargo/option_detalle.html',{
+        'unidades':unidades,
+    }, context_instance = RequestContext(request))
+
+@permission_required('organizacion.detail_cargo', login_url="/login")
+def detalle_cargo(request, id_cargo):
+    cargo = get_object_or_404(Cargo, pk = id_cargo)
+    return render_to_response('cargo/detalle_cargo.html',{
+        'cargo':cargo,
+    }, context_instance=RequestContext(request))
+
+@permission_required('organizacion.list_cargos_pdf', login_url="/login")
+def cargos_pdf(request, pdf):
+    q1 = Cargo.objects.all().values('unidad_id')
+    unidades = Unidad.objects.filter(id__in = q1)
+    if not int(pdf):
+        return render_to_response('cargo/list_cargos.html', {
+            'unidades' :unidades,
+            }, context_instance=RequestContext(request))
+    else:
+        html = render_to_string('cargo/list_cargos_pdf.html', {
+            'pagesize':'Letter',
+            'unidades' :unidades,
+        }, context_instance=RequestContext(request))
+        return generar_pdf(html)
+
+
+def index_planificacion(request):
+    planificaciones = Planificacion.objects.all()
+    q1 = planificaciones.values('cargo_id')
+    cargos = Cargo.objects.all()
+    return render_to_response('planificacion/index.html', {
+        'planificaciones':planificaciones,
+        'cargos':cargos,
+    }, context_instance=RequestContext(request))
+
+
+@permission_required('organizacion.add_planificacion', login_url="/login")
+def new_planificacion(request):
+    if request.method =='POST' :
+        formulario = PlanificacionForm(request.POST, request.FILES)
+        if formulario.is_valid() :
+            plani = formulario.save()
+            plani.usuario = request.user
+            plani.save()
+            msm = "Se Registro Correctamente La Planificación Dentro de: </strong>" + str(plani.cargo) + "<strong>"
+            messages.add_message(request, messages.INFO, msm)
+            admin_log_addnition(request, plani, "Se Registro La Planificacion")
+            return HttpResponseRedirect(reverse(index_planificacion))
+    else:
+        formulario = PlanificacionForm()
+    return render_to_response('planificacion/new_planificacion.html', {'formulario' :formulario}, context_instance=RequestContext(request))
+
+
+
+
