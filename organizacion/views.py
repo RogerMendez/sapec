@@ -218,7 +218,7 @@ def cargos_pdf(request, pdf):
 def index_planificacion(request):
     planificaciones = Planificacion.objects.all()
     q1 = planificaciones.values('cargo_id')
-    cargos = Cargo.objects.all()
+    cargos = Cargo.objects.filter(id__in = q1)
     return render_to_response('planificacion/index.html', {
         'planificaciones':planificaciones,
         'cargos':cargos,
@@ -241,6 +241,78 @@ def new_planificacion(request):
         formulario = PlanificacionForm()
     return render_to_response('planificacion/new_planificacion.html', {'formulario' :formulario}, context_instance=RequestContext(request))
 
+@permission_required('organizacion.change_planificacion', login_url="/login")
+def option_update_planificacion(request):
+    q1 = Planificacion.objects.all().values('cargo_id')
+    cargos = Cargo.objects.filter(id__in = q1)
+    return render_to_response('planificacion/option_update.html', {
+        'cargos':cargos,
+    }, context_instance=RequestContext(request))
+
+@permission_required('organizacion.change_planificacion', login_url="/login")
+def update_planificacion(request, id_plani):
+    planificacion = get_object_or_404(Planificacion, pk = id_plani)
+    if request.method == 'POST' :
+        formulario = PlanificacionForm(request.POST, instance = planificacion)
+        if formulario.is_valid :
+            plani = formulario.save()
+            msm = "Se Modifico Correctamente La Planificación Dentro de: </strong>" + str(plani.cargo) + "<strong>"
+            messages.add_message(request, messages.INFO, msm)
+            admin_log_change(request, plani, "Se Modifico La Planificacion")
+            return HttpResponseRedirect(reverse(option_update_planificacion))
+    else:
+        formulario = PlanificacionForm(instance=planificacion)
+    return render_to_response('planificacion/update_planificacion.html',{
+        'formulario':formulario,
+    }, context_instance=RequestContext(request))
+
+@permission_required('organizacion.detail_planificacion', login_url='/login')
+def option_detalle_planificacion(request):
+    q1 = Planificacion.objects.all().values('cargo_id')
+    cargos = Cargo.objects.filter(id__in = q1)
+    return render_to_response('planificacion/option_detalle.html', {
+        'cargos':cargos,
+    }, context_instance=RequestContext(request))
+
+@permission_required('organizacion.detail_planificacion', login_url='/login')
+def detalle_planificacion(request, id_plani):
+    planificacion = get_object_or_404(Planificacion, pk = id_plani)
+    return render_to_response('planificacion/detalle_planificacion.html',{
+        'planificacion':planificacion,
+    }, context_instance=RequestContext(request))
+
+@permission_required('organizacion.cancel_planificacion', login_url='/login')
+def option_cancel_planificacion(request):
+    q1 = Planificacion.objects.all().values('cargo_id')
+    cargos = Cargo.objects.filter(id__in = q1)
+    return render_to_response('planificacion/option_cancel.html', {
+        'cargos':cargos,
+    }, context_instance=RequestContext(request))
+
+@permission_required('organizacion.cancel_planificacion', login_url='/login')
+def cancel_planificacion(request, id_plani):
+    plani = get_object_or_404(Planificacion, pk = id_plani)
+    plani.delete()
+    msm = "Se Cancelo Correctamente La Planificación Dentro de: </strong>" + str(plani.cargo) + "<strong>"
+    messages.add_message(request, messages.INFO, msm)
+    return HttpResponseRedirect(reverse(option_cancel_planificacion))
 
 
+def planificaciones_cargos(request):
+    q1 = Planificacion.objects.all().values('cargo_id')
+    cargos = Cargo.objects.filter(id__in = q1)
+    q1 = cargos.values('unidad_id')
+    unidades = Unidad.objects.filter(id__in = q1)
+    return render_to_response('planificacion/report/seleccion_cargo.html',{
+        'cargos' :cargos,
+        'unidades' :unidades,
+    }, context_instance=RequestContext(request))
 
+
+def planificaciones_cargo(request, id_cargo):
+    cargo = get_object_or_404(Cargo, pk = id_cargo)
+    planificaciones = Planificacion.objects.filter(cargo = cargo)
+    return render_to_response('planificacion/report/planificacion_cargo.html',{
+        'cargo' :cargo,
+        'planificaciones' :planificaciones,
+    }, context_instance = RequestContext(request))

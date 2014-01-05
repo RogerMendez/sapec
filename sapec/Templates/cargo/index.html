@@ -19,7 +19,7 @@
                     <div class="row">
                         <h4>Cargos Dentro la Unidade de: <strong>{{ unidad.nombre|upper }}</strong></h4>
                         {% for cargo in unidad.cargo_set.select_related.all %}
-                                <div class="span4">
+                            <div class="span4">
                                 <div class="replies">
                                     <div class="{% cycle 'bg-color-green' 'bg-color-blue' 'bg-color-red' 'bg-color-greenLight' 'bg-color-blueDark' 'bg-color-greenDark' 'bg-color-yellow' 'bg-color-orange' 'bg-color-orangeDark' 'bg-color-pink' 'bg-color-pinkDark' 'bg-color-purple' 'bg-color-darken' 'bg-color-grayDark' 'bg-color-magenta' 'bg-color-teal' 'bg-color-redLight' %}">
                                         <div class="avatar">

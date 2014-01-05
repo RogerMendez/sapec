@@ -1,0 +1,17 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Modificar Planificacion{% endblock%}
+{% block atras %}
+    {% url 'organizacion.views.option_update_planificacion' %}
+{% endblock %}
+{% block titulo %}
+<h1>Planificación <small>Modificar</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'planificacion/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Modificar de Planificación
+{% endblock %}
+{% block submit %}Modificar{% endblock %}
+{% block cancel %}{% url 'organizacion.views.option_update_planificacion' %}{% endblock %}

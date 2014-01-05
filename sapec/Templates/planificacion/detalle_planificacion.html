@@ -1,0 +1,51 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+
+{% block title %}Planificacion{% endblock %}
+{% block atras %}
+{% url 'organizacion.views.index_planificacion' %}
+{% endblock %}
+{% block titulo %}
+<h1>Planificación <small>Detalle</small></h1>
+{% endblock %}
+
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3">
+                {% include 'planificacion/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row">
+                    <div class="span5"></div>
+                    <div class="span4">
+                        <p class="right"><strong>Fecha de Planificación:</strong> {{ planificacion.fecha_plani|date:"d / M / Y" }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span4">
+                        <h3><strong>Unidad - Cargo</strong></h3>
+                        <p class="indent">{{ planificacion.cargo }}</p>
+                    </div>
+                    <div class="span1"></div>
+                    <div class="span4">
+                        <p class="lead"><strong>Cantidad de Personal Necesario</strong></p>
+                        {% if planificacion.cantidad > 1 %}
+                            <p class="indent">{{ planificacion.cantidad }} Empleados</p>
+                        {% else %}
+                            <p class="indent">{{ planificacion.cantidad }} Empleado</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span9">
+                        <h4><strong>Descripción de Planificación:</strong></h4>
+                        <p class="indent long-text">{{ planificacion.descripcion }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

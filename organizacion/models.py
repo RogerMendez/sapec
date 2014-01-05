@@ -45,7 +45,7 @@ class Cargo(models.Model):
     def __str__(self):
         return self.unidad.nombre + " - " + self.nombre
     class Meta:
-        ordering=["nombre"]
+        ordering=["unidad"]
         verbose_name_plural = "Cargos"
         permissions = (
             ("detail_cargo", "Ver Detalle Cargo"),
@@ -66,5 +66,9 @@ class Planificacion(models.Model):
     class Meta:
         ordering=['fecha_plani']
         verbose_name_plural = "Planificación"
+        permissions=(
+            ("detail_planificacion", "Ver Detalle Planificación"),
+            ("cancel_planificacion", "Cancelar Planificación"),
+        )
 
 

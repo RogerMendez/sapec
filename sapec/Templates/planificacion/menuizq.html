@@ -12,13 +12,16 @@
         </li>
         <li class="divider"></li>
         <li class="sticker sticker-color-blue">
-            <a><i class="icon-clipboard-2"></i></a>
+            <a><i class="icon-clipboard-2"></i>Opciones Planificación</a>
             <ul class="sub-menu">
                 <li>
-                    <a href="{% url 'organizacion.views.option_update_cargo' %}">\</a>
+                    <a href="{% url 'organizacion.views.option_update_planificacion' %}">Modificar Planificación</a>
                 </li>
                 <li>
-                    <a href="{% url 'organizacion.views.option_detalle_cargo' %}"></a>
+                    <a href="{% url 'organizacion.views.option_detalle_planificacion' %}">Detalle Planificación</a>
+                </li>
+                <li>
+                    <a href="{% url 'organizacion.views.option_cancel_planificacion' %}">Cancelar Planificación</a>
                 </li>
             </ul>
         </li>
@@ -26,7 +29,7 @@
             <a><i class="icon-file-pdf"></i>Reportes</a>
             <ul class="sub-menu">
                 <li>
-                    <a href="{% url 'organizacion.views.cargos_pdf' 0 %}"></a>
+                    <a href="{% url 'organizacion.views.planificaciones_cargos' %}">Planificaciones por Cargo</a>
                 </li>
             </ul>
         </li>
