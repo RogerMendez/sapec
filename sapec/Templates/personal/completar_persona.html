@@ -1,0 +1,31 @@
+{# encoding:utf-8 #}
+{% extends 'form_upload.html' %}
+{% block title %}Completar Registro{% endblock%}
+{% block atras %}
+{% url 'personal.views.index_personal' %}
+{% endblock %}
+{% block calendar %}
+    <style>
+    .ocultar{
+        display: none;
+    }
+    </style>
+<link rel="stylesheet" href="{{ STATIC_URL }}calendar/calendario_dw-estilos.css"/>
+<script src="{{ STATIC_URL }}calendar/calendario_dw.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+		$("#id_fecha_nac").calendarioDW();
+	})
+</script>
+{% endblock %}
+{% block titulo %}
+<h1>Registro <small>Completar</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'personal/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Completar Registro de Persona
+{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'personal.views.index_personal' %}{% endblock %}

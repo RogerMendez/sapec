@@ -19,6 +19,14 @@
             </ul>
         </li>
         <li data-role="dropdown">
+            <a href="#">Personal</a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{% url 'personal.views.index_personal' %}">Kardex</a>
+                </li>
+            </ul>
+        </li>
+        <li data-role="dropdown">
             <a href="#">Usuarios</a>
             <ul class="dropdown-menu">
                 <li>
@@ -33,6 +41,9 @@
     {% else %}
         <li>
             <a href="{% url 'users.views.loguet_in' %}" class="fg-color-yellow">Iniciar Sesión</a>
+        </li>
+        <li>
+            <a href="{% url 'users.views.new_user' %}" class="fg-color-orange">Registrese</a>
         </li>
     {% endif %}
 </ul>

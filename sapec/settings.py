@@ -137,6 +137,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'users',
     'organizacion',
+    'personal',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -168,9 +169,10 @@ LOGGING = {
     }
 }
 
+AUTH_PROFILE_MODULE = 'personal.Persona'
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'Roger.Mendez.R@gmail.com'
-EMAIL_HOST_PASSWORD = 'roger76176338mendez'
+EMAIL_HOST_USER = 'sieboliva@gmail.com'
+EMAIL_HOST_PASSWORD = 'siebolivia2012'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

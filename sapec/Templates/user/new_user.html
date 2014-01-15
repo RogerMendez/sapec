@@ -1,0 +1,38 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Nuevo Registro{% endblock%}
+
+{% block titulo %}
+<h1>Registro <small>Nuevo</small></h1>
+{% endblock %}
+{% block legend %}
+    Registro de Personal
+{% endblock %}
+{% block form %}
+    {% for field in formemail %}
+        {{ field.errors }}
+        {{ field.label_tag }}
+        <div class="input-control text">
+            {{ field }}
+            {% if field.help_text %}
+                <p class="fg-color-green">
+                    <i class="icon-warning"></i> {{ field.help_text }}
+                </p>
+            {% endif %}
+        </div>
+    {% endfor %}
+    {% for field in formuser %}
+        {{ field.errors }}
+        {{ field.label_tag }}
+        <div class="input-control text">
+            {{ field }}
+            {% if field.help_text %}
+                <p class="fg-color-green">
+                    <i class="icon-warning"></i> {{ field.help_text }}
+                </p>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'organizacion.views.index_cargo' %}{% endblock %}

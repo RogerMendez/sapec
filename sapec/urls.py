@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^perfil/$', 'users.views.private'),
     url(r'^user/resetpass/$', 'users.views.reset_pass'),
     url(r'^logout/$', 'users.views.loguet_out'),
+    url(r'^user/new/$', 'users.views.new_user'),
+    url(r'^user/confirmar/$', 'users.views.confirmation_user'),
 
     #UNIDADES
     url(r'^unidad/$', 'organizacion.views.index_unidad'),
@@ -51,5 +53,18 @@ urlpatterns = patterns('',
     url(r'^planificacion/cancel/(?P<id_plani>\d+)/$', 'organizacion.views.cancel_planificacion'),
     url(r'^planificacion/cargo/$', 'organizacion.views.planificaciones_cargos'),
     url(r'^planificacion/cargo/(?P<id_cargo>\d+)/$', 'organizacion.views.planificaciones_cargo'),
+
+    #PERSONAL
+    url(r'^personal/$', 'personal.views.index_personal'),
+    url(r'^personal/update/$', 'personal.views.completar_datos_persona'),
+    url(r'^personal/show/$', 'personal.views.show_datos_persona'),
+    url(r'^personal/estudio/show/$', 'personal.views.show_estudios'),
+    url(r'^personal/estudio/new/$', 'personal.views.new_estudio'),
+    url(r'^personal/estudio/update/(?P<id_estudio>\d+)/$', 'personal.views.update_estudio'),
+    url(r'^personal/estudio/delete/(?P<id_estudio>\d+)/$', 'personal.views.delete_estudio'),
+    url(r'^personal/oestudio/show/$', 'personal.views.show_otros_estudios'),
+    url(r'^personal/oestudio/new/$', 'personal.views.new_otro_estudio'),
+    url(r'^personal/oestudio/update/(?P<id_oestudio>\d+)/$', 'personal.views.update_otro_estudio'),
+    url(r'^personal/oestudio/delete/(?P<id_oestudio>\d+)/$', 'personal.views.delete_otro_estudio'),
 
 )

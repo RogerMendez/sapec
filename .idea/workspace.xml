@@ -2,22 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d59bfbec-e7d2-4ed1-94fb-8c736913e827" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/planificacion/detalle_planificacion.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/planificacion/option_cancel.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/planificacion/option_detalle.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/planificacion/option_update.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/planificacion/report/planificacion_cargo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/planificacion/report/seleccion_cargo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/planificacion/update_planificacion.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/personal/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/completar_persona.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/datos_persona.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/personal/form.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/users/form.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/menuizq.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/new_estudio.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/new_otro_estudio.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/user/new_user.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/show_estudios.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/show_otrosestudios.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/update_estudio.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/update_otro_estudio.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/base.html" afterPath="$PROJECT_DIR$/sapec/Templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django.wsgi" afterPath="$PROJECT_DIR$/django.wsgi" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/cargo/index.html" afterPath="$PROJECT_DIR$/sapec/Templates/cargo/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/planificacion/index.html" afterPath="$PROJECT_DIR$/sapec/Templates/planificacion/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/form.html" afterPath="$PROJECT_DIR$/sapec/Templates/form.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/planificacion/menuizq.html" afterPath="$PROJECT_DIR$/sapec/Templates/planificacion/menuizq.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/organizacion/models.py" afterPath="$PROJECT_DIR$/organizacion/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/static/base/css/modern-responsive.css" afterPath="$PROJECT_DIR$/sapec/static/base/css/modern-responsive.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/menu.html" afterPath="$PROJECT_DIR$/sapec/Templates/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/static/base/css/modern.css" afterPath="$PROJECT_DIR$/sapec/static/base/css/modern.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/user/privado.html" afterPath="$PROJECT_DIR$/sapec/Templates/user/privado.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/settings.py" afterPath="$PROJECT_DIR$/sapec/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/urls.py" afterPath="$PROJECT_DIR$/sapec/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/organizacion/views.py" afterPath="$PROJECT_DIR$/organizacion/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users/views.py" afterPath="$PROJECT_DIR$/users/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sapec.iws" />
@@ -42,29 +50,20 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/organizacion/views.py">
+        <entry file="file://$PROJECT_DIR$/personal/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="317" column="48" selection-start="14510" selection-end="14510" vertical-scroll-proportion="0.0" vertical-offset="4891" max-vertical-offset="5491">
+            <state line="173" column="39" selection-start="7977" selection-end="7977" vertical-scroll-proportion="0.0" vertical-offset="2613" max-vertical-offset="3162">
               <folding>
-                <element signature="e#16#74#0" expanded="true" />
+                <element signature="e#24#82#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="seleccion_cargo.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/report/seleccion_cargo.html">
+      <file leaf-file-name="show_otrosestudios.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/show_otrosestudios.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="99" selection-start="944" selection-end="944" vertical-scroll-proportion="-8.5" vertical-offset="204" max-vertical-offset="850">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="planificacion_cargo.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/report/planificacion_cargo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="49" selection-start="160" selection-end="160" vertical-scroll-proportion="0.1625239" vertical-offset="0" max-vertical-offset="901">
+            <state line="29" column="103" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.41491395" vertical-offset="276" max-vertical-offset="1190">
               <folding />
             </state>
           </provider>
@@ -73,16 +72,16 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sapec/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="47" selection-start="2989" selection-end="2989" vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="986">
+            <state line="67" column="96" selection-start="4036" selection-end="4036" vertical-scroll-proportion="0.0" vertical-offset="611" max-vertical-offset="1241">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/organizacion/models.py">
+        <entry file="file://$PROJECT_DIR$/personal/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="25" selection-start="1968" selection-end="1968" vertical-scroll-proportion="0.0" vertical-offset="799" max-vertical-offset="1360">
+            <state line="68" column="0" selection-start="3307" selection-end="3307" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1479">
               <folding />
             </state>
           </provider>
@@ -106,22 +105,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/sapec/static/calendario/calendar.css" />
+        <option value="$PROJECT_DIR$/sapec/static/base/css/modern.css" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/new_estudio.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/update_estudio.html" />
         <option value="$PROJECT_DIR$/sapec/Templates/form.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/planificacion/new_planificacion.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/cargo/index.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/planificacion/index.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/planificacion/update_planificacion.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/planificacion/detalle_planificacion.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/planificacion/option_update.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/planificacion/option_cancel.html" />
-        <option value="$PROJECT_DIR$/sapec/static/base/css/modern-responsive.css" />
-        <option value="$PROJECT_DIR$/organizacion/models.py" />
-        <option value="$PROJECT_DIR$/organizacion/views.py" />
-        <option value="$PROJECT_DIR$/sapec/Templates/planificacion/menuizq.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/planificacion/option_detalle.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/planificacion/report/seleccion_cargo.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/index.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/menuizq.html" />
+        <option value="$PROJECT_DIR$/personal/form.py" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/new_otro_estudio.html" />
+        <option value="$PROJECT_DIR$/personal/models.py" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/show_estudios.html" />
+        <option value="$PROJECT_DIR$/personal/admin.py" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/update_otro_estudio.html" />
         <option value="$PROJECT_DIR$/sapec/urls.py" />
-        <option value="$PROJECT_DIR$/sapec/Templates/planificacion/report/planificacion_cargo.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/personal/show_otrosestudios.html" />
+        <option value="$PROJECT_DIR$/personal/views.py" />
       </list>
     </option>
   </component>
@@ -157,7 +156,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -165,10 +163,6 @@
               <option name="myItemId" value="sapec" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -190,7 +184,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
+              <option name="myItemId" value="sapec" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -205,6 +199,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sapec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="calendario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sapec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sapec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sapec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sapec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sapec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sapec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -244,7 +286,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="planificacion" />
+              <option name="myItemId" value="personal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -258,38 +300,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sapec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="planificacion" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sapec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sapec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="organizacion" />
+              <option name="myItemId" value="personal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -311,6 +328,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Django\sapec\sapec\Templates\personal" />
       <recent name="E:\Django\sapec\sapec\Templates\planificacion" />
       <recent name="E:\Django\sapec\sapec\Templates\cargo" />
       <recent name="E:\Django\sapec\sapec\carga" />
@@ -561,7 +579,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23484848" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26742426" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -590,7 +608,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23106061" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23863636" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -608,114 +626,120 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/index.html">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/update_estudio.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="102" selection-start="0" selection-end="2244" vertical-scroll-proportion="0.5497925" vertical-offset="211" max-vertical-offset="867">
+        <state line="97" column="22" selection-start="3687" selection-end="3687" vertical-scroll-proportion="0.44741875" vertical-offset="1415" max-vertical-offset="1938">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/new_planificacion.html">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="29" selection-start="0" selection-end="531" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="374">
+        <state line="39" column="68" selection-start="1966" selection-end="1966" vertical-scroll-proportion="0.60261196" vertical-offset="340" max-vertical-offset="969">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/update_planificacion.html">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="72" selection-start="540" selection-end="540" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="374">
+        <state line="6" column="26" selection-start="134" selection-end="134" vertical-scroll-proportion="0.19502868" vertical-offset="0" max-vertical-offset="1292">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/detalle_planificacion.html">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/menuizq.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="50" selection-start="1771" selection-end="1771" vertical-scroll-proportion="0.8414179" vertical-offset="280" max-vertical-offset="952">
+        <state line="14" column="91" selection-start="654" selection-end="654" vertical-scroll-proportion="-4.576923" vertical-offset="119" max-vertical-offset="867">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/cargo/option_detalle.html">
+    <entry file="file://$PROJECT_DIR$/personal/form.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="1.9615384" vertical-offset="51" max-vertical-offset="918">
+        <state line="22" column="28" selection-start="554" selection-end="554" vertical-scroll-proportion="0.6913124" vertical-offset="0" max-vertical-offset="541">
+          <folding>
+            <element signature="e#16#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/new_estudio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="62" selection-start="1765" selection-end="1765" vertical-scroll-proportion="-16.384615" vertical-offset="152" max-vertical-offset="1938">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/cargo/option_update.html">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/datos_persona.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="16" selection-start="477" selection-end="520" vertical-scroll-proportion="0.6500956" vertical-offset="0" max-vertical-offset="918">
+        <state line="24" column="40" selection-start="687" selection-end="687" vertical-scroll-proportion="0.26294822" vertical-offset="276" max-vertical-offset="1462">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/option_update.html">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/show_estudios.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="63" selection-start="553" selection-end="553" vertical-scroll-proportion="0.37667304" vertical-offset="126" max-vertical-offset="952">
+        <state line="23" column="53" selection-start="668" selection-end="668" vertical-scroll-proportion="0.3250478" vertical-offset="221" max-vertical-offset="1292">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/option_cancel.html">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/new_otro_estudio.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="106" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.39005736" vertical-offset="272" max-vertical-offset="952">
+        <state line="18" column="37" selection-start="0" selection-end="3431" vertical-scroll-proportion="0.22201492" vertical-offset="187" max-vertical-offset="1785">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/static/base/css/modern-responsive.css">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/update_otro_estudio.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="16" selection-start="294" selection-end="294" vertical-scroll-proportion="0.3005566" vertical-offset="127" max-vertical-offset="15606" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/organizacion/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="25" selection-start="1968" selection-end="1968" vertical-scroll-proportion="0.0" vertical-offset="532" max-vertical-offset="1309">
+        <state line="88" column="27" selection-start="3178" selection-end="3178" vertical-scroll-proportion="-48.384617" vertical-offset="238" max-vertical-offset="1785">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/organizacion/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="317" column="48" selection-start="14510" selection-end="14510" vertical-scroll-proportion="0.0" vertical-offset="4891" max-vertical-offset="5491">
-          <folding>
-            <element signature="e#16#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/menuizq.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="78" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.68737864" vertical-offset="173" max-vertical-offset="714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/option_detalle.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="32" selection-start="718" selection-end="724" vertical-scroll-proportion="0.26003823" vertical-offset="255" max-vertical-offset="952">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/report/seleccion_cargo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="99" selection-start="944" selection-end="944" vertical-scroll-proportion="-8.5" vertical-offset="204" max-vertical-offset="850">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5168">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="47" selection-start="2989" selection-end="2989" vertical-scroll-proportion="0.0" vertical-offset="356" max-vertical-offset="986">
+        <state line="67" column="96" selection-start="4036" selection-end="4036" vertical-scroll-proportion="0.0" vertical-offset="611" max-vertical-offset="1241">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/planificacion/report/planificacion_cargo.html">
+    <entry file="file://$PROJECT_DIR$/personal/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="49" selection-start="160" selection-end="160" vertical-scroll-proportion="0.1625239" vertical-offset="0" max-vertical-offset="901">
+        <state line="173" column="39" selection-start="7977" selection-end="7977" vertical-scroll-proportion="0.0" vertical-offset="2613" max-vertical-offset="3162">
+          <folding>
+            <element signature="e#24#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="3307" selection-end="3307" vertical-scroll-proportion="0.0" vertical-offset="748" max-vertical-offset="1479">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="32" selection-start="235" selection-end="235" vertical-scroll-proportion="0.18149467" vertical-offset="0" max-vertical-offset="562">
+          <folding>
+            <element signature="e#0#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/show_otrosestudios.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="103" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.41491395" vertical-offset="276" max-vertical-offset="1190">
           <folding />
         </state>
       </provider>

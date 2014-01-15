@@ -1,0 +1,65 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Estudios Realizados{% endblock %}
+{% block atras %}
+{% url 'personal.views.index_personal' %}
+{% endblock %}
+
+{% block titulo %}
+<h1>Personal <small>Otros Estudios Realizados</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3">
+                {% include 'personal/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row">
+                    <div class="span9">
+                        <h3>Otros Estudios Realizados</h3>
+                        {% for estudio in otrosestudios %}
+                            <div class="row padding5">
+                                <div class="span4">
+                                    <strong>Curso/Conferencia:</strong><br/>
+                                    <p class="">
+                                        <a href="{% url 'personal.views.update_otro_estudio' estudio.id %}" class="fg-color-blue">
+                                            <abbr title="Modificar"><i class="icon-pencil"></i></abbr>
+                                        </a>
+                                        <a href="{% url 'personal.views.delete_otro_estudio' estudio.id %}" class="fg-color-blue">
+                                            <abbr title="Quitar"><i class="icon-cancel-2"></i></abbr>
+                                        </a>
+                                        {{ estudio.curso }}
+                                    </p>
+                                </div>
+                                <div class="span2">
+                                    <strong>Horas</strong><br/>
+                                    {{ estudio.horas }} Hrs.
+                                </div>
+                                <div class="span2">
+                                    <strong>Fecha </strong><br/>
+                                    {{ estudio.fecha }}
+                                </div>
+                            </div>
+                            <div class="row border-color-blueDark"></div>
+                        {% empty %}
+                            <blockquote>
+                                <p class="indent">Usted no Tiene Ningun Estudio Registrado</p>
+                            </blockquote>
+                            <p><a href="{% url 'personal.views.new_otro_estudio' %}" class="button default">Registrar Estudio</a></p>
+                        {% endfor %}
+                        {% if otrosestudios %}
+                            <div class="row padding10">
+                                <div class="span9">
+                                    <a href="{% url 'personal.views.new_otro_estudio' %}" class="button default">Registrar Estudio</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
