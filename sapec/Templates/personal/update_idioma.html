@@ -1,0 +1,17 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Modificar Idioma{% endblock%}
+{% block atras %}
+{% url 'personal.views.show_idiomas' %}
+{% endblock %}
+{% block titulo %}
+<h1>Personal <small>Idioma Modificar</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'personal/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Modifica Idioma
+{% endblock %}
+{% block submit %}Modificar{% endblock %}
+{% block cancel %}{% url 'personal.views.show_idiomas' %}{% endblock %}

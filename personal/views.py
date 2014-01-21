@@ -13,8 +13,8 @@ import cgi
 import os
 import datetime
 from django.conf import settings
-from personal.models import Persona, Estudios, OtrosEstudios, Experiencias
-from personal.form import PersonaForm, EstudiosForm, OtrosEstudiosForm, ExperienciasForm
+from personal.models import Persona, Estudios, OtrosEstudios, Experiencias, Idiomas
+from personal.form import PersonaForm, EstudiosForm, OtrosEstudiosForm, ExperienciasForm, IdiomasForm
 
 from django.contrib import messages
 from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
@@ -56,6 +56,7 @@ def show_datos_persona(request):
 @permission_required('personal.change_persona', login_url="/login")
 def completar_datos_persona(request):
     persona = Persona.objects.get(usuario = request.user)
+    fecha = datetime.datetime.now()
     if request.method == 'POST':
         formulario = PersonaForm(request.POST, request.FILES, instance=persona)
         if formulario.is_valid():
@@ -69,6 +70,7 @@ def completar_datos_persona(request):
         formulario = PersonaForm(instance=persona)
     return render_to_response('personal/completar_persona.html',{
         'formulario':formulario,
+        'fecha_actual':fecha,
     }, context_instance = RequestContext(request))
 
 
@@ -179,3 +181,106 @@ def delete_otro_estudio(request, id_oestudio):
     oestudio.delete()
     messages.add_message(request, messages.INFO, u'Se Elimino Correctamente los Datos Del Curso/Conferencia: <strong>%s</strong>' %oestudio.curso )
     return HttpResponseRedirect(reverse(show_otros_estudios))
+
+@permission_required("personal.show_experienciatrabajo_persona", login_url="/login")
+def show_experiencias_trabajo(request):
+    persona = Persona.objects.get(usuario = request.user)
+    experiencias = Experiencias.objects.filter(persona = persona)
+    return render_to_response('personal/show_experiencias_trabajo.html', {
+        'experiencias' :experiencias,
+    }, context_instance = RequestContext(request))
+
+@permission_required("personal.add_experiencias", login_url="/login")
+def new_experiencia(request):
+    fecha_actual = datetime.datetime.now()
+    if request.method == "POST":
+        formulario = ExperienciasForm(request.POST)
+        if formulario.is_valid():
+            experiencia = formulario.save()
+            persona = Persona.objects.get(usuario = request.user)
+            experiencia.persona = persona
+            experiencia.save()
+            messages.add_message(request, messages.INFO, u'Se Registro Correctamente la Experiencia de Trabajo en: <strong>%s</strong>' %experiencia.institucion )
+            admin_log_addnition(request, experiencia, 'Experiencia Creada')
+            return HttpResponseRedirect(reverse(show_experiencias_trabajo))
+    else:
+        formulario = ExperienciasForm()
+    return render_to_response('personal/new_experiencia_trabajo.html', {
+        'formulario':formulario,
+        'fecha_actual':fecha_actual,
+    }, context_instance = RequestContext(request))
+
+@permission_required("personal.change_experiencias", login_url="/login")
+def update_experiencia_trabajo(request, id_experiencia):
+    texperienia = get_object_or_404(Experiencias, pk = id_experiencia)
+    fecha_actual = datetime.datetime.now()
+    if request.method == "POST":
+        formulario = ExperienciasForm(request.POST, instance=texperienia)
+        if formulario.is_valid():
+            experiencia = formulario.save()
+            messages.add_message(request, messages.INFO, u'Se Modifico Correctamente la Experiencia de Trabajo en: <strong>%s</strong>' %experiencia.institucion )
+            admin_log_change(request, experiencia, 'Experiencia Modificada')
+            return HttpResponseRedirect(reverse(show_experiencias_trabajo))
+    else:
+        formulario = ExperienciasForm(instance=texperienia)
+    return render_to_response('personal/update_experiencia_trabajo.html', {
+        'formulario':formulario,
+        'fecha_actual':fecha_actual,
+    }, context_instance = RequestContext(request))
+
+@permission_required("personal.delete_experiencias", login_url="/login")
+def delete_experiencia_trabajo(request, id_experiencia):
+    experiencia = get_object_or_404(Experiencias, pk = id_experiencia)
+    experiencia.delete()
+    messages.add_message(request, messages.INFO, u'Se Elimino Correctamente la Experiencia de Trabajo: <strong>%s</strong>' %experiencia.institucion )
+    return HttpResponseRedirect(reverse(show_experiencias_trabajo))
+
+@permission_required("personal.show_idiomas_persona", login_url="/login")
+def show_idiomas(request):
+    persona = Persona.objects.get(usuario = request.user)
+    idiomas = Idiomas.objects.filter(persona = persona)
+    return render_to_response('personal/show_idiomas.html',{
+        'idiomas':idiomas,
+    }, context_instance = RequestContext(request))
+
+@permission_required("personal.add_idiomas", login_url="/login")
+def new_idioma(request):
+    if request.method == "POST":
+        formulario = IdiomasForm(request.POST)
+        if formulario.is_valid():
+            idioma = formulario.save()
+            persona = Persona.objects.get(usuario = request.user)
+            idioma.persona = persona
+            idioma.save()
+            messages.add_message(request, messages.INFO, u'Se Registro Correctamente el Idioma: <strong>%s</strong>' %idioma.idioma )
+            admin_log_addnition(request, idioma, 'Idioma Creado')
+            return HttpResponseRedirect(reverse(show_idiomas))
+    else:
+        formulario = IdiomasForm()
+    return render_to_response('personal/new_idioma.html',{
+        'formulario':formulario,
+    }, context_instance=RequestContext(request))
+
+
+@permission_required("personal.change_idiomas", login_url="/login")
+def update_idioma(request, id_idioma):
+    idioma = get_object_or_404(Idiomas, pk = id_idioma)
+    if request.method == "POST":
+            formulario = IdiomasForm(request.POST, instance=idioma)
+            if formulario.is_valid():
+                idioma = formulario.save()
+                messages.add_message(request, messages.INFO, u'Se Modifico Correctamente el Idioma: <strong>%s</strong>' %idioma.idioma )
+                admin_log_change(request, idioma, 'Idioma Modificado')
+                return HttpResponseRedirect(reverse(show_idiomas))
+    else:
+        formulario = IdiomasForm(instance=idioma)
+    return render_to_response('personal/update_idioma.html',{
+        'formulario':formulario,
+    }, context_instance=RequestContext(request))
+
+@permission_required("personal.delete_idiomas", login_url="/login")
+def delete_idioma(request, id_idioma):
+    idioma = get_object_or_404(Idiomas, pk = id_idioma)
+    idioma.delete()
+    messages.add_message(request, messages.INFO, u'Se Elimino Correctamente el Idioma: <strong>%s</strong>' %idioma.idioma )
+    return HttpResponseRedirect(reverse(show_idiomas))

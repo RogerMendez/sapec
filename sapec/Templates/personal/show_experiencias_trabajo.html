@@ -1,0 +1,79 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Experiencias de Trabajo{% endblock %}
+{% block atras %}
+{% url 'personal.views.index_personal' %}
+{% endblock %}
+
+{% block titulo %}
+<h1>Personal <small>Experiencias de Trabajo</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3">
+                {% include 'personal/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row">
+                    <div class="span9">
+                        <h3>Experiencias de Trabajo</h3>
+                        {% for experiencia in experiencias %}
+                            <div class="row padding5">
+                                <div class="span4">
+                                    <strong>Institucion</strong><br/>
+                                    <p class="">
+                                        <a href="{% url 'personal.views.update_experiencia_trabajo' experiencia.id %}" class="fg-color-blue">
+                                            <abbr title="Modificar"><i class="icon-pencil"></i></abbr>
+                                        </a>
+                                        <a href="{% url 'personal.views.delete_experiencia_trabajo' experiencia.id %}" class="fg-color-blue">
+                                            <abbr title="Quitar"><i class="icon-cancel-2"></i></abbr>
+                                        </a>
+                                        {{ experiencia.institucion }}
+                                    </p>
+                                </div>
+                                <div class="span4">
+                                    <strong>Tiempo de Trabajo</strong><br/>
+                                    <strong>Del: </strong>{{ experiencia.fecha_inicio|date:"d M Y" }} <strong>A: </strong>{{ experiencia.fecha_fin|date:"d M Y" }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span5">
+                                    <div class="row">
+                                        <div class="span2">
+                                            <strong>Cargo Ocupado</strong><br/>
+                                            {{ experiencia.cargo_ocupado }}
+                                        </div>
+                                        <div class="span3">
+                                            <strong>Telefono de Referencia</strong><br/>
+                                            {{ experiencia.fono_referencia }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <strong>Descripción</strong>
+                                    <p>{{ experiencia.descripcion }}</p>
+                                </div>
+                            </div>
+                            <div class="row border-color-blueDark"></div>
+                        {% empty %}
+                            <blockquote>
+                                <p class="indent">Usted no Tiene Ningun Estudio Registrado</p>
+                            </blockquote>
+                            <p><a href="{% url 'personal.views.new_experiencia' %}" class="button default">Registrar Experiecia</a></p>
+                        {% endfor %}
+                        {% if experiencias %}
+                            <div class="row padding10">
+                                <div class="span9">
+                                    <a href="{% url 'personal.views.new_experiencia' %}" class="button default">Registrar Experiecia</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

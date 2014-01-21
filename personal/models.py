@@ -73,11 +73,34 @@ class Experiencias(models.Model):
     descripcion = models.TextField(verbose_name=u'Descripción Del Trabajo Realizado', help_text="Sea Breve")
     fecha_inicio = models.DateField(verbose_name='Desde', help_text="Día/Mes/Año")
     fecha_fin = models.DateField(verbose_name="Hasta", help_text="Día/Mes/Año")
-    fono_referencia = models.IntegerField(blank=True, null=True)
+    fono_referencia = models.IntegerField(blank=True, null=True, verbose_name="Telefono de Referencia")
     persona = models.ForeignKey(Persona, null=True, blank=True)
     def __unicode__(self):
         return self.institucion
     class Meta:
         verbose_name_plural = "Experiencias de Trabajo"
+        permissions = (
+            ("show_experienciatrabajo_persona", "Mostrar Experiencias de Trabajo"),
+        )
+
+class Idiomas(models.Model):
+    idioma = models.CharField(max_length='50', verbose_name="Idioma")
+    select = (
+        (True, 'Si'),
+        (False, 'No'),
+    )
+    nativo = models.BooleanField(choices=select)
+    habla = models.BooleanField(choices=select)
+    escribe = models.BooleanField(choices=select)
+    persona = models.ForeignKey(Persona,null=True, blank=True)
+    def __unicode__(self):
+        return self.idioma
+    class Meta:
+        verbose_name_plural = "Idiomas"
+        permissions = (
+            ("show_idiomas_persona", "Mostrar Idiomas de Persona"),
+        )
+
+
 
 

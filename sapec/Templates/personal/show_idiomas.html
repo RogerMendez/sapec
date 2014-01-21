@@ -1,0 +1,82 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Idiomas Conocidos{% endblock %}
+{% block atras %}
+{% url 'personal.views.index_personal' %}
+{% endblock %}
+
+{% block titulo %}
+<h1>Personal <small>Idiomas Conocidos</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3">
+                {% include 'personal/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row">
+                    <div class="span9">
+                        <h3>Idiomas Conocidos</h3>
+                        {% for idioma in idiomas %}
+                            <div class="row padding5">
+                                <div class="span3">
+                                    <strong>Idioma</strong><br/>
+                                    <p class="">
+                                        <a href="{% url 'personal.views.update_idioma' idioma.id %}" class="fg-color-blue">
+                                            <abbr title="Modificar"><i class="icon-pencil"></i></abbr>
+                                        </a>
+                                        <a href="{% url 'personal.views.delete_idioma' idioma.id %}" class="fg-color-blue">
+                                            <abbr title="Quitar"><i class="icon-cancel-2"></i></abbr>
+                                        </a>
+                                        {{ idioma.idioma }}
+                                    </p>
+                                </div>
+                                <div class="span2">
+                                    <strong>Nativo</strong><br/>
+                                    {% if idioma.nativo %}
+                                        SI
+                                    {% else %}
+                                        NO
+                                    {% endif %}
+                                </div>
+                                <div class="span2">
+                                    <strong>Escribe</strong><br/>
+                                    {% if idioma.escribe %}
+                                        SI
+                                    {% else %}
+                                        NO
+                                    {% endif %}
+                                </div>
+                                <div class="span1">
+                                    <strong>Habla</strong><br/>
+                                    {% if idioma.habla %}
+                                        SI
+                                    {% else %}
+                                        NO
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div class="row border-color-blueDark"></div>
+                        {% empty %}
+                            <blockquote>
+                                <p class="indent">Usted no Tiene Ningun Idioma Registrado</p>
+                            </blockquote>
+                            <p><a href="{% url 'personal.views.new_idioma' %}" class="button default">Registrar Idioma</a></p>
+                        {% endfor %}
+                        {% if idiomas %}
+                            <div class="row padding10">
+                                <div class="span9">
+                                    <a href="{% url 'personal.views.new_idioma' %}" class="button default">Registrar Idioma</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

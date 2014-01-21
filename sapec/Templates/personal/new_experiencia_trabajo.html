@@ -1,24 +1,34 @@
 {# encoding:utf-8 #}
-{% extends 'form_upload.html' %}
-{% block title %}Completar Registro{% endblock%}
+{% extends 'form.html' %}
+{% block title %}Nueva Experiencia de Trabajo{% endblock%}
 {% block atras %}
-{% url 'personal.views.index_personal' %}
+{% url 'personal.views.show_experiencias_trabajo' %}
 {% endblock %}
 {% block calendar %}
-   <link rel="stylesheet" href="{{ STATIC_URL }}calendario/calendar.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}calendario/calendar.css"/>
     <script src="{{ STATIC_URL }}calendario/jquery_min.js"></script>
     <script src="{{ STATIC_URL }}calendario/jquery_ui.js"></script>
     <script src="{{ STATIC_URL }}calendario/jquery.ui.datepicker-es.js"></script>
     <script type="text/javascript">
-        $('#id_fecha_nac').addClass('hasDatepicker');
+        $('#id_fecha_inicio').addClass('hasDatepicker');
+        $('#id_fecha_fin').addClass('hasDatepicker');
         var actual ="{{ fecha_actual|date:"d/m/Y" }}".substring(6,10);
         $(function() {
-            $('#id_fecha_nac').datepicker({dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true, yearRange: '-90:-18'});
+            $('#id_fecha_inicio').datepicker({dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true, yearRange: '-90:'+actual});
         });
         $(document).ready(function(){
-            $('#id_fecha_nac').change(function(){
-                var fecha_ini = $('#id_fecha_nac').val();
-                var fecha_fin = "{{ fecha_actual|date:"d/m/Y" }}";
+            $('#id_fecha_inicio').change(function(){
+                var fecha = $('#id_fecha_inicio').val()
+                var year=fecha.substring(6,10);
+                var actual ="{{ fecha_actual|date:"d/m/Y" }}".substring(6,10);
+                var anho = actual;
+                $(function() {
+                    $('#id_fecha_fin').datepicker({dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true, yearRange: year+':'+actual});
+                });
+            });
+            $('#id_fecha_fin').change(function(){
+                var fecha_ini = $('#id_fecha_inicio').val();
+                var fecha_fin = $('#id_fecha_fin').val();
                 if (compare_dates(fecha_ini, fecha_fin)){
                     $('div#error_fechas').removeClass("mostrar");
                 }else{
@@ -66,7 +76,7 @@
     </script>
 {% endblock %}
 {% block titulo %}
-<h1>Registro <small>Completar</small></h1>
+<h1>Personal <small>Experiencia de Trabajo Registrar</small></h1>
 {% endblock %}
 {% block menuizq %}
     {% include 'personal/menuizq.html' %}
@@ -76,17 +86,17 @@
     <div class="row">
         <div class="span9">
             <p class="bg-color-red padding20 fg-color-white">
-                <strong>Error </strong> La Fecha De Nacimiento no puede ser Mayor a La Fecha Actual
+                <strong>Error </strong> La Segunda Fecha no Puede Ser Menor a la Primera
             </p>
         </div>
     </div>
 </div>
 {% endblock %}
 {% block legend %}
-    Completar Registro de Persona
+    Registrar Experiencia de Trabajo
 {% endblock %}
 {% block submit %}Guardar{% endblock %}
-{% block cancel %}{% url 'personal.views.index_personal' %}{% endblock %}
+{% block cancel %}{% url 'personal.views.show_experiencias_trabajo' %}{% endblock %}
 {% block stylo %}
 <style>
     .ui-datepicker-calendar thead tr{

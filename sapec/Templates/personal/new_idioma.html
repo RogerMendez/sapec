@@ -1,0 +1,17 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Nuevo Idioma{% endblock%}
+{% block atras %}
+{% url 'personal.views.show_idiomas' %}
+{% endblock %}
+{% block titulo %}
+<h1>Personal <small>Registrar Idioma</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'personal/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Registrar Idioma
+{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'personal.views.show_idiomas' %}{% endblock %}

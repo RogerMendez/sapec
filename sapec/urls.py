@@ -66,5 +66,13 @@ urlpatterns = patterns('',
     url(r'^personal/oestudio/new/$', 'personal.views.new_otro_estudio'),
     url(r'^personal/oestudio/update/(?P<id_oestudio>\d+)/$', 'personal.views.update_otro_estudio'),
     url(r'^personal/oestudio/delete/(?P<id_oestudio>\d+)/$', 'personal.views.delete_otro_estudio'),
+    url(r'^personal/experiencia/show/$', 'personal.views.show_experiencias_trabajo'),
+    url(r'^personal/experiencia/new/$', 'personal.views.new_experiencia'),
+    url(r'^personal/experiencia/update/(?P<id_experiencia>\d+)/$', 'personal.views.update_experiencia_trabajo'),
+    url(r'^personal/experiencia/delete/(?P<id_experiencia>\d+)/$', 'personal.views.delete_experiencia_trabajo'),
+    url(r'^personal/idiomas/show/$', 'personal.views.show_idiomas'),
+    url(r'^personal/idiomas/new/$', 'personal.views.new_idioma'),
+    url(r'^personal/idiomas/update/(?P<id_idioma>\d+)/$', 'personal.views.update_idioma'),
+    url(r'^personal/idiomas/delete/(?P<id_idioma>\d+)/$', 'personal.views.delete_idioma'),
 
 )
