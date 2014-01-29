@@ -1,7 +1,6 @@
 #encoding:utf-8
 from django.forms import ModelForm
 from django import forms
-from django.forms.widgets import CheckboxInput, CheckboxSelectMultiple
 
 from personal.models import Persona, Estudios, OtrosEstudios, Experiencias, Idiomas
 

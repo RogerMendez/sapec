@@ -1,0 +1,56 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Cambio de Personal{% endblock %}
+
+{% block titulo %}
+<h1>Contratación <small>Contratos Vigentes</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3 ">
+                {% include 'contratacion/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row">
+                    <div class="span9">
+                        <h3>Contratos Vigentes</h3>
+                        <table class="hovered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre Completo</th>
+                                    <th>Cedula de Identidad</th>
+                                    <th>Telefono</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for persona in personas %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ persona.paterno }} {{ persona.materno }}, {{ persona.nombre }}</td>
+                                        <td>{{ persona.ci }}</td>
+                                        <td>{{ persona.telefono }}</td>
+                                        <td>
+                                            {% for co in persona.contratacion_set.select_related.all %}
+                                                {% if co.estado and co.fecha_salida >= fecha_actual  %}
+                                                    <a href="{% url 'contratacion.views.select_cargo_cambio' co.id %}" class="button default">Cambiar</a>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% if not personas %}
+                            <p class="lead">No Existen Contratos Vigentes</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+<div class="page-sidebar">
+    <ul>
+        <li class="sticker sticker-color-green">
+            <a href="{% url 'contratacion.views.show_contrataciones' %}">
+                <i class="icon-clipboard"></i> Contrataciones
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="{% url 'contratacion.views.select_cargo' %}">Nueva Contratación</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sticker sticker-color-red">
+            <a href="">
+                <i class="icon-pencil"></i>Opciones Contratación
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="{% url 'contratacion.views.list_contratos_informacion' %}">Información de Contratos</a>
+                </li>
+                <li>
+                    <a href="{% url 'contratacion.views.list_contratos_movilidad' %}">Movilidad de Contratos</a>
+                </li>
+                <li>
+                    <a href="{% url 'contratacion.views.list_contratos_terminar' %}">Terminar Contrato</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

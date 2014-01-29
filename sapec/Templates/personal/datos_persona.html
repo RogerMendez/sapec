@@ -62,7 +62,15 @@
 
                         </div>
                         <div class="span3">
-                            <img src="/media/{{ per.foto }}" alt=""/>
+                            {% if per.foto == "" %}
+                                {% if per.sexo == "MA" %}
+                                    <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ per.nombre }}"/>
+                                {% else %}
+                                    <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ per.nombre }}"/>
+                                {% endif %}
+                            {% else %}
+                                <img src="/media/{{ per.foto }}" alt="{{ per.nombre }}"/>
+                            {% endif %}
                         </div>
                     </div>
                 {% else %}

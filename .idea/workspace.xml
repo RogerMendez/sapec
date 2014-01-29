@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d59bfbec-e7d2-4ed1-94fb-8c736913e827" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/new_experiencia_trabajo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/new_idioma.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/show_experiencias_trabajo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/show_idiomas.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sapec/Templates/personal/update_experiencia_trabajo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/personal/completar_persona.html" afterPath="$PROJECT_DIR$/sapec/Templates/personal/completar_persona.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django.wsgi" afterPath="$PROJECT_DIR$/django.wsgi" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personal/form.py" afterPath="$PROJECT_DIR$/personal/form.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/form_upload.html" afterPath="$PROJECT_DIR$/sapec/Templates/form_upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/menu.html" afterPath="$PROJECT_DIR$/sapec/Templates/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/Templates/personal/menuizq.html" afterPath="$PROJECT_DIR$/sapec/Templates/personal/menuizq.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personal/models.py" afterPath="$PROJECT_DIR$/personal/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sapec/urls.py" afterPath="$PROJECT_DIR$/sapec/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/personal/views.py" afterPath="$PROJECT_DIR$/personal/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="d59bfbec-e7d2-4ed1-94fb-8c736913e827" name="Default" comment="" />
     <ignored path="sapec.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,18 +24,36 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/personal/views.py">
+        <entry file="file://$PROJECT_DIR$/contratacion/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="8" selection-start="3135" selection-end="3135" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="4641">
+            <state line="236" column="12" selection-start="10765" selection-end="10825" vertical-scroll-proportion="0.0" vertical-offset="3663" max-vertical-offset="4301">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sapec/Templates/menu.html">
+      <file leaf-file-name="new_terminar_contrato.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sapec/Templates/contratacion/new_terminar_contrato.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="16" selection-start="942" selection-end="1016" vertical-scroll-proportion="-4.923077" vertical-offset="314" max-vertical-offset="969">
+            <state line="11" column="14" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="374">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list_contratos_terminar.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sapec/Templates/contratacion/list_contratos_terminar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="112" selection-start="1840" selection-end="1840" vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1037">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contratacion/form.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="39" selection-start="681" selection-end="681" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="459">
               <folding />
             </state>
           </provider>
@@ -61,10 +62,19 @@
       <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contratacion/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="690" selection-end="690" vertical-scroll-proportion="0.40625" vertical-offset="0" max-vertical-offset="544">
+            <state line="35" column="43" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.84562606" vertical-offset="102" max-vertical-offset="952">
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#24#52#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sapec/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="92" column="0" selection-start="5826" selection-end="5826" vertical-scroll-proportion="0.0" vertical-offset="1564" max-vertical-offset="1666">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,6 +87,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="SYNC_SETTING" value="DONT" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
@@ -87,30 +98,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/personal/admin.py" />
-        <option value="$PROJECT_DIR$/sapec/Templates/personal/update_otro_estudio.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/personal/show_otrosestudios.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/personal/new_experiencia_trabajo.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/personal/update_experiencia_trabajo.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/personal/show_experiencias_trabajo.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/personal/menuizq.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/personal/new_idioma.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/form.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/contratacion/new_contrato.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/contratacion/show_contrataciones.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/contratacion/list_contratos_informacion.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/contratacion/view_contrato.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/contratacion/select_cargo_cambio.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/contratacion/new_razon_cambio.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/contratacion/list_contratos_movilidad.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/contratacion/menuizq.html" />
         <option value="$PROJECT_DIR$/sapec/urls.py" />
-        <option value="$PROJECT_DIR$/personal/models.py" />
-        <option value="$PROJECT_DIR$/personal/form.py" />
-        <option value="$PROJECT_DIR$/personal/views.py" />
-        <option value="$PROJECT_DIR$/sapec/Templates/personal/show_idiomas.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/personal/completar_persona.html" />
-        <option value="$PROJECT_DIR$/sapec/Templates/menu.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/contratacion/list_contratos_terminar.html" />
+        <option value="$PROJECT_DIR$/sapec/Templates/contratacion/new_terminar_contrato.html" />
+        <option value="$PROJECT_DIR$/contratacion/form.py" />
+        <option value="$PROJECT_DIR$/contratacion/admin.py" />
+        <option value="$PROJECT_DIR$/contratacion/views.py" />
         <option value="$PROJECT_DIR$/contratacion/models.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="1" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -185,29 +196,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sapec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sapec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sapec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
+              <option name="myItemId" value="Templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -226,6 +215,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contratacion" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -264,26 +257,27 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="vcs.Git" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../danilab" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings />
+      <PyConsoleSettings />
     </option>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Roger\Django\sapec\sapec\Templates\contratacion" />
+      <recent name="E:\Django\sapec\sapec\Templates\contratacion" />
       <recent name="E:\Django\sapec\sapec\Templates\personal" />
       <recent name="E:\Django\sapec\sapec\Templates\planificacion" />
       <recent name="E:\Django\sapec\sapec\Templates\cargo" />
-      <recent name="E:\Django\sapec\sapec\carga" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Django\sapec\sapec\Templates\unidad" />
@@ -374,27 +368,7 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="sapec" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -420,7 +394,27 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="sapec" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -523,18 +517,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1364" height="726" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24807988" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2715959" sideWeight="0.6715928" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32840723" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -560,10 +554,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23863636" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2719697" sideWeight="0.670068" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -578,108 +572,98 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/update_experiencia_trabajo.html">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/contratacion/view_contrato.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="27" selection-start="3748" selection-end="3748" vertical-scroll-proportion="0.0" vertical-offset="1417" max-vertical-offset="1938">
+        <state line="3" column="70" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="2431" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/contratacion/select_cargo_cambio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="61" selection-start="1197" selection-end="1197" vertical-scroll-proportion="-7.1923075" vertical-offset="306" max-vertical-offset="1105" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/contratacion/new_razon_cambio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="26" selection-start="416" selection-end="416" vertical-scroll-proportion="0.44402984" vertical-offset="0" max-vertical-offset="536" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/contratacion/list_contratos_movilidad.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="153" selection-start="1882" selection-end="1882" vertical-scroll-proportion="0.25239006" vertical-offset="514" max-vertical-offset="1037" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/contratacion/select_cargo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.58508605" vertical-offset="306" max-vertical-offset="1071" />
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/dajaxice/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="583" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/contratacion/menuizq.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="79" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="595" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/contratacion/list_contratos_terminar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="112" selection-start="1840" selection-end="1840" vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="1037">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/menuizq.html">
+    <entry file="file://$PROJECT_DIR$/sapec/Templates/contratacion/new_terminar_contrato.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="87" selection-start="943" selection-end="943" vertical-scroll-proportion="0.43079922" vertical-offset="119" max-vertical-offset="918" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/django/db/models/fields/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="631" column="8" selection-start="24232" selection-end="24232" vertical-scroll-proportion="-1.125" vertical-offset="10932" max-vertical-offset="23885" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/new_experiencia_trabajo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="22" selection-start="0" selection-end="4007" vertical-scroll-proportion="0.06500956" vertical-offset="0" max-vertical-offset="1938">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/new_otro_estudio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="3431" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1785">
+        <state line="11" column="14" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="374">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sapec/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="62" selection-start="4715" selection-end="4715" vertical-scroll-proportion="0.7267857" vertical-offset="868" max-vertical-offset="1428">
+        <state line="92" column="0" selection-start="5826" selection-end="5826" vertical-scroll-proportion="0.0" vertical-offset="1015" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/personal/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="236" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="562" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contratacion/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="29" selection-start="181" selection-end="181" vertical-scroll-proportion="0.15124555" vertical-offset="0" max-vertical-offset="562" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contratacion/form.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="39" selection-start="681" selection-end="681" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contratacion/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="236" column="12" selection-start="10765" selection-end="10825" vertical-scroll-proportion="0.0" vertical-offset="3663" max-vertical-offset="4301">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/personal/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="61" selection-start="4603" selection-end="4603" vertical-scroll-proportion="0.45357144" vertical-offset="1344" max-vertical-offset="1904">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/personal/form.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="11" selection-start="738" selection-end="738" vertical-scroll-proportion="0.60892856" vertical-offset="135" max-vertical-offset="697" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/show_idiomas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="49" selection-start="2306" selection-end="2306" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="1479">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/new_idioma.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="71" selection-start="490" selection-end="490" vertical-scroll-proportion="0.5093633" vertical-offset="0" max-vertical-offset="534">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/datos_persona.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/static/calendario/jquery_ui.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="13311" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/personal/completar_persona.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="123" selection-start="800" selection-end="800" vertical-scroll-proportion="-0.063432835" vertical-offset="289" max-vertical-offset="1768">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/personal/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="8" selection-start="3135" selection-end="3135" vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="4641">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sapec/Templates/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="16" selection-start="942" selection-end="1016" vertical-scroll-proportion="-4.923077" vertical-offset="314" max-vertical-offset="969">
+        <state line="98" column="39" selection-start="4714" selection-end="4714" vertical-scroll-proportion="2.450178" vertical-offset="255" max-vertical-offset="1870">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/contratacion/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="690" selection-end="690" vertical-scroll-proportion="0.40625" vertical-offset="0" max-vertical-offset="544">
+        <state line="35" column="43" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.84562606" vertical-offset="102" max-vertical-offset="952">
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#24#52#0" expanded="true" />
           </folding>
         </state>
       </provider>

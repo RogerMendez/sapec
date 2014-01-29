@@ -55,7 +55,15 @@
                                 </blockquote>
                             </div>
                             <div class="span3">
-                                <img src="/media/{{ persona.foto }}" alt=""/>
+                                {% if persona.foto == "" %}
+                                    {% if persona.sexo == "MA" %}
+                                        <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ persona.nombre }}"/>
+                                    {% else %}
+                                        <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ persona.nombre }}"/>
+                                    {% endif %}
+                                {% else %}
+                                    <img src="/media/{{ persona.foto }}" alt="{{ persona.nombre }}"/>
+                                {% endif %}
                             </div>
                         </div>
                     {% endif %}

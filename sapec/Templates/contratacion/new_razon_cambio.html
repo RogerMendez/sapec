@@ -1,0 +1,18 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Registro Razon Cambio{% endblock%}
+{% block atras %}
+{% url 'contratacion.views.select_cargo_cambio' contrato.id %}
+{% endblock %}
+{% block titulo %}
+<h1>Contratación <small>Registrar Razón Cambio</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'contratacion/menuizq.html' %}
+{% endblock %}
+
+{% block legend %}
+    Registrar Razón Cambio
+{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'contratacion.views.select_cargo_cambio' contrato.id %}{% endblock %}

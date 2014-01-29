@@ -1,0 +1,138 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Contratos Vigentes{% endblock %}
+{% block atras %}{% url 'contratacion.views.list_contratos_informacion' %}{% endblock %}
+{% block titulo %}
+<h1>Contratación <small>Contrato Empleado</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3 ">
+                {% include 'contratacion/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <h3>Contrato de Empleado</h3>
+                <div class="row border-color-blueLight">
+                    <div class="span3 offset6">
+                        <p><strong>Codigo de Contrato: </strong> {{ contrato.id }}</p>
+                    </div>
+                </div>
+                <div class="row bg-color-blueLight">
+                    <div class="span4">
+                        <p>
+                            <strong>Inicio de Contrato: </strong>{{ contrato.fecha_entrada }}
+                        </p>
+                    </div>
+                    <div class="span5">
+                        <p>
+                            <strong>Finalización de Contrato: </strong>
+                            {% if contrato.permanente == False %}
+                                {{ contrato.fecha_salida }}
+                            {% endif %}
+
+                        </p>
+                    </div>
+                </div>
+                <div class="row border-color-blueLight padding5">
+                    <h3>Datos de Empleado</h3>
+                    <div class="span3">
+                        <blockquote class="place-right">
+                            <strong>Cedula de Identidad:</strong><br/>
+                            {{ persona.ci }}
+                        </blockquote>
+                        <blockquote class="place-right">
+                            <strong>Nombre Completo:</strong><br/>
+                            {{ persona.paterno }} {{ persona.materno }}, {{ persona.nombre }}
+                        </blockquote>
+                        <blockquote class="place-right">
+                            <strong>Dirección</strong><br/>
+                            {{ persona.direccion }}
+                        </blockquote>
+                    </div>
+                    <div class="span3">
+                        <blockquote>
+                            <strong>Telefono:</strong><br/>
+                            {{ persona.telefono }}
+                        </blockquote>
+                        <blockquote>
+                            <strong>Sexo:</strong><br/>
+                            {% if persona.sexo == "FE" %}
+                                FEMENINO
+                            {% else %}
+                                MASCULINO
+                            {% endif %}
+                        </blockquote>
+                        <blockquote>
+                            <strong>Estado Civil:</strong><br/>
+                            {% if persona.estado_civil == "CA" %}
+                                CASADO
+                            {% else %}
+                                SOLTERO
+                            {% endif %}
+                        </blockquote>
+                    </div>
+                    <div class="span2">
+                        {% if persona.foto == "" %}
+                            {% if persona.sexo == "MA" %}
+                                <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ per.nombre }}"/>
+                            {% else %}
+                                <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ per.nombre }}"/>
+                            {% endif %}
+                        {% else %}
+                            <img src="/media/{{ persona.foto }}" alt="{{ persona.nombre }}"/>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row border-color-blueLight">
+                    <h3><strong>Datos del Puesto</strong></h3>
+                    <div class="span4">
+                        <blockquote>
+                            <strong>Nombre Unidad:</strong><br/>
+                            {{ unidad.nombre }}
+                        </blockquote>
+                        <blockquote>
+                            <strong>Breve Descripción:</strong><br/>
+                            {{ unidad.descripcion }}
+                        </blockquote>
+                    </div>
+                    <div class="span4">
+                        <blockquote>
+                            <strong>Nombre Cargo:</strong><br/>
+                            {{ cargo.nombre }}
+                        </blockquote>
+                        <blockquote>
+                            <strong>Breve Descripción:</strong><br/>
+                            {{ cargo.descripcion }}
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="row border-color-blueLight">
+                    <h3><strong>Datos de la Contratación</strong></h3>
+                    <div class="span4">
+                        <blockquote>
+                            <strong>Sueldo de Empleado:</strong><br/>
+                            {{ contrato.sueldo }}
+                        </blockquote>
+                        <blockquote>
+                            <strong>Empleado Permanente:</strong><br/>
+                            {% if contrato.permanente == True %}
+                                SI
+                            {% else %}
+                                NO
+                            {% endif %}
+                        </blockquote>
+                    </div>
+                    <div class="span4">
+                        <blockquote>
+                            <strong>Descuento por Falta:</strong><br/>
+                            {{ contrato.descuento }}
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

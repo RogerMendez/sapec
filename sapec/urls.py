@@ -75,4 +75,18 @@ urlpatterns = patterns('',
     url(r'^personal/idiomas/update/(?P<id_idioma>\d+)/$', 'personal.views.update_idioma'),
     url(r'^personal/idiomas/delete/(?P<id_idioma>\d+)/$', 'personal.views.delete_idioma'),
 
+    #CONTRATACION
+    url(r'^contratacion/show/$', 'contratacion.views.show_contrataciones'),
+    url(r'^contratacion/cargo/select/$', 'contratacion.views.select_cargo'),
+    url(r'^contratacion/persona/select/(?P<id_cargo>\d+)/$', 'contratacion.views.select_persona'),
+    url(r'^contratacion/persona/new/(?P<id_cargo>\d+)/(?P<id_persona>\d+)/$', 'contratacion.views.new_contrato'),
+    url(r'^contratacion/about/$', 'contratacion.views.list_contratos_informacion'),
+    url(r'^contratacion/view/(?P<id_persona>\d+)/$', 'contratacion.views.view_contrato'),
+    url(r'^contratacion/movilidad/show/$', 'contratacion.views.list_contratos_movilidad'),
+    url(r'^contratacion/movilidad/cargo/select/(?P<id_contrato>\d+)/$', 'contratacion.views.select_cargo_cambio'),
+    url(r'^contratacion/movilidad/new/razon/(?P<id_cargo>\d+)/(?P<id_contrato>\d+)/$', 'contratacion.views.new_cambio'),
+    url(r'^contratacion/terminar/show/$', 'contratacion.views.list_contratos_terminar'),
+    url(r'^contratacion/terminar/new/(?P<id_contrato>\d+)/$', 'contratacion.views.terminar_contrato'),
+
+
 )
