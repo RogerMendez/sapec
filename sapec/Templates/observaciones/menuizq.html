@@ -1,0 +1,17 @@
+<div class="page-sidebar">
+    <ul>
+        <li class="sticker sticker-color-green">
+            <a href="{% url 'personal.views.index_observaciones' %}">
+                <i class="icon-clipboard"></i> Observaciones
+            </a>
+            <ul class="sub-menu">
+                {% if perms.personal %}
+                    <li>
+                        <a href="{% url 'personal.views.select_persona_observacion' %}">Registrar Observación</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </li>
+        <li class="divider"></li>
+    </ul>
+</div>

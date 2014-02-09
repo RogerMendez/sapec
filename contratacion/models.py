@@ -25,6 +25,7 @@ class Contratacion(models.Model):
         ordering = ['fecha_entrada']
         permissions=(
             ("view_contrato", "Mostrar Contrato Persona"),
+            ("show_contrato", "Mostrar Contratos Vigentes"),
         )
 
 class Movilidad(models.Model):

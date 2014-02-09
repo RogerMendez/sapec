@@ -1,0 +1,49 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Tarjeta QR{% endblock %}
+{% block titulo %}
+<h1>Personal <small>Tarjeta QR</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3 ">
+                {% include 'personal/menuizq.html' %}
+            </div>
+            <div class="span9">
+                {% load qr_tags %}
+                <div class="span1">
+                </div>
+                <div class="span8 bg-color-blueLight">
+                    <div class="row">
+                        <div class="span2 padding5">
+                            {% qr_from_text direccion "size" %}
+                        </div>
+                        <div class="span4 padding5 bg-color-white">
+                            <blockquote>
+                                <p><strong>Cedula de Identidad: </strong>{{ persona.ci }}</p>
+                                <p><strong>Nombre Completo:</strong> {{ persona.paterno }} {{ persona.materno }}, {{ persona.nombre }}</p>
+                                <p><strong>Direcciòn: </strong> {{ persona.direccion }}</p>
+                                <p><strong>Telefono / Celular: </strong>{{ persona.telefono }}</p>
+                                <p><strong>Fecha Nacimiento: </strong>{{ persona.fecha_nac|date:"d M Y" }}</p>
+                            </blockquote>
+                        </div>
+                        <div class="span2 padding5">
+                            {% if persona.foto == "" %}
+                                {% if per.sexo == "MA" %}
+                                    <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ persona.nombre }}"/>
+                                {% else %}
+                                    <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ persona.nombre }}"/>
+                                {% endif %}
+                            {% else %}
+                                <img src="/media/{{ persona.foto }}" alt="{{ persona.nombre }}"/>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

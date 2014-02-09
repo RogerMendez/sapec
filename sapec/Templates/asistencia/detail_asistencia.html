@@ -1,0 +1,161 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Detalle Asistencia{% endblock %}
+
+{% block titulo %}
+<h1>Asistencia <small>Detalle Asistencia</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3 ">
+                {% include 'asistencia/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row bg-color-blueLight">
+                    <div class="span6">
+                        <h3><strong>Datos de Empleado</strong></h3><br/>
+                        <p><strong>Cedula de Identidad:</strong> {{ persona.ci }}</p>
+                        <p><strong>Nombre Completo: </strong>{{ persona.paterno }} {{ persona.materno }}, {{ persona.nombre }}</p>
+                        <p>
+                            <a href="{% url 'asistencia.views.detalle_asistencia' persona.id fecha_ini|date:"d" fecha_ini|date:"m" fecha_ini|date:"Y" fecha_fin|date:"d" fecha_fin|date:"m" fecha_fin|date:"Y" 1 %}" class="button bg-color-green">VER PDF</a>
+                        </p>
+                    </div>
+                    <div class="span2">
+                        {% if persona.foto == "" %}
+                            {% if persona.sexo == "MA" %}
+                                <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ persona.nombre }}"/>
+                            {% else %}
+                                <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ persona.nombre }}"/>
+                            {% endif %}
+                        {% else %}
+                            <img src="/media/{{ persona.foto }}" alt="{{ persona.nombre }}"/>
+                        {% endif %}
+                    </div>
+                    <div class="span1"></div>
+                </div>
+                <div class="row">
+                    <div class="span9">
+                        <h3>Detalle Asistencia</h3>
+                        <table class="hovered">
+                            <thead>
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Entrada M.</th>
+                                        <th>Salida M.</th>
+                                        <th>Entrada T.</th>
+                                        <th>Salida T.</th>
+                                        <th>Atraso</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                            </thead>
+                            <tbody>
+                                {% for m in mes %}
+                                    <tr>
+                                        <td>{{ m|date:"d M Y" }}</td>
+                                        {% for asis in asistencia %}
+                                            {% if asis.fecha == m %}
+                                                    {% if not asis.entrada_m %}
+                                                        <td class="error">
+                                                            <cite title="Entrada Mañana">
+                                                                SIN MARCA
+                                                            </cite>
+                                                        </td>
+                                                    {% else %}
+                                                        {% if asis.obs_m %}
+                                                            <td class="warning">
+                                                                <cite title="Entrada Mañana">
+                                                                    {{asis.entrada_m|time}}
+                                                                </cite>
+                                                            </td>
+                                                        {% else %}
+                                                            <td class="success">
+                                                                <cite title="Entrada Mañana">
+                                                                    {{asis.entrada_m|time}}
+                                                                </cite>
+                                                            </td>
+                                                        {% endif %}
+                                                    {% endif %}
+
+                                                {% if not asis.salida_m %}
+                                                    <td class="error">
+                                                        <cite title="Salida Mañana">
+                                                            SIN MARCA
+                                                        </cite>
+                                                    </td>
+                                                {% else %}
+                                                    <td class="success">
+                                                        <cite title="Salida Mañana">
+                                                            {{asis.salida_m|time}}
+                                                        </cite>
+                                                    </td>
+                                                {% endif %}
+                                                {% if not asis.entrada_t %}
+                                                    <td class="error">
+                                                        <cite title="Entrada Tarde">
+                                                            SIN MARCA
+                                                        </cite>
+                                                    </td>
+                                                {% else %}
+                                                    {% if asis.obs_t %}
+                                                        <td class="warning">
+                                                            <cite title="Entrada Tarde">
+                                                                {{asis.entrada_t|time}}
+                                                            </cite>
+                                                        </td>
+                                                    {% else %}
+                                                        <td class="success">
+                                                            <cite title="Entrada Tarde">
+                                                                {{asis.entrada_t|time}}
+                                                            </cite>
+                                                        </td>
+                                                    {% endif %}
+
+                                                {% endif %}
+
+                                                {% if not asis.salida_t %}
+                                                    <td class="error">
+                                                        <cite title="Salida Tarde">
+                                                            SIN MARCA
+                                                        </cite>
+                                                    </td>
+                                                {% else %}
+                                                    <td class="success">
+                                                        <cite title="Salida Tarde">
+                                                            {{asis.salida_t|time}}
+                                                        </cite>
+                                                    </td>
+                                                {% endif %}
+                                                {% if asis.atraso == None %}
+                                                    <td>
+                                                        00:00
+                                                    </td>
+                                                {% else %}
+                                                    <td>{{ asis.atraso|time:"H:i" }}</td>
+                                                {% endif %}
+                                                <td>
+                                                    <a href="">Editar</a>
+                                                </td>
+                                            {% else %}
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

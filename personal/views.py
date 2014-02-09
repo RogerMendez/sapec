@@ -12,10 +12,11 @@ import cStringIO as StringIO
 import cgi
 import os
 import datetime
+from datetime import date
 from django.conf import settings
-from personal.models import Persona, Estudios, OtrosEstudios, Experiencias, Idiomas
-from personal.form import PersonaForm, EstudiosForm, OtrosEstudiosForm, ExperienciasForm, IdiomasForm
-
+from personal.models import Persona, Estudios, OtrosEstudios, Experiencias, Idiomas, Observacion
+from personal.form import PersonaForm, EstudiosForm, OtrosEstudiosForm, ExperienciasForm, IdiomasForm, ObservacionForm
+from contratacion.models import Contratacion
 from django.contrib import messages
 from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
 
@@ -41,9 +42,16 @@ def admin_log_change(request, objecto, mensaje):
 
 def index_personal(request):
     persona = Persona.objects.get(usuario = request.user)
+    estudios = Estudios.objects.filter(persona = persona)
+    otrosestudios = OtrosEstudios.objects.filter(persona = persona)
+    experiencias = Experiencias.objects.filter(persona = persona)
+    idiomas = Idiomas.objects.filter(persona = persona)
     return render_to_response('personal/index.html',{
         'persona':persona,
-
+        'estudios':estudios,
+        'otrosestudios':otrosestudios,
+        'experiencias':experiencias,
+        'idiomas':idiomas,
     }, context_instance = RequestContext(request))
 
 @permission_required('personal.show_datos_persona', login_url="/login")
@@ -284,3 +292,64 @@ def delete_idioma(request, id_idioma):
     idioma.delete()
     messages.add_message(request, messages.INFO, u'Se Elimino Correctamente el Idioma: <strong>%s</strong>' %idioma.idioma )
     return HttpResponseRedirect(reverse(show_idiomas))
+
+
+def select_personal_qr(request):
+    fecha_actual = datetime.datetime.now()
+    fecha = date.today()
+    contrataciones = Contratacion.objects.filter(estado = True, fecha_salida__gte = fecha_actual)
+    q1 = contrataciones.values('persona_id')
+    personas = Persona.objects.filter(id__in = q1)
+    return render_to_response('personal/list_empleado_qr.html',{
+        'contrataciones':contrataciones,
+        'personas':personas,
+        'fecha_actual':fecha,
+    }, context_instance=RequestContext(request))
+
+
+def tarjeta_qr(request, id_persona):
+    persona = get_object_or_404(Persona, pk = id_persona)
+    direccion = "http://192.168.43.124:90/asistencia/?ci="+str(persona.ci)+"/"
+    return render_to_response('personal/tarjeta_qr.html', {
+        'persona' :persona,
+        'direccion' :direccion
+    }, context_instance=RequestContext(request))
+
+
+
+
+def index_observaciones(request):
+    observaciones = Observacion.objects.all()
+    return render_to_response('observaciones/index.html', {
+        'observaciones':observaciones,
+    }, context_instance=RequestContext(request))
+
+@permission_required('personal.add_observacion', login_url="/login")
+def select_persona_observacion(request):
+    fecha_actual = datetime.datetime.now()
+    fecha = date.today()
+    contrataciones = Contratacion.objects.filter(estado = True, fecha_salida__gte = fecha_actual)
+    q1 = contrataciones.values('persona_id')
+    personas = Persona.objects.filter(id__in = q1)
+    return render_to_response('observaciones/select_empleado_observacion.html',{
+        'personas':personas,
+    }, context_instance=RequestContext(request))
+
+@permission_required('personal.add_observacion', login_url="/login")
+def new_observacion(request, id_persona):
+    persona = get_object_or_404(Persona, pk = id_persona)
+    if request.method == "POST":
+        formulario = ObservacionForm(request.POST)
+        if formulario.is_valid():
+            obs = formulario.save()
+            obs.usuario = request.user
+            obs.persona = persona
+            obs.save()
+            messages.add_message(request, messages.INFO, u'Se Registro Correctamente La Observacion Para %s %s, %s: ' %(persona.paterno, persona.materno, persona.nombre))
+            admin_log_addnition(request, obs, 'Observacion Creada')
+            return HttpResponseRedirect(reverse(select_persona_observacion))
+    else:
+        formulario = ObservacionForm()
+    return render_to_response('observaciones/new_observacion.html', {
+        'formulario':formulario,
+    }, context_instance = RequestContext(request))

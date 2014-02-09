@@ -1,0 +1,23 @@
+<div class="page-sidebar">
+    <ul>
+        <li class="sticker sticker-color-green">
+            <a href="{% url 'asistencia.views.index_permiso' %}">
+                <i class="icon-clipboard"></i> Permisos
+            </a>
+            <ul class="sub-menu">
+                {% if perms.asistencia.add_permiso %}
+                    <li>
+                        <a href="{% url 'asistencia.views.select_persona_permiso' %}">Registrar Permiso</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </li>
+        <li class="divider"></li>
+        <li class="sticker sticker-color-red">
+            <a href="{% url 'asistencia.views.index_permiso' %}">
+                <i class="icon-pencil"></i> Opciones Permiso
+            </a>
+
+        </li>
+    </ul>
+</div>

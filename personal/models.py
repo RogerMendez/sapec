@@ -101,6 +101,20 @@ class Idiomas(models.Model):
             ("show_idiomas_persona", "Mostrar Idiomas de Persona"),
         )
 
-
+class Observacion(models.Model):
+    tipo_obs=(
+        ('LA', 'Llamada De Atención'),
+        ('ME', 'Memorandum'),
+    )
+    tipo = models.CharField(max_length='5', choices=tipo_obs, verbose_name="Seleccione el tipo de Observacion")
+    descripcion=models.TextField(verbose_name="Descripción De La Observación")
+    fecha = models.DateField(auto_now_add=True)
+    persona = models.ForeignKey(Persona, null=True, blank=True)
+    usuario = models.ForeignKey(User, null=True, blank=True)
+    def __unicode__(self):
+        return self.persona.nombre
+    class Meta:
+        ordering=['persona']
+        verbose_name_plural = "Observaciones"
 
 

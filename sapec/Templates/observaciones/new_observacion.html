@@ -1,0 +1,17 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Registrar Observacion{% endblock%}
+{% block atras %}
+{% url 'personal.views.select_persona_observacion' %}
+{% endblock %}
+{% block titulo %}
+<h1>Observación <small>Registrar</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'permiso/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Registrar Observación
+{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'personal.views.select_persona_observacion' %}{% endblock %}

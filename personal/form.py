@@ -2,7 +2,7 @@
 from django.forms import ModelForm
 from django import forms
 
-from personal.models import Persona, Estudios, OtrosEstudios, Experiencias, Idiomas
+from personal.models import Persona, Estudios, OtrosEstudios, Experiencias, Idiomas, Observacion
 
 class PersonaForm(ModelForm):
     class Meta:
@@ -33,3 +33,8 @@ class IdiomasForm(forms.ModelForm):
         #widgets = {'nativo': forms.RadioSelect}
         #nativo = forms.CheckboxSelectMultiple(choices=Idiomas.select,  widget=forms.CheckboxSelectMultiple())
         exclude = ['persona']
+
+class ObservacionForm(ModelForm):
+    class Meta:
+        model = Observacion
+        exclude = ['persona', 'usuario']

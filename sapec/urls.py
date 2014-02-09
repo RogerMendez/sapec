@@ -74,6 +74,8 @@ urlpatterns = patterns('',
     url(r'^personal/idiomas/new/$', 'personal.views.new_idioma'),
     url(r'^personal/idiomas/update/(?P<id_idioma>\d+)/$', 'personal.views.update_idioma'),
     url(r'^personal/idiomas/delete/(?P<id_idioma>\d+)/$', 'personal.views.delete_idioma'),
+    url(r'^personal/qr/list/$', 'personal.views.select_personal_qr'),
+    url(r'^personal/qr/show/(?P<id_persona>\d+)/$', 'personal.views.tarjeta_qr'),
 
     #CONTRATACION
     url(r'^contratacion/show/$', 'contratacion.views.show_contrataciones'),
@@ -88,5 +90,22 @@ urlpatterns = patterns('',
     url(r'^contratacion/terminar/show/$', 'contratacion.views.list_contratos_terminar'),
     url(r'^contratacion/terminar/new/(?P<id_contrato>\d+)/$', 'contratacion.views.terminar_contrato'),
 
+    #ASISTENCIA
+    url(r'^asistencia/$', 'asistencia.views.index_asistencia'),
+    url(r'^asistencia/new/$', 'asistencia.views.new_asistencia'),
+    url(r'^asistencia/detail/empleado/show/$', 'asistencia.views.personal_asistencia'),
+    url(r'^asistencia/detail/fechas/seleccion/(?P<id_persona>\d+)/$', 'asistencia.views.seleccion_fechas_detalle'),
+    #url(r'^asistencia/detail/(?P<id_persona>\d+)/(?P<dia_ini>\d+)/(?P<mes_ini>\d+)/(?P<anho_ini>\d+)/(?P<dia_fin>\d+)/(?P<mes_fin>\d+)/(?P<anho_fin>\d+)/$', 'asistencia.views.detalle_asistencia'),
+    url(r'^asistencia/detail/(?P<id_persona>\d+)/(?P<dia_ini>\d+)/(?P<mes_ini>\d+)/(?P<anho_ini>\d+)/(?P<dia_fin>\d+)/(?P<mes_fin>\d+)/(?P<anho_fin>\d+)/(?P<pdf>\d+)/$', 'asistencia.views.detalle_asistencia'),
+
+    #PERMISO
+    url(r'^permiso/$', 'asistencia.views.index_permiso'),
+    url(r'^permiso/persona/show/$', 'asistencia.views.select_persona_permiso'),
+    url(r'^permiso/persona/new/(?P<id_persona>\d+)/$', 'asistencia.views.new_permiso'),
+
+    #OBSERVACIONES
+    url(r'^observacion/$', 'personal.views.index_observaciones'),
+    url(r'^observacion/persona/show/$', 'personal.views.select_persona_observacion'),
+    url(r'^observacion/persona/new/(?P<id_persona>\d+)/$', 'personal.views.new_observacion'),
 
 )

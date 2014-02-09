@@ -69,6 +69,7 @@ class Planificacion(models.Model):
         permissions=(
             ("detail_planificacion", "Ver Detalle Planificación"),
             ("cancel_planificacion", "Cancelar Planificación"),
+            ("plani_cargo", "Planificaciones Por Cargo"),
         )
 
 

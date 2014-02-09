@@ -4,34 +4,48 @@
             <a href="{% url 'organizacion.views.index_planificacion' %}">
                 <i class="icon-clipboard"></i> Planificaciones
             </a>
-            <ul class="sub-menu">
-                <li>
-                    <a href="{% url 'organizacion.views.new_planificacion' %}">Registrar Planificación</a>
-                </li>
-            </ul>
+            {% if perms.organizacion.add_planificacion %}
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{% url 'organizacion.views.new_planificacion' %}">Registrar Planificación</a>
+                    </li>
+                </ul>
+            {% endif %}
         </li>
         <li class="divider"></li>
-        <li class="sticker sticker-color-blue">
-            <a><i class="icon-clipboard-2"></i>Opciones Planificación</a>
-            <ul class="sub-menu">
-                <li>
-                    <a href="{% url 'organizacion.views.option_update_planificacion' %}">Modificar Planificación</a>
-                </li>
-                <li>
-                    <a href="{% url 'organizacion.views.option_detalle_planificacion' %}">Detalle Planificación</a>
-                </li>
-                <li>
-                    <a href="{% url 'organizacion.views.option_cancel_planificacion' %}">Cancelar Planificación</a>
-                </li>
-            </ul>
-        </li>
-        <li class="sticker sticker-color-orangeDark">
-            <a><i class="icon-file-pdf"></i>Reportes</a>
-            <ul class="sub-menu">
-                <li>
-                    <a href="{% url 'organizacion.views.planificaciones_cargos' %}">Planificaciones por Cargo</a>
-                </li>
-            </ul>
-        </li>
+        {% if perms.organizacion.change_planificacion or organizacion.detail_planificacion or perms.organizacion.cancel_planificacion %}
+            <li class="sticker sticker-color-blue">
+                <a><i class="icon-clipboard-2"></i>Opciones Planificación</a>
+                <ul class="sub-menu">
+                    {% if perms.organizacion.change_planificacion %}
+                        <li>
+                            <a href="{% url 'organizacion.views.option_update_planificacion' %}">Modificar Planificación</a>
+                        </li>                    
+                    {% endif %} 
+                    {% if organizacion.detail_planificacion %}
+                        <li>
+                            <a href="{% url 'organizacion.views.option_detalle_planificacion' %}">Detalle Planificación</a>
+                        </li>
+                    {% endif %} 
+                    {% if perms.organizacion.cancel_planificacion %}
+                        <li>
+                            <a href="{% url 'organizacion.views.option_cancel_planificacion' %}">Cancelar Planificación</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </li>
+        {% endif %}
+        {% if perms.organizacion.plani_cargo %}
+            <li class="sticker sticker-color-orangeDark">
+                <a><i class="icon-file-pdf"></i>Reportes</a>
+                <ul class="sub-menu">
+                    {% if perms.organizacion.plani_cargo %}
+                        <li>
+                            <a href="{% url 'organizacion.views.planificaciones_cargos' %}">Planificaciones por Cargo</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </li>
+        {% endif %}
     </ul>
 </div>

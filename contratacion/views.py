@@ -43,7 +43,7 @@ def admin_log_change(request, objecto, mensaje):
                 change_message = mensaje,
             )
 
-
+@permission_required('contratacion.show_contrato', login_url="/login")
 def show_contrataciones(request):
     fecha_actual = datetime.datetime.now()
     contrataciones = Contratacion.objects.filter(estado = True, fecha_salida__gte = fecha_actual)
@@ -206,7 +206,7 @@ def new_cambio(request, id_cargo, id_contrato):
         'contrato':contrato,
     }, context_instance=RequestContext(request))
 
-
+@permission_required("contratacion.add_terminar", login_url="/login")
 def list_contratos_terminar(request):
     fecha_actual = datetime.datetime.now()
     fecha = date.today()
@@ -219,7 +219,7 @@ def list_contratos_terminar(request):
         'fecha_actual':fecha,
     }, context_instance=RequestContext(request))
 
-
+@permission_required("contratacion.add_terminar", login_url="/login")
 def terminar_contrato(request, id_contrato):
     contrato = get_object_or_404(Contratacion, pk = id_contrato)
     if request.method == "POST":
@@ -243,5 +243,8 @@ def terminar_contrato(request, id_contrato):
         'formulario':formulario,
         'contrato':contrato,
     }, context_instance = RequestContext(request))
+
+
+
 
 

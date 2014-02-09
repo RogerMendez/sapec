@@ -121,7 +121,7 @@ def unidades_pdf(request, pdf):
                                                                 }, context_instance=RequestContext(request))
         return generar_pdf(html)
 
-@permission_required('unidades_sin_cargo', login_url="/login")
+@permission_required('organizacion.unidades_sin_cargo', login_url="/login")
 def unidades_sin_cargo(request, pdf):
     q1 = Cargo.objects.all().values('unidad_id')
     unidades = Unidad.objects.exclude(id__in = q1)
@@ -297,7 +297,7 @@ def cancel_planificacion(request, id_plani):
     messages.add_message(request, messages.INFO, msm)
     return HttpResponseRedirect(reverse(option_cancel_planificacion))
 
-
+@permission_required("organizacion.plani_cargo", login_url="/login")
 def planificaciones_cargos(request):
     q1 = Planificacion.objects.all().values('cargo_id')
     cargos = Cargo.objects.filter(id__in = q1)
@@ -308,7 +308,7 @@ def planificaciones_cargos(request):
         'unidades' :unidades,
     }, context_instance=RequestContext(request))
 
-
+@permission_required("organizacion.plani_cargo", login_url="/login")
 def planificaciones_cargo(request, id_cargo):
     cargo = get_object_or_404(Cargo, pk = id_cargo)
     planificaciones = Planificacion.objects.filter(cargo = cargo)

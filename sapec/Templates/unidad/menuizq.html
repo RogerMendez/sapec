@@ -5,33 +5,47 @@
                 <i class="icon-clipboard"></i> Unidad
             </a>
             <ul class="sub-menu">
-                <li>
-                    <a href="{% url 'organizacion.views.new_unidad' %}">Registrar Unidad</a>
-                </li>
+                {% if perms.organizacion.add_unidad %}
+                    <li>
+                        <a href="{% url 'organizacion.views.new_unidad' %}">Registrar Unidad</a>
+                    </li>
+                {% endif %}
             </ul>
         </li>
         <li class="divider"></li>
-        <li class="sticker sticker-color-blue">
-            <a><i class="icon-clipboard-2"></i>Opciones Unidad</a>
-            <ul class="sub-menu">
-                <li>
-                    <a href="{% url 'organizacion.views.option_update' %}">Modificar</a>
-                </li>
-                <li>
-                    <a href="{% url 'organizacion.views.option_detalle' %}">Detalle Unidad</a>
-                </li>
-            </ul>
-        </li>
-        <li class="sticker sticker-color-orangeDark">
-            <a><i class="icon-file-pdf"></i>Reportes</a>
-            <ul class="sub-menu">
-                <li>
-                    <a href="{% url 'organizacion.views.unidades_pdf' 0 %}">Listado de Unidades</a>
-                </li>
-                <li>
-                    <a href="{% url 'organizacion.views.unidades_sin_cargo' 0 %}">Unidades Sin Cargo</a>
-                </li>
-            </ul>
-        </li>
+        {% if perms.organizacion.change_unidad or perms.organizacion.view_detail_unidad %}
+            <li class="sticker sticker-color-blue">
+                <a><i class="icon-clipboard-2"></i>Opciones Unidad</a>
+                <ul class="sub-menu">
+                    {% if perms.organizacion.change_unidad %}
+                        <li>
+                            <a href="{% url 'organizacion.views.option_update' %}">Modificar</a>
+                        </li>
+                    {% endif %}
+                    {% if perms.organizacion.view_detail_unidad %}
+                        <li>
+                            <a href="{% url 'organizacion.views.option_detalle' %}">Detalle Unidad</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </li>
+        {% endif %}
+        {% if perms.organizacion.list_unidad_pdf or perms.organizacion.unidades_sin_cargo %}
+            <li class="sticker sticker-color-orangeDark">
+                <a><i class="icon-file-pdf"></i>Reportes</a>
+                <ul class="sub-menu">
+                    {% if perms.organizacion.list_unidad_pdf %}
+                        <li>
+                            <a href="{% url 'organizacion.views.unidades_pdf' 0 %}">Listado de Unidades</a>
+                        </li>
+                    {% endif %}
+                    {% if perms.organizacion.unidades_sin_cargo %}
+                        <li>
+                            <a href="{% url 'organizacion.views.unidades_sin_cargo' 0 %}">Unidades Sin Cargo</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </li>
+        {% endif %}
     </ul>
 </div>

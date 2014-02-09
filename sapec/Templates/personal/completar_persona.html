@@ -13,7 +13,7 @@
         $('#id_fecha_nac').addClass('hasDatepicker');
         var actual ="{{ fecha_actual|date:"d/m/Y" }}".substring(6,10);
         $(function() {
-            $('#id_fecha_nac').datepicker({dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true, yearRange: '-90:-18'});
+            $('#id_fecha_nac').datepicker({dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true, yearRange: '-90:+1'});
         });
         $(document).ready(function(){
             $('#id_fecha_nac').change(function(){

@@ -6,7 +6,7 @@
             </a>
             <ul class="sub-menu">
                 <li>
-                    <a href="{% url 'personal.views.show_datos_persona' %}">Datos de Persona</a>
+                    <a href="{% url 'personal.views.show_datos_persona' %}">Datos Personales</a>
                 </li>
                 <li>
                     <a href="{% url 'personal.views.show_estudios' %}">Estudios Realizados</a>
@@ -23,6 +23,16 @@
             </ul>
         </li>
         <li class="divider"></li>
+        <li class="sticker sticker-color-red">
+            <a href="{% url 'personal.views.index_personal' %}">
+                <i class="icon-pencil"></i> Opciones Personal
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="{% url 'personal.views.select_personal_qr' %}">Tarjeta QR</a>
+                </li>
+            </ul>
+        </li>
         <!--li class="sticker sticker-color-blue">
             <a><i class="icon-clipboard-2"></i>Opciones Unidad</a>
             <ul class="sub-menu">

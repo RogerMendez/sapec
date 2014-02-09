@@ -1,0 +1,25 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+
+{% block title %}Asistencia{% endblock %}
+
+{% block titulo %}
+<h1>Asistencia<small>Listado</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3">
+                {% include 'asistencia/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <h2>Index Asistencia</h2>
+                <h3>{{ hora }}</h3>
+                <p>{{ hr }}</p>
+                <p>{{ min }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
