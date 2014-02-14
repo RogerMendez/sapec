@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.shortcuts import render_to_response, get_object_or_404
-from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import permission_required, login_required
 from django.core.urlresolvers import reverse
 from django.utils.encoding import force_unicode
 import ho.pisa as pisa
@@ -51,7 +51,7 @@ def generar_pdf(html):
     return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
 
 
-
+@login_required(login_url="/login")
 def index_unidad(request):
     unidades = Unidad.objects.all()
     return render_to_response('unidad/index.html',{'unidades':unidades}, context_instance=RequestContext(request))
@@ -137,8 +137,7 @@ def unidades_sin_cargo(request, pdf):
 
 
 
-
-
+@login_required(login_url="/login")
 def index_cargo(request):
     unidades = Unidad.objects.all()
     return render_to_response('cargo/index.html',{
@@ -214,7 +213,7 @@ def cargos_pdf(request, pdf):
         }, context_instance=RequestContext(request))
         return generar_pdf(html)
 
-
+@login_required(login_url="/login")
 def index_planificacion(request):
     planificaciones = Planificacion.objects.all()
     q1 = planificaciones.values('cargo_id')

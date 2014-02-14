@@ -1,0 +1,17 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Nuevo Descuento{% endblock%}
+{% block atras %}
+{% url 'remuneraciones.views.select_persona_descuentos' %}
+{% endblock %}
+{% block titulo %}
+<h1>Remuneraciones <small>Nuevo Descuentos</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'remuneraciones/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Registrar Nuevo Descuento
+{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'remuneraciones.views.select_persona_descuentos' %}{% endblock %}

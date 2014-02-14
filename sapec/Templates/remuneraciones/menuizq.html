@@ -1,0 +1,29 @@
+<div class="page-sidebar">
+    <ul>
+        <li class="sticker sticker-color-green">
+            <a href="{% url 'remuneraciones.views.otros_pagos' %}">
+                <i class="icon-clipboard"></i> <strong>Otros Pagos</strong>
+            </a>
+            <ul class="sub-menu">
+                {% if perms.remuneraciones.add_pagos %}
+                    <li>
+                        <a href="{% url 'remuneraciones.views.select_persona_pagos' %}">Registrar Pago</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </li>
+        <li class="divider"></li>
+        <li class="sticker sticker-color-blue">
+            <a href="{% url 'remuneraciones.views.descuentos_index' %}">
+                <i class="icon-diamond"></i> <strong>Descuentos</strong>
+            </a>
+            <ul class="sub-menu">
+                {% if perms.remuneraciones.add_descuentos %}
+                    <li>
+                        <a href="{% url 'remuneraciones.views.select_persona_descuentos' %}">Registrar Descuento</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </li>
+    </ul>
+</div>

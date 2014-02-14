@@ -36,6 +36,7 @@ class Persona(models.Model):
         verbose_name_plural = "Empleados"
         permissions=(
             ("show_datos_persona", "Mostrar Datos de Persona"),
+            ("show_tarjetas_qr_persona", "Mostrar Tarjeta QR"),
         )
 
 

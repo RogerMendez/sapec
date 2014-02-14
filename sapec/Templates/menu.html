@@ -3,7 +3,6 @@
         <a href="/">Inicio</a>
     </li>
     {% if user.is_authenticated %}
-
         {% if 'organizacion' in perms %}
             <li data-role="dropdown">
                 <a href="#">Organización</a>
@@ -27,27 +26,33 @@
                 </ul>
             </li>
         {% endif %}
-        {% if 'personal' in perms %}
-            <li data-role="dropdown">
-                <a href="#">Personal</a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="{% url 'personal.views.index_personal' %}">Kardex</a>
-                    </li>
-                    <li class="divider"></li>
+        <li data-role="dropdown">
+            <a href="#">Personal</a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{% url 'personal.views.index_personal' %}">Kardex</a>
+                </li>
+                <li class="divider"></li>
+                {% if 'personal' in perms %}
                     <li>
                         <a href="{% url 'personal.views.index_observaciones' %}">Observaciones</a>
                     </li>
-                </ul>
-            </li>
-        {% endif %}
-        {% if 'contratacion' in perms %}
+                {% endif %}
+            </ul>
+        </li>
+        {% if 'contratacion' in perms or perms.remuneraciones %}
             <li data-role="dropdown">
                 <a href="#">Contratación</a>
                 <ul class="dropdown-menu">
                     {% if perms.contratacion.show_contrato %}
                         <li>
                             <a href="{% url 'contratacion.views.show_contrataciones' %}">Contratación</a>
+                        </li>
+                    {% endif %}
+                    <li class="divider"></li>
+                    {% if perms.remuneraciones %}
+                        <li>
+                            <a href="{% url 'remuneraciones.views.index_remuneracion' %}">Remuneraciones</a>
                         </li>
                     {% endif %}
                 </ul>

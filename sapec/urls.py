@@ -76,6 +76,7 @@ urlpatterns = patterns('',
     url(r'^personal/idiomas/delete/(?P<id_idioma>\d+)/$', 'personal.views.delete_idioma'),
     url(r'^personal/qr/list/$', 'personal.views.select_personal_qr'),
     url(r'^personal/qr/show/(?P<id_persona>\d+)/$', 'personal.views.tarjeta_qr'),
+    url(r'^personal/qr/$', 'personal.views.my_tarjeta_qr'),
 
     #CONTRATACION
     url(r'^contratacion/show/$', 'contratacion.views.show_contrataciones'),
@@ -107,5 +108,15 @@ urlpatterns = patterns('',
     url(r'^observacion/$', 'personal.views.index_observaciones'),
     url(r'^observacion/persona/show/$', 'personal.views.select_persona_observacion'),
     url(r'^observacion/persona/new/(?P<id_persona>\d+)/$', 'personal.views.new_observacion'),
+
+    #REMUNERACIONES
+    url(r'^remuneracion/$', 'remuneraciones.views.index_remuneracion'),
+    url(r'^remuneracion/pagos/$', 'remuneraciones.views.otros_pagos'),
+    url(r'^remuneracion/pagos/personas/show/$', 'remuneraciones.views.select_persona_pagos'),
+    url(r'^remuneracion/pagos/new/(?P<id_contrato>\d+)/$', 'remuneraciones.views.new_pago'),
+    url(r'^remuneracion/descuentos/$', 'remuneraciones.views.descuentos_index'),
+    url(r'^remuneracion/descuentos/personas/show/$', 'remuneraciones.views.select_persona_descuentos'),
+    url(r'^remuneracion/descuentos/new/(?P<id_contrato>\d+)/$', 'remuneraciones.views.new_descuento'),
+
 
 )

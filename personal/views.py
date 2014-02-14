@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.shortcuts import render_to_response, get_object_or_404
-from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import permission_required, login_required
 from django.core.urlresolvers import reverse
 from django.utils.encoding import force_unicode
 import ho.pisa as pisa
@@ -40,6 +40,7 @@ def admin_log_change(request, objecto, mensaje):
                 change_message = mensaje,
             )
 
+@login_required(login_url="/login")
 def index_personal(request):
     persona = Persona.objects.get(usuario = request.user)
     estudios = Estudios.objects.filter(persona = persona)
@@ -54,14 +55,14 @@ def index_personal(request):
         'idiomas':idiomas,
     }, context_instance = RequestContext(request))
 
-@permission_required('personal.show_datos_persona', login_url="/login")
+@login_required(login_url="/login")
 def show_datos_persona(request):
     persona = Persona.objects.get(usuario = request.user)
     return render_to_response('personal/datos_persona.html',{
         'per' :persona,
     }, context_instance=RequestContext(request))
 
-@permission_required('personal.change_persona', login_url="/login")
+@login_required(login_url="/login")
 def completar_datos_persona(request):
     persona = Persona.objects.get(usuario = request.user)
     fecha = datetime.datetime.now()
@@ -82,7 +83,7 @@ def completar_datos_persona(request):
     }, context_instance = RequestContext(request))
 
 
-@permission_required("personal.show_estudios_persona", login_url="/login")
+@login_required(login_url="/login")
 def show_estudios(request):
     persona = Persona.objects.get(usuario = request.user)
     estudios = Estudios.objects.filter(persona = persona)
@@ -91,7 +92,7 @@ def show_estudios(request):
     }, context_instance = RequestContext(request))
 
 
-@permission_required('personal.add_persona')
+@login_required(login_url="/login")
 def new_estudio(request):
     fecha = datetime.datetime.now()
     if request.method == "POST":
@@ -112,7 +113,7 @@ def new_estudio(request):
     }, context_instance = RequestContext(request))
 
 
-@permission_required("personal.change_persona", login_url="/login")
+@login_required(login_url="/login")
 def update_estudio(request, id_estudio):
     estudio = get_object_or_404(Estudios, pk = id_estudio)
     fecha = datetime.datetime.now()
@@ -130,14 +131,14 @@ def update_estudio(request, id_estudio):
         'fecha_actual':fecha,
     }, context_instance = RequestContext(request))
 
-@permission_required('personal.delete_persona', login_url="/login")
+@login_required(login_url="/login")
 def delete_estudio(request, id_estudio):
     estudio = get_object_or_404(Estudios, pk = id_estudio)
     estudio.delete()
     messages.add_message(request, messages.INFO, u'Se Elimino el Estudio En la Institución: <strong>%s</strong>' %estudio.institucion )
     return HttpResponseRedirect(reverse(show_estudios))
 
-@permission_required("personal.show_otrosestudios_persona", login_url="/login")
+@login_required(login_url="/login")
 def show_otros_estudios(request):
     persona = Persona.objects.get(usuario = request.user)
     otrosestudios = OtrosEstudios.objects.filter(persona = persona)
@@ -145,7 +146,7 @@ def show_otros_estudios(request):
         'otrosestudios':otrosestudios,
     }, context_instance = RequestContext(request))
 
-@permission_required("personal.add_otrosestudios", login_url="/login")
+@login_required(login_url="/login")
 def new_otro_estudio(request):
     fecha_actual = datetime.datetime.now()
     if request.method == "POST":
@@ -165,7 +166,7 @@ def new_otro_estudio(request):
         'fecha_actual':fecha_actual,
     }, context_instance = RequestContext(request))
 
-@permission_required("personal.change_otrosestudios", login_url="/login")
+@login_required(login_url="/login")
 def update_otro_estudio(request, id_oestudio):
     fecha_actual = datetime.datetime.now()
     oestudio = get_object_or_404(OtrosEstudios, pk = id_oestudio)
@@ -183,14 +184,14 @@ def update_otro_estudio(request, id_oestudio):
         'fecha_actual':fecha_actual,
     }, context_instance = RequestContext(request))
 
-@permission_required("personal.delete_otrosestudios", login_url="/login")
+@login_required(login_url="/login")
 def delete_otro_estudio(request, id_oestudio):
     oestudio = get_object_or_404(OtrosEstudios, pk = id_oestudio)
     oestudio.delete()
     messages.add_message(request, messages.INFO, u'Se Elimino Correctamente los Datos Del Curso/Conferencia: <strong>%s</strong>' %oestudio.curso )
     return HttpResponseRedirect(reverse(show_otros_estudios))
 
-@permission_required("personal.show_experienciatrabajo_persona", login_url="/login")
+@login_required(login_url="/login")
 def show_experiencias_trabajo(request):
     persona = Persona.objects.get(usuario = request.user)
     experiencias = Experiencias.objects.filter(persona = persona)
@@ -198,7 +199,7 @@ def show_experiencias_trabajo(request):
         'experiencias' :experiencias,
     }, context_instance = RequestContext(request))
 
-@permission_required("personal.add_experiencias", login_url="/login")
+@login_required(login_url="/login")
 def new_experiencia(request):
     fecha_actual = datetime.datetime.now()
     if request.method == "POST":
@@ -218,7 +219,7 @@ def new_experiencia(request):
         'fecha_actual':fecha_actual,
     }, context_instance = RequestContext(request))
 
-@permission_required("personal.change_experiencias", login_url="/login")
+@login_required(login_url="/login")
 def update_experiencia_trabajo(request, id_experiencia):
     texperienia = get_object_or_404(Experiencias, pk = id_experiencia)
     fecha_actual = datetime.datetime.now()
@@ -236,14 +237,14 @@ def update_experiencia_trabajo(request, id_experiencia):
         'fecha_actual':fecha_actual,
     }, context_instance = RequestContext(request))
 
-@permission_required("personal.delete_experiencias", login_url="/login")
+@login_required(login_url="/login")
 def delete_experiencia_trabajo(request, id_experiencia):
     experiencia = get_object_or_404(Experiencias, pk = id_experiencia)
     experiencia.delete()
     messages.add_message(request, messages.INFO, u'Se Elimino Correctamente la Experiencia de Trabajo: <strong>%s</strong>' %experiencia.institucion )
     return HttpResponseRedirect(reverse(show_experiencias_trabajo))
 
-@permission_required("personal.show_idiomas_persona", login_url="/login")
+@login_required(login_url="/login")
 def show_idiomas(request):
     persona = Persona.objects.get(usuario = request.user)
     idiomas = Idiomas.objects.filter(persona = persona)
@@ -251,7 +252,7 @@ def show_idiomas(request):
         'idiomas':idiomas,
     }, context_instance = RequestContext(request))
 
-@permission_required("personal.add_idiomas", login_url="/login")
+@login_required(login_url="/login")
 def new_idioma(request):
     if request.method == "POST":
         formulario = IdiomasForm(request.POST)
@@ -270,7 +271,7 @@ def new_idioma(request):
     }, context_instance=RequestContext(request))
 
 
-@permission_required("personal.change_idiomas", login_url="/login")
+@login_required(login_url="/login")
 def update_idioma(request, id_idioma):
     idioma = get_object_or_404(Idiomas, pk = id_idioma)
     if request.method == "POST":
@@ -286,14 +287,14 @@ def update_idioma(request, id_idioma):
         'formulario':formulario,
     }, context_instance=RequestContext(request))
 
-@permission_required("personal.delete_idiomas", login_url="/login")
+@login_required(login_url="/login")
 def delete_idioma(request, id_idioma):
     idioma = get_object_or_404(Idiomas, pk = id_idioma)
     idioma.delete()
     messages.add_message(request, messages.INFO, u'Se Elimino Correctamente el Idioma: <strong>%s</strong>' %idioma.idioma )
     return HttpResponseRedirect(reverse(show_idiomas))
 
-
+@permission_required('personal.show_tarjetas_qr_persona', login_url="/login")
 def select_personal_qr(request):
     fecha_actual = datetime.datetime.now()
     fecha = date.today()
@@ -306,7 +307,7 @@ def select_personal_qr(request):
         'fecha_actual':fecha,
     }, context_instance=RequestContext(request))
 
-
+@permission_required('personal.show_tarjetas_qr_persona', login_url="/login")
 def tarjeta_qr(request, id_persona):
     persona = get_object_or_404(Persona, pk = id_persona)
     direccion = "http://192.168.43.124:90/asistencia/?ci="+str(persona.ci)+"/"
@@ -314,6 +315,16 @@ def tarjeta_qr(request, id_persona):
         'persona' :persona,
         'direccion' :direccion
     }, context_instance=RequestContext(request))
+
+@login_required(login_url="/login")
+def my_tarjeta_qr(request):
+    persona = Persona.objects.get(usuario = request.user)
+    direccion = "http://192.168.43.124:90/asistencia/?ci="+str(persona.ci)+"/"
+    return render_to_response('personal/tarjeta_qr.html', {
+        'persona' :persona,
+        'direccion' :direccion
+    }, context_instance=RequestContext(request))
+
 
 
 

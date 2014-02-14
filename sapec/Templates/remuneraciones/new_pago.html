@@ -1,0 +1,17 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Nuevo Pago{% endblock%}
+{% block atras %}
+{% url 'remuneraciones.views.select_persona_pagos' %}
+{% endblock %}
+{% block titulo %}
+<h1>Remuneraciones <small>Nuevo Pago</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'remuneraciones/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Registrar Nuevo Pago
+{% endblock %}
+{% block submit %}Guardar{% endblock %}
+{% block cancel %}{% url 'remuneraciones.views.select_persona_pagos' %}{% endblock %}
