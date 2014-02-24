@@ -5,7 +5,7 @@
                 <i class="icon-clipboard"></i> Observaciones
             </a>
             <ul class="sub-menu">
-                {% if perms.personal %}
+                {% if perms.personal.add_observaciones %}
                     <li>
                         <a href="{% url 'personal.views.select_persona_observacion' %}">Registrar Observación</a>
                     </li>
@@ -13,5 +13,19 @@
             </ul>
         </li>
         <li class="divider"></li>
+        {% if perms.personal.list_observaciones %}
+            <li class="sticker sticker-color-blue">
+                <a href="">
+                    <i class="icon-file"></i>Opciones de Observación
+                </a>
+                <ul class="sub-menu">
+                    {% if perms.personal.list_observaciones %}
+                        <li>
+                            <a href="{% url 'personal.views.list_observaciones' %}">Todas Las Observaciones</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </li>
+        {% endif %}
     </ul>
 </div>

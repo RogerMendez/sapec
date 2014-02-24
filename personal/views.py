@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import permission_required, login_required
+from django.db.models import Q
 from django.core.urlresolvers import reverse
 from django.utils.encoding import force_unicode
 import ho.pisa as pisa
@@ -16,7 +17,8 @@ from datetime import date
 from django.conf import settings
 from personal.models import Persona, Estudios, OtrosEstudios, Experiencias, Idiomas, Observacion
 from personal.form import PersonaForm, EstudiosForm, OtrosEstudiosForm, ExperienciasForm, IdiomasForm, ObservacionForm
-from contratacion.models import Contratacion
+from contratacion.models import Contratacion, Movilidad
+from contratacion.form import PersonaSearchForm
 from django.contrib import messages
 from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
 
@@ -325,12 +327,84 @@ def my_tarjeta_qr(request):
         'direccion' :direccion
     }, context_instance=RequestContext(request))
 
+@permission_required('personal.view_kardex_persona', login_url="/login")
+def select_personal_kardex(request):
+    if request.method == "GET":
+        formulario = PersonaSearchForm(request.GET)
+        if formulario.is_valid():
+            texto = formulario.cleaned_data['texto']
+            per = Persona.objects.all()
+            personas = per.filter(
+                Q(nombre__icontains = texto)|Q(paterno__icontains = texto)|Q(materno__icontains = texto)|Q(ci__icontains = texto)
+            )
+            return render_to_response('personal/select_persona_kardex.html',{
+                'personas':personas,
+                'formulario':formulario,
+            }, context_instance = RequestContext(request))
+    else:
+        formulario = PersonaSearchForm()
+        personas = Persona.objects.all()
+    return render_to_response('personal/select_persona_kardex.html',{
+        'personas':personas,
+        'formulario':formulario,
+    }, context_instance = RequestContext(request))
+
+@permission_required('personal.view_kardex_persona', login_url="/login")
+def view_kardex(request, id_persona):
+    persona = get_object_or_404(Persona, pk = id_persona)
+    estudios = Estudios.objects.filter(persona = persona)
+    otrosestudios = OtrosEstudios.objects.filter(persona = persona)
+    experiencias = Experiencias.objects.filter(persona = persona)
+    idiomas = Idiomas.objects.filter(persona = persona)
+    return render_to_response('personal/view_kardex_persona.html',{
+        'persona':persona,
+        'estudios':estudios,
+        'otrosestudios':otrosestudios,
+        'experiencias':experiencias,
+        'idiomas':idiomas,
+    }, context_instance = RequestContext(request))
+
+@permission_required('personal.view_kardex_empresa_persona', login_url="/login")
+def select_personal_kardex_empresa(request):
+    if request.method == "GET":
+        formulario = PersonaSearchForm(request.GET)
+        if formulario.is_valid():
+            texto = formulario.cleaned_data['texto']
+            per = Persona.objects.all()
+            personas = per.filter(
+                Q(nombre__icontains = texto)|Q(paterno__icontains = texto)|Q(materno__icontains = texto)|Q(ci__icontains = texto)
+            )
+            return render_to_response('personal/select_persona_kardex_empresa.html',{
+                'personas':personas,
+                'formulario':formulario,
+            }, context_instance = RequestContext(request))
+    else:
+        formulario = PersonaSearchForm()
+        personas = Persona.objects.all()
+    return render_to_response('personal/select_persona_kardex_empresa.html',{
+        'personas':personas,
+        'formulario':formulario,
+    }, context_instance = RequestContext(request))
+
+@permission_required('personal.view_kardex_empresa_persona', login_url="/login")
+def view_kardex_persona_empresa(request, id_persona):
+    q1 = get_object_or_404(Persona, pk=id_persona)
+    q2 = Contratacion.objects.filter(persona = q1)
+    q5 = Movilidad.objects.filter(contrato_id__in = q2.values('id'))
+    #q3 = Cargo.objects.filter()
+    q4 = Observacion.objects.filter(persona = q1)
+    return render_to_response('personal/view_kardex_persona_empresa.html', {
+                                'persona':q1,
+                                'contratos':q2,
+                                'movilidad':q5,
+                                'observaciones':q4,
+                            }, context_instance=RequestContext(request))
 
 
-
-
+@login_required(login_url="/login")
 def index_observaciones(request):
-    observaciones = Observacion.objects.all()
+    hoy = datetime.datetime.now()
+    observaciones = Observacion.objects.filter(fecha = hoy)
     return render_to_response('observaciones/index.html', {
         'observaciones':observaciones,
     }, context_instance=RequestContext(request))
@@ -362,5 +436,27 @@ def new_observacion(request, id_persona):
     else:
         formulario = ObservacionForm()
     return render_to_response('observaciones/new_observacion.html', {
+        'formulario':formulario,
+    }, context_instance = RequestContext(request))
+
+@permission_required('personal.list_observaciones', login_url="/login")
+def list_observaciones(request):
+    if request.method == "GET":
+        formulario = PersonaSearchForm(request.GET)
+        if formulario.is_valid():
+            texto = formulario.cleaned_data['texto']
+            per = Persona.objects.all()
+            personas = per.filter(
+                Q(nombre__icontains = texto)|Q(paterno__icontains = texto)|Q(materno__icontains = texto)|Q(ci__icontains = texto)
+            )
+            return render_to_response('observaciones/list_observaciones.html',{
+                'personas':personas,
+                'formulario':formulario,
+            }, context_instance = RequestContext(request))
+    else:
+        formulario = PersonaSearchForm()
+        personas = Persona.objects.all()
+    return render_to_response('observaciones/list_observaciones.html',{
+        'personas':personas,
         'formulario':formulario,
     }, context_instance = RequestContext(request))

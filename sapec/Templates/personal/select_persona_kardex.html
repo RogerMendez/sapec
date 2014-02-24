@@ -1,0 +1,76 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Seleccionar Personal{% endblock %}
+
+{% block titulo %}
+<h1>Personal <small>Seleccionar Persona</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3 ">
+                {% include 'personal/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row">
+                    <div class="span9">
+                         <form id="formulario" action="" method="get">{% csrf_token %}
+                            <fieldset>
+                                <legend>Buscar Empleado</legend>
+                                {% for field in formulario %}
+                                    {{ field.errors }}
+                                    {{ field.label_tag }}
+                                    <div class="input-control text">
+                                        {{ field }}
+                                        {% if field.help_text %}
+                                            <p class="fg-color-green">
+                                                <i class="icon-warning"></i> {{ field.help_text }}
+                                            </p>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                                <div class="controls">
+                                    <input type="submit" value="Buscar">
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span9">
+                        <h3>Personas Registradas</h3>
+                        <table class="hovered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre Completo</th>
+                                    <th>Cedula de Identidad</th>
+                                    <th>Telefono</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for persona in personas %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ persona.paterno }} {{ persona.materno }}, {{ persona.nombre }}</td>
+                                        <td>{{ persona.ci }}</td>
+                                        <td>{{ persona.telefono }}</td>
+                                        <td>
+                                            <a href="{% url 'personal.views.view_kardex' persona.id %}" class="button default">Ver Kardex</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% if not personas %}
+                            <p class="lead">No Existen Contratos Vigentes</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

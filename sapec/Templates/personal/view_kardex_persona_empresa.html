@@ -1,0 +1,156 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+
+{% block title %}Personal{% endblock %}
+{% block atras %}
+{% url 'personal.views.select_personal_kardex' %}
+{% endblock %}
+{% block titulo %}
+<h1>Personal <small>Kardex</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3">
+                {% include 'personal/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row">
+                    <h3>Información Personal</h3>
+                    {% if persona.completo %}
+                        <div class="row">
+                            <div class="span6">
+                                <blockquote>
+                                    <p><strong>Nombre Completo: </strong>{{ persona.paterno|upper }} {{ persona.materno|upper}}, {{ persona.nombre|upper }}</p>
+                                </blockquote>
+                                <blockquote>
+                                    <p><strong>Cedula de Identidad: </strong> {{ persona.ci }}</p>
+                                </blockquote>
+                                <blockquote>
+                                    <p><strong>Dirección: </strong> {{ persona.direccion }}</p>
+                                </blockquote>
+                                <blockquote>
+                                    <p><strong>Telefono/Celular: </strong> {{ persona.telefono }}</p>
+                                </blockquote>
+                                <blockquote>
+                                    <p>
+                                        <strong>Estado Civll: </strong>
+                                        {% if persona.estado_civil == "SO" %}
+                                        SOLTERO(A)
+                                        {% else %}
+                                        CASADO(A)
+                                        {% endif %}
+                                    </p>
+                                </blockquote>
+                                <blockquote>
+                                    <p>
+                                        <strong>Sexo: </strong>
+                                        {% if persona.sexo == "MA" %}
+                                        MASCULINO
+                                        {% else %}
+                                        FEMENINO
+                                        {% endif %}
+                                    </p>
+                                </blockquote>
+                                <blockquote>
+                                    <p><strong>Fecha de Nacimiento: </strong>{{ persona.fecha_nac }}</p>
+                                </blockquote>
+                            </div>
+                            <div class="span3">
+                                {% if persona.foto == "" %}
+                                    {% if persona.sexo == "MA" %}
+                                        <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ persona.nombre }}"/>
+                                    {% else %}
+                                        <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ persona.nombre }}"/>
+                                    {% endif %}
+                                {% else %}
+                                    <img src="/media/{{ persona.foto }}" alt="{{ persona.nombre }}"/>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="row border-color-darken"></div>
+                <div class="row">
+                    <h3>Unidades en la que Trabajo el Empleado</h3>
+                    <div class="span9">
+                        <table class="hovered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Unidad - Cargo</th>
+                                    <th>Fecha Entrada</th>
+                                    <th>Fecha Salida</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for contrato in contratos %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ contrato.cargo }}</td>
+                                        <td>{{ contrato.fecha_entrada|date:"d-M-Y" }}</td>
+                                        <td>{{ contrato.fecha_salida|date:"d-M-Y" }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row border-color-darken"></div>
+                <div class="row">
+                    <h3>Cambios de Cargo Realizado</h3>
+                    <div class="span9">
+                        <table class="hovered">
+                            <thead>
+                                <tr>
+                                    <th>De Unidad - Cargo</th>
+                                    <th>A Unidad - Cargo</th>
+                                    <th>Razon Cambio</th>
+                                    <th>Fecha Cambio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for movilidad in movilidad %}
+                                    <tr>
+                                        <td>{{ movilidad.contrato.cargo }}</td>
+                                        <td>{{ movilidad.cargo }}</td>
+                                        <td>{{ movilidad.descripcion }}</td>
+                                        <td>{{ movilidad.fecha|date:"d-M-Y" }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row border-color-darken"></div>
+                <div class="row">
+                    <h3>Observaciones</h3>
+                    <div class="span9">
+                        <table class="hovered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Tipo de Obs.</th>
+                                    <th>Descripción de Obs.</th>
+                                    <th>Fecha Obs.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for observacion in observaciones %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ observacion.tipo }}</td>
+                                        <td>{{ observacion.descripcion }}</td>
+                                        <td>{{ observacion.fecha|date:"d-M-Y" }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

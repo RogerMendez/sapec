@@ -1,0 +1,246 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+
+{% block title %}Personal{% endblock %}
+{% block atras %}
+{% url 'personal.views.select_personal_kardex' %}
+{% endblock %}
+{% block titulo %}
+<h1>Personal <small>Kardex</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3">
+                {% include 'personal/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row">
+                    <h3>Información Personal</h3>
+                    {% if persona.completo %}
+                        <div class="row">
+                            <div class="span6">
+                                <blockquote>
+                                    <p><strong>Nombre Completo: </strong>{{ persona.paterno|upper }} {{ persona.materno|upper}}, {{ persona.nombre|upper }}</p>
+                                </blockquote>
+                                <blockquote>
+                                    <p><strong>Cedula de Identidad: </strong> {{ persona.ci }}</p>
+                                </blockquote>
+                                <blockquote>
+                                    <p><strong>Dirección: </strong> {{ persona.direccion }}</p>
+                                </blockquote>
+                                <blockquote>
+                                    <p><strong>Telefono/Celular: </strong> {{ persona.telefono }}</p>
+                                </blockquote>
+                                <blockquote>
+                                    <p>
+                                        <strong>Estado Civll: </strong>
+                                        {% if persona.estado_civil == "SO" %}
+                                        SOLTERO(A)
+                                        {% else %}
+                                        CASADO(A)
+                                        {% endif %}
+                                    </p>
+                                </blockquote>
+                                <blockquote>
+                                    <p>
+                                        <strong>Sexo: </strong>
+                                        {% if persona.sexo == "MA" %}
+                                        MASCULINO
+                                        {% else %}
+                                        FEMENINO
+                                        {% endif %}
+                                    </p>
+                                </blockquote>
+                                <blockquote>
+                                    <p><strong>Fecha de Nacimiento: </strong>{{ persona.fecha_nac }}</p>
+                                </blockquote>
+                            </div>
+                            <div class="span3">
+                                {% if persona.foto == "" %}
+                                    {% if persona.sexo == "MA" %}
+                                        <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ persona.nombre }}"/>
+                                    {% else %}
+                                        <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ persona.nombre }}"/>
+                                    {% endif %}
+                                {% else %}
+                                    <img src="/media/{{ persona.foto }}" alt="{{ persona.nombre }}"/>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="row border-color-darken"></div>
+                <div class="row">
+                    <h3>Estudios Realizados</h3>
+                    <div class="span9">
+                        {% for estudio in estudios %}
+                        <div class="row">
+                            <div class="span3">
+                                <blockquote>
+                                    <p class="text-center"><strong>Institución</strong></p>
+                                </blockquote>
+                                <p class="indent">{{ estudio.institucion }}</p>
+                            </div>
+                            <div class="span3">
+                                <blockquote>
+                                    <p class="text-center"><strong>Desde - Hasta</strong></p>
+                                </blockquote>
+                                <p class="text-center">{{ estudio.fecha_inicio|date:"d M Y" }} - {{ estudio.fecha_fin|date:"d M Y" }}</p>
+                            </div>
+                            <div class="span3">
+                                <blockquote>
+                                    <p class="text-center"><strong>Titulo Optenido</strong></p>
+                                </blockquote>
+                                <p class="indent">{{ estudio.titulo }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="row border-color-darken"></div>
+                <div class="row">
+                    <h3>Otros Estudios Realizados</h3>
+                    <div class="span9">
+                        {% for otrosestudio in otrosestudios %}
+                            <div class="row">
+                                <div class="span5">
+                                    <blockquote>
+                                        <p class="text-center">
+                                            <strong>Curso/Conferencia</strong>
+                                        </p>
+                                    </blockquote>
+                                    <p class="indent">{{ otrosestudio.curso }}</p>
+                                </div>
+                                <div class="span3">
+                                    <blockquote>
+                                        <p class="text-center"><strong>Fecha</strong></p>
+                                    </blockquote>
+                                    <p class="text-center">{{ otrosestudio.fecha }}</p>
+                                </div>
+                                <div class="span1">
+                                    <blockquote>
+                                        <p class="text-center"><strong>Horas</strong></p>
+                                    </blockquote>
+                                    <p class="text-right">{{ otrosestudio.horas }} hr.</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row border-color-darken"></div>
+                <div class="row">
+                    <h3>Experiencias de trabajo</h3>
+                    <div class="span9">
+                        {% for experiencia in experiencias %}
+                            <div class="row">
+                                <div class="span4">
+                                    <blockquote>
+                                        <p class="text-center"><strong>Institución</strong></p>
+                                    </blockquote>
+                                    <p class="indent">{{ experiencia.institucion }}</p>
+                                </div>
+                                <div class="span3">
+                                    <blockquote>
+                                        <p class="text-center"><strong>Tiempo de Trabajo</strong></p>
+                                    </blockquote>
+                                    <p class="text-center">{{ experiencia.fecha_inicio|date:"d M Y" }} - {{ experiencia.fecha_fin|date:"d M Y" }}</p>
+                                </div>
+                                <div class="span2">
+                                    <blockquote>
+                                        <p class="text-center">
+                                            <strong>Cargo Ocu.</strong>
+                                        </p>
+                                    </blockquote>
+                                    <p>{{ experiencia.cargo_ocupado }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="span4">
+                                    <blockquote>
+                                        <p class="text-center">
+                                            <strong>Telefono de Referencia</strong>
+                                        </p>
+                                    </blockquote>
+                                    <p class="text-right">{{ experiencia.fono_referencia }}</p>
+                                </div>
+                                <div class="span5">
+                                    <blockquote>
+                                        <p class="text-center">
+                                            <strong>Descripción de Trabajo Realizado</strong>
+                                        </p>
+                                    </blockquote>
+                                    <p>{{ experiencia.descripcion }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row border-color-darken"></div>
+                <div class="row">
+                    <div class="span9">
+                        <h3>Idiomas Conocidos</h3>
+                        {% for idioma in idiomas %}
+                            <div class="row padding5">
+                                <div class="span3">
+                                    <blockquote>
+                                        <p class="text-center">
+                                            <strong>Idioma</strong>
+                                        </p>
+                                    </blockquote>
+                                    <p class="indent">
+                                        {{ idioma.idioma }}
+                                    </p>
+                                </div>
+                                <div class="span3">
+                                    <blockquote>
+                                        <p class="text-center">
+                                            <strong>Idioma Nativo</strong>
+                                        </p>
+                                    </blockquote>
+                                    <p class="text-center">
+                                        {% if idioma.nativo %}
+                                            SI
+                                        {% else %}
+                                            NO
+                                        {% endif %}
+                                    </p>
+                                </div>
+                                <div class="span1">
+                                    <blockquote>
+                                        <p>
+                                            <strong>Escribe</strong>
+                                        </p>
+                                    </blockquote>
+                                    <p class="text-center">
+                                        {% if idioma.escribe %}
+                                            SI
+                                        {% else %}
+                                            NO
+                                        {% endif %}
+                                    </p>
+                                </div>
+                                <div class="span1">
+                                    <blockquote>
+                                        <p class="text-center">
+                                            <strong>Habla</strong>
+                                        </p>
+                                    </blockquote>
+                                    <p class="text-center">
+                                        {% if idioma.habla %}
+                                            SI
+                                        {% else %}
+                                            NO
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

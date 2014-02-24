@@ -13,7 +13,29 @@
                 {% include 'observaciones/menuizq.html' %}
             </div>
             <div class="span9">
-                <h3>Observaciones</h3>
+                <h3>Observaciones del Dia</h3>
+                {% for observacion in observaciones %}
+                    <div class="row">
+                        <div class="span3">
+                            <strong>Nombre Completo:</strong>
+                            <p>{{ observacion.persona }}</p>
+                        </div>
+                        <div class="span3">
+                            <strong>Tipo de Observación</strong>
+                            <p>
+                                {% if obsevacion.tipo == "LA" %}
+                                    Llamada De Atención
+                                {% else %}
+                                    Memorandum
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="span3">
+                            <strong>Descripción</strong>
+                            <p>{{ observacion.descripcion }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

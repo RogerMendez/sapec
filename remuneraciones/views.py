@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.shortcuts import render_to_response, get_object_or_404
 from django.db.models import Q
-from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import permission_required, login_required
 from django.core.urlresolvers import reverse
 from django.utils.encoding import force_unicode
 import ho.pisa as pisa
@@ -18,6 +18,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
 from contratacion.models import Contratacion, Movilidad, Terminar
+from contratacion.form import PersonaSearchForm
 from organizacion.models import Cargo, Unidad
 from personal.models import Persona
 from models import Pagos, Descuentos
@@ -44,17 +45,40 @@ def admin_log_change(request, objecto, mensaje):
                 change_message = mensaje,
             )
 
+@login_required(login_url="/login")
 def index_remuneracion(request):
+    hoy = datetime.datetime.now()
     personas = Persona.objects.all()
+    opagos = Pagos.objects.filter(fecha = hoy)
+    descuentos = Descuentos.objects.filter(fecha = hoy)
     return render_to_response('remuneraciones/index.html', {
         'personas':personas,
+        'opagos':opagos,
+        'descuentos':descuentos,
     }, context_instance=RequestContext(request))
 
-
+@login_required(login_url="/login")
 def otros_pagos(request):
-    pagos = Pagos.objects.all()
-    return render_to_response('remuneraciones/otros_pagos.html', {
-        'pagos':pagos,
+    hoy = datetime.datetime.now()
+    if request.method == "GET":
+        formulario = PersonaSearchForm(request.GET)
+        if formulario.is_valid():
+            texto = formulario.cleaned_data['texto']
+            per = Persona.objects.all()
+            personas = per.filter(
+                Q(nombre__icontains = texto)|Q(paterno__icontains = texto)|Q(materno__icontains = texto)|Q(ci__icontains = texto)
+            )
+            contratos = Contratacion.objects.filter(fecha_entrada__lte = hoy, fecha_salida__gte = hoy, estado=True, persona = personas)
+            return render_to_response('remuneraciones/otros_pagos.html',{
+                'contratos':contratos,
+                'formulario':formulario,
+            }, context_instance = RequestContext(request))
+    else:
+        formulario = PersonaSearchForm()
+        contratos = Contratacion.objects.filter(fecha_entrada__lte = hoy, fecha_salida__gte = hoy, estado=True)
+    return render_to_response('remuneraciones/otros_pagos.html',{
+        'contratos':contratos,
+        'formulario':formulario,
     }, context_instance = RequestContext(request))
 
 @permission_required('remuneraciones.add_pagos', login_url="/login")
@@ -90,17 +114,28 @@ def new_pago(request, id_contrato):
         'formulario':formulario,
     }, context_instance = RequestContext(request))
 
-
-
-
-
-
-
-
+@login_required(login_url="/login")
 def descuentos_index(request):
-    descuentos = Descuentos.objects.all()
-    return render_to_response('remuneraciones/descuentos.html', {
-        'descuentos':descuentos,
+    hoy = datetime.datetime.now()
+    if request.method == "GET":
+        formulario = PersonaSearchForm(request.GET)
+        if formulario.is_valid():
+            texto = formulario.cleaned_data['texto']
+            per = Persona.objects.all()
+            personas = per.filter(
+                Q(nombre__icontains = texto)|Q(paterno__icontains = texto)|Q(materno__icontains = texto)|Q(ci__icontains = texto)
+            )
+            contratos = Contratacion.objects.filter(fecha_entrada__lte = hoy, fecha_salida__gte = hoy, estado=True, persona = personas)
+            return render_to_response('remuneraciones/descuentos.html',{
+                'contratos':contratos,
+                'formulario':formulario,
+            }, context_instance = RequestContext(request))
+    else:
+        formulario = PersonaSearchForm()
+        contratos = Contratacion.objects.filter(fecha_entrada__lte = hoy, fecha_salida__gte = hoy, estado=True)
+    return render_to_response('remuneraciones/descuentos.html',{
+        'contratos':contratos,
+        'formulario':formulario,
     }, context_instance = RequestContext(request))
 
 @permission_required('remuneraciones.add_descuentos', login_url="/login")

@@ -3,7 +3,7 @@
         {% if user.is_authenticated %}
             <li class="sticker sticker-color-green">
                 <a href="{% url 'personal.views.index_personal' %}">
-                    <i class="icon-clipboard"></i> Registro Kardex
+                    <i class="icon-clipboard"></i> Mi Kardex Personal
                 </a>
                 <ul class="sub-menu">
                     <li>
@@ -37,6 +37,25 @@
                     {% if perms.show_tarjetas_qr_persona %}
                         <li>
                             <a href="{% url 'personal.views.select_personal_qr' %}">Tarjetas QR Personal</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </li>
+        {% endif %}
+        {% if  perms.view_kardex_persona or perms.view_kardex_empresa_persona%}
+            <li class="sticker sticker-color-blue">
+                <a href="">
+                    <i class="icon-file-pdf"></i>Reportes Personal
+                </a>
+                <ul class="sub-menu">
+                    {% if perms.view_kardex_persona %}
+                        <li>
+                            <a href="{% url 'personal.views.select_personal_kardex' %}">Kardex de Pesonal</a>
+                        </li>
+                    {% endif %}
+                    {% if perms.view_kardex_empresa_persona %}
+                        <li>
+                            <a href="{% url 'personal.views.select_personal_kardex_empresa' %}">Kardex de Empresa</a>
                         </li>
                     {% endif %}
                 </ul>

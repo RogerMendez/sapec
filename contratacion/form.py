@@ -2,6 +2,7 @@
 from django.forms import ModelForm
 from django import forms
 from models import Contratacion, Movilidad, Terminar
+from personal.models import Persona
 
 class ContratacionEventualForm(ModelForm):
     class Meta:
@@ -20,3 +21,8 @@ class TerminarContratoForm(ModelForm):
     class Meta:
         model = Terminar
         exclude = ['contrato', 'usuario']
+
+class PersonaForm(ModelForm):
+    class Meta:
+        model = Persona
+        exclude = ['completo', 'code_activation', 'usuario', 'foto']

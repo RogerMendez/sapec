@@ -33,7 +33,7 @@
                     <a href="{% url 'personal.views.index_personal' %}">Kardex</a>
                 </li>
                 <li class="divider"></li>
-                {% if 'personal' in perms %}
+                {% if perms.personal.add_observacion %}
                     <li>
                         <a href="{% url 'personal.views.index_observaciones' %}">Observaciones</a>
                     </li>
@@ -44,7 +44,7 @@
             <li data-role="dropdown">
                 <a href="#">Contratación</a>
                 <ul class="dropdown-menu">
-                    {% if perms.contratacion.show_contrato %}
+                    {% if perms.contratacion %}
                         <li>
                             <a href="{% url 'contratacion.views.show_contrataciones' %}">Contratación</a>
                         </li>

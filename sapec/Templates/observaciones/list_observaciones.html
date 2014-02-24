@@ -1,18 +1,16 @@
 {# encoding=utf-8 #}
 {% extends 'base.html' %}
-{% block title %}Descuentos{% endblock %}
-{% block atras %}
-{% url 'remuneraciones.views.index_remuneracion' %}
-{% endblock %}
+{% block title %}Listado de Observaciones{% endblock %}
+
 {% block titulo %}
-<h1>Remuneraciones <small>Descuentos</small></h1>
+<h1>Observaciones <small>Listado</small></h1>
 {% endblock %}
 {% block cuerpo %}
 <div class="row">
     <div class="span12">
         <div class="row">
             <div class="span3 ">
-                {% include 'remuneraciones/menuizq.html' %}
+                {% include 'observaciones/menuizq.html' %}
             </div>
             <div class="span9">
                 <div class="row">
@@ -40,32 +38,38 @@
                     </div>
                 </div>
                 <div class="row">
-                    <h3>Listado de Descuentos</h3>
-                    {% for contrato in contratos %}
+                    <h3>Todas las Observaciones</h3>
+                    {% for persona in personas %}
                         <div class="row border-color-blueDark column-margin">
-                            <h3><strong>{{ contrato.persona }}</strong></h3>
+                            <h3>{{ persona.paterno }} {{ persona.materno }}, {{ persona.nombre }}</h3>
                             <div class="span9">
-                                {% if contrato.descuentos_set.select_related.all %}
-                                    <table class="hovered bordered">
+                                {% if persona.observacion_set.select_related.all %}
+                                    <table class="hovered">
                                         <thead>
                                             <tr>
-                                                <th>Fecha Pago</th>
-                                                <th>Razón</th>
-                                                <th>Monto</th>
+                                                <th>Fecha Obs.</th>
+                                                <th>Descripción Obs.</th>
+                                                <th>Tipo de Obs.</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for opagos in contrato.descuentos_set.select_related.all %}
+                                            {% for obs in persona.observacion_set.select_related.all %}
                                                 <tr>
-                                                    <td>{{ opagos.fecha|date:"d-M-Y" }}</td>
-                                                    <td>{{ opagos.razon }}</td>
-                                                    <td class="text-right">{{ opagos.monto }} Bs.</td>
+                                                    <td>{{ obs.fecha|date:"d-M-Y" }}</td>
+                                                    <td>{{ obs.descripcion }}</td>
+                                                    <td>
+                                                        {% if obs.tipo == "LA" %}
+                                                            Llamada de Atención
+                                                        {% else %}
+                                                            Memorandum
+                                                        {% endif %}
+                                                    </td>
                                                 </tr>
                                             {% endfor %}
                                         </tbody>
                                     </table>
                                 {% else %}
-                                    <h5>No tiene Otros Pagos Registrados</h5>
+                                    <h5>No tiene Observaciones Registradas</h5>
                                 {% endif %}
                             </div>
                         </div>

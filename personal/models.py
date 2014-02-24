@@ -37,6 +37,8 @@ class Persona(models.Model):
         permissions=(
             ("show_datos_persona", "Mostrar Datos de Persona"),
             ("show_tarjetas_qr_persona", "Mostrar Tarjeta QR"),
+            ("view_kardex_persona", "Ver Kardex Personal"),
+            ("view_kardex_empresa_persona", "Ver Kardex Personal Empresa"),
         )
 
 
@@ -115,7 +117,10 @@ class Observacion(models.Model):
     def __unicode__(self):
         return self.persona.nombre
     class Meta:
-        ordering=['persona']
+        ordering=['fecha']
         verbose_name_plural = "Observaciones"
+        permissions = (
+            ("list_observaciones", "Mostrar Todas las Observaciones"),
+        )
 
 

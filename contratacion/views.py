@@ -6,6 +6,7 @@ from django.template.loader import render_to_string
 from django.shortcuts import render_to_response, get_object_or_404
 from django.db.models import Q
 from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.utils.encoding import force_unicode
 import ho.pisa as pisa
@@ -15,12 +16,15 @@ import os
 import datetime
 from datetime import date
 from django.conf import settings
+from django.core.mail import EmailMultiAlternatives
 from django.contrib import messages
 from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
 from models import Contratacion, Movilidad, Terminar
-from form import PersonaSearchForm, ContratacionEventualForm, RazonCambioForm, TerminarContratoForm
+from form import PersonaSearchForm, ContratacionEventualForm, RazonCambioForm, TerminarContratoForm, PersonaForm
 from organizacion.models import Cargo, Unidad
 from personal.models import Persona
+from users.views import code_activation_create
+from users.form import EmailForm
 
 
 def admin_log_addnition(request, objecto, mensaje):
@@ -92,6 +96,48 @@ def select_persona(request, id_cargo):
         'personas':personas,
         'formulario':formulario,
     }, context_instance = RequestContext(request))
+
+@permission_required('contratacion.add_contratacion', login_url="/login")
+def new_persona(request, id_cargo):
+    hoy = datetime.datetime.now()
+    cargo = get_object_or_404(Cargo, pk = id_cargo)
+    if request.method == 'POST' :
+        formulario = PersonaForm(request.POST, request.FILES)
+        foremail = EmailForm(request.POST)
+        if formulario.is_valid() and foremail.is_valid() :
+            persona = formulario.save()
+            carnet = formulario.cleaned_data['ci']
+            email = foremail.cleaned_data['email']
+            usuario = User.objects.create_user(carnet, email, carnet)
+            usuario.is_active = False
+            usuario.save()
+            persona.usuario = usuario
+            code = code_activation_create()
+            persona.code_activation = code
+            persona.completo = True
+            persona.save()
+            subject = 'Confirmacion De Correo Electronico'
+            text_content = 'Mensaje...nLinea 2nLinea3'
+            html_content = '<h2>Confirmacion de Correo</h2><p>Haga click en el siguiente Enlace</p><p><a href="http://127.0.0.1:8000/user/confirmar/?code='+code+'">Confirmar Cuenta</a></p></br><p>El Nombre de Usuario y Contraseña es su Cedula de Identidad</p>'
+            from_email = '"SAPEC" <sieboliva@gmail.com>'
+            to = email
+            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+            msg.attach_alternative(html_content, "text/html")
+            msg.send()
+            msm = "Persona Creada Correctamentebr><h5>Un Mensaje fue enviado al correo de la persona para Activar su Cuenta</h5>"
+            messages.add_message(request, messages.INFO, msm)
+            messages.add_message(request, messages.INFO, u'Se Registro Correctamente A la Persona: <strong>%s %s, %s</strong>' %(persona.paterno, persona.materno, persona.nombre))
+            admin_log_addnition(request, persona, 'Persona Registrada')
+            return HttpResponseRedirect(reverse(new_contrato, args=(cargo.id, persona.id, )))
+    else:
+        formulario = PersonaForm()
+        foremail = EmailForm()
+    return render_to_response('contratacion/new_persona.html', {
+        'formulario' :formulario,
+        'foremail' :foremail,
+        'cargo' :cargo,
+        'hoy' :hoy,
+    }, context_instance=RequestContext(request))
 
 @permission_required('contratacion.add_contratacion', login_url="/login")
 def new_contrato(request, id_cargo, id_persona):

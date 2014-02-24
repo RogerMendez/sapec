@@ -13,7 +13,55 @@
                 {% include 'remuneraciones/menuizq.html' %}
             </div>
             <div class="span9">
-                <h3>Remunerariones</h3>
+                <h3>Remuneraciones Realizadas En el Dia</h3>
+                <div class="row">
+                    <div class="soan9">
+                        <h3>Otros Pagos Realizados</h3>
+                        {% for opago in opagos %}
+                            <div class="row">
+                                <div class="span3">
+                                    <strong>Persona</strong>
+                                    <p>{{ opago.contrato.persona }}</p>
+                                </div>
+                                <div class="span2">
+                                    <strong>Monto Pagado</strong>
+                                    <p>{{ opago.pago }} Bs.</p>
+                                </div>
+                                <div class="span4">
+                                    <strong>Descripción</strong>
+                                    <p>{{ opago.descripcion }}</p>
+                                </div>
+                            </div>
+                            <div class="row border-color-grayDark"></div>
+                        {% empty %}
+                            <h4>No Existen Otros Pagos Realizados</h4>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span9">
+                        <h3>Descuentos Realizados</h3>
+                        {% for descuento in descuentos %}
+                            <div class="row">
+                                <div class="span3">
+                                    <strong>Persona</strong>
+                                    <p>{{ descuento.contrato.persona }}</p>
+                                </div>
+                                <div class="span2">
+                                    <strong>Monto Descontado</strong>
+                                    <p>{{ descuento.monto }} Bs.</p>
+                                </div>
+                                <div class="span4">
+                                    <strong>Descripción</strong>
+                                    <p>{{ descuento.descripcion }}</p>
+                                </div>
+                            </div>
+                            <div class="row border-color-grayDark"></div>
+                        {% empty %}
+                            <h4>No Existen Descuentos Realizados</h4>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
