@@ -62,7 +62,7 @@
             <li data-role="dropdown">
                 <a href="#">Asistencia</a>
                 <ul class="dropdown-menu">
-                    {% if perms.asistencia.detail_asistencia %}
+                    {% if perms.asistencia.detail_asistencia or perms.asistencia.detail_fecha_asistencia or perms.asistencia.historial_month_asistencia or perms.asistencia.historial_year_asistencia %}
                         <li>
                             <a href="{% url 'asistencia.views.index_asistencia' %}">Asistencia</a>
                         </li>

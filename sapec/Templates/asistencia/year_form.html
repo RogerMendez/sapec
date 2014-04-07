@@ -1,0 +1,17 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Seleccion Mes{% endblock%}
+{% block atras %}
+{% url 'asistencia.views.index_asistencia' %}
+{% endblock %}
+{% block titulo %}
+<h1>Asistencia <small>Seleccionar Año</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'asistencia/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Selección Año
+{% endblock %}
+{% block submit %}Continuar{% endblock %}
+{% block cancel %}{% url 'asistencia.views.index_asistencia' %}{% endblock %}

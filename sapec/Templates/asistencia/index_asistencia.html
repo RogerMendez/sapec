@@ -14,10 +14,62 @@
                 {% include 'asistencia/menuizq.html' %}
             </div>
             <div class="span9">
-                <h2>Index Asistencia</h2>
-                <h3>{{ hora }}</h3>
-                <p>{{ hr }}</p>
-                <p>{{ min }}</p>
+                <h2><strong>Asistencias del Día</strong></h2>
+                {% for asistencia in asistencias %}
+                    <div class="row border-color-blueDark column-margin">
+                        <h4><strong>{{ asistencia.persona }}</strong></h4>
+                        <table class="bordered hovered">
+                            <thead>
+                                <tr>
+                                    <th>Entrada M.</th>
+                                    <th>Salida M.</th>
+                                    <th>Entrada T.</th>
+                                    <th>Salida T</th>
+                                    <th>Atraso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        {% if asistencia.entrada_m %}
+                                            {{ asistencia.entrada_m|time }}
+                                        {% else %}
+                                            Sin Marca
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if asistencia.salida_m %}
+                                            {{ asistencia.salida_m|time }}
+                                        {% else %}
+                                            Sin Marca
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if asistencia.entrada_t %}
+                                            {{ asistencia.entrada_t|time }}
+                                        {% else %}
+                                            Sin Marca
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if asistencia.salida_t %}
+                                            {{ asistencia.salida_t|time }}
+                                        {% else %}
+                                            Sin Marca
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if asistencia.atraso %}
+                                            {{ asistencia.atraso }}
+                                        {% else %}
+                                            00:00
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

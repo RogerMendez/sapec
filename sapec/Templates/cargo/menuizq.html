@@ -19,7 +19,7 @@
                 <ul class="sub-menu">
                     {% if perms.organizacion.change_cargo %}
                         <li>
-                            <a href="{% url 'organizacion.views.option_update_cargo' %}">Modificar</a>
+                            <a href="{% url 'organizacion.views.option_update_cargo' %}">Modificar Cargo</a>
                         </li>
                     {% endif %}
                     {% if perms.organizacion.detail_cargo %}

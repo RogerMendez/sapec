@@ -1,0 +1,131 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+
+{% block title %}Asistencia{% endblock %}
+
+{% block titulo %}
+<h1>Asistencia<small>Listado</small></h1>
+{% endblock %}
+{% block calendar %}
+   <link rel="stylesheet" href="{{ STATIC_URL }}calendario/calendar.css"/>
+    <script src="{{ STATIC_URL }}calendario/jquery_min.js"></script>
+    <script src="{{ STATIC_URL }}calendario/jquery_ui.js"></script>
+    <script src="{{ STATIC_URL }}calendario/jquery.ui.datepicker-es.js"></script>
+    <script type="text/javascript">
+        $('#id_fecha').addClass('hasDatepicker');
+        $(function() {
+            $('#id_fecha').datepicker({dateFormat: 'dd/mm/yy', changeMonth: true, changeYear: true, yearRange: '10:+1'});
+        });
+    </script>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3">
+                {% include 'asistencia/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row">
+                    <div class="span9">
+                        <form id="formulario" action="" method="get">{% csrf_token %}
+                            <fieldset>
+                                <legend>Seleccionar Fecha</legend>
+                                {% for field in formulario %}
+                                    {{ field.errors }}
+                                    {{ field.label_tag }}
+                                    <div class="input-control text">
+                                        {{ field }}
+                                        {% if field.help_text %}
+                                            <p class="fg-color-green">
+                                                <i class="icon-warning"></i> {{ field.help_text }}
+                                            </p>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                                <div class="controls">
+                                    <input type="submit" value="Buscar">
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span9">
+                        {% if fecha %}
+                            <h2><strong>Asistencias en Fecha {{ fecha|date:"d-M-Y" }}</strong></h2>
+                        {% else %}
+                            <h3>No Selecciono Ninguna Fecha</h3>
+                        {% endif %}
+                        {% for asistencia in asistencias %}
+                            <div class="row border-color-blueDark column-margin">
+                                <h4>
+                                    <strong>Nombre Completo: </strong>{{ asistencia.persona }}
+                                    <p class="text-right"><strong>Cedula de Identidad: </strong>{{ asistencia.persona.ci }}</p>
+                                </h4>
+                                <table class="bordered hovered">
+                                    <thead>
+                                        <tr>
+                                            <th>Entrada M.</th>
+                                            <th>Salida M.</th>
+                                            <th>Entrada T.</th>
+                                            <th>Salida T</th>
+                                            <th>Atraso</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                {% if asistencia.entrada_m %}
+                                                    {{ asistencia.entrada_m|time }}
+                                                {% else %}
+                                                    Sin Marca
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if asistencia.salida_m %}
+                                                    {{ asistencia.salida_m|time }}
+                                                {% else %}
+                                                    Sin Marca
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if asistencia.entrada_t %}
+                                                    {{ asistencia.entrada_t|time }}
+                                                {% else %}
+                                                    Sin Marca
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if asistencia.salida_t %}
+                                                    {{ asistencia.salida_t|time }}
+                                                {% else %}
+                                                    Sin Marca
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if asistencia.atraso %}
+                                                    {{ asistencia.atraso }}
+                                                {% else %}
+                                                    00:00
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block stylo %}
+<style>
+    .ui-datepicker-calendar thead tr{
+        background: #ffffff;
+    }
+</style>
+{% endblock %}

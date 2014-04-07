@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="span9">
                         <h3>Detalle Asistencia</h3>
-                        <table class="hovered">
+                        <table class="hovered bordered">
                             <thead>
                                 <thead>
                                     <tr>
@@ -55,30 +55,30 @@
                             <tbody>
                                 {% for m in mes %}
                                     <tr>
-                                        <td>{{ m|date:"d M Y" }}</td>
+                                        <td>{{ m|date:"d-M-Y" }}</td>
                                         {% for asis in asistencia %}
                                             {% if asis.fecha == m %}
-                                                    {% if not asis.entrada_m %}
-                                                        <td class="error">
+                                                {% if not asis.entrada_m %}
+                                                    <td class="error">
+                                                        <cite title="Entrada Mañana">
+                                                            SIN MARCA
+                                                        </cite>
+                                                    </td>
+                                                {% else %}
+                                                    {% if asis.obs_m %}
+                                                        <td class="warning">
                                                             <cite title="Entrada Mañana">
-                                                                SIN MARCA
+                                                                {{asis.entrada_m|time}}
                                                             </cite>
                                                         </td>
                                                     {% else %}
-                                                        {% if asis.obs_m %}
-                                                            <td class="warning">
-                                                                <cite title="Entrada Mañana">
-                                                                    {{asis.entrada_m|time}}
-                                                                </cite>
-                                                            </td>
-                                                        {% else %}
-                                                            <td class="success">
-                                                                <cite title="Entrada Mañana">
-                                                                    {{asis.entrada_m|time}}
-                                                                </cite>
-                                                            </td>
-                                                        {% endif %}
+                                                        <td class="success">
+                                                            <cite title="Entrada Mañana">
+                                                                {{asis.entrada_m|time}}
+                                                            </cite>
+                                                        </td>
                                                     {% endif %}
+                                                {% endif %}
 
                                                 {% if not asis.salida_m %}
                                                     <td class="error">
@@ -113,9 +113,7 @@
                                                             </cite>
                                                         </td>
                                                     {% endif %}
-
                                                 {% endif %}
-
                                                 {% if not asis.salida_t %}
                                                     <td class="error">
                                                         <cite title="Salida Tarde">
@@ -137,15 +135,8 @@
                                                     <td>{{ asis.atraso|time:"H:i" }}</td>
                                                 {% endif %}
                                                 <td>
-                                                    <a href="">Editar</a>
+                                                    <a href="{% url 'asistencia.views.update_asistencia' asis.id %}">Editar</a>
                                                 </td>
-                                            {% else %}
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
                                             {% endif %}
                                         {% endfor %}
                                     </tr>

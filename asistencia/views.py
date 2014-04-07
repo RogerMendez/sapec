@@ -4,24 +4,23 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.shortcuts import render_to_response, get_object_or_404
-from django.db.models import Q
-from django.contrib.auth.decorators import permission_required
+from django.db.models import Q, Sum
+from django.contrib.auth.decorators import permission_required, login_required
 from django.core.urlresolvers import reverse
 from django.utils.encoding import force_unicode
 import ho.pisa as pisa
 import cStringIO as StringIO
 import cgi
 import os
+import calendar
 from datetime import date, timedelta, datetime, time
-#import datetime
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
 from contratacion.models import Contratacion
 from personal.models import Persona
 from models import Asistencia, Permiso
-from form import AsistenciaForm, FechasForm, PermisoForm
-
+from form import AsistenciaForm, FechasForm, PermisoForm, FechaSearchForm, MonthSelect, YearSelect, AsistenciaFormEdid
 
 def admin_log_addnition(request, objecto, mensaje):
     LogEntry.objects.log_action(
@@ -51,7 +50,6 @@ def generar_pdf(html):
     if not pdf.err:
         return HttpResponse(result.getvalue(), mimetype='application/pdf')
     return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
-
 
 def restar_horas(hora1, hora2):
     #hora1 - hora2
@@ -94,17 +92,12 @@ def sumar_horas(hora1, hora2):
         hr = str(h)
     return str(hr) + ":" + str(min)
 
-
+@login_required(login_url="/login")
 def index_asistencia(request):
     hoy = datetime.now()
-    hora1 = hoy.strftime("%H:%M")
-    hora = hora1#sumar_horas(hora1, "30:10")
-    h = int(hora1[0:2])
-    m = int(hora1[3:5])
+    asistencias = Asistencia.objects.filter(fecha = hoy).order_by('persona')
     return render_to_response('asistencia/index_asistencia.html',{
-        'hora':hora,
-        'hr':h,
-        'min':m,
+        'asistencias':asistencias,
     }, context_instance = RequestContext(request))
 
 #@permission_required('asistencia.add_asistencia', login_url="/login")
@@ -175,12 +168,27 @@ def new_asistencia(request):
             else:
                 msm = "Usted no Esta Registrado en el Sistema"
             messages.add_message(request, messages.INFO, msm )
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect(reverse(index_asistencia))
     else:
         formulario = AsistenciaForm()
     return render_to_response('asistencia/new_asistencia.html', {
         'formulario':formulario,
     }, context_instance=RequestContext(request))
+
+
+def update_asistencia(request, id_asistencia):
+    asistencia = get_object_or_404(Asistencia, pk = id_asistencia)
+    if request.method == 'POST' :
+        formulario = AsistenciaFormEdid(request.POST, instance=asistencia)
+        if formulario.is_valid():
+            formulario.save()
+            #return HttpResponseRedirect()
+    else:
+        formulario = AsistenciaFormEdid(instance = asistencia)
+    return  render_to_response('asistencia/update_asistencia.html', {
+        'formulario' :formulario,
+        }, context_instance=RequestContext(request))
+
 
 @permission_required("asistencia.detail_asistencia", login_url="/login")
 def personal_asistencia(request):
@@ -255,7 +263,156 @@ def detalle_asistencia(request, id_persona, dia_ini, mes_ini, anho_ini, dia_fin,
             'asistencia':asistencia,
         }, context_instance = RequestContext(request))
 
+@permission_required('asistencia.detail_fecha_asistencia', login_url="/login")
+def personal_asistencia_fecha(request):
+    hoy = datetime.now()
+    asistencias = Asistencia.objects.filter(fecha = hoy).order_by('persona')
+    #if request.method == "POST":
+    formulario = FechaSearchForm(request.GET or None)
+    if formulario.is_valid():
+        fecha = formulario.cleaned_data['fecha']
+        #hoy = "2013-12-12"
+        asistencias = Asistencia.objects.filter(fecha = fecha).order_by('persona')
+        return render_to_response('asistencia/personal_asistencia_fecha.html',{
+            'fecha':fecha,
+            'asistencias':asistencias,
+            'formulario': formulario,
+        }, context_instance = RequestContext(request))
+    return render_to_response('asistencia/personal_asistencia_fecha.html',{
+        'fecha':hoy,
+        'asistencias':asistencias,
+        'formulario':formulario,
+    }, context_instance = RequestContext(request))
 
+@permission_required('asistencia.historial_month_asistencia', login_url="/login")
+def select_persona_historial_mes(request):
+    fecha_actual = datetime.now()
+    fecha = date.today()
+    contrataciones = Contratacion.objects.filter(estado = True, fecha_salida__gte = fecha_actual)
+    q1 = contrataciones.values('persona_id')
+    personas = Persona.objects.filter(id__in = q1)
+    return render_to_response('asistencia/list_persona_historial_mes.html',{
+        'contrataciones':contrataciones,
+        'personas':personas,
+        'fecha_actual':fecha,
+    }, context_instance=RequestContext(request))
+
+@permission_required('asistencia.historial_month_asistencia', login_url="/login")
+def select_meses(request, id_persona):
+    persona = get_object_or_404(Persona, pk = id_persona)
+    if request.method == "POST":
+        formulario = MonthSelect(request.POST)
+        if formulario.is_valid():
+            mes = formulario.cleaned_data['mes']
+            anho = formulario.cleaned_data['anho']
+            return HttpResponseRedirect(reverse(view_historial_meses, args=(persona.id, int(mes), int(anho), )))
+    else:
+        formulario = MonthSelect()
+    return render_to_response('asistencia/meses_form.html', {
+        'formulario':formulario,
+    }, context_instance = RequestContext(request))
+
+@permission_required('asistencia.historial_month_asistencia', login_url="/login")
+def view_historial_meses(request, id_persona, mes, anho):
+    persona = get_object_or_404(Persona, pk = id_persona)
+    asistencias = Asistencia.objects.filter(fecha__year = anho, fecha__month = mes, persona = persona)
+    hoy = datetime.now()
+    atraso = "00:00"
+    for a in asistencias:
+        if a.atraso:
+            hora = a.atraso.strftime("%H:%M")
+            atraso = sumar_horas(atraso, hora)
+    month = mes
+    fechas = []
+    fin = 0
+    cal = calendar.Calendar()
+    dias = [x for x in cal.itermonthdays(int(anho),int(month)) if x][-1]
+    lista1 = range(1,dias+1)
+    for c in lista1:
+        fechas +=[date(int(anho), int(month), int(c))]
+    for f in fechas:
+        if f.weekday() == 5 or f.weekday() == 6 :
+            fin = fin + 1
+    sum_atrasos = atraso
+    marcas_mes = int(dias) - int(fin)
+    dias_sin_marca = marcas_mes - asistencias.count()
+    return render_to_response("asistencia/historial_asistencia.html", {
+        'mes':mes,
+        'anho':anho,
+        'persona':persona,
+        'asistencias':asistencias,
+        'sum_atrasos':str(sum_atrasos),
+        'marcas_mes':marcas_mes,
+        'dias_sin_marca':dias_sin_marca,
+        'dias':dias,
+        'fin':fin,
+    }, context_instance = RequestContext(request))
+
+@permission_required('asistencia.historial_year_asistencia', login_url="/login")
+def select_persona_historial_anual(request):
+    fecha_actual = datetime.now()
+    fecha = date.today()
+    contrataciones = Contratacion.objects.filter(estado = True, fecha_salida__gte = fecha_actual)
+    q1 = contrataciones.values('persona_id')
+    personas = Persona.objects.filter(id__in = q1)
+    return render_to_response('asistencia/list_persona_historial_anual.html',{
+        'contrataciones':contrataciones,
+        'personas':personas,
+        'fecha_actual':fecha,
+    }, context_instance=RequestContext(request))
+
+@permission_required('asistencia.historial_year_asistencia', login_url="/login")
+def select_anho(request, id_persona):
+    persona = get_object_or_404(Persona, pk = id_persona)
+    if request.method == "POST":
+        formulario = YearSelect(request.POST)
+        if formulario.is_valid():
+            anho = formulario.cleaned_data['anho']
+            return HttpResponseRedirect(reverse(view_historial_anual, args=(persona.id, int(anho), )))
+    else:
+        formulario = YearSelect()
+    return render_to_response('asistencia/year_form.html', {
+        'formulario':formulario,
+    }, context_instance = RequestContext(request))
+
+@permission_required('asistencia.historial_year_asistencia', login_url="/login")
+def view_historial_anual(request, id_persona, anho):
+    persona = get_object_or_404(Persona, pk = id_persona)
+    asistencias = Asistencia.objects.filter(fecha__year = anho, persona = persona)
+    atraso = "00:00"
+    for a in asistencias:
+        if a.atraso:
+            hora = a.atraso.strftime("%H:%M")
+            atraso = sumar_horas(atraso, hora)
+    fin = 0
+    d = 0
+    cal = calendar.Calendar()
+    for m in range(1,13):
+        fechas = []
+        dias = [x for x in cal.itermonthdays(int(anho), int(m)) if x][-1]
+        d += dias
+        lista1 = range(1,dias+1)
+        for c in lista1:
+            fechas +=[date(int(anho), int(m), int(c))]
+        for f in fechas:
+            if f.weekday() == 5 or f.weekday() == 6 :
+                fin = fin + 1
+    sum_atrasos = atraso
+    marcas_mes = int(d) - int(fin)
+    dias_sin_marca = marcas_mes - asistencias.count()
+    return render_to_response("asistencia/historial_asistencia_anual.html", {
+        'anho':anho,
+        'persona':persona,
+        'asistencias':asistencias,
+        'sum_atrasos':str(sum_atrasos),
+        'marcas_mes':marcas_mes,
+        'dias_sin_marca':dias_sin_marca,
+        'dias':dias,
+        'fin':fin,
+    }, context_instance = RequestContext(request))
+
+
+@login_required(login_url="/login")
 def index_permiso(request):
     hoy = datetime.now()
     permisos = Permiso.objects.all()

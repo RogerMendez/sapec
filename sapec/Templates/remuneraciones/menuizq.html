@@ -1,5 +1,13 @@
 <div class="page-sidebar">
     <ul>
+        {% if perms.remuneraciones %}
+            <li class="sticker sticker-color-red">
+                <a href="{% url 'remuneraciones.views.index_remuneracion' %}">
+                    <i class="icon-diamond"></i>Remuneraciones
+                </a>
+            </li>
+        {% endif %}
+        <li class="divider"></li>
         <li class="sticker sticker-color-green">
             <a href="{% url 'remuneraciones.views.otros_pagos' %}">
                 <i class="icon-clipboard"></i> <strong>Otros Pagos</strong>

@@ -54,7 +54,7 @@ class Cargo(models.Model):
 
 class Planificacion(models.Model):
     descripcion = models.TextField(verbose_name='Descripción de la Planificación')
-    cantidad = models.IntegerField(default='1')
+    cantidad = models.IntegerField(default='1', verbose_name="Cantidad de Personal Requerido")
     fecha_plani = models.DateTimeField(auto_now=True)
     estado = models.BooleanField(default=True, verbose_name='Estado de la planificación', help_text='Activo / Inactivo')
     cargo = models.ForeignKey(Cargo, verbose_name='Unidad - Cargo')

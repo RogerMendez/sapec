@@ -99,10 +99,17 @@ urlpatterns = patterns('',
     #ASISTENCIA
     url(r'^asistencia/$', 'asistencia.views.index_asistencia'),
     url(r'^asistencia/new/$', 'asistencia.views.new_asistencia'),
+    url(r'^asistencia/update/(?P<id_asistencia>\d+)/$', 'asistencia.views.update_asistencia'),
     url(r'^asistencia/detail/empleado/show/$', 'asistencia.views.personal_asistencia'),
     url(r'^asistencia/detail/fechas/seleccion/(?P<id_persona>\d+)/$', 'asistencia.views.seleccion_fechas_detalle'),
-    #url(r'^asistencia/detail/(?P<id_persona>\d+)/(?P<dia_ini>\d+)/(?P<mes_ini>\d+)/(?P<anho_ini>\d+)/(?P<dia_fin>\d+)/(?P<mes_fin>\d+)/(?P<anho_fin>\d+)/$', 'asistencia.views.detalle_asistencia'),
     url(r'^asistencia/detail/(?P<id_persona>\d+)/(?P<dia_ini>\d+)/(?P<mes_ini>\d+)/(?P<anho_ini>\d+)/(?P<dia_fin>\d+)/(?P<mes_fin>\d+)/(?P<anho_fin>\d+)/(?P<pdf>\d+)/$', 'asistencia.views.detalle_asistencia'),
+    url(r'^asistencia/detail/empleado/show/fecha/$', 'asistencia.views.personal_asistencia_fecha'),
+    url(r'^asistencia/historial/select/empleado/$', 'asistencia.views.select_persona_historial_mes'),
+    url(r'^asistencia/historial/select/mes/(?P<id_persona>\d+)/$', 'asistencia.views.select_meses'),
+    url(r'^asistencia/historial/view/mes/(?P<id_persona>\d+)/(?P<mes>\d+)/(?P<anho>\d+)/$', 'asistencia.views.view_historial_meses'),
+    url(r'^asistencia/historial/anual/select/empleado/$', 'asistencia.views.select_persona_historial_anual'),
+    url(r'^asistencia/historial/anual/select/year/(?P<id_persona>\d+)/$', 'asistencia.views.select_anho'),
+    url(r'^asistencia/historial/anual/view/year/(?P<id_persona>\d+)/(?P<anho>\d+)/$', 'asistencia.views.view_historial_anual'),
 
     #PERMISO
     url(r'^permiso/$', 'asistencia.views.index_permiso'),

@@ -33,7 +33,7 @@
                                                         <img src="{{ STATIC_URL }}base/images/stock-up.png" alt=""/>
                                                     </div>
                                                     <div class="reply">
-                                                        <div class="author">Descripción: {{ plani.descripcion }}</div>
+                                                        <div class="author">Descripción: {{ plani.descripcion|truncatewords:"20" }}</div>
                                                     </div>
                                                 </div>
                                             </div>

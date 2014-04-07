@@ -1,0 +1,172 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+
+{% block title %}Asistencia{% endblock %}
+{% block atras %}
+{% url 'asistencia.views.index_asistencia' %}
+{% endblock %}
+{% block titulo %}
+<h1>Asistencia<small>Historial Mes</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span3">
+                {% include 'asistencia/menuizq.html' %}
+            </div>
+            <div class="span9">
+                <div class="row column-margin">
+                    <div class="row bg-color-blueLight">
+                        <div class="span6">
+                            <h3><strong>Datos de Empleado</strong></h3>
+                            <p><strong>Cedula de Identidad:</strong> {{ persona.ci }}</p>
+                            <p><strong>Nombre Completo: </strong>{{ persona.paterno }} {{ persona.materno }}, {{ persona.nombre }}</p>
+                            <p><strong>Telefono/Celular: </strong>{{ persona.telefono }}</p>
+                        </div>
+                        <div class="span2">
+                            {% if persona.foto == "" %}
+                                {% if persona.sexo == "MA" %}
+                                    <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ persona.nombre }}"/>
+                                {% else %}
+                                    <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ persona.nombre }}"/>
+                                {% endif %}
+                            {% else %}
+                                <img src="/media/{{ persona.foto }}" alt="{{ persona.nombre }}"/>
+                            {% endif %}
+                        </div>
+                        <div class="span1"></div>
+                    </div>
+                </div>
+                <div class="row column-margin border-color-blueLight">
+                    <div class="span9">
+                        <h3>
+                            Historial de Asistencia:
+                            {% if mes == '1' %}
+                                ENERO,
+                            {% elif mes == '2' %}
+                                FEBRERO,
+                            {% elif mes == '3' %}
+                                MARZO,
+                            {% elif mes == '4' %}
+                                ABRIL,
+                            {% elif mes == '5' %}
+                                MAYO,
+                            {% elif mes == '6' %}
+                                JUNIO,
+                            {% elif mes == '7' %}
+                                JULIO,
+                            {% elif mes == '8' %}
+                                AGOSTO,
+                            {% elif mes == '9' %}
+                                SEPTIEMBRE,
+                            {% elif mes == '10' %}
+                                OCTUBRE,
+                            {% elif mes == '11' %}
+                                NOVIEMBRE,
+                            {% else %}
+                                DICIEMBRE,
+                            {% endif %}
+                            {{ anho }}
+                        </h3>
+                    </div>
+                </div>
+                <div class="row column-margin">
+                    <div class="span3">
+                        <p><strong>Total Atrasos en El Mes: </strong>{{ sum_atrasos }} hrs.</p>
+                    </div>
+                    <div class="span6">
+                        <table class="bordered hovered">
+                            <thead>
+                                <tr>
+                                    <th>Marcas</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Del Mes</td>
+                                    <td class="text-right">{{ marcas_mes }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Realizadas</td>
+                                    <td class="text-right">{{ asistencias.select_related.count }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Sin Marcar</td>
+                                    <td class="text-right">{{ dias_sin_marca }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span9">
+                        <div class="row border-color-blueDark column-margin">
+                            <h4>Marcas Realizadas Durante el Mes</h4>
+                            <div class="span9">
+                                <table class="bordered hovered">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Entrada M.</th>
+                                            <th>Salida M.</th>
+                                            <th>Entrada T.</th>
+                                            <th>Salida T</th>
+                                            <th>Atraso</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for asistencia in asistencias %}
+                                            <tr>
+                                                <td>{{ asistencia.fecha|date:"d-M-Y" }}</td>
+                                                <td>
+                                                    {% if asistencia.entrada_m %}
+                                                        {{ asistencia.entrada_m|time }}
+                                                    {% else %}
+                                                        Sin Marca
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if asistencia.salida_m %}
+                                                        {{ asistencia.salida_m|time }}
+                                                    {% else %}
+                                                        Sin Marca
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if asistencia.entrada_t %}
+                                                        {{ asistencia.entrada_t|time }}
+                                                    {% else %}
+                                                        Sin Marca
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if asistencia.salida_t %}
+                                                        {{ asistencia.salida_t|time }}
+                                                    {% else %}
+                                                        Sin Marca
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    {% if asistencia.atraso %}
+                                                        {{ asistencia.atraso }}
+                                                    {% else %}
+                                                        00:00:00
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                        {% empty %}
+                                            no hay nada
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

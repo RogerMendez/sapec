@@ -1,19 +1,21 @@
 <div class="page-sidebar">
     <ul>
-        <li class="sticker sticker-color-green">
-            <a href="">
-                <i class="icon-clipboard"></i> Asistencia
-            </a>
-            {% if perms.asistencia.add_asistencia %}
-                <ul class="sub-menu">
-                    <li>
-                        <a href="{% url 'asistencia.views.new_asistencia' %}">Registrar Asistencia</a>
-                    </li>
-                </ul>
-            {% endif %}
-        </li>
+        {% if perms.asistencia %}
+            <li class="sticker sticker-color-green">
+                <a href="{% url 'asistencia.views.index_asistencia' %}">
+                    <i class="icon-clipboard"></i> Asistencia
+                </a>
+                {% if perms.asistencia.add_asistencia %}
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="{% url 'asistencia.views.new_asistencia' %}">Registrar Asistencia</a>
+                        </li>
+                    </ul>
+                {% endif %}
+            </li>
+        {% endif %}
         <li class="divider"></li>
-        {% if perms.asistencia.detail_asistencia %}
+        {% if perms.asistencia.detail_asistencia or perms.asistencia.detail_fecha_asistencia %}
             <li class="sticker sticker-color-red">
                 <a href="">
                     <i class="icon-pencil"></i> Opciones Asistencia
@@ -22,6 +24,30 @@
                     {% if perms.asistencia.detail_asistencia %}
                         <li>
                             <a href="{% url 'asistencia.views.personal_asistencia' %}">Detalle Asistencia</a>
+                        </li>
+                    {% endif %}
+                    {% if perms.asistencia.detail_fecha_asistencia %}
+                        <li>
+                            <a href="{% url 'asistencia.views.personal_asistencia_fecha' %}">Asistencia Por Fecha</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </li>
+        {% endif %}
+        {% if perms.asistencia.historial_month_asistencia or perms.asistencia.historial_year_asistencia %}
+            <li class="sticker sticker-color-orange">
+                <a href="">
+                    <i class="icon-address-book"></i>Historial de Asistencia
+                </a>
+                <ul class="sub-menu">
+                    {% if perms.asistencia.historial_month_asistencia %}
+                        <li>
+                            <a href="{% url 'asistencia.views.select_persona_historial_mes' %}">Historial Mensual</a>
+                        </li>
+                    {% endif %}
+                    {% if perms.asistencia.historial_year_asistencia %}
+                        <li>
+                            <a href="{% url 'asistencia.views.select_persona_historial_anual' %}">Historial Anual</a>
                         </li>
                     {% endif %}
                 </ul>

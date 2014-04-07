@@ -1,0 +1,38 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Modificar Asistencia{% endblock%}
+{% block calendar %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}calendario/calendar.css"/>
+{% endblock %}
+{% block titulo %}
+<h1>Asistencia <small>Modificar</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'asistencia/menuizq.html' %}
+{% endblock %}
+{% block legend %}
+    Modificar Asistencia
+{% endblock %}
+{% block submit %}Guardar{% endblock %}
+
+{% block stylo %}
+<style>
+    .ui-datepicker-calendar thead tr{
+        background: #ffffff;
+    }
+    .mostrar{
+        display: none;
+    }
+</style>
+    <script type="text/javascript" src="{{ STATIC_URL }}hora/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}hora/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}hora/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#id_entrada_m').timepicker({});
+            $('#id_salida_m').timepicker({});
+            $('#id_entrada_t').timepicker({});
+            $('#id_salida_t').timepicker({});
+        });
+    </script>
+{% endblock %}
