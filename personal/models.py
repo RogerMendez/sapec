@@ -25,6 +25,10 @@ class Persona(models.Model):
         ('MA', 'Masculino'),
     )
     sexo = models.CharField(max_length=2, choices=sex, verbose_name="Sexo", null=True, blank=True)
+    naci = (
+        ('Boliviana', 'Boliviana'),
+    )
+    nacionalidad = models.CharField(max_length=15, default="Boliviana", choices=naci, null=True, blank=True)
     foto = models.ImageField(upload_to='personal', verbose_name="Seleccionar Imagen", blank=True, null=True)
     completo = models.BooleanField(default=False)
     code_activation = models.CharField(max_length="100")

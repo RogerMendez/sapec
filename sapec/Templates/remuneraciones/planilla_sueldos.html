@@ -1,0 +1,122 @@
+{# encoding=utf-8 #}
+{% extends 'base.html' %}
+{% block title %}Remuneraciones{% endblock %}
+
+{% block titulo %}
+<h1>Remuneraciones <small>Listado</small></h1>
+{% endblock %}
+{% block cuerpo %}
+<div class="row">
+    <div class="span12">
+        <form action="" method="get" id="formulario">{% csrf_token %}
+            <fieldset>
+                <legend>Seleccionar Fecha</legend>
+                <div class="row">
+                    {% for field in formulario %}
+                        <div class="span3">
+                            {{ field.errors }}
+                            {{ field.label_tag }}
+
+                            <div class="text input-control">
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <p class="fg-color-green">
+                                        <i class="icon-warning"></i> {{ field.help_text }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="span3 padding15">
+                        <div class="controls">
+                            <input type="submit" value="Enviar">
+                        </div>
+                    </div>
+                    <div class="span3"></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">
+    <h3>{{ fecha|date:"M, Y" }}</h3>
+        <table class="hovered">
+            <thead>
+                <tr>
+                    <th colspan="11"></th>
+                    <th colspan="2">Horas Extras</th>
+                    <th colspan="4"></th>
+                <tr class="">
+                    <th>#</th>
+                    <th>Cedula</th>
+                    <th class="text-center">Apellidos y Nombres</th>
+                    <th>Fecha Nac.</th>
+                    <th>Sexo (F/M)</th>
+                    <th class="text-center">Cargo</th>
+                    <th class="text-center">Ingreso</th>
+                    <th class="text-center">Dias Pagados Mes</th>
+                    <th>Horas/Dias Pagadas</th>
+                    <th>Haber Basico</th>
+                    <th class="text-center">Bono de Antiguedad</th>
+                    <th>Horas</th>
+                    <th>Monto</th>
+                    <th class="text-center">Otros Pagos</th>
+                    <th class="text-center">Total Ganado</th>
+                    <th>Descuentos</th>
+                    <th class="text-center">Liquido Pagable</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contrato in contratos %}
+                    <tr>
+                        <td>{{ contrato.id }}</td>
+                        <td>{{ contrato.persona.ci }}</td>
+                        <td>{{ contrato.persona }}</td>
+                        <td>{{ contrato.persona.fecha_nac|date:"d/m/Y" }}</td>
+                        <td class="center">{{ contrato.persona.sexo }}</td>
+                        <td>{{ contrato.cargo.nombre }}</td>
+                        <td>{{ contrato.fecha_entrada|date:"d/m/Y" }}</td>
+                        <td class="right">
+                            {% for asistencia in asistencias %}
+                                {% if asistencia.persona_id == contrato.persona_id %}
+                                    {% if asistencia.sum_asistencia %}
+                                        {{ asistencia.sum_asistencia }}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            Dias.
+                        </td>
+                        <td></td>
+                        <td>{{ contrato.sueldo }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            {% for pago in pagos %}
+                                {% if pago.contrato_id == contrato.id %}
+                                    {{ pago.sum_pago }}
+                                {% endif %}
+                            {% endfor %}
+
+                        </td>
+                        <td></td>
+                        <td>
+                            {% for descuento in descuentos %}
+                                {% if descuento.contrato_id == contrato.id %}
+                                    {{ descuento.sum_monto }}
+                                {% endif %}
+                            {% endfor %}
+
+                        </td>
+                        <td>
+                            {{ suma }}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

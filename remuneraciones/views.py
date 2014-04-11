@@ -12,6 +12,7 @@ import ho.pisa as pisa
 import cStringIO as StringIO
 import cgi
 import os
+from django.db.models import Sum, Count
 import datetime
 from datetime import date
 from django.conf import settings
@@ -22,7 +23,8 @@ from contratacion.form import PersonaSearchForm
 from organizacion.models import Cargo, Unidad
 from personal.models import Persona
 from models import Pagos, Descuentos
-from form import PagosForm, DescuentosForm
+from form import PagosForm, DescuentosForm, FechasPlanillaForm
+from asistencia.models import Asistencia
 
 
 def admin_log_addnition(request, objecto, mensaje):
@@ -171,3 +173,41 @@ def new_descuento(request, id_contrato):
     }, context_instance = RequestContext(request))
 
 
+def planilla_sueldos(request):
+    fecha = datetime.datetime.now()
+    q2 = None
+    formulario = FechasPlanillaForm(request.GET or None)
+    if formulario.is_valid():
+        mes = int(formulario.cleaned_data['mes'])
+        anho = int(formulario.cleaned_data['anho'])
+        fecha = date(anho, mes, 2)
+        q2 = contratos = Contratacion.objects.all()
+        for con in contratos:
+            anho_ent = con.fecha_entrada.strftime("%Y")
+            anho_sal = con.fecha_salida.strftime("%Y")
+            if int(anho_ent) > anho:
+                q2 = q2.exclude(id = con.id)
+            if int(anho_sal) < anho :
+                q2 = q2.exclude(id = con.id)
+            mes_ent = con.fecha_entrada.strftime("%m")
+            mes_sal = con.fecha_salida.strftime("%m")
+            if int(mes_ent) > mes and int(anho_ent) == anho :
+                q2 = q2.exclude(id = con.id)
+            if int(mes_sal) < mes and int(anho_sal) == anho:
+                q2 = q2.exclude(id = con.id)
+        descuentos = Descuentos.objects.filter(contrato_id__in = q2.values('id'), fecha__year = anho, fecha__month = mes)
+        descuentos = descuentos.values('contrato_id').annotate(sum_monto = Sum('monto'))
+        pagos = Pagos.objects.filter(contrato_id__in = q2.values('id'), fecha__year = anho, fecha__month = mes)
+        pagos = pagos.values('contrato_id').annotate(sum_pago = Sum('pago'))
+        asistencia = Asistencia.objects.filter(persona_id__in = q2.values('persona_id'), fecha__year = anho, fecha__month = mes)
+        asistencias = asistencia.values('persona_id').annotate(sum_asistencia = Count('fecha'))
+        #personas = Persona.objects.all()
+    return render_to_response('remuneraciones/planilla_sueldos.html',{
+        'contratos':q2,
+        'fecha':fecha,
+        'formulario':formulario,
+        'descuentos':descuentos,
+        'pagos':pagos,
+        'asistencias':asistencias,
+        #'suma':suma,
+    }, context_instance=RequestContext(request))

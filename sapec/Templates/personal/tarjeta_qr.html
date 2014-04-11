@@ -31,7 +31,7 @@
                         </div>
                         <div class="span2 padding5">
                             {% if persona.foto == "" %}
-                                {% if per.sexo == "MA" %}
+                                {% if persona.sexo == "MA" %}
                                     <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ persona.nombre }}"/>
                                 {% else %}
                                     <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ persona.nombre }}"/>
