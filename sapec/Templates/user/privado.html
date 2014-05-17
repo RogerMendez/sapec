@@ -2,26 +2,65 @@
 {% extends 'base.html' %}
 {% block title %}Usuario{% endblock%}
 {% block cuerpo %}
-     <div class="grid">
-        <div class="row">
-            <div class="span4">
-                <a class="button" href="{% url 'users.views.reset_pass' %}"><b class="icon-refresh"> </b>Cambiar Contraseña</a>
-            </div>
-            <div class="span4">
-                <a class="button" href="{% url 'users.views.loguet_out' %}">Cerrar Sesion </a>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="span12">
-            <h3>Complete el Registro de su Kardex</h3>
-            <a href="{% url 'personal.views.index_personal' %}" class="button bg-color-blue">Completar</a>
+            <div class="row">
+                <div class="span3">
+                    {% include 'user/menuizq.html' %}
+                </div>
+                <div class="span9">
+                    <h3><strong>Bienvenido</strong> {{ usuario.username|upper }}</h3>
+
+                    {% if persona.completo %}
+                        <h3 class="bg-color-blue padding10 text-center fg-color-white"><strong>Datos Personales</strong></h3>
+                        <div class="row">
+                            <div class="span4 bg-color-blueLight lead">
+                                <strong class="lead">Nombre Completo</strong>
+                                <p class="lead">{{ persona.paterno }} {{ persona.materno }}, {{ persona.nombre  }}</p>
+                                <strong class="lead">Dirección</strong>
+                                <p class="lead">{{ persona.direccion }}</p>
+                                <strong class="lead">Estado Civil</strong>
+                                <p class="lead">
+                                    {% if persona.estado_civil == "SO" %}
+                                        SOLTERO
+                                    {% else %}
+                                        CASADO
+                                    {% endif %}
+                                </p>
+                                <strong class="lead">Nacionalidad</strong>
+                                <p class="lead">{{ persona.nacionalidad }}</p>
+                            </div>
+                            <div class="span3 bg-color-blueLight">
+                                <strong class="lead">Telefono/Celular</strong>
+                                <p class="lead">{{ persona.telefono }}</p>
+                                <strong class="lead">Fecha de Nacimiento</strong>
+                                <p class="lead">{{ persona.fecha_nac|date:"d M, Y" }}</p>
+                                <strong class="lead">Sexo</strong>
+                                <p class="lead">
+                                    {% if persona.sexo == "MA" %}
+                                        MASCULINO
+                                    {% else %}
+                                        FEMENINO
+                                    {% endif %}
+                                </p>
+                            </div>
+                            <div class="span2 border-color-blue">
+                                {% if persona.foto == "" %}
+                                    {% if persona.sexo == "MA" %}
+                                        <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ persona.nombre }}"/>
+                                    {% else %}
+                                        <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ persona.nombre }}"/>
+                                    {% endif %}
+                                {% else %}
+                                    <img src="/media/{{ persona.foto }}" alt="{{ persona.nombre }}"/>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <h3>Debe Completar El Kardex </h3>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
-    <div class="span9">
-        <p class="lead"><strong>Bienvenido</strong></p>
-        <p>{{ usuario.username|upper }}</p>
-        <p>{{ usuario.color }}</p>
-    </div>
-
 {% endblock %}

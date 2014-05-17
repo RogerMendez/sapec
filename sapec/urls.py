@@ -7,7 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^grappelli/', include('grappelli.urls')),
-    url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
+    #url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
     url(r'^media/(?P<path>.*)$','django.views.static.serve', {'document_root':settings.MEDIA_ROOT,} ),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -110,6 +110,7 @@ urlpatterns = patterns('',
     url(r'^asistencia/historial/anual/select/empleado/$', 'asistencia.views.select_persona_historial_anual'),
     url(r'^asistencia/historial/anual/select/year/(?P<id_persona>\d+)/$', 'asistencia.views.select_anho'),
     url(r'^asistencia/historial/anual/view/year/(?P<id_persona>\d+)/(?P<anho>\d+)/$', 'asistencia.views.view_historial_anual'),
+    url(r'^asistencia/qr/$', 'asistencia.views.asistencia_qr'),
 
     #PERMISO
     url(r'^permiso/$', 'asistencia.views.index_permiso'),
@@ -131,5 +132,9 @@ urlpatterns = patterns('',
     url(r'^remuneracion/descuentos/personas/show/$', 'remuneraciones.views.select_persona_descuentos'),
     url(r'^remuneracion/descuentos/new/(?P<id_contrato>\d+)/$', 'remuneraciones.views.new_descuento'),
     url(r'planilla/sueldos/$', 'remuneraciones.views.planilla_sueldos'),
+
+
+    #Otros
+    url(r'^marcar/$', 'asistencia.views.insert_asistencia'),
 
 )

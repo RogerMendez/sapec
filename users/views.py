@@ -9,6 +9,7 @@ from django.contrib.auth.forms import AdminPasswordChangeForm, AuthenticationFor
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required, permission_required
 from personal.models import Persona
+from organizacion.models import Planificacion
 from users.form import EmailForm
 from django.core.mail import EmailMultiAlternatives
 from django.utils.encoding import force_unicode
@@ -36,7 +37,10 @@ def code_activation_create():
     return code
 
 def home(request):
-    return render_to_response('base.html', context_instance=RequestContext(request))
+    planificaciones = Planificacion.objects.filter(estado = True, cantidad__gt = 0)
+    return render_to_response('base.html', {
+        'planificaciones':planificaciones,
+    }, context_instance=RequestContext(request))
 
 def loguet_in(request):
     if not request.user.is_anonymous():
@@ -70,7 +74,11 @@ def loguet_out(request):
 @login_required(login_url='/login')
 def private(request) :
     usuario = request.user
-    return render_to_response('user/privado.html', {'usuario' :usuario}, context_instance=RequestContext(request))
+    persona = Persona.objects.get(usuario = usuario)
+    return render_to_response('user/privado.html', {
+        'usuario' :usuario,
+        'persona' :persona,
+        }, context_instance=RequestContext(request))
 
 
 @login_required(login_url='/login')

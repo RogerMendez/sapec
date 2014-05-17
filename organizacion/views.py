@@ -40,15 +40,16 @@ def admin_log_change(request, objecto, mensaje):
                 action_flag     = CHANGE,
                 change_message = mensaje
             )
-
 def generar_pdf(html):
     # Función para generar el archivo PDF y devolverlo mediante HttpResponse
     result = StringIO.StringIO()
     links = lambda uri, rel: os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ''))
     pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("utf-16")), result, link_callback=links)
     if not pdf.err:
-        return HttpResponse(result.getvalue(), mimetype='application/pdf')
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
     return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
+    #response = HttpResponse(content_type='application/pdf')
+    #response['Content-Disposition'] = 'attachment; filename=somefilename.pdf'
 
 
 @login_required(login_url="/login")
@@ -63,7 +64,7 @@ def new_unidad(request):
         formulario = UnidadForm(request.POST, request.FILES)
         if formulario.is_valid() :
             uni = formulario.save()
-            messages.add_message(request, messages.INFO, "Se Registro Correctamente la Unidad: " + uni.nombre )
+            messages.add_message(request, messages.INFO, "Se Registro Correctamente la Unidad:<strong>" + uni.nombre + "</strong>" )
             admin_log_addnition(request, uni, "Creacion De la Unidad")
             return HttpResponseRedirect(reverse(index_unidad))
     else:

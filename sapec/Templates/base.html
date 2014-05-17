@@ -26,6 +26,7 @@
     <script type="text/javascript" src="{{ STATIC_URL }}base/js/modern/calendar.js"></script>
 
     <title>{% block title %}SAPEC | Sistema de Administracion de Personal{% endblock title %}</title>
+    <link rel="icon" type="image/png" href="{{ STATIC_URL }}icon.jpg" />
     {% block calendar %}{% endblock %}
 </head>
 <body class="metrouicss" onload="prettyPrint()">
@@ -33,7 +34,11 @@
         <div class="nav-bar">
             <div class="nav-bar-inner padding10">
                 <span class="pull-menu"></span>
-                <a href="/"><span class="element brand">
+                <a href="{% if user.is_authenticated %}
+                        {% url 'users.views.private' %}
+                    {% else %}
+                    /
+                {% endif %} "><span class="element brand">
                     <img class="place-left" src="{{ STATIC_URL }}base/images/logo32.png" style="height: 20px"/>
                     {% if user.is_authenticated %}
                         {{ user.username|upper }}
@@ -78,7 +83,6 @@
                                     {% endfor %}
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -86,7 +90,123 @@
             <div class="row">
                 <div class="span12">
                     {% block cuerpo %}
-                        <h2>Hello</h2>
+                        <div class="row">
+                            <div class="span8">
+                                <div class="hero-unit">
+                                    <div id="carousel1" class="carousel" data-role="carousel" data-param-duration="300">
+                                        <div class="slides">
+
+                                            <div class="slide" id="slide1">
+                                                <h2>Su Construcción en Manos de Expertos</h2>
+                                                <p class="bg-color-red fg-color-white padding20">
+                                                    Somos una empresa especializada en servicios de construcción de obras civiles. Nuestro trabajo está totalmente garantizado por el compromiso de nuestros clientes, por lo que asesoramos a empresas de cualquier tamaño y actividad.
+                                                </p>
+                                                <p><a href="{% url 'users.views.new_user' %}">Registrate</a> Tu Kardex Sera Tomado en Cuenta.</p>
+                                            </div>
+
+                                            <div class="slide" id="slide2">
+                                                <h2>Misión</h2>
+                                                <p class="bg-color-blueDark padding20 fg-color-white">
+                                                    Comprometidos con el desarrollo: queremos lograr los objetivos y proyectos más amplios en la construcción con la calidad y servicio, cumpliendo adecuadamente las necesidades en todas las expectativas de los clientes.
+                                                </p>
+                                                <h3>Compromiso</h3>
+                                                <p class="tertiary-info-text">
+                                                    Emprender y continuar mejorando todas nuestras actividades y promocionando lo actual de la construcción
+                                                </p>
+                                            </div>
+
+                                            <div class="slide" id="slide3">
+                                                <h2 class="fg-color-darken">Visión</h2>
+                                                <p class="bg-color-pink padding20 fg-color-white">
+                                                    Ser la Empresa líder en la construcción	proporcionando un servicio de excelencia favoreciendo el progreso, desarrollo y calidad del País.
+                                                </p>
+
+                                                <div class="span3 place-left">
+                                                    <ul class="unstyled sprite-details">
+                                                        <li><i class="icon-checkmark"></i> Diseño de Proyectos</li>
+                                                        <li><i class="icon-checkmark"></i> Acabado de Infraestructuras</li>
+                                                        <li><i class="icon-checkmark"></i> Carpinteria de Aluminio y Vidrio</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="span3 place-left">
+                                                    <ul class="unstyled sprite-details">
+                                                        <li><i class="icon-checkmark"></i> Acabado en Seco</li>
+                                                        <li><i class="icon-checkmark"></i> Remoledaciones</li>
+                                                        <li><i class="icon-checkmark"></i> Instalaciones Electricas</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="markers"><ul><li class="active"><a href="javascript:void(0)" data-num="0"></a></li><li class=""><a href="javascript:void(0)" data-num="1"></a></li><li class=""><a href="javascript:void(0)" data-num="2"></a></li></ul></div></div>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <div class="span4 padding30 text-center place-left bg-color-blueLight" id="sponsorBlock">
+                                    <br>
+                                    <br>
+                                    <h2 class="fg-color-red">Estas Contratado!! Registre su Asistencia</h2>
+
+                                    <br>
+                                    <a href="{% url 'asistencia.views.new_asistencia' %}"><h1><i class="icon-arrow-right-3 fg-color-red"></i></h1></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--div class="row">
+                            <div class="span3">
+                                {% include 'menuizq.html' %}
+                            </div>
+                            <div class="span8">
+                                <div class="carousel span8" style="height: 300px;" data-role="carousel" data-param-effect="slowdown" data-param-direction="left" data-param-period="3000" data-param-markers="off">
+                                    <div class="slides">
+                                        <div class="slide image" id="slide10">
+                                            <img src="{{ STATIC_URL }}slide/1.jpg" />
+                                        </div>
+                                        <div class="slide image" id="slide11">
+                                            <img src="{{ STATIC_URL }}slide/2.jpg" />
+                                        </div>
+                                        <div class="slide image" id="slide12">
+                                            <img src="{{ STATIC_URL }}slide/3.jpg" />
+                                        </div>
+                                        <div class="slide image" id="slide12">
+                                            <img src="{{ STATIC_URL }}slide/4.jpg" />
+                                        </div>
+                                    </div>
+
+                                    <span class="control left bg-color-darken">&#8249;</span>
+                                    <span class="control right bg-color-darken">&#8250;</span>
+
+                                </div>
+                            </div>
+                            <div class="span1"></div>
+                        </div-->
+                        <div class="row">
+                            <div class="span12">
+                                <h2>Vea Nuestras Ofertas de Trabajo</h2>
+                                {% for planificacion in planificaciones %}
+                                    <div class="row border-color-teal padding10">
+                                        <div class="span3">
+                                            <strong>Unidad - Cargo: </strong>
+                                            <p>{{ planificacion.cargo|upper }}</p>
+                                        </div>
+                                        <div class="span4">
+                                            <strong>Descripción de Trabajo</strong>
+                                            <p class="">{{ planificacion.descripcion }}</p>
+                                        </div>
+                                        <div class="span4">
+                                            <strong>Cantidad de Personal Requerido</strong>
+                                            <p>{{ planificacion.cantidad }}
+                                                {% if planificacion.cantidad == 1 %}
+                                                    Persona
+                                                {% else %}
+                                                    Personas
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                {% endfor %}
+                            </div>
+                        </div>
                     {% endblock %}
                 </div>
             </div>

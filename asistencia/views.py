@@ -48,7 +48,7 @@ def generar_pdf(html):
     links = lambda uri, rel: os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ''))
     pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("utf-16")), result, link_callback=links)
     if not pdf.err:
-        return HttpResponse(result.getvalue(), mimetype='application/pdf')
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
     return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
 
 def restar_horas(hora1, hora2):
@@ -168,13 +168,82 @@ def new_asistencia(request):
             else:
                 msm = "Usted no Esta Registrado en el Sistema"
             messages.add_message(request, messages.INFO, msm )
-            return HttpResponseRedirect(reverse(index_asistencia))
+            if not request.user.is_anonymous():
+                return HttpResponseRedirect(reverse(index_asistencia))
+            else:
+                return HttpResponseRedirect('/')
     else:
         formulario = AsistenciaForm()
     return render_to_response('asistencia/new_asistencia.html', {
         'formulario':formulario,
     }, context_instance=RequestContext(request))
 
+@login_required(login_url="/login")
+def asistencia_qr(request):
+    msm = ""
+    ci = request.GET['code']
+    if Persona.objects.filter(ci = ci):
+        persona = Persona.objects.get(ci = ci)
+        hoy = datetime.now()
+        if Contratacion.objects.filter(estado = True, fecha_salida__gte = hoy, persona = persona):
+            if Asistencia.objects.filter(persona = persona, fecha = hoy):
+                asistencia = Asistencia.objects.get(persona = persona, fecha = hoy)
+                #admin_log_change(request, asistencia, 'Modifico los Datos de Persona')
+            else:
+                asistencia = Asistencia.objects.create(
+                    persona = persona,
+                )
+            hora = hoy.strftime("%H:%M")
+            if hora >= "22:01" or hora <= "05:59" :
+                    msm = 'Sr(a) <strong>%s %s, %s<strong> <p class="lead">No Esta Dentro del Horario Para su Registro de Asistencia<p>' %(persona.materno, persona.paterno, persona.nombre)
+            else:
+
+                if hora >= "06:00" and hora <= "08:15" and asistencia.entrada_m == None:
+                    asistencia.entrada_m = hora
+                    asistencia.save()
+                    msm = "Registro de Asistencia Exitosa</br>Entrada Mañana"
+                elif hora >= "13:00" and hora <= "14:15" and asistencia.entrada_t == None:
+                    asistencia.entrada_t = hora
+                    asistencia.save()
+                    msm = "Registro de Asistencia Exitosa</br>Entrada Tarde"
+                elif hora >= "12:00" and hora <= "12:59" and asistencia.salida_m == None :
+                    asistencia.salida_m = hora
+                    asistencia.save()
+                    msm = "Registro de Asistencia Exitosa</br>Salida Mañana"
+                elif hora >= "18:00" and hora <= "22:00" and asistencia.salida_t == None :
+                    asistencia.salida_t = hora
+                    asistencia.save()
+                    msm = "Registro de Asistencia Exitosa</br>Salida Tarde"
+                else:
+                    #msm = "EN HORARIO TARDE"
+                    if hora >= "08:16" and hora <= "11:59" and asistencia.entrada_m == None :
+                        #entrada mañana tarde
+                        asistencia.entrada_m = hora
+                        if  asistencia.atraso == None:
+                            atraso = "00:00"
+                        else:
+                            atraso = str(asistencia.atraso)
+                        asistencia.atraso = sumar_horas(atraso, restar_horas(hora, "08:16"))
+                        asistencia.save()
+                        msm = "Registro Exitoso Con un retraso de: %s" %asistencia.atraso
+                    elif hora >= "14:16" and hora <= "17:59" and asistencia.entrada_t == None :
+                        #Entrada tarde retraso
+                        if  asistencia.atraso == None:
+                            atraso = "00:00"
+                        else:
+                            atraso = str(asistencia.atraso)
+                        asistencia.entrada_t = hora
+                        asistencia.atraso = sumar_horas(atraso, restar_horas(hora, "14:16"))
+                        asistencia.save()
+                        msm = "Registro de Asistencia Exitosa</br>Entrada Tarde Con Retraso"
+                    else:
+                        msm = "Usted Ya registro su asistencia"
+        else:
+            msm = "Usted No Cuenta Con un Contrato Vigente"
+    else:
+        msm = "Usted no Esta Registrado en el Sistema"
+    messages.add_message(request, messages.INFO, msm )
+    return HttpResponseRedirect('/')
 
 def update_asistencia(request, id_asistencia):
     asistencia = get_object_or_404(Asistencia, pk = id_asistencia)
@@ -471,3 +540,33 @@ def new_permiso(request, id_persona):
         'formulario':formulario,
         'fecha_actual':fecha_actual,
     }, context_instance=RequestContext(request))
+
+
+def insert_asistencia(request):
+    cal = calendar.Calendar()
+    a = 2009
+    m = 1
+    d = 1
+    finicio = date(int(a), int(m), int(d))
+    flag = True
+    while flag :
+        dias = [x for x in cal.itermonthdays(int(a), int(m)) if x][-1]
+        lista1 = range(1,dias+1)
+        for c in lista1:
+            finicio = date(int(a), int(m), int(c))
+            if finicio.weekday() != 5 and finicio.weekday() != 6 :
+                Asistencia.objects.create(
+                    fecha = finicio,
+                    entrada_m = "08:01",
+                    entrada_t = "14:05",
+                    salida_m = "12:10",
+                    salida_t = "18:09",
+                    horas_realizadas = "08:00",
+                    atraso = "00:00",
+                    persona_id = 5,
+                )
+        m = m + 1
+        if m > 12:
+            flag = False
+    messages.add_message(request, messages.INFO, "%s <br>%s<br> %s " % (finicio, a, m) )
+    return HttpResponseRedirect(reverse(index_asistencia,))

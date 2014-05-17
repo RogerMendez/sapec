@@ -1,11 +1,16 @@
 {# encoding:utf-8 #}
 {% extends 'form.html' %}
 {% block title %}Cambiar Contraseña{% endblock%}
+{% block atras %}
+{% url 'users.views.private' %}
+{% endblock %}
+{% block menuizq %}
+{% include 'user/menuizq.html' %}
+{% endblock %}
 {% block legend %}
     Cambio de Contraseña
 {% endblock %}
-{% block url %}privado{% endblock %}
 {% block formenviar %}
     Cambiar
 {% endblock %}
-{% block formcancelar %}user/login{% endblock %}
+{% block cancel %}{% url 'users.views.private' %}{% endblock %}

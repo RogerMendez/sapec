@@ -8,6 +8,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import permission_required, login_required
 from django.core.urlresolvers import reverse
 from django.utils.encoding import force_unicode
+from django import template
 import ho.pisa as pisa
 import cStringIO as StringIO
 import cgi
@@ -26,6 +27,7 @@ from models import Pagos, Descuentos
 from form import PagosForm, DescuentosForm, FechasPlanillaForm
 from asistencia.models import Asistencia
 
+register = template.Library()
 
 def admin_log_addnition(request, objecto, mensaje):
     LogEntry.objects.log_action(
@@ -175,7 +177,7 @@ def new_descuento(request, id_contrato):
 
 def planilla_sueldos(request):
     fecha = datetime.datetime.now()
-    q2 = None
+    q2 = descuentos = asistencias = pagos = None
     formulario = FechasPlanillaForm(request.GET or None)
     if formulario.is_valid():
         mes = int(formulario.cleaned_data['mes'])
@@ -195,6 +197,7 @@ def planilla_sueldos(request):
                 q2 = q2.exclude(id = con.id)
             if int(mes_sal) < mes and int(anho_sal) == anho:
                 q2 = q2.exclude(id = con.id)
+
         descuentos = Descuentos.objects.filter(contrato_id__in = q2.values('id'), fecha__year = anho, fecha__month = mes)
         descuentos = descuentos.values('contrato_id').annotate(sum_monto = Sum('monto'))
         pagos = Pagos.objects.filter(contrato_id__in = q2.values('id'), fecha__year = anho, fecha__month = mes)

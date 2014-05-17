@@ -18,7 +18,7 @@
                 {% include 'unidad/menuizq.html' %}
             </div>
             <div class="span9">
-                <h3>Listado de Unidades</h3>
+                <h3>Listado de Unidades que no Poseen Ningun Cargo</h3>
                 <div class="row">
                     <div class="span9">
                         <a href="{% url 'organizacion.views.unidades_sin_cargo' 1 %}" class="button bg-color-blue">Reporte En PDF</a>
@@ -28,7 +28,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nombre de Unidad</th>
+                            <th width="200px">Nombre de Unidad</th>
                             <th>Breve Descripción de Unidad</th>
                         </tr>
                     </thead>

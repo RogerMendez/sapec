@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from personal.models import Persona
 from organizacion.models import Cargo
 
+from django.db.models import Sum
+
 class Contratacion(models.Model):
     fecha_entrada = models.DateField(verbose_name="Fecha de inicio del Contrato", help_text=u"DIA/MES/AÑO")
     fecha_salida = models.DateField(verbose_name="Fecha Final del Contrato", help_text=u"DIA/MES/AÑO")
@@ -27,6 +29,11 @@ class Contratacion(models.Model):
             ("view_contrato", "Mostrar Contrato Persona"),
             ("show_contrato", "Mostrar Contratos Vigentes"),
         )
+    def calcular_pago(self):
+        from remuneraciones.models import Pagos
+        #pagos = Pagos.objects.filter(contrato_id = self.id).aggregate(Sum('pago'))
+        pagos = Pagos.objects.filter(contrato_id = self.id).aggregate(Sum('pago'))
+        return pagos
 
 class Movilidad(models.Model):
     contrato = models.ForeignKey(Contratacion,null=True, blank=True)

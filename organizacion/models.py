@@ -13,7 +13,7 @@ class Unidad(models.Model):
             verbose_name="Seleccionar Documento PDF de Unidad",
             content_types=['application/pdf', 'application/docx'],
             max_upload_size=5242880,
-            help_text="DocumentoPDF"
+            help_text="Documento PDF"
         )
     def __unicode__(self):
         return self.nombre
@@ -37,7 +37,7 @@ class Cargo(models.Model):
             verbose_name="Seleccionar Documento PDF del Cargo",
             content_types=['application/pdf', 'application/docx'],
             max_upload_size=5242880,
-            help_text="DocumentoPDF"
+            help_text="Documento PDF"
         )
     unidad = models.ForeignKey(Unidad, null=True, blank=True)
     def __unicode__(self):

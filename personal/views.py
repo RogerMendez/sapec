@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#encoding:utf-8
 from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
@@ -312,7 +312,7 @@ def select_personal_qr(request):
 @permission_required('personal.show_tarjetas_qr_persona', login_url="/login")
 def tarjeta_qr(request, id_persona):
     persona = get_object_or_404(Persona, pk = id_persona)
-    direccion = "http://192.168.43.124:90/asistencia/?ci="+str(persona.ci)+"/"
+    direccion = "http://192.168.43.117:90/asistencia/qr/?code="+str(persona.ci)
     return render_to_response('personal/tarjeta_qr.html', {
         'persona' :persona,
         'direccion' :direccion
@@ -321,7 +321,7 @@ def tarjeta_qr(request, id_persona):
 @login_required(login_url="/login")
 def my_tarjeta_qr(request):
     persona = Persona.objects.get(usuario = request.user)
-    direccion = "http://192.168.43.124:90/asistencia/?ci="+str(persona.ci)+"/"
+    direccion = "http://192.168.43.117:90/asistencia/qr/?code="+str(persona.ci)
     return render_to_response('personal/tarjeta_qr.html', {
         'persona' :persona,
         'direccion' :direccion

@@ -1,11 +1,9 @@
-venv
-*.pyc
-staticfiles
-
 #################
 ## Eclipse
 #################
-
+*.pyc
+*.uml
+/.idea
 *.pydevproject
 .project
 .metadata

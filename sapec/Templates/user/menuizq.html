@@ -1,0 +1,22 @@
+<div class="page-sidebar">
+    <ul>
+        <li class="sticker sticker-color-green">
+            <a href="/">
+                <i class="icon-clipboard"></i> Usuario
+            </a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="{% url 'users.views.reset_pass' %}">Cambiar Contraseña</a>
+                </li>
+                <li>
+                    <a href="{% url 'personal.views.index_personal' %}">Registre se Kardex</a>
+                </li>
+            </ul>
+        </li>
+        <li class="sticker sticker-color-red">
+            <a href="{% url 'users.views.loguet_out' %}">
+                <i class="icon-cancel"></i> Cerrar Sesion
+            </a>
+        </li>
+    </ul>
+</div>
