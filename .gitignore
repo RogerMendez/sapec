@@ -3,6 +3,9 @@
 #################
 *.pyc
 *.uml
+venv
+*.pyc
+staticfiles
 /.idea
 *.pydevproject
 .project
