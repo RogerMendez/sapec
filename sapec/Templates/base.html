@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ STATIC_URL }}base/css/modern.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}base/css/modern-responsive.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}base/css/site.css" rel="stylesheet" type="text/css">
@@ -43,7 +43,7 @@
                     {% if user.is_authenticated %}
                         {{ user.username|upper }}
                     {% else %}
-                       SAPEC <small>1.0</small>
+                       SAPEC <small>2.0</small>
                     {% endif %}
                 </span></a>
                 <div class="divider"></div>

@@ -1,0 +1,161 @@
+{# encoding=utf-8 #}
+{% extends 'base_reporte.html' %}
+{% block cuerpo %}
+<section class="consulta">
+<h2>Datos Personales</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Datos Personales</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="datos">
+                <p class="lead"><strong>Nombre Completo: </strong>{{ persona.paterno }} {{ persona.materno }}, {{ persona.nombre }}<p>
+                <p class="lead"><strong>Cedula de Identidad: </strong>{{ persona.ci }}<p>
+                <p class="lead"><strong>Dirección: </strong>{{ persona.direccion }}</p>
+                <p class="lead"><strong>Telfono/Celular: </strong>{{ persona.telefono }}</p>
+                <p class="lead"><strong>Estado Civil: </strong>
+                    {% if persona.estado_civil == "SO" %}
+                    SOLTERO(A)
+                    {% else %}
+                    CASADO(A)
+                    {% endif %}
+                </p>
+                <p class="lead"><strong>Sexo: </strong>
+                    {% if persona.sexo == "MA" %}
+                    MASCULINO
+                    {% else %}
+                    FEMENINO
+                    {% endif %}
+                </p>
+                <p class="lead"><strong>Fecha de Nacimiento: </strong>{{ persona.fecha_nac }}</p>
+            </td>
+            <td>
+                {% if persona.foto != "" %}
+                    <img src="/media/{{ persona.foto }}" style="zoom: 50%;"/>
+                {% else %}
+                    {% if empleado.sexo == "MA" %}
+                        <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ persona.nombre }}"/>
+                    {% else %}
+                        <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ persona.nombre }}"/>
+                    {% endif %}
+                {% endif %}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>Estudios Realizados</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th width="30px">#</th>
+            <th>Institucion</th>
+            <th>Desde - Hasta</th>
+            <th>Titulo Optenido</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for estudio in estudios %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ estudio.institucion }}</td>
+                <td>{{ estudio.fecha_inicio|date:"d M Y" }}  -  {{ estudio.fecha_fin|date:"d M Y" }}</td>
+                <td>{{ estudio.titulo|upper }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2>Otros Estudios Realizados</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th width="30px">#</th>
+            <th>Curso/Conferencia</th>
+            <th>Fecha de Realización</th>
+            <th>Horas Realizadas</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for otros in otrosestudios %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ otros.curso }}</td>
+                <td>{{ otros.fecha }}</td>
+                <td>{{ otros.horas }} Hrs.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2>Experiencias de Trabajo</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th width="30px">#</th>
+            <th>Institución</th>
+            <th>Tiempo de Trabajo</th>
+            <th>Cargo Ocupado</th>
+            <th>Telefono Referencia</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for experiencia in experiencias %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ experiencia.institucion|upper }}</td>
+                <td>{{ experiencia.fecha_inicio|date:"d M Y" }} - {{ experiencia.fecha_fin|date:"d M Y" }}</td>
+                <td>{{ experiencia.cargo_ocupado }}</td>
+                <td>{{ experiencia.fono_referencia }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2>Idiomas Conocidos</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Idioma</th>
+            <th>Idioma Nativo</th>
+            <th>Escribe</th>
+            <th>Habla</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for idioma in idiomas %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ idioma.idioma|upper }}</td>
+                <td>
+                    {% if idioma.nativo %}
+                        SI
+                    {% else %}
+                        NO
+                    {% endif %}
+                </td>
+                <td>
+                    {% if idioma.escribe %}
+                        SI
+                    {% else %}
+                        NO
+                    {% endif %}
+                </td>
+                <td>
+                    {% if idioma.habla %}
+                        SI
+                    {% else %}
+                        NO
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+</section>
+<div id="footerContent">
+    Pagina <pdf:pagenumber> ________ {{ fecha|date:"d - m - Y" }}
+</div>
+{% endblock %}

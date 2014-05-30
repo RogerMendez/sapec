@@ -56,6 +56,7 @@ urlpatterns = patterns('',
 
     #PERSONAL
     url(r'^personal/$', 'personal.views.index_personal'),
+    url(r'^personal/pdf/(?P<persona_id>\d+)/$', 'personal.views.kardex_personal_pdf'),
     url(r'^personal/update/$', 'personal.views.completar_datos_persona'),
     url(r'^personal/show/$', 'personal.views.show_datos_persona'),
     url(r'^personal/estudio/show/$', 'personal.views.show_estudios'),
@@ -131,7 +132,7 @@ urlpatterns = patterns('',
     url(r'^remuneracion/descuentos/$', 'remuneraciones.views.descuentos_index'),
     url(r'^remuneracion/descuentos/personas/show/$', 'remuneraciones.views.select_persona_descuentos'),
     url(r'^remuneracion/descuentos/new/(?P<id_contrato>\d+)/$', 'remuneraciones.views.new_descuento'),
-    url(r'planilla/sueldos/$', 'remuneraciones.views.planilla_sueldos'),
+    url(r'^planilla/sueldos/$', 'remuneraciones.views.planilla_sueldos'),
 
 
     #Otros

@@ -17,6 +17,11 @@
             </div>
             <div class="span9">
                 <div class="row">
+                    <div class="span9">
+                        <a href="{% url 'personal.views.kardex_personal_pdf' persona.id %}" class="button bg-color-blue fg-color-white">Kardex En PDF</a>
+                    </div>
+                </div>
+                <div class="row">
                     <h3>Información Personal</h3>
                     {% if persona.completo %}
                         <div class="row">

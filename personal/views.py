@@ -42,6 +42,16 @@ def admin_log_change(request, objecto, mensaje):
                 change_message = mensaje,
             )
 
+def generar_pdf(html):
+    # Función para generar el archivo PDF y devolverlo mediante HttpResponse
+    result = StringIO.StringIO()
+    links = lambda uri, rel: os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ''))
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("utf-16")), result, link_callback=links)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
+
+
 @login_required(login_url="/login")
 def index_personal(request):
     persona = Persona.objects.get(usuario = request.user)
@@ -56,6 +66,26 @@ def index_personal(request):
         'experiencias':experiencias,
         'idiomas':idiomas,
     }, context_instance = RequestContext(request))
+
+@login_required(login_url="/login")
+def kardex_personal_pdf(request, persona_id):
+    fecha = datetime.datetime.now()
+    persona = Persona.objects.get(pk = persona_id)
+    estudios = Estudios.objects.filter(persona = persona)
+    otrosestudios = OtrosEstudios.objects.filter(persona = persona)
+    experiencias = Experiencias.objects.filter(persona = persona)
+    idiomas = Idiomas.objects.filter(persona = persona)
+    html = render_to_string('personal/kardex_pdf.html',{
+        'fecha':fecha,
+        'persona':persona,
+        'estudios':estudios,
+        'otrosestudios':otrosestudios,
+        'experiencias':experiencias,
+        'idiomas':idiomas,
+    }, context_instance = RequestContext(request))
+    return generar_pdf(html)
+
+
 
 @login_required(login_url="/login")
 def show_datos_persona(request):

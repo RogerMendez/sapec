@@ -19,8 +19,8 @@
                 @frame footer {
                     -pdf-frame-content: footerContent;
                     bottom: 0cm;
-                    margin-left: 9cm;
-                    margin-right: 9cm;
+                    margin-left: 6cm;
+                    margin-right: 6cm;
                     height: 1cm;
                 }
             }
@@ -54,7 +54,7 @@
             .table th, .table td {
                 padding: 2px;
                 line-height: 20px;
-                text-align: left;
+                text-align: center;
                 vertical-align: top;
                 border-top: 1px solid #000000;
             }
@@ -65,8 +65,8 @@
             }
             .table th{
                 color: #ffffff;
-                padding: 5px;
-                font-size: 18px;
+                padding: 3px;
+                font-size: 15px;
                 background: #0088cc ;
             }
             .table td{
@@ -91,6 +91,12 @@
                 font-size: 19px;
                 vertical-align: bottom;
                 margin-bottom: 0px;
+            }
+            .table td.datos{
+                text-align: left;
+            }
+            .lead{
+                font-size: 14px;
             }
         </style>
         <style type="text/css">
@@ -134,7 +140,7 @@
         </div>
         <section class="consulta">
             {% block cuerpo %}
-                <h1>hola</h1>
+                <h1>Hola Reporte!!!!</h1>
             {% endblock %}
         </section>
    </body>
