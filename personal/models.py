@@ -34,7 +34,10 @@ class Persona(models.Model):
     code_activation = models.CharField(max_length="100")
     usuario = models.ForeignKey(User, null=True, blank=True, unique=True)
     def __unicode__(self):
-        return self.nombre + " " + self.paterno + " " + self.materno
+        if self.nombre == None:
+            return self.usuario
+        else:
+            return self.nombre + " " + self.paterno + " " + self.materno
     class Meta:
         ordering = ["ci"]
         verbose_name_plural = "Empleados"

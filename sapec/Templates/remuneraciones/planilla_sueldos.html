@@ -41,6 +41,9 @@
     </div>
 </div>
 <div class="row">
+<a href="{% url 'remuneraciones.views.planilla_sueldos_pdf' fecha|date:"m" fecha|date:"Y" %}" class="button bg-color-green fg-color-white">VER PDF</a>
+</div>
+<div class="row">
     <div class="span12">
     <h3>{{ fecha|date:"M, Y" }}</h3>
         <table class="hovered">
@@ -53,7 +56,7 @@
                     <th class="text-center">Fecha Nac.</th>
                     <th>Sexo</th>
                     <th class="text-center">Ingreso</th>
-                    <th class="text-center">Dias Pagados Mes</th>
+                    <th class="text-center">Dias</th>
                     <th>Haber Basico</th>
                     <th class="text-center">Otros Pagos</th>
                     <th class="text-center">Total Ganado</th>
@@ -78,13 +81,14 @@
                                     {% endif %}
                                 {% endif %}
                             {% endfor %}
-                            Dias.
                         </td>
                         <td class="text-right">{{ contrato.sueldo }} Bs.</td>
                         <td class="text-right">
                             {% for pago in pagos %}
                                 {% if pago.contrato_id == contrato.id %}
                                     {{ pago.sum_pago }} Bs.
+                                {% else %}
+                                    0 Bs.
                                 {% endif %}
                             {% empty %}
                                 0 Bs.
@@ -96,6 +100,8 @@
                             {% for pago in pagos %}
                                 {% if pago.contrato_id == contrato.id %}
                                     {{ pago.sum_pago|cut:contrato.sueldo }} Bs.
+                                {% else %}
+                                    0 Bs.
                                 {% endif %}
                             {% empty %}
                                 {{ contrato.sueldo }} Bs.
@@ -105,6 +111,8 @@
                             {% for descuento in descuentos %}
                                 {% if descuento.contrato_id == contrato.id %}
                                     {{ descuento.sum_monto }} Bs.
+                                {% else %}
+                                    0 Bs.
                                 {% endif %}
                             {% empty %}
                                 0 Bs.
@@ -117,10 +125,14 @@
                                     {% for pago in pagos %}
                                         {% if pago.contrato_id == contrato.id %}
                                             {{ pago.sum_pago|cut:contrato.sueldo|restar:descuento.sum_monto }} Bs.
+                                        {% else %}
+                                            {{ contrato.sueldo }}
                                         {% endif %}
                                     {% empty %}
                                         {{ contrato.sueldo|restar:descuento.sum_monto }} Bs.
                                     {% endfor %}
+                                {% else %}
+                                    {{ contrato.sueldo }}
                                 {% endif %}
                             {% empty %}
                                 {{ contrato.sueldo }} Bs.

@@ -10,7 +10,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required, permission_required
 from personal.models import Persona
 from organizacion.models import Planificacion
-from users.form import EmailForm
+from users.form import EmailForm, CiForm
 from django.core.mail import EmailMultiAlternatives
 from django.utils.encoding import force_unicode
 from django.contrib.admin.models import LogEntry, ADDITION
@@ -97,14 +97,16 @@ def new_user(request):
     if request.method == 'POST':
         formuser = UserCreationForm(request.POST)
         formemail = EmailForm(request.POST)
-        if formemail.is_valid() and formuser.is_valid() :
+        if formemail.is_valid() and formuser.is_valid() and formci.is_valid() :
             code = code_activation_create()
             email = formemail.cleaned_data['email']
+            ci = formci.cleaned_data['ci']
             u = formuser.save()
             u.email = email
             u.is_active = False
             u.save()
             per = Persona.objects.create(
+                ci = ci,
                 usuario = u,
                 code_activation = code,
             )

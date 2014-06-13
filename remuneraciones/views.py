@@ -49,6 +49,15 @@ def admin_log_change(request, objecto, mensaje):
                 change_message = mensaje,
             )
 
+def generar_pdf(html):
+    # Función para generar el archivo PDF y devolverlo mediante HttpResponse
+    result = StringIO.StringIO()
+    links = lambda uri, rel: os.path.join(settings.MEDIA_ROOT, uri.replace(settings.MEDIA_URL, ''))
+    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("utf-16")), result, link_callback=links)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
+
 @login_required(login_url="/login")
 def index_remuneracion(request):
     hoy = datetime.datetime.now()
@@ -214,3 +223,41 @@ def planilla_sueldos(request):
         'asistencias':asistencias,
         #'suma':suma,
     }, context_instance=RequestContext(request))
+
+
+def planilla_sueldos_pdf(request, mes, anho):
+    q2 = descuentos = asistencias = pagos = None
+    fecha_actual = datetime.datetime.now()
+    fecha = date(int(anho), int(mes), 2)
+    q2 = contratos = Contratacion.objects.all()
+    for con in contratos:
+        anho_ent = con.fecha_entrada.strftime("%Y")
+        anho_sal = con.fecha_salida.strftime("%Y")
+        if int(anho_ent) > int(anho):
+            q2 = q2.exclude(id = con.id)
+        if int(anho_sal) < int(anho) :
+            q2 = q2.exclude(id = con.id)
+        mes_ent = con.fecha_entrada.strftime("%m")
+        mes_sal = con.fecha_salida.strftime("%m")
+        if int(mes_ent) > int(mes) and int(anho_ent) == int(anho) :
+            q2 = q2.exclude(id = con.id)
+        if int(mes_sal) < int(mes) and int(anho_sal) == int(anho):
+            q2 = q2.exclude(id = con.id)
+
+        descuentos = Descuentos.objects.filter(contrato_id__in = q2.values('id'), fecha__year = anho, fecha__month = mes)
+        descuentos = descuentos.values('contrato_id').annotate(sum_monto = Sum('monto'))
+        pagos = Pagos.objects.filter(contrato_id__in = q2.values('id'), fecha__year = anho, fecha__month = mes)
+        pagos = pagos.values('contrato_id').annotate(sum_pago = Sum('pago'))
+        asistencia = Asistencia.objects.filter(persona_id__in = q2.values('persona_id'), fecha__year = anho, fecha__month = mes)
+        asistencias = asistencia.values('persona_id').annotate(sum_asistencia = Count('fecha'))
+        #personas = Persona.objects.all()
+    html = render_to_string('remuneraciones/planilla_sueldos_pdf.html',{
+        'contratos':q2,
+        'fecha':fecha,
+        'descuentos':descuentos,
+        'pagos':pagos,
+        'asistencias':asistencias,
+        'fecha_actual':fecha_actual,
+        #'suma':suma,
+    }, context_instance=RequestContext(request))
+    return generar_pdf(html)

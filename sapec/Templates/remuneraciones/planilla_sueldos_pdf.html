@@ -1,0 +1,108 @@
+{# encoding=utf-8 #}
+{% extends 'base_reporte_horizontal.html' %}
+{% block cuerpo %}
+<section class="consulta">
+<h2>Planilla de Sueldos {{ fecha|date:"M" }}, {{ fecha|date:"Y" }}</h2>
+
+<table class="table table-bordered">
+    <thead>
+
+        <tr class="">
+            <th width="25px">#</th>
+            <th>Cedula</th>
+            <th width="230px" class="text-center">Apellidos y Nombres</th>
+            <th class="text-center">Fecha Nac.</th>
+            <th width="50px">Sexo</th>
+            <th class="text-center">Ingreso</th>
+            <th width="50px" class="text-center">Dias</th>
+            <th>Haber Basico</th>
+            <th class="text-center">Otros Pagos</th>
+            <th class="text-center">Total Ganado</th>
+            <th>Descuentos</th>
+            <th class="text-center">Liquido Pagable</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contrato in contratos %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ contrato.persona.ci }}</td>
+                <td>{{ contrato.persona }}</td>
+                <td>{{ contrato.persona.fecha_nac|date:"d/m/Y" }}</td>
+                <td class="center">{{ contrato.persona.sexo }}</td>
+                <td>{{ contrato.fecha_entrada|date:"d/m/Y" }}</td>
+                <td class="right">
+                    {% for asistencia in asistencias %}
+                        {% if asistencia.persona_id == contrato.persona_id %}
+                            {% if asistencia.sum_asistencia %}
+                                {{ asistencia.sum_asistencia }}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td class="text-right">{{ contrato.sueldo }} Bs.</td>
+                <td class="text-right">
+                    {% for pago in pagos %}
+                        {% if pago.contrato_id == contrato.id %}
+                            {{ pago.sum_pago }} Bs.
+                        {% else %}
+                            0 Bs.
+                        {% endif %}
+                    {% empty %}
+                        0 Bs.
+                    {% endfor %}
+
+                </td>
+                <td class="text-right">
+                    {% load filtros_template %}
+                    {% for pago in pagos %}
+                        {% if pago.contrato_id == contrato.id %}
+                            {{ pago.sum_pago|cut:contrato.sueldo }} Bs.
+                        {% else %}
+                            0 Bs.
+                        {% endif %}
+                    {% empty %}
+                        {{ contrato.sueldo }} Bs.
+                    {% endfor %}
+                </td>
+                <td class="text-right">
+                    {% for descuento in descuentos %}
+                        {% if descuento.contrato_id == contrato.id %}
+                            {{ descuento.sum_monto }} Bs.
+                        {% else %}
+                            0 Bs.
+                        {% endif %}
+                    {% empty %}
+                        0 Bs.
+                    {% endfor %}
+
+                </td>
+                <td class="bg-color-blueLight text-right">
+                    {% for descuento in descuentos %}
+                        {% if descuento.contrato_id == contrato.id %}
+                            {% for pago in pagos %}
+                                {% if pago.contrato_id == contrato.id %}
+                                    {{ pago.sum_pago|cut:contrato.sueldo|restar:descuento.sum_monto }} Bs.
+                                {% else %}
+                                    {{ contrato.sueldo }}
+                                {% endif %}
+                            {% empty %}
+                                {{ contrato.sueldo|restar:descuento.sum_monto }} Bs.
+                            {% endfor %}
+                        {% else %}
+                            {{ contrato.sueldo }}
+                        {% endif %}
+                    {% empty %}
+                        {{ contrato.sueldo }} Bs.
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</section>
+<div id="footerContent">
+    Pagina <pdf:pagenumber> ________ {{ fecha_actual|date:"d - m - Y" }}
+</div>
+{% endblock %}

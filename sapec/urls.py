@@ -133,6 +133,7 @@ urlpatterns = patterns('',
     url(r'^remuneracion/descuentos/personas/show/$', 'remuneraciones.views.select_persona_descuentos'),
     url(r'^remuneracion/descuentos/new/(?P<id_contrato>\d+)/$', 'remuneraciones.views.new_descuento'),
     url(r'^planilla/sueldos/$', 'remuneraciones.views.planilla_sueldos'),
+    url(r'^planilla/sueldos/pdf/(?P<mes>\d+)/(?P<anho>\d+)/$', 'remuneraciones.views.planilla_sueldos_pdf'),
 
 
     #Otros

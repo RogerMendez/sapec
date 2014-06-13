@@ -1,0 +1,148 @@
+{# encoding=utf-8 #}
+<!DOCType HTML>
+<html lang="es">
+    <head>
+        <title>Reporte</title>
+        <style>
+            @page {
+                size: letter landscape;
+
+                margin-left: 1cm;
+                margin-top: 3cm;
+                margin-right: 0.5cm;
+                margin-bottom:1cm;
+                @frame header {
+                    -pdf-frame-content: headerContent;
+                    top:1cm;
+                    margin-left: 1cm;
+                    margin-right: 1cm;
+                    }
+                @frame footer {
+                    -pdf-frame-content: footerContent;
+                    bottom: 0cm;
+                    margin-left: 6cm;
+                    margin-right: 6cm;
+                    height: 1cm;
+                }
+            }
+            header h2{
+                color: #26AAAF;
+                display: block;
+                font-family: courier;
+                font-size: 25px;
+                vertical-align: bottom;
+                margin-bottom: 0px;
+                width: 200px;
+            }
+            .barra{
+                font-size: 2px;
+                background: #000000;
+                line-height: 1em;
+            }
+            h1{
+                font-family: Helvetica;
+                font-size: 20px;
+            }
+            .consulta{
+                border: solid red 1px;
+            }
+            table {
+                max-width: 100%;
+                background-color: transparent;
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+            .table th, .table td {
+                padding: 2px;
+                line-height: 20px;
+                text-align: center;
+                vertical-align: top;
+                border-top: 1px solid #000000;
+            }
+            .table-bordered th, .table-bordered td {
+                border-left: 1px solid #000000;
+                border-right: 1px solid #000000;
+                border-bottom: 1px solid #000000;
+            }
+            .table th{
+                color: #ffffff;
+                padding: 3px;
+                font-size: 15px;
+                background: #0088cc ;
+            }
+            .table td{
+                font-size: 12px;
+                vertical-align: middle;
+            }
+            .table tbody tr.success td {
+                background-color: #dff0d8;
+                font-size: 15px;
+            }
+            .table-1 th, .table-1 td {
+                padding: 2px;
+                line-height: 20px;
+                text-align: left;
+                vertical-align: top;
+                font-size: 12px;
+            }
+            h2{
+                color: #26AAAF;
+                display: block;
+                font-family: courier;
+                font-size: 19px;
+                vertical-align: bottom;
+                margin-bottom: 0px;
+            }
+            .table td.datos{
+                text-align: left;
+            }
+            .lead{
+                font-size: 14px;
+            }
+        </style>
+        <style type="text/css">
+            .navbar-inner{
+                border: solid 1px #d4d4d4;
+                background: #fafafa;
+            }
+            p{
+                color: #000000;
+            }
+            img{
+                margin: auto;
+            }
+            .cabecera{
+
+            }
+            .cabecera h2{
+                width: 30%;
+            }
+            .cabecera img{
+                width: 300px;
+                float: right;
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="headerContent">
+            <header>
+                <div class="cabecera">
+                    <table>
+                        <tr>
+                            <td><h2 class="titulo">SAPEC</h2></td>
+                        </tr>
+                    </table>
+                        
+                    </p>
+                </div>
+            </header>
+            <div class="barra">s</div>
+        </div>
+        <section class="consulta">
+            {% block cuerpo %}
+                <h1>Hola Reporte!!!!</h1>
+            {% endblock %}
+        </section>
+   </body>
+</html>
