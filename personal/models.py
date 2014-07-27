@@ -1,4 +1,4 @@
-#encoding:utf-8
+#encoding=utf-8
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
@@ -33,11 +33,11 @@ class Persona(models.Model):
     completo = models.BooleanField(default=False)
     code_activation = models.CharField(max_length="100")
     usuario = models.ForeignKey(User, null=True, blank=True, unique=True)
+    def __str__(self):
+        return self.nombre + " " + self.paterno + " " + self.materno
     def __unicode__(self):
-        if self.nombre == None:
-            return self.usuario
-        else:
-            return self.nombre + " " + self.paterno + " " + self.materno
+        return self.nombre + " " + self.paterno + " " + self.materno
+        return self.fecha_nac - hoy
     class Meta:
         ordering = ["ci"]
         verbose_name_plural = "Empleados"
@@ -55,6 +55,8 @@ class Estudios(models.Model):
     fecha_fin = models.DateField(verbose_name="Hasta", help_text="Día/Mes/Año")
     titulo = models.CharField(max_length='100', verbose_name='Titulo Obtenido', help_text="Ejemplo: Lic. En Contabilidad")
     persona = models.ForeignKey(Persona, null=True)
+    def __str__(self):
+        return self.institucion
     def __unicode__(self):
         return self.institucion
     class Meta:
@@ -68,6 +70,8 @@ class OtrosEstudios(models.Model):
     horas = models.IntegerField(verbose_name="Cantidad de Horas", help_text="En Horas")
     fecha = models.DateField(verbose_name="Fecha de Realizacion del Curso", help_text="Día/Mes/Año")
     persona = models.ForeignKey(Persona, null=True, blank=True)
+    def __str__(self):
+        return self.curso
     def __unicode__(self):
         return self.curso
     class Meta:
@@ -85,6 +89,8 @@ class Experiencias(models.Model):
     fecha_fin = models.DateField(verbose_name="Hasta", help_text="Día/Mes/Año")
     fono_referencia = models.IntegerField(blank=True, null=True, verbose_name="Telefono de Referencia")
     persona = models.ForeignKey(Persona, null=True, blank=True)
+    def __str__(self):
+        return self.institucion
     def __unicode__(self):
         return self.institucion
     class Meta:
@@ -99,10 +105,12 @@ class Idiomas(models.Model):
         (True, 'Si'),
         (False, 'No'),
     )
-    nativo = models.BooleanField(choices=select)
-    habla = models.BooleanField(choices=select)
-    escribe = models.BooleanField(choices=select)
+    nativo = models.BooleanField(choices=select, default=False)
+    habla = models.BooleanField(choices=select, default=False)
+    escribe = models.BooleanField(choices=select, default=False)
     persona = models.ForeignKey(Persona,null=True, blank=True)
+    def __str__(self):
+        return self.idioma
     def __unicode__(self):
         return self.idioma
     class Meta:
@@ -121,6 +129,8 @@ class Observacion(models.Model):
     fecha = models.DateField(auto_now_add=True)
     persona = models.ForeignKey(Persona, null=True, blank=True)
     usuario = models.ForeignKey(User, null=True, blank=True)
+    def __str__(self):
+        return self.persona.nombre
     def __unicode__(self):
         return self.persona.nombre
     class Meta:

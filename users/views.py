@@ -97,16 +97,19 @@ def new_user(request):
     if request.method == 'POST':
         formuser = UserCreationForm(request.POST)
         formemail = EmailForm(request.POST)
-        if formemail.is_valid() and formuser.is_valid() and formci.is_valid() :
+        if formemail.is_valid() and formuser.is_valid(): #and formci.is_valid() :
             code = code_activation_create()
             email = formemail.cleaned_data['email']
-            ci = formci.cleaned_data['ci']
+            #ci = formci.cleaned_data['ci']
             u = formuser.save()
             u.email = email
             u.is_active = False
             u.save()
             per = Persona.objects.create(
-                ci = ci,
+                #ci = ci,
+                nombre = 'Registre Su Nombre',
+                paterno = 'Registre Su Apellido Paterno',
+                materno = 'Registre Su Apellido Paterno',
                 usuario = u,
                 code_activation = code,
             )

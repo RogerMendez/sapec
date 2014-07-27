@@ -14,4 +14,4 @@ class CargoForm(ModelForm):
 class PlanificacionForm(ModelForm):
     class Meta:
         model = Planificacion
-        exclude = ['usuario', 'estado']
+#        exclude = ['usuario', 'estado']

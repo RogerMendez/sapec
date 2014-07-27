@@ -10,6 +10,8 @@ class Pagos(models.Model):
     fecha = models.DateField(auto_now_add=True)
     contrato = models.ForeignKey(Contratacion, null=True, blank=True)
     usuario = models.ForeignKey(User, null=True, blank=True)
+    def __str__(self):
+        return self.contrato.persona.nombre
     def __unicode__(self):
         return self.contrato.persona.nombre
     class Meta:
@@ -24,6 +26,8 @@ class Descuentos(models.Model):
     fecha = models.DateField(auto_now_add=True)
     contrato = models.ForeignKey(Contratacion, null=True, blank=True)
     usuario = models.ForeignKey(User, null=True, blank=True)
+    def __str__(self):
+        return self.razon
     def __unicode__(self):
         return self.razon
     class Meta:

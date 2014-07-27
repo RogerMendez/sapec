@@ -7,14 +7,8 @@ from organizacion.filefield import ContentTypeRestrictedFileField
 class Unidad(models.Model):
     nombre = models.CharField(max_length=50, unique=True, verbose_name="Nombre de Unidad")
     descripcion = models.TextField(null=False, blank=False, verbose_name="Breve Descripción de la Unidad")
-    #documento=models.FileField(upload_to='unidad', verbose_name="Seleccionar Documento de Unidad", help_text="Archivo de PDF")
-    documento = ContentTypeRestrictedFileField(
-            upload_to='unidad',
-            verbose_name="Seleccionar Documento PDF de Unidad",
-            content_types=['application/pdf', 'application/docx'],
-            max_upload_size=5242880,
-            help_text="Documento PDF"
-        )
+    documento=models.FileField(upload_to='unidad', verbose_name="Seleccionar Documento de Unidad", help_text="Archivo de PDF")
+    #documento = models.FileField()
     def __unicode__(self):
         return self.nombre
     def __str__(self):
@@ -32,13 +26,7 @@ class Unidad(models.Model):
 class Cargo(models.Model):
     nombre = models.CharField(max_length=50, verbose_name="Nombre de Cargo", unique=False)
     descripcion = models.TextField(verbose_name="Breve Descripción del Cargo")
-    documento = ContentTypeRestrictedFileField(
-            upload_to='cargo',
-            verbose_name="Seleccionar Documento PDF del Cargo",
-            content_types=['application/pdf', 'application/docx'],
-            max_upload_size=5242880,
-            help_text="Documento PDF"
-        )
+    documento=models.FileField(upload_to='unidad', verbose_name="Seleccionar Documento de Cargo", help_text="Archivo de PDF")
     unidad = models.ForeignKey(Unidad, null=True, blank=True)
     def __unicode__(self):
         return self.unidad.nombre + " - " + self.nombre

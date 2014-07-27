@@ -19,6 +19,8 @@ class Asistencia(models.Model):
     horas_realizadas = models.TimeField(blank=True, null=True, default="00:00")
     atraso = models.TimeField(blank=True, null=True)
     persona = models.ForeignKey(Persona)
+    def __str__(self):
+        return self.persona.nombre
     def __unicode__(self):
         return self.persona.nombre
     class Meta:
@@ -42,8 +44,15 @@ class Permiso(models.Model):
     usuario = models.ForeignKey(User, null=True, blank=True)
     def __unicode__(self):
         return self.persona.nombre
+    def __str__(self):
+        return self.persona.nombre
     class Meta:
         ordering=['persona']
         verbose_name_plural = "Permisos"
 
 
+class Horario(models.Model):
+    entrada_m = models.TimeField()
+    salida_m = models.TimeField()
+    entrada_t = models.TimeField()
+    salida_t = models.TimeField()

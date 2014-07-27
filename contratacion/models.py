@@ -20,6 +20,8 @@ class Contratacion(models.Model):
     persona = models.ForeignKey(Persona, null=True, blank=True)
     cargo = models.ForeignKey(Cargo, null=True, blank=True)
     usuario = models.ForeignKey(User, null=True, blank=True)
+    def __str__(self):
+        return self.persona.nombre
     def __unicode__(self):
         return self.persona.nombre
     class Meta:
@@ -40,6 +42,8 @@ class Movilidad(models.Model):
     cargo = models.ForeignKey(Cargo, null=True, blank=True)
     fecha = models.DateField(auto_now_add=True)
     descripcion = models.TextField(verbose_name=u'Razòn del Cambio', null=True)
+    def __str__(self):
+        return self.contrato.persona.nombre
     def __unicode__(self):
         return self.contrato.persona.nombre
     class Meta:
@@ -51,7 +55,9 @@ class Terminar(models.Model):
     descripcion = models.TextField(verbose_name=u'Razon de Finalizaciòn Contrato', null=True)
     fecha = models.DateTimeField(auto_now_add=True)
     usuario = models.ForeignKey(User, null=True, blank=True)
-    def __unicode__(self):
+    def __str__(self):
+        return self.contrato.persona.nombre
+    def __str__(self):
         return self.contrato.persona.nombre
     class Meta:
         verbose_name_plural = "Contratos Terminados"
