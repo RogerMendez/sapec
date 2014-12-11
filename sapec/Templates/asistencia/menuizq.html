@@ -31,6 +31,10 @@
                             <a href="{% url 'asistencia.views.personal_asistencia_fecha' %}">Asistencia Por Fecha</a>
                         </li>
                     {% endif %}
+
+                    <li>
+                        <a href="{% url 'asistencia.views.seleccion_empleado_extras' %}">Asignar Horas Extras</a>
+                    </li>
                 </ul>
             </li>
         {% endif %}

@@ -1,0 +1,71 @@
+{# encoding:utf-8 #}
+{% extends 'form.html' %}
+{% block title %}Asignar Horas Extras{% endblock%}
+{% block atras %}
+{% url 'asistencia.views.seleccion_empleado_extras' %}
+{% endblock %}
+{% block titulo %}
+<h1>Asistencia <small>Asisgnar Horas Extras</small></h1>
+{% endblock %}
+{% block menuizq %}
+    {% include 'asistencia/menuizq.html' %}
+{% endblock %}
+{% block error %}
+<div class="row">
+    <div class="span9">
+        <div class="row bg-color-blueLight">
+            <div class="span6">
+                <h3><strong>Datos de Empleado</strong></h3><br/>
+                <p><strong>Cedula de Identidad:</strong> {{ persona.ci }}</p>
+                <p><strong>Nombre Completo: </strong>{{ persona.paterno }} {{ persona.materno }}, {{ persona.nombre }}</p>
+
+            </div>
+            <div class="span2">
+                {% if persona.foto == "" %}
+                    {% if persona.sexo == "MA" %}
+                        <img src="{{ STATIC_URL }}avatar/avatarm.jpg" alt="{{ persona.nombre }}"/>
+                    {% else %}
+                        <img src="{{ STATIC_URL }}avatar/avatarf.jpg" alt="{{ persona.nombre }}"/>
+                    {% endif %}
+                {% else %}
+                    <img src="/media/{{ persona.foto }}" alt="{{ persona.nombre }}"/>
+                {% endif %}
+            </div>
+            <div class="span1"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block legend %}
+    Asignación de Horas Extras
+{% endblock %}
+{% block form %}
+    {% for field in formulario %}
+        {{ field.errors }}
+        {{ field.label_tag }}
+        <div class="input-control text">
+            {{ field }}
+            {% if field.help_text %}
+                <p class="fg-color-green">
+                    <i class="icon-warning"></i> {{ field.help_text }}
+                </p>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <p>Cantidad de Horas Extras: <strong id="cantidadhoras"></strong> Hr.</p>
+    <script>
+        $(document).ready(function(){
+            var valor = $('#id_horas').val();
+            valor = valor + ':00';
+            $('#cantidadhoras').html(valor);
+            $('#id_horas').change(function(){
+                var valor = $('#id_horas').val();
+                valor = valor + ':00';
+                $('#cantidadhoras').html(valor);
+                //alert(valor);
+            });
+        });
+    </script>
+{% endblock %}
+{% block submit %}Asignar{% endblock %}
+{% block cancel %}{% url 'asistencia.views.seleccion_empleado_extras' %}{% endblock %}

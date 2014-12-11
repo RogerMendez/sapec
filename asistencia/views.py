@@ -20,8 +20,10 @@ from django.contrib.admin.models import LogEntry, ADDITION, CHANGE
 from contratacion.models import Contratacion
 from personal.models import Persona
 from models import Asistencia, Permiso
-from form import AsistenciaForm, FechasForm, PermisoForm, FechaSearchForm, MonthSelect, YearSelect, AsistenciaFormEdid
+from form import AsistenciaForm, FechasForm, PermisoForm, FechaSearchForm, MonthSelect, YearSelect, AsistenciaFormEdid, HorasExtrasForm
 
+from django import template
+register = template.Library()
 def admin_log_addnition(request, objecto, mensaje):
     LogEntry.objects.log_action(
                 user_id         = request.user.pk,
@@ -132,11 +134,18 @@ def new_asistencia(request):
                             asistencia.save()
                             msm = "Registro de Asistencia Exitosa</br>Entrada Tarde"
                         elif hora >= "12:00" and hora <= "12:59" and asistencia.salida_m == None :
+                            #salida manhana
                             asistencia.salida_m = hora
+                            if asistencia.entrada_m != None:
+                                hr = restar_horas(hora, asistencia.entrada_m)
+                                asistencia.horas_realizadas = asistencia.horas_realizadas + hr
                             asistencia.save()
                             msm = "Registro de Asistencia Exitosa</br>Salida Mañana"
                         elif hora >= "18:00" and hora <= "22:00" and asistencia.salida_t == None :
                             asistencia.salida_t = hora
+                            if asistencia.entrada_t != None:
+                                hr = restar_horas(hora, asistencia.entrada_t)
+                                asistencia.horas_realizadas = asistencia.horas_realizadas + hr
                             asistencia.save()
                             msm = "Registro de Asistencia Exitosa</br>Salida Tarde"
                         else:
@@ -197,7 +206,6 @@ def asistencia_qr(request):
             if hora >= "22:01" or hora <= "05:59" :
                     msm = 'Sr(a) <strong>%s %s, %s<strong> <p class="lead">No Esta Dentro del Horario Para su Registro de Asistencia<p>' %(persona.materno, persona.paterno, persona.nombre)
             else:
-
                 if hora >= "06:00" and hora <= "08:15" and asistencia.entrada_m == None:
                     asistencia.entrada_m = hora
                     asistencia.save()
@@ -208,10 +216,16 @@ def asistencia_qr(request):
                     msm = "Registro de Asistencia Exitosa</br>Entrada Tarde"
                 elif hora >= "12:00" and hora <= "12:59" and asistencia.salida_m == None :
                     asistencia.salida_m = hora
+                    if asistencia.entrada_m != None:
+                        hr = restar_horas(hora, asistencia.entrada_m)
+                        asistencia.horas_realizadas = asistencia.horas_realizadas + hr
                     asistencia.save()
                     msm = "Registro de Asistencia Exitosa</br>Salida Mañana"
                 elif hora >= "18:00" and hora <= "22:00" and asistencia.salida_t == None :
                     asistencia.salida_t = hora
+                    if asistencia.entrada_t != None:
+                        hr = restar_horas(hora, asistencia.entrada_t)
+                        asistencia.horas_realizadas = asistencia.horas_realizadas + hr
                     asistencia.save()
                     msm = "Registro de Asistencia Exitosa</br>Salida Tarde"
                 else:
@@ -251,7 +265,7 @@ def update_asistencia(request, id_asistencia):
         formulario = AsistenciaFormEdid(request.POST, instance=asistencia)
         if formulario.is_valid():
             formulario.save()
-            #return HttpResponseRedirect()
+            return HttpResponseRedirect('/asistencia')
     else:
         formulario = AsistenciaFormEdid(instance = asistencia)
     return  render_to_response('asistencia/update_asistencia.html', {
@@ -570,3 +584,43 @@ def insert_asistencia(request):
             flag = False
     messages.add_message(request, messages.INFO, "%s <br>%s<br> %s " % (finicio, a, m) )
     return HttpResponseRedirect(reverse(index_asistencia,))
+
+def seleccion_empleado_extras(request):
+    fecha_actual =  datetime.now()
+    contrataciones = Contratacion.objects.filter(estado = True, fecha_salida__gte = fecha_actual)
+    q1 = contrataciones.values('persona_id')
+    personas = Persona.objects.filter(id__in = q1)
+    return render_to_response('asistencia/list_empleado_extras.html',{
+        'contrataciones':contrataciones,
+        'personas':personas,
+    }, context_instance=RequestContext(request))
+
+def asignar_horas_extras(request, persona_id):
+    persona = Persona.objects.get(pk = persona_id)
+    if request.method == 'POST':
+        formulario = HorasExtrasForm(request.POST)
+        if formulario.is_valid():
+            fecha = formulario.cleaned_data['fecha']
+            horas = formulario.cleaned_data['horas']
+            if Asistencia.objects.filter(fecha = fecha, persona = persona):
+                asis = Asistencia.objects.get(fecha = fecha, persona = persona)
+                if horas < 10:
+                    extra = '0'+str(horas)+':00'
+                else:
+                    extra = str(horas)+':00'
+                total = sumar_horas(str(asis.horas_realizadas), extra)
+                asis.horas_realizadas = total
+                asis.save()
+                sms = "Horas Extras Asignadas Correctamente"
+                messages.add_message(request, messages.INFO, sms)
+                return HttpResponseRedirect(reverse(seleccion_empleado_extras))
+            else:
+                sms = "Usted No Tiene Una Asistencia Registrada en fecha %s" %fecha
+                messages.add_message(request, messages.INFO, sms)
+                return HttpResponseRedirect(reverse(asignar_horas_extras, args=(persona_id)))
+    else:
+        formulario = HorasExtrasForm()
+    return render_to_response('asistencia/new_horas_extras.html',{
+        'formulario':formulario,
+        'persona':persona,
+    }, context_instance=RequestContext(request))

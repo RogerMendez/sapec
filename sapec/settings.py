@@ -79,7 +79,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'dajaxice.finders.DajaxiceFinder',
+
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
@@ -139,6 +139,7 @@ INSTALLED_APPS = (
     'contratacion',
     'asistencia',
     'remuneraciones',
+    #'south'
 )
 
 # A sample logging configuration. The only tangible logging

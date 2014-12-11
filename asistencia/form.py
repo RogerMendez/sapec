@@ -4,6 +4,8 @@ from models import Asistencia, Permiso
 from django.forms import ModelForm
 from django import forms
 from django.forms.extras.widgets import SelectDateWidget
+from django.core.exceptions import ValidationError
+from datetime import date, datetime
 
 from datetime import datetime
 
@@ -65,3 +67,12 @@ class AsistenciaFormEdid(ModelForm):
     class Meta:
         model=Asistencia
         exclude=['fecha', 'persona']
+
+def validate_fecha(value):
+    fecha = date.today()
+    if value >= fecha :
+        raise ValidationError('La Fecha No Pueder Ser Mayor o Igual a la Fecha Actual')
+
+class HorasExtrasForm(forms.Form):
+    fecha = forms.DateField(label="Seleccione Una Fecha", widget=forms.TextInput(attrs={'type':'date'}), validators=[validate_fecha])
+    horas = forms.IntegerField(label="Cantidad de Horas Extras Realizadas", widget=forms.TextInput(attrs={'type':'range', 'min':'1', 'max':'12', 'value':'1'}))

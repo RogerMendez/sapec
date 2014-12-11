@@ -27,6 +27,7 @@ class Cargo(models.Model):
     nombre = models.CharField(max_length=50, verbose_name="Nombre de Cargo", unique=False)
     descripcion = models.TextField(verbose_name="Breve Descripción del Cargo")
     documento=models.FileField(upload_to='unidad', verbose_name="Seleccionar Documento de Cargo", help_text="Archivo de PDF")
+    sueldo_max = models.FloatField(verbose_name='Sueldo Maximo del Cargo', default='1200', help_text='En Bolivianos')
     unidad = models.ForeignKey(Unidad, null=True, blank=True)
     def __unicode__(self):
         return self.unidad.nombre + " - " + self.nombre

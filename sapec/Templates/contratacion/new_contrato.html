@@ -83,15 +83,41 @@
         </div>
     </div>
 </div>
+
 <div class="row">
-    <div class="span5 bg-color-blueLight">
+    <div class="span9">
+        <p class='' id="error">
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="span9 bg-color-blueLight">
         <h3>Registro de Contrato</h3>
         <p class="lead"><strong>Unidad - Cargo: </strong>{{ cargo }}</p>
+        <p class="lead"><strong>Sueldo Maximo: </strong>{{ cargo.sueldo_max }} Bs.</p>
         <p class="lead"><strong>Nombre: </strong>{{ persona.nombre }} {{ persona.paterno }} {{ persona.materno }}</p>
         <p class="lead"><strong>Cedula de Identidad: </strong>{{ persona.ci }}</p>
     </div>
     <div class="span4"></div>
 </div>
+<script>
+ $(document).ready(function(){
+     $('#id_sueldo').keyup(function(){
+         var sueldo = $('#id_sueldo').val();
+         var sueldo_max = "{{ cargo.sueldo_max }}";
+         if(parseFloat(sueldo) > parseFloat(sueldo_max))
+         {
+             var sms = "<strong>Error!!! </strong> Sueldo Del Contrato no Puede Ser Mayor al Sueldo Maximo del Cargo";
+             $('#error').addClass('bg-color-red padding20 fg-color-white');
+             $('#error').html(sms);
+         }
+         else{
+             $('#error').html('');
+             $('#error').removeClass('bg-color-red padding20 fg-color-white');
+         }
+     });
+ });
+</script>
 {% endblock %}
 {% block legend %}
     Registrar Contratación

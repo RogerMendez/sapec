@@ -1,13 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
-from dajaxice.core import dajaxice_autodiscover, dajaxice_config
-dajaxice_autodiscover()
 admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^grappelli/', include('grappelli.urls')),
-    #url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
+
     url(r'^media/(?P<path>.*)$','django.views.static.serve', {'document_root':settings.MEDIA_ROOT,} ),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -134,6 +132,10 @@ urlpatterns = patterns('',
     url(r'^remuneracion/descuentos/new/(?P<id_contrato>\d+)/$', 'remuneraciones.views.new_descuento'),
     url(r'^planilla/sueldos/$', 'remuneraciones.views.planilla_sueldos'),
     url(r'^planilla/sueldos/pdf/(?P<mes>\d+)/(?P<anho>\d+)/$', 'remuneraciones.views.planilla_sueldos_pdf'),
+
+    #EXTRAS
+    url(r'^extras/seleccion/empleado/$', 'asistencia.views.seleccion_empleado_extras'),
+    url(r'^extras/(?P<persona_id>\d+)/asignacion/$', 'asistencia.views.asignar_horas_extras'),
 
 
     #Otros
